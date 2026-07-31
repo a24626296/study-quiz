@@ -2,9 +2,12 @@ import os
 import sys
 import re
 import json
+import time
+import subprocess
 from datetime import datetime
 from youtube_transcript_api import YouTubeTranscriptApi
 from google import genai
+from google.genai.errors import APIError
 
 def extract_video_id(url):
     """從 YouTube 網址提取 Video ID"""
@@ -13,6 +16,25 @@ def extract_video_id(url):
     if match:
         return match.group(1)
     raise ValueError("無效的 YouTube 網址")
+
+def get_video_info_via_ytdlp(video_id):
+    """使用 yt-dlp 獲取影片標題與描述（不受字幕 IP 限制影響）"""
+    try:
+        cmd = [
+            "yt-dlp",
+            "--dump-json",
+            "--no-playlist",
+            f"https://www.youtube.com/watch?v={video_id}"
+        ]
+        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+        data = json.loads(result.stdout)
+        return {
+            "title": data.get("title", ""),
+            "description": data.get("description", "")
+        }
+    except Exception as e:
+        print(f"yt-dlp 取得影片資訊失敗: {e}")
+        return {"title": f"YouTube 影片 ({video_id})", "description": ""}
 
 def get_transcript(video_id):
     """嘗試取得影片字幕"""
@@ -33,27 +55,30 @@ def get_transcript(video_id):
         print(f"無法取得字幕 (可能受到 IP 限制): {e}")
         return None
 
-def generate_quiz_with_gemini(video_id, transcript_text):
-    """使用 Gemini API 根據字幕或主題產生題目與對應時間點 (秒)"""
+def generate_quiz_with_gemini(video_id, transcript_text, video_info):
+    """使用 Gemini API 生成題目（包含 429 額度重試與模型切換機制）"""
     client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
     
+    title_info = video_info.get("title", "")
+    desc_info = video_info.get("description", "")[:1000] # 取前1000字
+
     if transcript_text:
-        content_prompt = f"影片逐字稿：\n{transcript_text[:10000]}"
+        content_prompt = f"影片標題：{title_info}\n影片逐字稿：\n{transcript_text[:10000]}"
     else:
-        content_prompt = f"由於影片字幕無法直接擷取，請根據 Video ID `{video_id}` 的相關主題（例如航空生理學/空間迷向等主題）設計考題。"
+        content_prompt = f"影片標題：{title_info}\n影片簡介說明：\n{desc_info}\n(注意：由於字幕無法擷取，請直接根據上述影片標題與簡介主題內容設計相關複習考題)"
 
     prompt = f"""
-    你是一個專業的複習考題設計師。請設計 3~5 題選擇題。
+    你是一個專業的複習考題設計師。請根據提供的主題與資訊，設計 3~5 題選擇題。
     每題請包含：
     1. 題目內容
     2. 四個選項 (A, B, C, D)
     3. 正確答案
     4. 詳細解析
-    5. 該題目答案出現的大約時間點 (秒數，若無精確秒數請預估，例如 60, 120, 180)
+    5. 該題目答案出現的大約時間點 (秒數，若無精確秒數請根據主題邏輯預估，例如 60, 120, 180)
 
     請嚴格依照下列 JSON 格式輸出，不要包含任何 markdown 標記（如 ```json）：
     {{
-        "title": "航空生理學 - 空間迷向 (Spatial Disorientation)",
+        "title": "{title_info if title_info else '主題複習測驗'}",
         "quizzes": [
             {{
                 "id": 1,
@@ -61,23 +86,40 @@ def generate_quiz_with_gemini(video_id, transcript_text):
                 "options": ["A. 選項一", "B. 選項二", "C. 選項三", "D. 選項四"],
                 "answer": "B. 選項二",
                 "explanation": "解析說明...",
-                "timestamp": 85
+                "timestamp": 60
             }}
         ]
     }}
 
     {content_prompt}
     """
+
+    # 備用模型清單
+    models_to_try = ['gemini-2.0-flash', 'gemini-1.5-flash', 'gemini-1.5-pro']
     
-    # 修正模型名稱為 gemini-2.0-flash
-    response = client.models.generate_content(
-        model='gemini-2.0-flash',
-        contents=prompt
-    )
-    
-    # 清理非 JSON 格式字元
-    cleaned_text = response.text.replace('```json', '').replace('```', '').strip()
-    return json.loads(cleaned_text)
+    for model_name in models_to_try:
+        print(f"嘗試使用模型 [{model_name}] 生成考題...")
+        for attempt in range(3): # 每個模型最多重試 3 次
+            try:
+                response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt
+                )
+                cleaned_text = response.text.replace('```json', '').replace('```', '').strip()
+                return json.loads(cleaned_text)
+            except APIError as e:
+                if e.code == 429:
+                    wait_time = (attempt + 1) * 10
+                    print(f"⚠️ 觸發 429 限額/頻率限制 (429 Too Many Requests)，等待 {wait_time} 秒後重試...")
+                    time.sleep(wait_time)
+                else:
+                    print(f"API 錯誤 ({e.code}): {e.message}")
+                    break
+            except Exception as e:
+                print(f"生成時發生未預期錯誤: {e}")
+                break
+
+    raise RuntimeError("所有模型與重試嘗試均已耗盡，無法產生考題。")
 
 def build_quiz_html(video_id, quiz_data):
     """產生單一影片的測驗頁面 HTML"""
@@ -130,124 +172,26 @@ def build_quiz_html(video_id, quiz_data):
             margin: 0;
             padding: 20px;
         }}
-        .top-nav {{
-            margin-bottom: 20px;
-        }}
-        .top-nav a {{
-            color: #38bdf8;
-            text-decoration: none;
-            font-weight: bold;
-        }}
-        .container {{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }}
-        .video-section {{
-            flex: 1 1 450px;
-            position: sticky;
-            top: 20px;
-            height: fit-content;
-        }}
-        .video-container {{
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #000;
-        }}
-        .video-container iframe {{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }}
-        .fallback-notice {{
-            margin-top: 12px;
-            padding: 10px;
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 14px;
-        }}
-        .fallback-notice a {{
-            color: #38bdf8;
-            text-decoration: underline;
-        }}
-        .quiz-section {{
-            flex: 2 1 600px;
-        }}
-        .quiz-card {{
-            background: #1e293b;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid #334155;
-        }}
-        .quiz-header {{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }}
-        .btn-group {{
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }}
-        .jump-btn {{
-            background: #0284c7;
-            color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 13px;
-        }}
-        .jump-btn:hover {{
-            background: #0369a1;
-        }}
-        .yt-link-btn {{
-            background: #334155;
-            color: #38bdf8;
-            text-decoration: none;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 13px;
-            font-weight: bold;
-            border: 1px solid #475569;
-        }}
-        .yt-link-btn:hover {{
-            background: #475569;
-            color: #7dd3fc;
-        }}
-        .options {{
-            list-style: none;
-            padding-left: 0;
-        }}
-        .options li {{
-            background: #334155;
-            margin: 8px 0;
-            padding: 10px 14px;
-            border-radius: 6px;
-        }}
-        .answer-box {{
-            margin-top: 12px;
-            cursor: pointer;
-            color: #38bdf8;
-        }}
-        .answer-content {{
-            background: #0f172a;
-            padding: 12px;
-            border-radius: 6px;
-            margin-top: 8px;
-            color: #f8fafc;
-        }}
+        .top-nav {{ margin-bottom: 20px; }}
+        .top-nav a {{ color: #38bdf8; text-decoration: none; font-weight: bold; }}
+        .container {{ display: flex; flex-wrap: wrap; gap: 20px; max-width: 1400px; margin: 0 auto; }}
+        .video-section {{ flex: 1 1 450px; position: sticky; top: 20px; height: fit-content; }}
+        .video-container {{ position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; }}
+        .video-container iframe {{ position: absolute; top: 0; left: 0; width: 100%; height: 100%; }}
+        .fallback-notice {{ margin-top: 12px; padding: 10px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; text-align: center; font-size: 14px; }}
+        .fallback-notice a {{ color: #38bdf8; text-decoration: underline; }}
+        .quiz-section {{ flex: 2 1 600px; }}
+        .quiz-card {{ background: #1e293b; border-radius: 12px; padding: 20px; margin-bottom: 20px; border: 1px solid #334155; }}
+        .quiz-header {{ display: flex; justify-content: space-between; align-items: center; }}
+        .btn-group {{ display: flex; align-items: center; gap: 8px; }}
+        .jump-btn {{ background: #0284c7; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 13px; }}
+        .jump-btn:hover {{ background: #0369a1; }}
+        .yt-link-btn {{ background: #334155; color: #38bdf8; text-decoration: none; padding: 6px 10px; border-radius: 6px; font-size: 13px; font-weight: bold; border: 1px solid #475569; }}
+        .yt-link-btn:hover {{ background: #475569; color: #7dd3fc; }}
+        .options {{ list-style: none; padding-left: 0; }}
+        .options li {{ background: #334155; margin: 8px 0; padding: 10px 14px; border-radius: 6px; }}
+        .answer-box {{ margin-top: 12px; cursor: pointer; color: #38bdf8; }}
+        .answer-content {{ background: #0f172a; padding: 12px; border-radius: 6px; margin-top: 8px; color: #f8fafc; }}
     </style>
 </head>
 <body>
@@ -357,21 +301,26 @@ def main():
     
     os.makedirs("online_study", exist_ok=True)
     
+    # 1. 取得影片基本資訊 (yt-dlp)
+    video_info = get_video_info_via_ytdlp(video_id)
+    print(f"影片標題: {video_info.get('title')}")
+
+    # 2. 嘗試取得字幕
     transcript = get_transcript(video_id)
     if not transcript:
-        print("無法直接從 YouTube 取得字幕，改由 Gemini 針對該主題生成考題...")
+        print("無法從 YouTube 抓取字幕，將改用影片標題與描述供 Gemini 出題...")
         
+    # 3. 請求 Gemini 出題
     print("正在請求 Gemini API 出題...")
-    quiz_data = generate_quiz_with_gemini(video_id, transcript)
+    quiz_data = generate_quiz_with_gemini(video_id, transcript, video_info)
     
-    # 產生單頁 HTML
+    # 4. 產生單頁 HTML 與更新 index.html
     quiz_html = build_quiz_html(video_id, quiz_data)
     with open(f"online_study/{video_id}.html", "w", encoding="utf-8") as f:
         f.write(quiz_html)
         
-    # 更新 index.html
     update_index_html(video_id, quiz_data.get("title", video_id))
-    print("出題完成！頁面已儲存至 online_study/")
+    print("出題完成！頁面已成功儲存至 online_study/")
 
 if __name__ == "__main__":
     main()
