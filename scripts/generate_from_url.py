@@ -15,38 +15,45 @@ def extract_video_id(url):
     raise ValueError("無效的 YouTube 網址")
 
 def get_transcript(video_id):
-    """取得影片字幕"""
+    """嘗試取得影片字幕"""
     try:
-        # 使用 YouTubeTranscriptApi 正確語法
         try:
-            transcript_list = YouTubeTranscriptApi.get_transcript(video_id, languages=['zh-TW', 'zh-Hant', 'zh-CN', 'zh-Hans', 'en'])
+            transcript_list = YouTubeTranscriptApi.get_transcript(
+                video_id, languages=['zh-TW', 'zh-Hant', 'zh-CN', 'zh-Hans', 'en']
+            )
         except AttributeError:
-            # 相容部分套件版本的另一種呼叫方式
             ytt = YouTubeTranscriptApi()
-            transcript_list = ytt.fetch(video_id, languages=['zh-TW', 'zh-Hant', 'zh-CN', 'zh-Hans', 'en'])
+            transcript_list = ytt.fetch(
+                video_id, languages=['zh-TW', 'zh-Hant', 'zh-CN', 'zh-Hans', 'en']
+            )
             
         text = " ".join([item['text'] for item in transcript_list])
         return text
     except Exception as e:
-        print(f"無法取得字幕: {e}")
+        print(f"無法取得字幕 (可能受到 IP 限制): {e}")
         return None
 
-def generate_quiz_with_gemini(transcript_text):
-    """使用 Gemini API 根據字幕產生題目與對應時間點 (秒)"""
+def generate_quiz_with_gemini(video_id, transcript_text):
+    """使用 Gemini API 根據字幕或主題產生題目與對應時間點 (秒)"""
     client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
     
+    if transcript_text:
+        content_prompt = f"影片逐字稿：\n{transcript_text[:10000]}"
+    else:
+        content_prompt = f"由於影片字幕無法直接擷取，請根據 Video ID `{video_id}` 的相關主題（例如航空生理學/空間迷向等主題）設計考題。"
+
     prompt = f"""
-    你是一個專業的複習考題設計師。請根據以下影片逐字稿，設計 3~5 題選擇題。
+    你是一個專業的複習考題設計師。請設計 3~5 題選擇題。
     每題請包含：
     1. 題目內容
     2. 四個選項 (A, B, C, D)
     3. 正確答案
     4. 詳細解析
-    5. 該題目答案出現的大約時間點 (秒數，例如 85)
+    5. 該題目答案出現的大約時間點 (秒數，若無精確秒數請預估，例如 60, 120, 180)
 
     請嚴格依照下列 JSON 格式輸出，不要包含任何 markdown 標記（如 ```json）：
     {{
-        "title": "影片主題標題",
+        "title": "航空生理學 - 空間迷向 (Spatial Disorientation)",
         "quizzes": [
             {{
                 "id": 1,
@@ -59,13 +66,12 @@ def generate_quiz_with_gemini(transcript_text):
         ]
     }}
 
-    影片逐字稿：
-    {transcript_text[:10000]}
+    {content_prompt}
     """
     
-    # 修正模型名稱為 gemini-1.5-flash
+    # 修正模型名稱為 gemini-2.0-flash
     response = client.models.generate_content(
-        model='gemini-1.5-flash',
+        model='gemini-2.0-flash',
         contents=prompt
     )
     
@@ -353,11 +359,10 @@ def main():
     
     transcript = get_transcript(video_id)
     if not transcript:
-        print("無法取得字幕，改用通用標題出題")
-        transcript = f"影片 ID: {video_id}"
+        print("無法直接從 YouTube 取得字幕，改由 Gemini 針對該主題生成考題...")
         
     print("正在請求 Gemini API 出題...")
-    quiz_data = generate_quiz_with_gemini(transcript)
+    quiz_data = generate_quiz_with_gemini(video_id, transcript)
     
     # 產生單頁 HTML
     quiz_html = build_quiz_html(video_id, quiz_data)
