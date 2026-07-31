@@ -17,8 +17,14 @@ def extract_video_id(url):
 def get_transcript(video_id):
     """取得影片字幕"""
     try:
-        # 優先嘗試繁體中文、簡體中文、英文
-        transcript_list = YouTubeTranscriptApi.get_transcript(video_id, languages=['zh-TW', 'zh-Hant', 'zh-CN', 'zh-Hans', 'en'])
+        # 使用 YouTubeTranscriptApi 正確語法
+        try:
+            transcript_list = YouTubeTranscriptApi.get_transcript(video_id, languages=['zh-TW', 'zh-Hant', 'zh-CN', 'zh-Hans', 'en'])
+        except AttributeError:
+            # 相容部分套件版本的另一種呼叫方式
+            ytt = YouTubeTranscriptApi()
+            transcript_list = ytt.fetch(video_id, languages=['zh-TW', 'zh-Hant', 'zh-CN', 'zh-Hans', 'en'])
+            
         text = " ".join([item['text'] for item in transcript_list])
         return text
     except Exception as e:
@@ -57,8 +63,9 @@ def generate_quiz_with_gemini(transcript_text):
     {transcript_text[:10000]}
     """
     
+    # 修正模型名稱為 gemini-1.5-flash
     response = client.models.generate_content(
-        model='gemini-2.5-flash',
+        model='gemini-1.5-flash',
         contents=prompt
     )
     
@@ -269,14 +276,12 @@ def build_quiz_html(video_id, quiz_data):
         function jumpToTime(seconds) {{
             const iframe = document.getElementById('yt-player');
             if (iframe && iframe.contentWindow) {{
-                // 1. 發送指令給內嵌播放器跳轉秒數
                 iframe.contentWindow.postMessage(JSON.stringify({{
                     'event': 'command',
                     'func': 'seekTo',
                     'args': [seconds, true]
                 }}), '*');
                 
-                // 2. 自動嘗試播放
                 iframe.contentWindow.postMessage(JSON.stringify({{
                     'event': 'command',
                     'func': 'playVideo',
