@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>航空生理學 - 空間迷向 (Spatial Disorientation) - 線上複習</title>
+<style>
+  body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; }
+  .layout { display:flex; gap:20px; padding:20px; align-items:flex-start; flex-wrap:wrap; }
+  .player-col { position:sticky; top:20px; flex:0 0 480px; }
+  .player-col iframe { width:480px; height:270px; border:0; border-radius:8px; }
+  .subject { font-size:18px; font-weight:bold; margin:12px 0; color:#72ef95; }
+  .list-col { flex:1; min-width:320px; }
+  .qcard { background:#1e293b; border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .cloze-card { border-left:4px solid #ff6b6b; }
+  .qcard-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .qnum { color:#64B5F6; font-weight:bold; }
+  .ts-btn { background:#2196F3; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }
+  .ts-btn:hover { background:#1769aa; }
+  .q-text { font-size:16px; line-height:1.6; margin-bottom:6px; }
+  .q-options { color:#cbd5e1; font-size:14px; line-height:1.8; margin-bottom:6px; }
+  .q-zh { color:#94a3b8; font-size:13px; margin:6px 0; }
+  .explain { color:#cbd5e1; font-size:13px; margin-top:6px; }
+  .tag { display:inline-block; margin-top:8px; background:rgba(250,82,82,0.15); color:#ff6b6b; padding:2px 8px; border-radius:4px; font-size:12px; }
+  details { margin-top:8px; }
+  summary { cursor:pointer; color:#64B5F6; font-size:13px; }
+  .answer { margin-top:8px; color:#72ef95; font-weight:bold; }
+  .blank { background:rgba(255,236,153,0.3); border-radius:3px; padding:1px 4px; cursor:pointer; }
+  .blank .blank-inner { visibility:hidden; }
+  .blank.revealed { background:rgba(255,236,153,0.7); }
+  .blank.revealed .blank-inner { visibility:visible; color:#d9480f; font-weight:bold; }
+  .blank:not(.revealed) .blank-inner::before { content:"﹍﹍﹍"; visibility:visible; color:#facc15; }
+  h2 { margin:16px 20px 0; }
+
+  .lang-toggle { display:flex; align-items:center; gap:8px; margin:0 20px 16px; font-size:13px; color:#94a3b8; }
+  .lang-btn { background:#1e293b; color:#cbd5e1; border:1px solid #334155; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:13px; }
+  .lang-btn.active { background:#2196F3; color:#fff; border-color:#2196F3; }
+
+  .hoverable { position:relative; display:block; border-bottom:1px dotted #64B5F6; cursor:help; width:fit-content; }
+  .q-options .hoverable { margin-bottom:4px; }
+  .hoverable .tooltip {
+    display:none; position:absolute; left:0; top:100%; margin-top:6px;
+    background:#0f172a; border:1px solid #64B5F6; color:#e2e8f0;
+    padding:6px 10px; border-radius:6px; font-size:13px; white-space:normal;
+    max-width:380px; z-index:50; box-shadow:0 4px 10px rgba(0,0,0,.4);
+  }
+  .hoverable:hover .tooltip { display:block; }
+  a.back { display:inline-block; margin:16px 20px 0; color:#64B5F6; font-size:13px; text-decoration:none; }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 回複習清單</a>
+<div class="lang-toggle">
+  顯示語言:
+  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+</div>
+<div class="layout">
+  <div class="player-col">
+    <div class="subject">航空生理學 - 空間迷向 (Spatial Disorientation)</div>
+    <div id="player"></div>
+  </div>
+  <div class="list-col">
+    <h3>📝 選擇題</h3>
+    
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 1</span><button class="ts-btn" onclick="seekTo(63)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="空間迷向（Spatial Disorientation）發生的主要生理機制為何？" data-en="What is the primary physiological mechanism behind Spatial Disorientation (SD)?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 飛行員因高空缺氧導致大腦判斷力受損" data-en="(A) Pilot judgment impairment due to high-altitude hypoxia"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 身體三大平衡器官（視覺、前庭、本體感知）傳遞訊號不一致" data-en="(B) Inconsistency among the body&#x27;s three balance systems (Visual, Vestibular, Proprioceptive)"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 內耳半規管內的淋巴液因劇烈轉彎而乾涸" data-en="(C) Desiccation of endolymph in the semicircular canals due to steep turns"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 飛機儀表系統失效，導致飛行員無法得知正確高度" data-en="(D) Aircraft instrument failure leading to the pilot&#x27;s inability to determine altitude"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">空間迷向是因為視覺 (Visual)、內耳前庭 (Vestibular) 與本體感受器 (Proprioception) 三者訊號無法協調一致，導致大腦傳達錯誤的空間感。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 2</span><button class="ts-btn" onclick="seekTo(104)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="影片中提到的「耳石器官」（Otolith Organs）主要負責感知下列哪種運動狀態？" data-en="What kind of motion state are the Otolith Organs, mentioned in the video, primarily responsible for sensing?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 繞著縱軸、橫軸與垂直軸的旋轉運動" data-en="(A) Rotational movement around longitudinal, lateral, and vertical axes"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 飛機的偏流角（Drift Angle）變化" data-en="(B) Changes in the aircraft&#x27;s drift angle"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 線性加速度（Linear Acceleration）與重力感" data-en="(C) Linear acceleration and the sense of gravity"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 飛機周圍氣壓的微小變動" data-en="(D) Minor fluctuations in air pressure around the aircraft"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">耳石器官 (Otolith organs) 控制我們對自然加速度、加減速及重力 (Gravity) 的感知，例如搭乘電梯的升降感。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 3</span><button class="ts-btn" onclick="seekTo(351)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="為何民航機師相較於軍機飛行員，在發生空間迷向時通常能更快改正？" data-en="Why do civil aviation pilots typically recover faster from spatial disorientation compared to military pilots?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 民航機有自動駕駛系統，完全不會發生空間迷向" data-en="(A) Civil aircraft have autopilots and are immune to spatial disorientation"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 民航機飛行高度較高，有更多的空間換取時間進行改正" data-en="(B) Civil aircraft fly higher, providing more space to trade for time during recovery"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 民航飛行高度依賴儀器飛行（IFR），已形成強大的儀表信任本能" data-en="(C) Civil flight relies heavily on IFR, building a strong instinct to trust instruments"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 民航機師的生理體能要求比戰鬥機飛行員更高" data-en="(D) Civil pilots have higher physical fitness requirements than fighter pilots"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">民航飛行 99% 都是儀器飛行 (Instrument Flight)，機師受過嚴格訓練，能在生理感覺與儀表衝突時，第一秒下意識選擇 Trust Instruments。</div>
+          </details>
+        </div>
+        </div>
+    <h3>🧠 背誦重點(點空格看答案)</h3>
+    
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 1</span><button class="ts-btn" onclick="seekTo(291)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">改正空間迷向（Spatial Disorientation）最重要且唯一的原則就是 <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">Trust instruments</span></span> (相信儀表)。</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">The most important and only principle to correct spatial disorientation is to trust your instruments.</div>
+            <div class="explain">當生理感覺與儀表不符時，必須強迫自己忽視身體感覺，完全依賴姿態儀 (Attitude Indicator) 等設備。</div>
+          </details>
+          <div class="tag">SOP / Physiology</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 2</span><button class="ts-btn" onclick="seekTo(60)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">身體的三大平衡器官包含視覺、內耳前庭以及 <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">本體感知器</span></span> (Proprioception)。</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">The body's three balance organs include vision, the vestibular system, and proprioceptors.</div>
+            <div class="explain">本體感知器是肌肉與關節的感官神經，讓我們閉眼也能知道肢體位置。</div>
+          </details>
+          <div class="tag">Physiology / Human-Factor</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 3</span><button class="ts-btn" onclick="seekTo(635)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">飛行員最需要的兩項參數是 <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">高度與速度</span></span>，因為高度可以換取改正空間迷向的時間。</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">The two parameters a pilot needs most are altitude and speed, as altitude can be traded for time to correct spatial disorientation.</div>
+            <div class="explain">高度 (Altitude) 提供緩衝空間，讓飛行員有時間研究姿態儀並進行改正，低空迷向極度危險。</div>
+          </details>
+          <div class="tag">Safety / Limitations</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 4</span><button class="ts-btn" onclick="seekTo(503)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">在夜間進雲或海面上飛行時，容易因為 <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">視覺參考點</span></span> 消失或錯誤（如傾斜的雲海或海岸線）而誘發空間迷向。</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">Flying into clouds at night or over the sea can easily induce spatial disorientation due to the loss or falsity of visual reference points.</div>
+            <div class="explain">當外界的天地線 (Horizon) 不明確或與生理感受衝突時，大腦會產生錯誤判斷。</div>
+          </details>
+          <div class="tag">Weather / Environment</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 5</span><button class="ts-btn" onclick="seekTo(95)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">內耳中負責控制三度空間旋轉（縱軸、橫軸、垂直軸）的構造是 <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">三半規管</span></span>。</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">The structure in the inner ear responsible for controlling three-dimensional rotation is the semicircular canals.</div>
+            <div class="explain">半規管感知角加速度 (Angular acceleration)，是飛行中旋轉感的主要來源。</div>
+          </details>
+          <div class="tag">Physiology</div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var primaryLang = 'zh';
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '270',
+      width: '480',
+      videoId: 'xCfFw3K5D8A',
+      playerVars: { 'playsinline': 1, 'origin': window.location.origin }
+    });
+  }
+  function seekTo(seconds) {
+    if (player && player.seekTo) {
+      player.seekTo(seconds, true);
+      player.playVideo();
+    }
+  }
+
+  function applyLang() {
+    var otherLang = primaryLang === 'zh' ? 'en' : 'zh';
+    document.querySelectorAll('.hoverable').forEach(function(el) {
+      var mainEl = el.querySelector('.main-text');
+      var tipEl = el.querySelector('.tooltip');
+      mainEl.textContent = el.dataset[primaryLang] || '';
+      tipEl.textContent = el.dataset[otherLang] || '';
+    });
+  }
+
+  function setLang(lang) {
+    primaryLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    applyLang();
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLang);
+</script>
+</body>
+</html>
