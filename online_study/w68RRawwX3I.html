@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>飛航安全五大創新 - 系統與操作觀念分析 - 線上複習</title>
+<style>
+  body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; }
+  .layout { display:flex; gap:20px; padding:20px; align-items:flex-start; flex-wrap:wrap; }
+  .player-col { position:sticky; top:20px; flex:0 0 480px; }
+  .player-col iframe { width:480px; height:270px; border:0; border-radius:8px; }
+  .subject { font-size:18px; font-weight:bold; margin:12px 0; color:#72ef95; }
+  .list-col { flex:1; min-width:320px; }
+  .qcard { background:#1e293b; border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .cloze-card { border-left:4px solid #ff6b6b; }
+  .qcard-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .qnum { color:#64B5F6; font-weight:bold; }
+  .ts-btn { background:#2196F3; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }
+  .ts-btn:hover { background:#1769aa; }
+  .q-text { font-size:16px; line-height:1.6; margin-bottom:6px; }
+  .q-options { color:#cbd5e1; font-size:14px; line-height:1.8; margin-bottom:6px; }
+  .q-zh { color:#94a3b8; font-size:13px; margin:6px 0; }
+  .explain { color:#cbd5e1; font-size:13px; margin-top:6px; }
+  .tag { display:inline-block; margin-top:8px; background:rgba(250,82,82,0.15); color:#ff6b6b; padding:2px 8px; border-radius:4px; font-size:12px; }
+  details { margin-top:8px; }
+  summary { cursor:pointer; color:#64B5F6; font-size:13px; }
+  .answer { margin-top:8px; color:#72ef95; font-weight:bold; }
+  .blank { background:rgba(255,236,153,0.3); border-radius:3px; padding:1px 4px; cursor:pointer; }
+  .blank .blank-inner { visibility:hidden; }
+  .blank.revealed { background:rgba(255,236,153,0.7); }
+  .blank.revealed .blank-inner { visibility:visible; color:#d9480f; font-weight:bold; }
+  .blank:not(.revealed) .blank-inner::before { content:"﹍﹍﹍"; visibility:visible; color:#facc15; }
+  h2 { margin:16px 20px 0; }
+
+  .lang-toggle { display:flex; align-items:center; gap:8px; margin:0 20px 16px; font-size:13px; color:#94a3b8; }
+  .lang-btn { background:#1e293b; color:#cbd5e1; border:1px solid #334155; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:13px; }
+  .lang-btn.active { background:#2196F3; color:#fff; border-color:#2196F3; }
+
+  .hoverable { position:relative; display:block; border-bottom:1px dotted #64B5F6; cursor:help; width:fit-content; }
+  .q-options .hoverable { margin-bottom:4px; }
+  .hoverable .tooltip {
+    display:none; position:absolute; left:0; top:100%; margin-top:6px;
+    background:#0f172a; border:1px solid #64B5F6; color:#e2e8f0;
+    padding:6px 10px; border-radius:6px; font-size:13px; white-space:normal;
+    max-width:380px; z-index:50; box-shadow:0 4px 10px rgba(0,0,0,.4);
+  }
+  .hoverable:hover .tooltip { display:block; }
+  a.back { display:inline-block; margin:16px 20px 0; color:#64B5F6; font-size:13px; text-decoration:none; }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 回複習清單</a>
+<div class="lang-toggle">
+  顯示語言:
+  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+</div>
+<div class="layout">
+  <div class="player-col">
+    <div class="subject">飛航安全五大創新 - 系統與操作觀念分析</div>
+    <div id="player"></div>
+  </div>
+  <div class="list-col">
+    <h3>📝 選擇題</h3>
+    
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 1</span><button class="ts-btn" onclick="seekTo(270)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="在現代化客機的 AHRS (Attitude Heading Reference System) 中，系統如何感測並提供 Heading (航向) 資訊？" data-en="In a modern AHRS (Attitude Heading Reference System), how does the system sense and provide Heading information?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 僅依靠雷射陀螺儀 (Laser Gyros) 的高速轉動" data-en="(A) Relying solely on the high-speed rotation of Laser Gyros"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 透過助通門 (Flux Valve) 偵測地球磁場線 (Magnetic field lines)" data-en="(B) Through a Flux Valve registering the magnetic field lines of the Earth"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 依靠加速規 (Accelerometers) 感應飛機的線性運動" data-en="(C) Using Accelerometers to sense linear motion of the aircraft"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 僅透過 GPS 訊號與地面導航台連結" data-en="(D) Relying exclusively on GPS signals and ground-based stations"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">雖然雷射陀螺儀提供短期精確的轉向率，但 Heading 的基準信號是由 Flux Valve 偵測地球磁場線後提供給系統。 (AHRS integrates 3 laser gyros, 3 accelerometers and a flux valve)</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 2</span><button class="ts-btn" onclick="seekTo(482)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="關於客艙增壓系統 (Cabin Pressurization) 的運作邏輯，下列敘述何者正確？" data-en="Regarding the operational logic of the Cabin Pressurization system, which statement is correct?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 客艙壓力是透過控制引進的冷空氣流量來調節的" data-en="(A) Cabin pressure is regulated by controlling the flow of cold air intake"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 增壓空氣來自引擎壓縮機 (Engine Compressor)，必須先經過冷卻再進入客艙" data-en="(B) Pressurized air comes from engine compressors and must be cooled before entering the cabin"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 排氣閥 (Outflow Valve) 在起飛後會完全關閉以保持壓力" data-en="(C) The Outflow Valve closes completely after takeoff to maintain pressure"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 現代化系統主要是由飛行員手動調整排氣閥開度" data-en="(D) Modern systems primarily involve pilots manually adjusting the outflow valve opening"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">增壓來源為高溫的 Engine bleed air，經由空調組件 (AC units) 冷卻後送入；壓力則是透過調節 Outflow Valve 的排放開度來維持平衡。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 3</span><button class="ts-btn" onclick="seekTo(576)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="全功能飛行模擬機 (Full Flight Simulator) 的六軸運動系統 (6-axis motion system) 主要功能為何？" data-en="What is the primary function of the 6-axis motion system in a Full Flight Simulator (FFS)?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 提供更清晰的視覺景像給飛行員" data-en="(A) Providing clearer visual scenes to the pilot"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 模擬飛機在不同姿態下的重力與加速度感 (Sense of motion)" data-en="(B) Replicating the sense of motion and G-forces under various attitudes"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 協助自動化飛行系統的程式編寫" data-en="(C) Assisting in the programming of automated flight systems"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 僅為了節省燃油成本，與真實飛行感無關" data-en="(D) Solely saving fuel costs, unrelated to actual flight feel"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">FFS 的核心在於透過 Motion system 與視覺系統同步，在大腦中產生擬真的加速度感，以訓練飛行員處理 Emergency (如 Engine failures, Smoke)。</div>
+          </details>
+        </div>
+        </div>
+    <h3>🧠 背誦重點(點空格看答案)</h3>
+    
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 1</span><button class="ts-btn" onclick="seekTo(106)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">Aircraft approved for IFR flight must have at least <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">two</span></span> VHF radios.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">獲准進行儀器飛行 (IFR) 的飛機必須至少配備兩台 VHF 無線電。</div>
+            <div class="explain">這是為了確保通訊的 Redundancy (備援性)，其中一台故障時仍可維持安全通訊。</div>
+          </details>
+          <div class="tag">Radio / IFR / Communication</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 2</span><button class="ts-btn" onclick="seekTo(109)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The HF radio is required when flying over oceans as it has a <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">longer</span></span> range than VHF.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">飛越海洋時需要配備 HF 無線電，因為它的通訊距離比 VHF 更長。</div>
+            <div class="explain">HF 利用電離層反射原理達成 Over-the-horizon 通訊，適合偏遠地區。</div>
+          </details>
+          <div class="tag">Radio / Oceanic / Communication</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 3</span><button class="ts-btn" onclick="seekTo(345)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The parts in a gas turbine are <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">rotating</span></span>, making it simpler and lighter than a piston engine.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">燃氣渦輪機中的部件都在進行旋轉運動，這使其比活塞引擎更簡單且更輕。</div>
+            <div class="explain">旋轉運動減少了活塞引擎往復式運動產生的震動與磨損，提高 Reliability。</div>
+          </details>
+          <div class="tag">Engine / Gas Turbine / Reliability</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 4</span><button class="ts-btn" onclick="seekTo(500)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The cabin pressure is regulated by adjusting the opening of the <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">outflow valve</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">客艙壓力是透過調節排氣閥 (outflow valve) 的開口度來調節的。</div>
+            <div class="explain">這是一項關鍵的 Pneumatic 控制邏輯：進氣恆定，調節出氣量來控制艙壓。</div>
+          </details>
+          <div class="tag">Pressurization / Pneumatics / Controller</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 5</span><button class="ts-btn" onclick="seekTo(598)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">To learn to fly an airliner like an Airbus A320, you need at least <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">36</span></span> hours in the simulator.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">要學習駕駛像空巴 A320 這樣的客機，你至少需要在模擬機中待 36 小時。</div>
+            <div class="explain">這是取得 Type Rating (機種檢定) 的標準訓練時數之一，包含最終的測驗。</div>
+          </details>
+          <div class="tag">Simulator / Training / Regulation</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 6</span><button class="ts-btn" onclick="seekTo(670)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The Link Trainer, used to teach instrument flying, was also known as the <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">Blue Box</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">用於教授儀器飛行的 Link Trainer 模擬機，也被稱為「藍盒子」。</div>
+            <div class="explain">這是航空史上第一款大規模量產的模擬機，極大地提升了 Instrument training 的效率。</div>
+          </details>
+          <div class="tag">Simulator / History / Training</div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var primaryLang = 'zh';
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '270',
+      width: '480',
+      videoId: 'w68RRawwX3I',
+      playerVars: { 'playsinline': 1, 'origin': window.location.origin }
+    });
+  }
+  function seekTo(seconds) {
+    if (player && player.seekTo) {
+      player.seekTo(seconds, true);
+      player.playVideo();
+    }
+  }
+
+  function applyLang() {
+    var otherLang = primaryLang === 'zh' ? 'en' : 'zh';
+    document.querySelectorAll('.hoverable').forEach(function(el) {
+      var mainEl = el.querySelector('.main-text');
+      var tipEl = el.querySelector('.tooltip');
+      mainEl.textContent = el.dataset[primaryLang] || '';
+      tipEl.textContent = el.dataset[otherLang] || '';
+    });
+  }
+
+  function setLang(lang) {
+    primaryLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    applyLang();
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLang);
+</script>
+</body>
+</html>
