@@ -80,9 +80,14 @@ def build_quiz_html(video_id, quiz_data):
         <div class="quiz-card" id="quiz-{q['id']}">
             <div class="quiz-header">
                 <h3>選擇題 {q['id']}</h3>
-                <button class="jump-btn" onclick="jumpToTime({seconds})">
-                    🎬 跳轉 ({seconds}秒)
-                </button>
+                <div class="btn-group">
+                    <button class="jump-btn" onclick="jumpToTime({seconds})">
+                        🎬 本頁跳轉 ({seconds}秒)
+                    </button>
+                    <a class="yt-link-btn" href="[https://www.youtube.com/watch?v=](https://www.youtube.com/watch?v=){video_id}&t={seconds}s" target="_blank" title="在新分頁打開 YouTube 並跳至 {seconds} 秒">
+                        ↗️ YT開啟
+                    </a>
+                </div>
             </div>
             <p class="question">{q['question']}</p>
             <ul class="options">
@@ -176,6 +181,11 @@ def build_quiz_html(video_id, quiz_data):
             justify-content: space-between;
             align-items: center;
         }}
+        .btn-group {{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }}
         .jump-btn {{
             background: #0284c7;
             color: white;
@@ -184,9 +194,24 @@ def build_quiz_html(video_id, quiz_data):
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 13px;
         }}
         .jump-btn:hover {{
             background: #0369a1;
+        }}
+        .yt-link-btn {{
+            background: #334155;
+            color: #38bdf8;
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            border: 1px solid #475569;
+        }}
+        .yt-link-btn:hover {{
+            background: #475569;
+            color: #7dd3fc;
         }}
         .options {{
             list-style: none;
@@ -241,22 +266,23 @@ def build_quiz_html(video_id, quiz_data):
     </div>
 
     <script>
-        const videoId = "{video_id}";
-
         function jumpToTime(seconds) {{
-            // 1. 嘗試控制嵌入播放器
             const iframe = document.getElementById('yt-player');
             if (iframe && iframe.contentWindow) {{
+                // 1. 發送指令給內嵌播放器跳轉秒數
                 iframe.contentWindow.postMessage(JSON.stringify({{
                     'event': 'command',
                     'func': 'seekTo',
                     'args': [seconds, true]
                 }}), '*');
+                
+                // 2. 自動嘗試播放
+                iframe.contentWindow.postMessage(JSON.stringify({{
+                    'event': 'command',
+                    'func': 'playVideo',
+                    'args': []
+                }}), '*');
             }}
-
-            // 2. 開啟/跳轉至 YouTube 原網址帶帶時間參數的分頁
-            const targetUrl = `[https://www.youtube.com/watch?v=$](https://www.youtube.com/watch?v=$){{videoId}}&t=${{seconds}}s`;
-            window.open(targetUrl, '_blank');
         }}
     </script>
 </body>
@@ -269,22 +295,6 @@ def update_index_html(video_id, title):
     index_path = "online_study/index.html"
     now_str = datetime.now().strftime("%Y-%m-%d %H:%M")
     
-    new_item = {
-        "id": video_id,
-        "title": title,
-        "date": now_str
-    }
-    
-    items = []
-    if os.path.exists(index_path):
-        try:
-            with open(index_path, "r", encoding="utf-8") as f:
-                content = f.read()
-                # 從舊 index.html 嘗試讀取 JSON 或解析內容
-        except:
-            pass
-
-    # 簡單模板覆寫
     item_html = f"""
     <div class="card">
         <a href="{video_id}.html">
@@ -297,7 +307,6 @@ def update_index_html(video_id, title):
     </div>
     """
     
-    # 全置換 index.html
     full_index = f"""<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
