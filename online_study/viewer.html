@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>線上複習</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<a class="back" href="./index.html">← 回複習清單</a>
+<div class="lang-toggle">
+  顯示語言:
+  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+</div>
+<div id="app" class="layout">
+  <div class="player-col">
+    <div class="subject" id="subject"></div>
+    <div id="player"></div>
+    <div class="chat-box">
+      <div class="chat-header">💬 問 AI(已載入這支影片的內容)</div>
+      <div id="chat-messages" class="chat-messages"></div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="輸入問題,按 Enter 送出">
+        <button id="chat-send-btn" onclick="sendChatMessage()">送出</button>
+      </div>
+      <div id="chat-notice" class="chat-notice"></div>
+    </div>
+  </div>
+  <div class="list-col">
+    <h3>📝 選擇題</h3>
+    <div id="mc-list"></div>
+    <h3>🧠 背誦重點(點空格看答案)</h3>
+    <div id="cz-list"></div>
+    <div class="finish-row">
+      <button class="finish-btn" onclick="finishQuiz()">✅ 作答完成</button>
+      <span id="score-summary"></span>
+    </div>
+  </div>
+</div>
+<script src="./chat-config.js"></script>
+<script src="./viewer.js"></script>
+</body>
+</html>
