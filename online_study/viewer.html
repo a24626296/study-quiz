@@ -7,12 +7,17 @@
 <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-<a class="back" href="./index.html">← 回複習清單</a>
-<div class="lang-toggle">
-  顯示語言:
-  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
-  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
-  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+<div class="top-bar">
+  <button class="top-bar-toggle" id="top-bar-toggle-btn" onclick="toggleTopBar()">⚙ 顯示選項</button>
+  <div class="top-bar-content" id="top-bar-content">
+    <a class="back" href="./index.html">← 回複習清單</a>
+    <div class="lang-toggle">
+      顯示語言:
+      <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+      <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+      <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+    </div>
+  </div>
 </div>
 <div id="app" class="layout">
   <div class="player-col">
