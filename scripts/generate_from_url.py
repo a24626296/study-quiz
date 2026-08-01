@@ -9,6 +9,9 @@
   - API key 一律從環境變數 GEMINI_API_KEY 讀取(不寫死在程式碼裡)
   - 執行完會額外重建 online_study/index.html,把所有已產生的頁面列成清單,
     這樣你在手機上只要記住/收藏「一個」網址,就能看到全部歷史紀錄。
+  - 會自動在 online_study/ 裡建立 .nojekyll,避免 GitHub Pages 用 Jekyll
+    處理這些檔案(Jekyll 的樣板引擎 Liquid 看到 HTML/JS 裡的 {{ }} 會誤判成
+    樣板語法,可能導致單一頁面建置失敗、整頁消失)。
 
 用法(本機測試用,平常你不需要手動打這行,Actions 會自動呼叫):
     set GEMINI_API_KEY=你的key   (Windows)
@@ -20,6 +23,7 @@ import re
 import sys
 import json
 import glob
+import time
 import datetime
 import html as html_lib
 
@@ -36,9 +40,18 @@ if not API_KEY:
 
 client = genai.Client(api_key=API_KEY)
 MODEL_NAME = "gemini-3-flash-preview"
+MAX_RETRIES_ON_429 = 3
 
 ONLINE_STUDY_DIR = os.path.normpath("./online_study")
 os.makedirs(ONLINE_STUDY_DIR, exist_ok=True)
+
+# 關鍵修正:避免 GitHub Pages 用 Jekyll 處理這個資料夾。
+# Jekyll 的 Liquid 樣板引擎會把 HTML/JS 裡的 {{ ... }} 誤判成樣板語法,
+# 一旦 Gemini 產生的克漏字格式跟預期的正規表示式沒有完全對上,殘留的
+# {{c1::...}} 就可能讓 Jekyll 建置該頁面失敗,導致該頁「消失」變 404。
+NOJEKYLL_PATH = os.path.join(ONLINE_STUDY_DIR, ".nojekyll")
+if not os.path.exists(NOJEKYLL_PATH):
+    open(NOJEKYLL_PATH, "a", encoding="utf-8").close()
 
 QUIZ_SYSTEM_PROMPT = """
 你是一位資深的航空公司總檢定官與系統教官。
@@ -73,6 +86,7 @@ QUIZ_SYSTEM_PROMPT = """
 規則:
 - mc_questions:請出 3~5 題觀念理解或故障邏輯單選題,適合「理解型」的知識點
 - cloze_items:請出 4~8 個值得直接背誦的 Memory Item、限制數據(limitations)、定義或口訣,適合「記憶型」的知識點;每一則只挖一個重點(只用 {{c1::}},不要有 c2、c3)
+- cloze_text 裡的挖空標記務必嚴格使用 {{c1::關鍵字}} 這個格式,前後不要加空格、不要用全形符號,只能有一組 c1
 - explanation 欄位要簡潔(1-2句話),不要跟 zh_translation 重複
 - timestamp 一律用 MM:SS 或 HH:MM:SS 格式的純文字,不要加中括號、不要加其他符號
 - 除了上述 JSON 物件之外,不要輸出任何文字
@@ -99,15 +113,41 @@ def strip_json_fences(text):
     return text.strip()
 
 
+def strip_stray_cloze_markup(text):
+    """
+    安全網:萬一 Gemini 吐出的 JSON 裡有某個欄位不小心殘留了沒被我們
+    regex 吃掉的 {{ ... }} 片段(例如格式跟預期不完全一樣),這裡統一
+    再過濾一次,避免任何一個 {{ }} 流入最終 HTML,觸發 Jekyll 誤判。
+    只處理明顯是 cloze 標記殘留的狀況,一般文字不受影響。
+    """
+    return re.sub(r'\{\{c1::(.*?)\}\}', r'\1', text)
+
+
 def generate_quiz_from_youtube_url(video_id):
-    """直接把 YouTube 影片交給 Gemini 分析,不下載、不上傳檔案。"""
+    """直接把 YouTube 影片交給 Gemini 分析,不下載、不上傳檔案。附帶 429 重試。"""
     clean_url = f"https://www.youtube.com/watch?v={video_id}"
     prompt = f"{QUIZ_SYSTEM_PROMPT}\n影片網址:{clean_url}。請直接分析這支 YouTube 影片後出題。"
     video_part = types.Part(file_data=types.FileData(file_uri=clean_url))
-    response = client.models.generate_content(
-        model=MODEL_NAME,
-        contents=[video_part, prompt],
-    )
+
+    attempt = 0
+    while True:
+        try:
+            response = client.models.generate_content(
+                model=MODEL_NAME,
+                contents=[video_part, prompt],
+            )
+            break
+        except Exception as e:
+            err_str = str(e)
+            is_rate_limit = "429" in err_str or "RESOURCE_EXHAUSTED" in err_str
+            if is_rate_limit and attempt < MAX_RETRIES_ON_429:
+                wait_s = 20 * (attempt + 1)
+                print(f"⚠️ 觸發 429 限流,等待 {wait_s} 秒後重試(第 {attempt + 1} 次)...")
+                time.sleep(wait_s)
+                attempt += 1
+                continue
+            raise
+
     if not response or not response.text:
         raise RuntimeError("無法取得 Gemini 回應。")
     raw_text = strip_json_fences(response.text)
@@ -166,7 +206,7 @@ def build_online_study_html(video_id, url, quiz_data):
           <div class="q-options">{options_html}</div>
           <details><summary>看答案與解析</summary>
             <div class="answer">正解:({q.get('answer', '')})</div>
-            <div class="explain">{q.get('explanation', '')}</div>
+            <div class="explain">{esc(q.get('explanation', ''))}</div>
           </details>
         """
         mc_html_parts.append(q_block(i, f"選擇題 {i}", body, seconds))
@@ -180,13 +220,15 @@ def build_online_study_html(video_id, url, quiz_data):
             r"""<span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">\1</span></span>""",
             cloze_text
         )
+        # 安全網:確保替換後不再殘留任何 {{ }},避免 Jekyll 誤判樣板語法
+        cloze_masked = strip_stray_cloze_markup(cloze_masked)
         body = f"""
           <div class="q-text">{cloze_masked}</div>
           <details><summary>看中文對照與解析</summary>
-            <div class="q-zh">{c.get('zh_translation', '')}</div>
-            <div class="explain">{c.get('explanation', '')}</div>
+            <div class="q-zh">{esc(c.get('zh_translation', ''))}</div>
+            <div class="explain">{esc(c.get('explanation', ''))}</div>
           </details>
-          <div class="tag">{c.get('tags', '')}</div>
+          <div class="tag">{esc(c.get('tags', ''))}</div>
         """
         cz_html_parts.append(q_block(i, f"背誦重點 {i}", body, seconds, extra_class="cloze-card"))
 
@@ -306,23 +348,49 @@ def build_online_study_html(video_id, url, quiz_data):
 
 
 def build_index_html():
-    """掃描 online_study 資料夾裡所有 *.html(排除 index.html 自己),
-    依修改時間新到舊排序,產生一個手機好點的清單首頁。"""
+    """
+    掃描 online_study 資料夾裡所有 *.html(排除 index.html 自己)。
+
+    注意:排序依據是「檔名裡嵌入的產生時間」而不是檔案系統的修改時間 ——
+    因為 GitHub Actions 每次都是重新 checkout 整個 repo,舊檔案的 mtime
+    會被洗成 checkout 當下的時間,單純依賴檔案系統 mtime 排序在 CI 環境
+    裡並不可靠。改成從 manifest.json 讀取每支影片真正的產生時間。
+    """
+    manifest_path = os.path.join(ONLINE_STUDY_DIR, "manifest.json")
+    manifest = {}
+    if os.path.exists(manifest_path):
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            try:
+                manifest = json.load(f)
+            except json.JSONDecodeError:
+                manifest = {}
+
     files = [
         f for f in glob.glob(os.path.join(ONLINE_STUDY_DIR, "*.html"))
         if os.path.basename(f) != "index.html"
     ]
-    files.sort(key=os.path.getmtime, reverse=True)
+
+    def sort_key(f):
+        vid = os.path.splitext(os.path.basename(f))[0]
+        return manifest.get(vid, "")  # ISO 時間字串可以直接字串排序
+
+    files.sort(key=sort_key, reverse=True)
 
     items_html = ""
     for f in files:
         video_id = os.path.splitext(os.path.basename(f))[0]
-        mtime = datetime.datetime.fromtimestamp(os.path.getmtime(f)).strftime("%Y-%m-%d %H:%M")
+        recorded_time = manifest.get(video_id)
+        if recorded_time:
+            display_time = recorded_time.replace("T", " ")[:16]
+        else:
+            display_time = datetime.datetime.fromtimestamp(
+                os.path.getmtime(f)
+            ).strftime("%Y-%m-%d %H:%M")
         items_html += f"""
         <a class="item" href="./{html_lib.escape(os.path.basename(f))}">
           <img src="https://i.ytimg.com/vi/{video_id}/mqdefault.jpg" loading="lazy">
           <div class="meta">
-            <div class="date">{mtime}</div>
+            <div class="date">{display_time}</div>
             <div class="vid">{video_id}</div>
           </div>
         </a>"""
@@ -354,6 +422,21 @@ def build_index_html():
         f.write(index_html)
 
 
+def record_manifest(video_id):
+    """把這支影片的產生時間記錄進 manifest.json,供 index.html 排序使用"""
+    manifest_path = os.path.join(ONLINE_STUDY_DIR, "manifest.json")
+    manifest = {}
+    if os.path.exists(manifest_path):
+        with open(manifest_path, "r", encoding="utf-8") as f:
+            try:
+                manifest = json.load(f)
+            except json.JSONDecodeError:
+                manifest = {}
+    manifest[video_id] = datetime.datetime.utcnow().isoformat()
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+
+
 def main():
     if len(sys.argv) < 2 or not sys.argv[1].strip():
         print("❌ 沒有收到 YouTube 網址參數。")
@@ -374,6 +457,7 @@ def main():
         f.write(html_out)
     print(f"✅ 已產生:{out_path}")
 
+    record_manifest(video_id)
     build_index_html()
     print("✅ 已更新 index.html 清單頁")
 
