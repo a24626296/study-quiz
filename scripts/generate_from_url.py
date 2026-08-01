@@ -26,6 +26,8 @@ import glob
 import time
 import datetime
 import html as html_lib
+import urllib.request
+import xml.etree.ElementTree as ET
 
 from google import genai
 from google.genai import types
@@ -103,6 +105,43 @@ def extract_video_id_from_url(url):
         if m:
             return m.group(1)
     return None
+
+
+def extract_playlist_id_from_url(url):
+    """從網址取出播放清單 ID(list= 後面那串)"""
+    m = re.search(r'[?&]list=([a-zA-Z0-9_-]+)', url)
+    return m.group(1) if m else None
+
+
+def fetch_playlist_video_ids(playlist_id):
+    """
+    讀取 YouTube 公開播放清單的 RSS 摘要,取出裡面的影片 ID 清單。
+
+    刻意不用 yt-dlp:yt-dlp 在 GitHub Actions 這種雲端 IP 上常被 YouTube
+    判定為機器人擋下來(需要瀏覽器 cookie 才能繞過,CI 環境沒有瀏覽器)。
+    RSS 摘要是單純的一次網路請求,沒有這個問題。
+
+    ⚠️ 已知限制:YouTube 的公開播放清單 RSS 通常只列出「最新的一部分」
+    影片(實測大約 15 支上下),不保證涵蓋整份清單。清單較長、或需要
+    抓到全部/較舊的影片時,建議改用桌面版 study_pipeline.py 的模式1
+    (用 yt-dlp,在你自己電腦上執行,沒有雲端 IP 被擋的問題)。
+    """
+    feed_url = f"https://www.youtube.com/feeds/videos.xml?playlist_id={playlist_id}"
+    req = urllib.request.Request(feed_url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        data = resp.read()
+
+    ns = {
+        "atom": "http://www.w3.org/2005/Atom",
+        "yt": "http://www.youtube.com/xml/schemas/2015",
+    }
+    root = ET.fromstring(data)
+    video_ids = []
+    for entry in root.findall("atom:entry", ns):
+        vid_el = entry.find("yt:videoId", ns)
+        if vid_el is not None and vid_el.text:
+            video_ids.append(vid_el.text.strip())
+    return video_ids
 
 
 def strip_json_fences(text):
@@ -517,10 +556,31 @@ def delete_video(video_id):
     print("✅ 已更新 index.html 清單頁")
 
 
+def process_one_video(video_id, source_url):
+    """處理單一影片:分析出題、寫入html、記錄manifest。回傳是否成功。"""
+    clean_url = f"https://www.youtube.com/watch?v={video_id}"
+    print(f"🌐 分析中:{clean_url}")
+    try:
+        quiz_data = generate_quiz_from_youtube_url(video_id)
+    except Exception as e:
+        print(f"❌ 這支影片處理失敗,略過繼續下一支:{type(e).__name__}: {e}")
+        return False
+
+    html_out = build_online_study_html(video_id, source_url, quiz_data)
+    out_path = os.path.join(ONLINE_STUDY_DIR, f"{video_id}.html")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html_out)
+    print(f"✅ 已產生:{out_path}")
+
+    record_manifest(video_id, quiz_data.get("subject", ""), clean_url)
+    return True
+
+
 def main():
     if len(sys.argv) < 2 or not sys.argv[1].strip():
         print("❌ 沒有收到參數。用法:\n"
-              "  產生考題:python generate_from_url.py \"https://www.youtube.com/watch?v=xxxxxxxxxxx\"\n"
+              "  產生考題(單支影片):python generate_from_url.py \"https://www.youtube.com/watch?v=xxxxxxxxxxx\"\n"
+              "  產生考題(播放清單):python generate_from_url.py \"https://www.youtube.com/playlist?list=xxxxxxxxxxx\"\n"
               "  刪除頁面:python generate_from_url.py --delete xxxxxxxxxxx")
         sys.exit(1)
 
@@ -532,26 +592,52 @@ def main():
         delete_video(sys.argv[2].strip())
         return
 
-    # 預設模式:分析網址、出題
     url = sys.argv[1].strip()
     video_id = extract_video_id_from_url(url)
-    if not video_id:
-        print("❌ 無法從網址判斷出 YouTube 影片 ID,請確認網址格式。")
-        sys.exit(1)
 
-    clean_url = f"https://www.youtube.com/watch?v={video_id}"
-    print(f"🌐 分析中:{clean_url}")
-    quiz_data = generate_quiz_from_youtube_url(video_id)
+    # 單支影片模式
+    if video_id:
+        ok = process_one_video(video_id, url)
+        build_index_html()
+        print("✅ 已更新 index.html 清單頁")
+        if not ok:
+            sys.exit(1)
+        return
 
-    html_out = build_online_study_html(video_id, url, quiz_data)
-    out_path = os.path.join(ONLINE_STUDY_DIR, f"{video_id}.html")
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(html_out)
-    print(f"✅ 已產生:{out_path}")
+    # 播放清單模式(網址裡有 list=,但沒有單支影片的 v=)
+    playlist_id = extract_playlist_id_from_url(url)
+    if playlist_id:
+        print("📋 偵測到播放清單網址,正在讀取清單內容(RSS 摘要)...")
+        try:
+            video_ids = fetch_playlist_video_ids(playlist_id)
+        except Exception as e:
+            print(f"❌ 無法讀取播放清單內容:{type(e).__name__}: {e}")
+            print("   (這個清單可能不支援 RSS 讀取,或暫時連不上。建議改用桌面版")
+            print("    study_pipeline.py 的模式1處理整份清單。)")
+            sys.exit(1)
 
-    record_manifest(video_id, quiz_data.get("subject", ""), clean_url)
-    build_index_html()
-    print("✅ 已更新 index.html 清單頁")
+        if not video_ids:
+            print("⚠️ 讀不到任何影片,可能是清單為空、設為私人,或超出 RSS 可列出的範圍。")
+            sys.exit(1)
+
+        print(f"📋 共讀到 {len(video_ids)} 支影片(YouTube 播放清單 RSS 通常只列出最新約15支,")
+        print("   較舊或超出範圍的影片可能抓不到,如需完整清單建議改用桌面版處理)。")
+
+        success_count = 0
+        for idx, vid in enumerate(video_ids, 1):
+            print(f"---- [{idx}/{len(video_ids)}] ----")
+            if process_one_video(vid, f"https://www.youtube.com/watch?v={vid}"):
+                success_count += 1
+            time.sleep(5)  # 稍微錯開,避免瞬間對 Gemini API 打太多請求
+
+        build_index_html()
+        print(f"✅ 播放清單處理完成:{success_count}/{len(video_ids)} 支成功,已更新 index.html 清單頁")
+        if success_count == 0:
+            sys.exit(1)
+        return
+
+    print("❌ 無法從網址判斷出 YouTube 影片 ID 或播放清單 ID,請確認網址格式。")
+    sys.exit(1)
 
 
 if __name__ == "__main__":
