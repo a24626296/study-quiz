@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>機場營運與旅客搭機流程 - 基礎航空實務 - 線上複習</title>
+<style>
+  body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; }
+  .layout { display:flex; gap:20px; padding:20px; align-items:flex-start; flex-wrap:wrap; }
+  .player-col { position:sticky; top:20px; flex:0 0 480px; }
+  .player-col iframe { width:480px; height:270px; border:0; border-radius:8px; }
+  .subject { font-size:18px; font-weight:bold; margin:12px 0; color:#72ef95; }
+  .list-col { flex:1; min-width:320px; }
+  .qcard { background:#1e293b; border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .cloze-card { border-left:4px solid #ff6b6b; }
+  .qcard-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .qnum { color:#64B5F6; font-weight:bold; }
+  .ts-btn { background:#2196F3; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }
+  .ts-btn:hover { background:#1769aa; }
+  .q-text { font-size:16px; line-height:1.6; margin-bottom:6px; }
+  .q-options { color:#cbd5e1; font-size:14px; line-height:1.8; margin-bottom:6px; }
+  .q-zh { color:#94a3b8; font-size:13px; margin:6px 0; }
+  .explain { color:#cbd5e1; font-size:13px; margin-top:6px; }
+  .tag { display:inline-block; margin-top:8px; background:rgba(250,82,82,0.15); color:#ff6b6b; padding:2px 8px; border-radius:4px; font-size:12px; }
+  details { margin-top:8px; }
+  summary { cursor:pointer; color:#64B5F6; font-size:13px; }
+  .answer { margin-top:8px; color:#72ef95; font-weight:bold; }
+  .blank { background:rgba(255,236,153,0.3); border-radius:3px; padding:1px 4px; cursor:pointer; }
+  .blank .blank-inner { visibility:hidden; }
+  .blank.revealed { background:rgba(255,236,153,0.7); }
+  .blank.revealed .blank-inner { visibility:visible; color:#d9480f; font-weight:bold; }
+  .blank:not(.revealed) .blank-inner::before { content:"﹍﹍﹍"; visibility:visible; color:#facc15; }
+  h2 { margin:16px 20px 0; }
+
+  .lang-toggle { display:flex; align-items:center; gap:8px; margin:0 20px 16px; font-size:13px; color:#94a3b8; }
+  .lang-btn { background:#1e293b; color:#cbd5e1; border:1px solid #334155; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:13px; }
+  .lang-btn.active { background:#2196F3; color:#fff; border-color:#2196F3; }
+
+  .hoverable { position:relative; display:block; border-bottom:1px dotted #64B5F6; cursor:help; width:fit-content; }
+  .q-options .hoverable { margin-bottom:4px; }
+  .hoverable .tooltip {
+    display:none; position:absolute; left:0; top:100%; margin-top:6px;
+    background:#0f172a; border:1px solid #64B5F6; color:#e2e8f0;
+    padding:6px 10px; border-radius:6px; font-size:13px; white-space:normal;
+    max-width:380px; z-index:50; box-shadow:0 4px 10px rgba(0,0,0,.4);
+  }
+  .hoverable:hover .tooltip { display:block; }
+  a.back { display:inline-block; margin:16px 20px 0; color:#64B5F6; font-size:13px; text-decoration:none; }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 回複習清單</a>
+<div class="lang-toggle">
+  顯示語言:
+  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+</div>
+<div class="layout">
+  <div class="player-col">
+    <div class="subject">機場營運與旅客搭機流程 - 基礎航空實務</div>
+    <div id="player"></div>
+  </div>
+  <div class="list-col">
+    <h3>📝 選擇題</h3>
+    
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 1</span><button class="ts-btn" onclick="seekTo(171)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="根據影片中的航空公司 (Frontier Airlines) 規定，託運行李超過多少重量需額外支付費用 (Overweight Fee)？" data-en="According to the airline&#x27;s rules shown in the video, what is the weight limit for checked baggage before incurring a fee?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 30 磅" data-en="(A) 30 lbs"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 31.5 磅" data-en="(B) 31.5 lbs"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 40 磅" data-en="(C) 40 lbs"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 50 磅" data-en="(D) 50 lbs"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">影片 02:51 提到行李秤重為 31.5 磅，並說明若超過 40 磅 (40 lbs) 則需支付費用 (pay a fee)。這是低成本航空 (LCC) 常見的行李限額規定。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 2</span><button class="ts-btn" onclick="seekTo(195)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="關於旅行證件的法律要求，下列敘述何者正確？" data-en="Regarding travel document requirements, which statement is correct?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 美國境內旅行 (Domestic) 必須攜帶護照" data-en="(A) A passport is required for domestic travel within the US"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 國際旅行 (International) 僅需駕照即可" data-en="(B) A driver&#x27;s license is sufficient for international travel"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 美國境內旅行可使用駕照作為 ID" data-en="(C) A driver&#x27;s license can be used as ID for domestic travel"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 登機證 (Boarding Pass) 不能存在手機中" data-en="(D) A boarding pass cannot be stored on a mobile phone"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">影片 03:15 提到 Domestic travel (境內旅行) 僅需駕照 (Driver&#x27;s license)，而 International travel (國際旅行) 才必須使用護照 (Passport)。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 3</span><button class="ts-btn" onclick="seekTo(613)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="關於飛機登機順序 (Boarding Order) 的邏輯，下列哪一個艙等通常會最先開始登機？" data-en="Regarding the aircraft boarding logic, which class typically boards first?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 經濟艙 (Economy)" data-en="(A) Economy class"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 商務艙或頭等艙 (Business/First Class)" data-en="(B) Business or First class"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 最後一組 (Last group)" data-en="(C) The last group"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 依座位排數隨機登機" data-en="(D) Randomly by seat number"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">影片 10:13 說明，頭等艙 (First class) 或商務艙 (Business class) 是第一批登機的群組，而經濟艙 (Economy) 則依群組序號後續登機。</div>
+          </details>
+        </div>
+        </div>
+    <h3>🧠 背誦重點(點空格看答案)</h3>
+    
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 1</span><button class="ts-btn" onclick="seekTo(98)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">If a suitcase is small enough to be taken onto the plane, it is called a <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">carry-on</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">如果行李箱小到可以直接帶上飛機，它被稱為「登機箱」。</div>
+            <div class="explain">登機箱 (Carry-on) 與個人物品 (Personal item) 需符合航空公司尺寸限制以放入 Overhead bin 或座位下方。</div>
+          </details>
+          <div class="tag">Baggage / Terminology</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 2</span><button class="ts-btn" onclick="seekTo(197)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">Traveling within the United States is referred to as <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">domestic</span></span> travel.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">在美國境內的旅行被稱為「國內」旅行。</div>
+            <div class="explain">國內航線與國際航線在證件審查 (Customs/Immigration) 的流程上有本質上的不同。</div>
+          </details>
+          <div class="tag">Travel Type</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 3</span><button class="ts-btn" onclick="seekTo(522)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">Standard boarding time is usually <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">30</span></span> minutes before the departure time.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">標準登機時間通常是在飛機起飛前 30 分鐘。</div>
+            <div class="explain">登機時間 (Boarding Time) 早於起飛時間 (Departure Time)，旅客需提前抵達 Gate 以確保準時關閉艙門。</div>
+          </details>
+          <div class="tag">Time / Limitations</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 4</span><button class="ts-btn" onclick="seekTo(648)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The storage compartment above the seats in an airplane is called the <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">overhead bin</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">飛機座位上方用來存放物品的空間稱為「上方行李箱」。</div>
+            <div class="explain">這是空服員 (Flight Attendant) 在登機期間需檢查並確保關閉的安全區域。</div>
+          </details>
+          <div class="tag">Cabin Equipment</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 5</span><button class="ts-btn" onclick="seekTo(665)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">In the event of a water evacuation, passengers should use the <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">life vest</span></span> located under their seat.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">在水上撤離的情況下，乘客應使用位於座位下方的「救生衣」。</div>
+            <div class="explain">這是飛機安全演示 (Safety Demo) 的關鍵項目，由客艙組員示範穿戴程序。</div>
+          </details>
+          <div class="tag">Safety / Memory-Item</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 6</span><button class="ts-btn" onclick="seekTo(774)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">After landing, passengers collect their checked baggage at the <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">baggage claim</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">飛機落地後，乘客在「行李領取處」領取託運行李。</div>
+            <div class="explain">這是旅客抵達流程 (Arrivals) 的最後步驟，涉及轉盤行李分揀系統。</div>
+          </details>
+          <div class="tag">Airport Infrastructure</div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var primaryLang = 'zh';
+  var embedBlocked = false;
+  var VIDEO_ID = 'W5mLt9jVYcs';
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '270',
+      width: '480',
+      videoId: VIDEO_ID,
+      playerVars: { 'playsinline': 1, 'origin': window.location.origin },
+      events: { 'onError': onPlayerError }
+    });
+  }
+  function onPlayerError(event) {
+    // 101 / 150 = 影片擁有者禁止嵌入播放,100 = 影片不存在或設為私人,5 = HTML5播放器錯誤
+    if ([101, 150, 100, 5].indexOf(event.data) !== -1) {
+      embedBlocked = true;
+    }
+  }
+  function seekTo(seconds) {
+    if (embedBlocked || !player || !player.seekTo) {
+      window.open('https://www.youtube.com/watch?v=' + VIDEO_ID + '&t=' + seconds + 's', '_blank');
+      return;
+    }
+    player.seekTo(seconds, true);
+    player.playVideo();
+  }
+
+  function applyLang() {
+    var otherLang = primaryLang === 'zh' ? 'en' : 'zh';
+    document.querySelectorAll('.hoverable').forEach(function(el) {
+      var mainEl = el.querySelector('.main-text');
+      var tipEl = el.querySelector('.tooltip');
+      mainEl.textContent = el.dataset[primaryLang] || '';
+      tipEl.textContent = el.dataset[otherLang] || '';
+    });
+  }
+
+  function setLang(lang) {
+    primaryLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    applyLang();
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLang);
+</script>
+</body>
+</html>
