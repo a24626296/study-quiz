@@ -4,142 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>複習清單</title>
-<style>
-  body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; padding:20px; }
-  h1 { font-size:20px; margin-bottom:16px; }
-  .item { display:flex; justify-content:space-between; align-items:center; gap:12px; background:#1e293b;
-           border-radius:8px; padding:10px; margin-bottom:10px; }
-  .item-link { display:flex; gap:12px; align-items:center; text-decoration:none; color:#e2e8f0; flex:1; min-width:0; }
-  .item-link img { width:120px; border-radius:6px; flex-shrink:0; }
-  .meta { min-width:0; }
-  .meta .subject { font-size:15px; font-weight:bold; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .meta .date { font-size:13px; color:#94a3b8; margin-top:2px; }
-  .meta .vid { font-size:12px; color:#72ef95; margin-top:4px; }
-  .item-actions { display:flex; flex-direction:column; gap:6px; flex-shrink:0; }
-  .yt-link { font-size:12px; color:#64B5F6; text-decoration:none; white-space:nowrap; }
-  .yt-link:hover { text-decoration:underline; }
-  .del-btn { background:#3f1d1d; color:#ff6b6b; border:1px solid #ff6b6b; border-radius:6px; padding:4px 10px; font-size:12px; cursor:pointer; }
-  .del-btn:hover { background:#ff6b6b; color:#fff; }
-  .empty { color:#94a3b8; }
-</style>
+<link rel="stylesheet" href="./style.css">
 </head>
-<body>
-<h1>📚 複習清單(8)</h1>
+<body style="padding:20px;">
+<div class="list-header">
+  <h1 style="margin:0;">📚 複習清單(1)</h1>
+  <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
+</div>
 
         <div class="item">
-          <a class="item-link" href="./W5mLt9jVYcs.html">
-            <img src="https://i.ytimg.com/vi/W5mLt9jVYcs/mqdefault.jpg" loading="lazy">
+          <a class="item-link" href="./viewer.html?id=qZv61bNeRzo">
+            <img src="https://i.ytimg.com/vi/qZv61bNeRzo/mqdefault.jpg" loading="lazy">
             <div class="meta">
-              <div class="subject">機場營運與旅客搭機流程 - 基礎航空實務</div>
-              <div class="date">2026-08-01 12:13</div>
-              <div class="vid">ID: W5mLt9jVYcs</div>
+              <div class="subject">航空面試心理學與選拔邏輯 - 招募官觀點</div>
+              <div class="date">2026-08-01 15:43</div>
+              <div class="vid">ID: qZv61bNeRzo</div>
             </div>
           </a>
           <div class="item-actions">
-            <a class="yt-link" href="https://www.youtube.com/watch?v=W5mLt9jVYcs" target="_blank" rel="noopener">▶ 原始影片</a>
-            <button class="del-btn" onclick="deleteVideo('W5mLt9jVYcs')">🗑 刪除</button>
-          </div>
-        </div>
-        <div class="item">
-          <a class="item-link" href="./94fKfjbSBFc.html">
-            <img src="https://i.ytimg.com/vi/94fKfjbSBFc/mqdefault.jpg" loading="lazy">
-            <div class="meta">
-              <div class="subject">ATR 72-600 雙發動機失效緊急程序與系統邏輯</div>
-              <div class="date">2026-08-01 06:43</div>
-              <div class="vid">ID: 94fKfjbSBFc</div>
-            </div>
-          </a>
-          <div class="item-actions">
-            <a class="yt-link" href="https://www.youtube.com/watch?v=94fKfjbSBFc" target="_blank" rel="noopener">▶ 原始影片</a>
-            <button class="del-btn" onclick="deleteVideo('94fKfjbSBFc')">🗑 刪除</button>
-          </div>
-        </div>
-        <div class="item">
-          <a class="item-link" href="./hCoD2x8qy_0.html">
-            <img src="https://i.ytimg.com/vi/hCoD2x8qy_0/mqdefault.jpg" loading="lazy">
-            <div class="meta">
-              <div class="subject">ATR 飛行操作 - 完美落地與穩定進場規範 (ATR Flight Operations - Perfect Landing &amp; Stabilized Approach Criteria)</div>
-              <div class="date">2026-08-01 06:38</div>
-              <div class="vid">ID: hCoD2x8qy_0</div>
-            </div>
-          </a>
-          <div class="item-actions">
-            <a class="yt-link" href="https://www.youtube.com/watch?v=hCoD2x8qy_0" target="_blank" rel="noopener">▶ 原始影片</a>
-            <button class="del-btn" onclick="deleteVideo('hCoD2x8qy_0')">🗑 刪除</button>
-          </div>
-        </div>
-        <div class="item">
-          <a class="item-link" href="./ABDShZqwtUE.html">
-            <img src="https://i.ytimg.com/vi/ABDShZqwtUE/mqdefault.jpg" loading="lazy">
-            <div class="meta">
-              <div class="subject">ATR 性能與 V1 決策邏輯 (ATR Performance &amp; V1 Decision Logic)</div>
-              <div class="date">2026-08-01 06:37</div>
-              <div class="vid">ID: ABDShZqwtUE</div>
-            </div>
-          </a>
-          <div class="item-actions">
-            <a class="yt-link" href="https://www.youtube.com/watch?v=ABDShZqwtUE" target="_blank" rel="noopener">▶ 原始影片</a>
-            <button class="del-btn" onclick="deleteVideo('ABDShZqwtUE')">🗑 刪除</button>
-          </div>
-        </div>
-        <div class="item">
-          <a class="item-link" href="./dsm9lPjoWGc.html">
-            <img src="https://i.ytimg.com/vi/dsm9lPjoWGc/mqdefault.jpg" loading="lazy">
-            <div class="meta">
-              <div class="subject">SOP 與人因工程 - 最低下降高度 (Minima) 呼號與決策邏輯</div>
-              <div class="date">2026-08-01 06:36</div>
-              <div class="vid">ID: dsm9lPjoWGc</div>
-            </div>
-          </a>
-          <div class="item-actions">
-            <a class="yt-link" href="https://www.youtube.com/watch?v=dsm9lPjoWGc" target="_blank" rel="noopener">▶ 原始影片</a>
-            <button class="del-btn" onclick="deleteVideo('dsm9lPjoWGc')">🗑 刪除</button>
-          </div>
-        </div>
-        <div class="item">
-          <a class="item-link" href="./uDRJtBqy5rE.html">
-            <img src="https://i.ytimg.com/vi/uDRJtBqy5rE/mqdefault.jpg" loading="lazy">
-            <div class="meta">
-              <div class="subject">ATR 72-600 航電系統與飛行操作分析 (Abuja 至 Lagos 實機演練)</div>
-              <div class="date">2026-08-01 06:34</div>
-              <div class="vid">ID: uDRJtBqy5rE</div>
-            </div>
-          </a>
-          <div class="item-actions">
-            <a class="yt-link" href="https://www.youtube.com/watch?v=uDRJtBqy5rE" target="_blank" rel="noopener">▶ 原始影片</a>
-            <button class="del-btn" onclick="deleteVideo('uDRJtBqy5rE')">🗑 刪除</button>
-          </div>
-        </div>
-        <div class="item">
-          <a class="item-link" href="./U28lG74x8j8.html">
-            <img src="https://i.ytimg.com/vi/U28lG74x8j8/mqdefault.jpg" loading="lazy">
-            <div class="meta">
-              <div class="subject">航空氣象 - 露點 (Dewpoint) 與 METAR 數據分析</div>
-              <div class="date">2026-08-01 06:33</div>
-              <div class="vid">ID: U28lG74x8j8</div>
-            </div>
-          </a>
-          <div class="item-actions">
-            <a class="yt-link" href="https://www.youtube.com/watch?v=U28lG74x8j8" target="_blank" rel="noopener">▶ 原始影片</a>
-            <button class="del-btn" onclick="deleteVideo('U28lG74x8j8')">🗑 刪除</button>
-          </div>
-        </div>
-        <div class="item">
-          <a class="item-link" href="./gZoSKMq8Khk.html">
-            <img src="https://i.ytimg.com/vi/gZoSKMq8Khk/mqdefault.jpg" loading="lazy">
-            <div class="meta">
-              <div class="subject">ATR 42/72 飛行操作與系統邏輯 - 新進首位官常見錯誤分析</div>
-              <div class="date">2026-08-01 05:33</div>
-              <div class="vid">ID: gZoSKMq8Khk</div>
-            </div>
-          </a>
-          <div class="item-actions">
-            <a class="yt-link" href="https://www.youtube.com/watch?v=gZoSKMq8Khk" target="_blank" rel="noopener">▶ 原始影片</a>
-            <button class="del-btn" onclick="deleteVideo('gZoSKMq8Khk')">🗑 刪除</button>
+            <a class="yt-link" href="https://www.youtube.com/watch?v=qZv61bNeRzo" target="_blank" rel="noopener">▶ 原始影片</a>
+            <button class="del-btn" onclick="deleteVideo('qZv61bNeRzo')">🗑 刪除</button>
           </div>
         </div>
 
 <script>
+var allCollapsed = false;
+
+function toggleCollapseAll() {
+  allCollapsed = !allCollapsed;
+  document.querySelectorAll('.item').forEach(function(el) {
+    el.classList.toggle('collapsed', allCollapsed);
+  });
+  document.getElementById('collapse-toggle-btn').textContent = allCollapsed ? '📂 全部展開' : '📁 全部收合';
+}
+
 function deleteVideo(id) {
   var pathParts = window.location.pathname.split('/').filter(Boolean);
   var repoName = pathParts[0] || '';

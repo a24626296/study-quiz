@@ -1,0 +1,101 @@
+{
+  "subject": "航空面試心理學與選拔邏輯 - 招募官觀點",
+  "mc_questions": [
+    {
+      "zh_question": "根據招募專家的觀點，航空選拔中的「基礎（Foundation）」知識層面不包含下列哪一項？",
+      "zh_options": [
+        "(A) 理解 CRM 的運作流程與邏輯",
+        "(B) 深入了解自我特質與職務契合度",
+        "(C) 準備特定的心理測驗（Psychometric Tests）考古題",
+        "(D) 洞悉面試官背後的考量與需求"
+      ],
+      "en_question": "According to the expert, which of the following is NOT included in the 'Foundation' level of airline selection preparation?",
+      "en_options": [
+        "(A) Understanding CRM operational processes",
+        "(B) Deep understanding of self and role fit",
+        "(C) Preparing specific psychometric test questions",
+        "(D) Understanding what the recruiter is looking for"
+      ],
+      "answer": "C",
+      "explanation": "心理測驗、模擬機檢定與履歷修改被歸類為「表面層次（Surface Work）」，而基礎層次包含了解招募官需求、CRM 邏輯以及自我認知 (Understanding yourself)。",
+      "timestamp": "04:50"
+    },
+    {
+      "zh_question": "關於航空公司的選拔機制，影片中提到法國航空（Air France）與漢莎航空（Lufthansa）在申請次數限制上有何主要差異？",
+      "zh_options": [
+        "(A) 法航限制一次，漢莎限制三次",
+        "(B) 兩者皆限制一生只能申請一次",
+        "(C) 法航最多可申請三次（需間隔時間），漢莎通常只有一次機會",
+        "(D) 漢莎航空沒有次數限制，只要執照有效即可"
+      ],
+      "en_question": "Regarding airline selection rules, what is the main difference mentioned between Air France and Lufthansa concerning application limits?",
+      "en_options": [
+        "(A) Air France limits to once, Lufthansa limits to three times",
+        "(B) Both airlines have a strict one-time-only policy",
+        "(C) Air France allows up to three attempts (with spacing), while Lufthansa is generally a one-time opportunity",
+        "(D) Lufthansa has no limits as long as the license is valid"
+      ],
+      "answer": "C",
+      "explanation": "影片提到 Lufthansa 是 one-time chance，而 Air France 可多達三次，但每次嘗試之間會有顯著的時間間隔（如 2 至 3 年）。",
+      "timestamp": "17:15"
+    },
+    {
+      "zh_question": "在三類面試候選人中，佔比約 50% 的「合格候選人」最常因為什麼原因失敗？",
+      "zh_options": [
+        "(A) 飛行技術或學科能力不足",
+        "(B) 不了解招募官的需求，導致在面試中自亂陣腳",
+        "(C) 英語能力未達標",
+        "(D) 缺乏足夠的飛行時數"
+      ],
+      "en_question": "Among the three categories of candidates, why do the '50% capable candidates' often fail?",
+      "en_options": [
+        "(A) Lack of flying skills or technical knowledge",
+        "(B) Failing to understand what the recruiter wants, leading to self-trapping",
+        "(C) Failing to meet English proficiency standards",
+        "(D) Lacking sufficient flight hours"
+      ],
+      "answer": "B",
+      "explanation": "這類候選人本身能力達標，但因缺乏面試邏輯的「解碼鑰匙 (Decoding keys)」，容易在面試中掉入陷阱 (sliding on the banana peel)，失去信心而失敗。",
+      "timestamp": "15:00"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "There are two levels of knowledge needed: the {{c1::Foundation}} and the Surface work.",
+      "zh_translation": "成功的選拔需要兩個層次的知識：基礎層次與表面層次。",
+      "explanation": "Foundation 是核心邏輯，Surface 是針對特定關卡的練習。",
+      "tags": "Selection Logic",
+      "timestamp": "04:40"
+    },
+    {
+      "cloze_text": "An unofficial statistic shows that {{c1::50%}} of ATPL holders do not renew their professional licenses after three years.",
+      "zh_translation": "一項非官方統計顯示，50% 的 ATPL 持有人在三年後不再續領其專業執照。",
+      "explanation": "這反映了許多人在取得執照後因無法通過航空公司選拔而被迫轉行。",
+      "tags": "Career Statistics",
+      "timestamp": "08:50"
+    },
+    {
+      "cloze_text": "Any time that you waste now is time that you will lose in {{c1::seniority}}.",
+      "zh_translation": "你現在浪費的任何時間，未來都會轉化為資歷排名的損失。",
+      "explanation": "資歷排名 (Seniority) 在航空公司中決定了升遷、排班與轉機型的優先權。",
+      "tags": "Career Planning",
+      "timestamp": "11:15"
+    },
+    {
+      "cloze_text": "The candidate must have the {{c1::decoding keys}} to understand the interview exercises.",
+      "zh_translation": "候選人必須擁有「解碼鑰匙」才能理解面試練習背後的意義。",
+      "explanation": "這指的是理解招募官評核的維度，而不僅是回答表面問題。",
+      "tags": "Interview Strategy",
+      "timestamp": "13:40"
+    },
+    {
+      "cloze_text": "If you don't know why you failed, you lose your {{c1::confidence}} for the next assessment.",
+      "zh_translation": "如果你不知道失敗的原因，你在下一次評核中會失去信心。",
+      "explanation": "了解失敗的具體原因 (feedback) 對於修正表現至關重要。",
+      "tags": "Psychology",
+      "timestamp": "16:03"
+    }
+  ],
+  "video_id": "qZv61bNeRzo",
+  "url": "https://www.youtube.com/watch?v=qZv61bNeRzo&t=339s"
+}
