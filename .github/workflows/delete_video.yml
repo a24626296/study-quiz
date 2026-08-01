@@ -1,0 +1,45 @@
+name: 刪除線上複習頁面
+on:
+  workflow_dispatch:
+    inputs:
+      video_id:
+        description: '要刪除的影片 ID(11碼,從複習清單頁的刪除按鈕複製過來貼這裡)'
+        required: true
+        type: string
+# 給予發布 Pages 與寫入倉庫的權限
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取得 repo
+        uses: actions/checkout@v4
+      - name: 安裝 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: 安裝套件
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-genai
+      - name: 刪除指定影片的複習頁面
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python scripts/delete_video.py "${{ inputs.video_id }}"
+      - name: 提交並推送變更
+        run: |
+          git config user.name "quiz-bot"
+          git config user.email "quiz-bot@users.noreply.github.com"
+          git add online_study/
+          git diff --cached --quiet && echo "沒有變動,略過 commit" || git commit -m "刪除線上複習頁面: ${{ inputs.video_id }}"
+          git push
+      - name: 上傳 Pages 檔案
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'online_study'
+      - name: 部署至 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
