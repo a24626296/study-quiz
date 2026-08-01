@@ -40,7 +40,7 @@ if not API_KEY:
 
 client = genai.Client(api_key=API_KEY)
 MODEL_NAME = "gemini-3-flash-preview"
-MAX_RETRIES_ON_429 = 3
+MAX_RETRIES_ON_TRANSIENT = 3  # 429限流 / 503過載 共用的重試次數上限
 
 ONLINE_STUDY_DIR = os.path.normpath("./online_study")
 os.makedirs(ONLINE_STUDY_DIR, exist_ok=True)
@@ -124,7 +124,7 @@ def strip_stray_cloze_markup(text):
 
 
 def generate_quiz_from_youtube_url(video_id):
-    """直接把 YouTube 影片交給 Gemini 分析,不下載、不上傳檔案。附帶 429 重試。"""
+    """直接把 YouTube 影片交給 Gemini 分析,不下載、不上傳檔案。附帶 429 / 503 重試。"""
     clean_url = f"https://www.youtube.com/watch?v={video_id}"
     prompt = f"{QUIZ_SYSTEM_PROMPT}\n影片網址:{clean_url}。請直接分析這支 YouTube 影片後出題。"
     video_part = types.Part(file_data=types.FileData(file_uri=clean_url))
@@ -140,9 +140,11 @@ def generate_quiz_from_youtube_url(video_id):
         except Exception as e:
             err_str = str(e)
             is_rate_limit = "429" in err_str or "RESOURCE_EXHAUSTED" in err_str
-            if is_rate_limit and attempt < MAX_RETRIES_ON_429:
+            is_overloaded = "503" in err_str or "UNAVAILABLE" in err_str
+            if (is_rate_limit or is_overloaded) and attempt < MAX_RETRIES_ON_TRANSIENT:
                 wait_s = 20 * (attempt + 1)
-                print(f"⚠️ 觸發 429 限流,等待 {wait_s} 秒後重試(第 {attempt + 1} 次)...")
+                reason = "429 限流" if is_rate_limit else "503 模型過載"
+                print(f"⚠️ 觸發 {reason},等待 {wait_s} 秒後重試(第 {attempt + 1} 次)...")
                 time.sleep(wait_s)
                 attempt += 1
                 continue
