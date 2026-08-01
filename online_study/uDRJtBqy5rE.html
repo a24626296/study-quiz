@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATR 72-600 航電系統與飛行操作分析 (Abuja 至 Lagos 實機演練) - 線上複習</title>
+<style>
+  body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; }
+  .layout { display:flex; gap:20px; padding:20px; align-items:flex-start; flex-wrap:wrap; }
+  .player-col { position:sticky; top:20px; flex:0 0 480px; }
+  .player-col iframe { width:480px; height:270px; border:0; border-radius:8px; }
+  .subject { font-size:18px; font-weight:bold; margin:12px 0; color:#72ef95; }
+  .list-col { flex:1; min-width:320px; }
+  .qcard { background:#1e293b; border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .cloze-card { border-left:4px solid #ff6b6b; }
+  .qcard-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .qnum { color:#64B5F6; font-weight:bold; }
+  .ts-btn { background:#2196F3; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }
+  .ts-btn:hover { background:#1769aa; }
+  .q-text { font-size:16px; line-height:1.6; margin-bottom:6px; }
+  .q-options { color:#cbd5e1; font-size:14px; line-height:1.8; margin-bottom:6px; }
+  .q-zh { color:#94a3b8; font-size:13px; margin:6px 0; }
+  .explain { color:#cbd5e1; font-size:13px; margin-top:6px; }
+  .tag { display:inline-block; margin-top:8px; background:rgba(250,82,82,0.15); color:#ff6b6b; padding:2px 8px; border-radius:4px; font-size:12px; }
+  details { margin-top:8px; }
+  summary { cursor:pointer; color:#64B5F6; font-size:13px; }
+  .answer { margin-top:8px; color:#72ef95; font-weight:bold; }
+  .blank { background:rgba(255,236,153,0.3); border-radius:3px; padding:1px 4px; cursor:pointer; }
+  .blank .blank-inner { visibility:hidden; }
+  .blank.revealed { background:rgba(255,236,153,0.7); }
+  .blank.revealed .blank-inner { visibility:visible; color:#d9480f; font-weight:bold; }
+  .blank:not(.revealed) .blank-inner::before { content:"﹍﹍﹍"; visibility:visible; color:#facc15; }
+  h2 { margin:16px 20px 0; }
+
+  .lang-toggle { display:flex; align-items:center; gap:8px; margin:0 20px 16px; font-size:13px; color:#94a3b8; }
+  .lang-btn { background:#1e293b; color:#cbd5e1; border:1px solid #334155; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:13px; }
+  .lang-btn.active { background:#2196F3; color:#fff; border-color:#2196F3; }
+
+  .hoverable { position:relative; display:block; border-bottom:1px dotted #64B5F6; cursor:help; width:fit-content; }
+  .q-options .hoverable { margin-bottom:4px; }
+  .hoverable .tooltip {
+    display:none; position:absolute; left:0; top:100%; margin-top:6px;
+    background:#0f172a; border:1px solid #64B5F6; color:#e2e8f0;
+    padding:6px 10px; border-radius:6px; font-size:13px; white-space:normal;
+    max-width:380px; z-index:50; box-shadow:0 4px 10px rgba(0,0,0,.4);
+  }
+  .hoverable:hover .tooltip { display:block; }
+  a.back { display:inline-block; margin:16px 20px 0; color:#64B5F6; font-size:13px; text-decoration:none; }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 回複習清單</a>
+<div class="lang-toggle">
+  顯示語言:
+  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+</div>
+<div class="layout">
+  <div class="player-col">
+    <div class="subject">ATR 72-600 航電系統與飛行操作分析 (Abuja 至 Lagos 實機演練)</div>
+    <div id="player"></div>
+  </div>
+  <div class="list-col">
+    <h3>📝 選擇題</h3>
+    
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 1</span><button class="ts-btn" onclick="seekTo(296)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="當 PFD 上出現 &#x27;ICING AOA&#x27; 訊息且 Anti-icing/De-icing 系統開啟時，這對飛行操作邏輯有何影響？" data-en="When the &#x27;ICING AOA&#x27; message appears on the PFD and Anti-icing/De-icing systems are ON, how does it affect the flight operation logic?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 系統會自動增加引擎動力以克服結冰阻力" data-en="(A) The system automatically increases engine power to overcome icing drag"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 系統會降低失速警告的 AOA 門檻，使失速警告與最低速度（Min Speeds）提高" data-en="(B) The system reduces the Stall Warning AOA threshold, resulting in higher Stall Warning and Minimum Speeds"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 自動駕駛儀會強制切換至垂直導航模式（VNAV）以儘快脫離雲層" data-en="(C) The autopilot forces a switch to Vertical Navigation mode (VNAV) to exit clouds quickly"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 飛機的總重計算會自動增加 500 公斤的冰塊載荷" data-en="(D) The aircraft&#x27;s gross weight calculation automatically adds a 500 kg ice load"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">在結冰條件下，由於機翼升力特性下降，系統會透過 ICING AOA 邏輯增加失速保護邊際（stall margin），使得 PFD 上的紅色與琥珀色速度條上移。這提醒機師必須維持更高的空速以確保飛行安全。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 2</span><button class="ts-btn" onclick="seekTo(378)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="在巡航與下降階段，機師將 TCAS 模式從 &#x27;ABOVE&#x27; 切換至 &#x27;NORM&#x27; 或 &#x27;BELOW&#x27; 的主要目的為何？" data-en="During the cruise and descent phases, what is the primary purpose of switching the TCAS mode from &#x27;ABOVE&#x27; to &#x27;NORM&#x27; or &#x27;BELOW&#x27;?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 為了減少雷達發射功率，節省飛機用電" data-en="(A) To reduce radar transmission power and save electricity"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 為了隱藏上方高高度巡航的噴射機，減少螢幕干擾" data-en="(B) To hide jet traffic at high altitudes and reduce display clutter"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 為了讓 TCAS 優先監控本機高度以下或相同高度的潛在衝突流量" data-en="(C) To prioritize monitoring of potential traffic conflicts at or below the current aircraft altitude"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 這是切換至導航模式（LNAV）的必要前提條件" data-en="(D) This is a necessary prerequisite for switching to LNAV mode"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">TCAS &#x27;ABOVE&#x27; 主要用於爬升階段以監控上方流量；巡航或下降時切換至 &#x27;NORM&#x27; (±2,700 ft) 或 &#x27;BELOW&#x27; (監控下方至 9,900 ft) 則更符合當前飛行路徑的威脅評估邏輯。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 3</span><button class="ts-btn" onclick="seekTo(916)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="在 ILS 進場時，關於 FMA 上的 &#x27;LOC&#x27; 與 &#x27;GS&#x27; 狀態標示，下列敘述何者正確？" data-en="Regarding the &#x27;LOC&#x27; and &#x27;GS&#x27; status symbols on the FMA during an ILS approach, which of the following statements is correct?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 綠色文字表示該模式已預位（Armed）但尚未攔截" data-en="(A) Green text indicates the mode is Armed but not yet intercepted"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 藍色文字表示該模式已捕獲（Captured）並正在執行導引" data-en="(B) Blue text indicates the mode is Captured and providing guidance"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 白色文字出現在右側表示該模式已預位，綠色文字出現在左側表示已捕獲並作用中" data-en="(C) White text on the right side indicates &#x27;Armed&#x27;, while green text on the left indicates &#x27;Active/Captured&#x27;"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 琥珀色閃爍表示該信號無效，機師必須立即重飛" data-en="(D) Amber flashing indicates an invalid signal and an immediate go-around is required"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">根據 ATR 的 FMA 邏輯，預位（Armed）模式顯示為白色字體於右方；當系統捕獲（Capture）信號並轉換為作用中（Active）時，字體會轉為綠色並移至左方的主顯示區。</div>
+          </details>
+        </div>
+        </div>
+    <h3>🧠 背誦重點(點空格看答案)</h3>
+    
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 1</span><button class="ts-btn" onclick="seekTo(29)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">V1 is defined as the <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">take-off decision speed</span></span>, after which the take-off must be continued even if a failure occurs.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">V1 被定義為「起飛決定速度」，在此速度之後，即使發生故障也必須繼續起飛。</div>
+            <div class="explain">V1 是判斷放棄起飛 (Rejected Take-off) 或繼續起飛的關鍵臨界速度。</div>
+          </details>
+          <div class="tag">Definitions / Take-off</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 2</span><button class="ts-btn" onclick="seekTo(79)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The acceleration altitude in the climb procedure is typically <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">400</span></span> feet above the airport elevation.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">爬升程序中的加速高度通常為機場高度上方 400 英呎。</div>
+            <div class="explain">達到此高度後，飛機從起飛姿態轉為加速縮襟翼並設定爬升馬力。</div>
+          </details>
+          <div class="tag">Climb / Procedures</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 3</span><button class="ts-btn" onclick="seekTo(251)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">Standard Altimeter Setting (Standard Pressure) is 1013.25 hPa or <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">29.92</span></span> inHg.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">標準高度計設定（標準壓力）為 1013.25 hPa 或 29.92 inHg。</div>
+            <div class="explain">在通過轉換高度 (Transition Altitude) 後，必須將 altimeter 設為 Standard。</div>
+          </details>
+          <div class="tag">Standard-Pressure / Limitations</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 4</span><button class="ts-btn" onclick="seekTo(1032)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The 'Pitch Trim Whooler' aural alert sounds when the pitch trim runs for more than <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">1</span></span> second.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">當俯仰配平（Pitch Trim）連續運作超過 1 秒時，會發出 &#x27;Whooler&#x27; 警示音。</div>
+            <div class="explain">此警報旨在提醒機師配平正在大幅度動作，或避免發生配平跑失 (Runaway) 而不知。</div>
+          </details>
+          <div class="tag">Warning-Systems / Flight-Control</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 5</span><button class="ts-btn" onclick="seekTo(92)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">In the ATR 72-600 glass cockpit, a speed target displayed in <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">magenta</span></span> color indicates it is controlled by the FMS.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">在 ATR 72-600 玻璃座艙中，顯示為洋紅色的速度目標表示其受 FMS 導航電腦控制。</div>
+            <div class="explain">洋紅色代表管理模式 (Managed Mode)，藍色則代表機師手動選擇模式 (Selected Mode)。</div>
+          </details>
+          <div class="tag">FMS / Avionics</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 6</span><button class="ts-btn" onclick="seekTo(1133)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">A perfect glide path on the PAPI system is indicated by <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">2 white and 2 red</span></span> lights.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">PAPI 系統顯示完美下滑道的信號是「兩白兩紅」燈光。</div>
+            <div class="explain">這代表飛機正精確地維持在 3 度的進場下滑角上。</div>
+          </details>
+          <div class="tag">Approach / PAPI</div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var primaryLang = 'zh';
+  var embedBlocked = false;
+  var VIDEO_ID = 'uDRJtBqy5rE';
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '270',
+      width: '480',
+      videoId: VIDEO_ID,
+      playerVars: { 'playsinline': 1, 'origin': window.location.origin },
+      events: { 'onError': onPlayerError }
+    });
+  }
+  function onPlayerError(event) {
+    // 101 / 150 = 影片擁有者禁止嵌入播放,100 = 影片不存在或設為私人,5 = HTML5播放器錯誤
+    if ([101, 150, 100, 5].indexOf(event.data) !== -1) {
+      embedBlocked = true;
+    }
+  }
+  function seekTo(seconds) {
+    if (embedBlocked || !player || !player.seekTo) {
+      window.open('https://www.youtube.com/watch?v=' + VIDEO_ID + '&t=' + seconds + 's', '_blank');
+      return;
+    }
+    player.seekTo(seconds, true);
+    player.playVideo();
+  }
+
+  function applyLang() {
+    var otherLang = primaryLang === 'zh' ? 'en' : 'zh';
+    document.querySelectorAll('.hoverable').forEach(function(el) {
+      var mainEl = el.querySelector('.main-text');
+      var tipEl = el.querySelector('.tooltip');
+      mainEl.textContent = el.dataset[primaryLang] || '';
+      tipEl.textContent = el.dataset[otherLang] || '';
+    });
+  }
+
+  function setLang(lang) {
+    primaryLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    applyLang();
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLang);
+</script>
+</body>
+</html>

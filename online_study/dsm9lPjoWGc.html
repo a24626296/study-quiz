@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SOP 與人因工程 - 最低下降高度 (Minima) 呼號與決策邏輯 - 線上複習</title>
+<style>
+  body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; }
+  .layout { display:flex; gap:20px; padding:20px; align-items:flex-start; flex-wrap:wrap; }
+  .player-col { position:sticky; top:20px; flex:0 0 480px; }
+  .player-col iframe { width:480px; height:270px; border:0; border-radius:8px; }
+  .subject { font-size:18px; font-weight:bold; margin:12px 0; color:#72ef95; }
+  .list-col { flex:1; min-width:320px; }
+  .qcard { background:#1e293b; border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .cloze-card { border-left:4px solid #ff6b6b; }
+  .qcard-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .qnum { color:#64B5F6; font-weight:bold; }
+  .ts-btn { background:#2196F3; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }
+  .ts-btn:hover { background:#1769aa; }
+  .q-text { font-size:16px; line-height:1.6; margin-bottom:6px; }
+  .q-options { color:#cbd5e1; font-size:14px; line-height:1.8; margin-bottom:6px; }
+  .q-zh { color:#94a3b8; font-size:13px; margin:6px 0; }
+  .explain { color:#cbd5e1; font-size:13px; margin-top:6px; }
+  .tag { display:inline-block; margin-top:8px; background:rgba(250,82,82,0.15); color:#ff6b6b; padding:2px 8px; border-radius:4px; font-size:12px; }
+  details { margin-top:8px; }
+  summary { cursor:pointer; color:#64B5F6; font-size:13px; }
+  .answer { margin-top:8px; color:#72ef95; font-weight:bold; }
+  .blank { background:rgba(255,236,153,0.3); border-radius:3px; padding:1px 4px; cursor:pointer; }
+  .blank .blank-inner { visibility:hidden; }
+  .blank.revealed { background:rgba(255,236,153,0.7); }
+  .blank.revealed .blank-inner { visibility:visible; color:#d9480f; font-weight:bold; }
+  .blank:not(.revealed) .blank-inner::before { content:"﹍﹍﹍"; visibility:visible; color:#facc15; }
+  h2 { margin:16px 20px 0; }
+
+  .lang-toggle { display:flex; align-items:center; gap:8px; margin:0 20px 16px; font-size:13px; color:#94a3b8; }
+  .lang-btn { background:#1e293b; color:#cbd5e1; border:1px solid #334155; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:13px; }
+  .lang-btn.active { background:#2196F3; color:#fff; border-color:#2196F3; }
+
+  .hoverable { position:relative; display:block; border-bottom:1px dotted #64B5F6; cursor:help; width:fit-content; }
+  .q-options .hoverable { margin-bottom:4px; }
+  .hoverable .tooltip {
+    display:none; position:absolute; left:0; top:100%; margin-top:6px;
+    background:#0f172a; border:1px solid #64B5F6; color:#e2e8f0;
+    padding:6px 10px; border-radius:6px; font-size:13px; white-space:normal;
+    max-width:380px; z-index:50; box-shadow:0 4px 10px rgba(0,0,0,.4);
+  }
+  .hoverable:hover .tooltip { display:block; }
+  a.back { display:inline-block; margin:16px 20px 0; color:#64B5F6; font-size:13px; text-decoration:none; }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 回複習清單</a>
+<div class="lang-toggle">
+  顯示語言:
+  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+</div>
+<div class="layout">
+  <div class="player-col">
+    <div class="subject">SOP 與人因工程 - 最低下降高度 (Minima) 呼號與決策邏輯</div>
+    <div id="player"></div>
+  </div>
+  <div class="list-col">
+    <h3>📝 選擇題</h3>
+    
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 1</span><button class="ts-btn" onclick="seekTo(113)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="根據影片中的觀念,為什麼將 Minima 的呼號由「Landing」改為「Continue」較為理想?" data-en="According to the video, why is it better to use the callout &#x27;Continue&#x27; instead of &#x27;Landing&#x27; at minima?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 減少與塔台溝通的無線電負荷" data-en="(A) To reduce radio workload with ATC"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 避免飛行員產生「落地承諾」的心理偏誤,保留後續 Go-around 的彈性" data-en="(B) To avoid psychological commitment to land and maintain flexibility for a potential go-around"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 符合 ATR 飛機系統在自動駕駛狀態下的預設指令" data-en="(C) To match the default commands of the ATR autopilot system"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 因為 Continue 是 ICAO 唯一強制規定的術語" data-en="(D) Because &#x27;Continue&#x27; is the only term mandated by ICAO"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">呼號 &#x27;Landing&#x27; 會讓大腦產生心理承諾 (mentally commit),若後續發生跑道入侵或天氣突變,飛行員較難改變心意執行 Go-around。&#x27;Continue&#x27; 則表示僅是「持續進場」直到落地前一刻。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 2</span><button class="ts-btn" onclick="seekTo(142)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="在 Minima 執行決策時,下列何者不是 ICAO Doc 9365 提到的必要評估指標?" data-en="When making a decision at minima, which of the following is NOT an assessment indicator mentioned in ICAO Doc 9365?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 能見度 (Visibility)" data-en="(A) Visibility"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 跑道視程 (RVR)" data-en="(B) RVR"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 剩餘油量是否充足 (Fuel remaining)" data-en="(C) Fuel remaining"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 決斷高度/高度 (Minimum altitude or height)" data-en="(D) Minimum altitude or height"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">ICAO Doc 9365 定義 Aerodrome operating minima 是以高度 (Altitude/Height) 與能見度 (Visibility/RVR) 來表達。油量雖重要,但非 Minima 決策點當下的判斷依據。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 3</span><button class="ts-btn" onclick="seekTo(82)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="若在通過 Minima 後、落地前,發生何種狀況應立即執行 Go-around?" data-en="Which of the following situations requires an immediate go-around after passing minima but before touchdown?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 失去必要的目視參考 (Lose visual references)" data-en="(A) Loss of required visual references"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 發現跑道上有其他航空器或車輛 (Runway occupied)" data-en="(B) Runway occupied by another aircraft or vehicle"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 遭遇嚴重風切變 (Severe windshear)" data-en="(C) Encountering severe windshear"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 以上皆是" data-en="(D) All of the above"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(D)</div>
+            <div class="explain">從 Minima 到 Touchdown 之間可能發生許多變數,如天氣轉壞、跑道入侵或風切變,飛行員必須隨時準備好中斷落地。</div>
+          </details>
+        </div>
+        </div>
+    <h3>🧠 背誦重點(點空格看答案)</h3>
+    
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 1</span><button class="ts-btn" onclick="seekTo(42)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">When you don't have the required visual references to continue to land, you call <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">Go around</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">當你沒有所需的目視參考以持續落地時,你應該呼叫「重飛」。</div>
+            <div class="explain">這是最基本的 SOP 規範,若條件不滿足則必須立即中斷進場。</div>
+          </details>
+          <div class="tag">SOP / Callouts</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 2</span><button class="ts-btn" onclick="seekTo(113)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">When I say landing, I will <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">mentally commit</span></span> myself to land.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">當我說出「落地」時,我也在心理上對落地做出了承諾。</div>
+            <div class="explain">這說明了人因工程中的「計畫持續偏誤」(Plan Continuation Bias)。</div>
+          </details>
+          <div class="tag">Human Factors</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 3</span><button class="ts-btn" onclick="seekTo(165)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">Minima are an expression of the altitude or height at which the decision to continue or execute a <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">missed approach</span></span> should be made.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">Minima 是指在此高度或高度下,必須做出持續落地或執行錯失進場的決策。</div>
+            <div class="explain">強調 Minima 是一個「決策點」而非僅是「報數點」。</div>
+          </details>
+          <div class="tag">Definitions / ICAO</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 4</span><button class="ts-btn" onclick="seekTo(36)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The position of the aircraft relative to the runway should be verified by one or more of the following <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">visual references</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">飛機相對於跑道的位置應透過一項或多項目視參考來核實。</div>
+            <div class="explain">包含跑道燈、標誌或 PAPI 等目視輔助設施。</div>
+          </details>
+          <div class="tag">Requirements</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 5</span><button class="ts-btn" onclick="seekTo(77)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">A lot can happen from minima until you <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">touchdown</span></span> on the runway.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">從通過最低高度到在跑道著陸之間,可能會發生很多事情。</div>
+            <div class="explain">警惕飛行員不可因通過 Minima 就放鬆警惕,危險隨時可能發生。</div>
+          </details>
+          <div class="tag">Safety Logic</div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var primaryLang = 'zh';
+  var embedBlocked = false;
+  var VIDEO_ID = 'dsm9lPjoWGc';
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '270',
+      width: '480',
+      videoId: VIDEO_ID,
+      playerVars: { 'playsinline': 1, 'origin': window.location.origin },
+      events: { 'onError': onPlayerError }
+    });
+  }
+  function onPlayerError(event) {
+    // 101 / 150 = 影片擁有者禁止嵌入播放,100 = 影片不存在或設為私人,5 = HTML5播放器錯誤
+    if ([101, 150, 100, 5].indexOf(event.data) !== -1) {
+      embedBlocked = true;
+    }
+  }
+  function seekTo(seconds) {
+    if (embedBlocked || !player || !player.seekTo) {
+      window.open('https://www.youtube.com/watch?v=' + VIDEO_ID + '&t=' + seconds + 's', '_blank');
+      return;
+    }
+    player.seekTo(seconds, true);
+    player.playVideo();
+  }
+
+  function applyLang() {
+    var otherLang = primaryLang === 'zh' ? 'en' : 'zh';
+    document.querySelectorAll('.hoverable').forEach(function(el) {
+      var mainEl = el.querySelector('.main-text');
+      var tipEl = el.querySelector('.tooltip');
+      mainEl.textContent = el.dataset[primaryLang] || '';
+      tipEl.textContent = el.dataset[otherLang] || '';
+    });
+  }
+
+  function setLang(lang) {
+    primaryLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    applyLang();
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLang);
+</script>
+</body>
+</html>

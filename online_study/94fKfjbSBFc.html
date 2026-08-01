@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATR 72-600 雙發動機失效緊急程序與系統邏輯 - 線上複習</title>
+<style>
+  body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; }
+  .layout { display:flex; gap:20px; padding:20px; align-items:flex-start; flex-wrap:wrap; }
+  .player-col { position:sticky; top:20px; flex:0 0 480px; }
+  .player-col iframe { width:480px; height:270px; border:0; border-radius:8px; }
+  .subject { font-size:18px; font-weight:bold; margin:12px 0; color:#72ef95; }
+  .list-col { flex:1; min-width:320px; }
+  .qcard { background:#1e293b; border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .cloze-card { border-left:4px solid #ff6b6b; }
+  .qcard-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .qnum { color:#64B5F6; font-weight:bold; }
+  .ts-btn { background:#2196F3; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }
+  .ts-btn:hover { background:#1769aa; }
+  .q-text { font-size:16px; line-height:1.6; margin-bottom:6px; }
+  .q-options { color:#cbd5e1; font-size:14px; line-height:1.8; margin-bottom:6px; }
+  .q-zh { color:#94a3b8; font-size:13px; margin:6px 0; }
+  .explain { color:#cbd5e1; font-size:13px; margin-top:6px; }
+  .tag { display:inline-block; margin-top:8px; background:rgba(250,82,82,0.15); color:#ff6b6b; padding:2px 8px; border-radius:4px; font-size:12px; }
+  details { margin-top:8px; }
+  summary { cursor:pointer; color:#64B5F6; font-size:13px; }
+  .answer { margin-top:8px; color:#72ef95; font-weight:bold; }
+  .blank { background:rgba(255,236,153,0.3); border-radius:3px; padding:1px 4px; cursor:pointer; }
+  .blank .blank-inner { visibility:hidden; }
+  .blank.revealed { background:rgba(255,236,153,0.7); }
+  .blank.revealed .blank-inner { visibility:visible; color:#d9480f; font-weight:bold; }
+  .blank:not(.revealed) .blank-inner::before { content:"﹍﹍﹍"; visibility:visible; color:#facc15; }
+  h2 { margin:16px 20px 0; }
+
+  .lang-toggle { display:flex; align-items:center; gap:8px; margin:0 20px 16px; font-size:13px; color:#94a3b8; }
+  .lang-btn { background:#1e293b; color:#cbd5e1; border:1px solid #334155; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:13px; }
+  .lang-btn.active { background:#2196F3; color:#fff; border-color:#2196F3; }
+
+  .hoverable { position:relative; display:block; border-bottom:1px dotted #64B5F6; cursor:help; width:fit-content; }
+  .q-options .hoverable { margin-bottom:4px; }
+  .hoverable .tooltip {
+    display:none; position:absolute; left:0; top:100%; margin-top:6px;
+    background:#0f172a; border:1px solid #64B5F6; color:#e2e8f0;
+    padding:6px 10px; border-radius:6px; font-size:13px; white-space:normal;
+    max-width:380px; z-index:50; box-shadow:0 4px 10px rgba(0,0,0,.4);
+  }
+  .hoverable:hover .tooltip { display:block; }
+  a.back { display:inline-block; margin:16px 20px 0; color:#64B5F6; font-size:13px; text-decoration:none; }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 回複習清單</a>
+<div class="lang-toggle">
+  顯示語言:
+  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+</div>
+<div class="layout">
+  <div class="player-col">
+    <div class="subject">ATR 72-600 雙發動機失效緊急程序與系統邏輯</div>
+    <div id="player"></div>
+  </div>
+  <div class="list-col">
+    <h3>📝 選擇題</h3>
+    
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 1</span><button class="ts-btn" onclick="seekTo(420)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="在 ATR 72-600 中，當兩具發動機皆失效（Double Engine Failure）導致電力與液壓系統受損時，為什麼飛行員必須手動將 TLU (Rudder Travel Limitation Unit) 切換至 &#x27;LO SPD&#x27;？" data-en="In the ATR 72-600, during a double engine failure resulting in power and hydraulic loss, why must the pilot manually set the TLU (Rudder Travel Limitation Unit) to &#x27;LO SPD&#x27;?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 為了增加方向舵的靈敏度以補償偏航 (Yaw)" data-en="(A) To increase rudder sensitivity to compensate for yaw"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 因為 DC BUS 2 失電導致自動切換失效，手動設定以確保落地時有足夠的方向舵行程" data-en="(B) Because DC BUS 2 is unpowered, disabling automatic operation; manual setting ensures full rudder deflection for landing"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 為了將液壓動力優先分配給升降舵 (Elevator)" data-en="(C) To prioritize hydraulic power for the elevators"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 自動偏航配平 (Automatic Yaw Trim) 在雙發失效時需要此設定才能運作" data-en="(D) Automatic Yaw Trim requires this setting to function during a double engine failure"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">TLU 通常由 DC BUS 2 供電自動運作。當雙發失效導致該匯流排失電時，TLU 會留在最後的位置。手動切換至 LO SPD 是為了確保在低速落地階段方向舵具備最大偏轉角度 (Maximum allowed deflection)。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 2</span><button class="ts-btn" onclick="seekTo(267)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="關於影片中提到的 VmHB (Minimum speed for high bank angle)，其速度設定邏輯為何？" data-en="Regarding the VmHB (Minimum speed for high bank angle) mentioned in the video, what is its speed setting logic?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 等於最小操作速度 (Minimum operating speed)" data-en="(A) It is equal to the minimum operating speed"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 比最小操作速度高出 10 節，以提供最佳滑翔比並容許轉彎坡度" data-en="(B) It is 10 kt more than the minimum operating speed to provide best glide ratio and allow for bank angles in turns"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 比失速速度高出 30% 的安全餘裕速度" data-en="(C) It is a safety margin speed 30% above the stall speed"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 僅在襟翼完全收起 (Flaps UP) 時才有效的滑翔速度" data-en="(D) It is a glide speed valid only when flaps are fully retracted (Flaps UP)"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">VmHB 是為了在無動力滑翔轉彎時提供足夠的安全餘裕。它通常設定為最小操作速度 (VmLB/VmHB) 加 10 節，這也是該構型下的最佳滑翔比速度。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 3</span><button class="ts-btn" onclick="seekTo(589)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="在雙發動機失效且失去主要液壓泵 (Main Pumps) 的情況下，ATR 72 的起落架 (Landing Gear) 與煞車 (Brakes) 應如何操作？" data-en="Under a double engine failure with the loss of main hydraulic pumps, how should the landing gear and brakes be operated on the ATR 72?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 使用 Blue System 的備用泵 (Auxiliary Pump) 執行正常放架與煞車" data-en="(A) Use the Blue System Auxiliary Pump for normal gear extension and braking"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 起落架需使用重力緊急放架 (Emergency Extension)，煞車需使用緊急/駐靶煞車 (Emergency/Parking Brake)" data-en="(B) Landing gear requires the Emergency Extension handle (gravity); brakes require the Emergency/Parking Brake"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 必須先重啟其中一具發動機以回復 Green System 液壓" data-en="(C) One engine must be restarted first to restore Green System pressure"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 使用交叉供壓閥 (Cross-feed) 由 Blue System 驅動 Green System 執行放架" data-en="(D) Use the cross-feed valve to allow the Blue System to power the Green System for gear extension"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">起落架屬於 Green System，無液壓備用泵，故需手動重力放架。煞車雖屬於 Green System，但在液壓失效時需依賴蓄壓器 (Accumulator) 或手動操作 Emergency/Parking Brake 控制壓力。</div>
+          </details>
+        </div>
+        </div>
+    <h3>🧠 背誦重點(點空格看答案)</h3>
+    
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 1</span><button class="ts-btn" onclick="seekTo(259)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The golden rules of aviation are: 1. <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">Aviate</span></span>, 2. Navigate, 3. Communicate.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">航空飛行的黃金準則是：1. 飛行操作，2. 導航，3. 通訊。</div>
+            <div class="explain">這是飛行員在面對緊急狀況時最高優先順序，必須先穩定飛機姿態與速度（Aviate）後再處理其他事務。</div>
+          </details>
+          <div class="tag">Golden Rules / Airman-ship</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 2</span><button class="ts-btn" onclick="seekTo(346)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The ATR 72 has a glide ratio of approximately <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">15:1</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">ATR 72 的滑翔比大約是 15:1。</div>
+            <div class="explain">這意味著每下降 1 英呎的垂直高度，飛機可以水平滑翔 15 英呎；在 6,000 呎高度約可滑翔 15 海浬。</div>
+          </details>
+          <div class="tag">Performance / Glide</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 3</span><button class="ts-btn" onclick="seekTo(141)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">When an engine flameout is suspected, the first memory item is to move the affected Power Lever (PL) to <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">FI (Flight Idle)</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">當懷疑發動機熄火時，第一個記憶項目是將受影響的動力桿 (PL) 移至 FI (航行怠速) 位置。</div>
+            <div class="explain">這是處置 Flameout 的標準 Memory Item 第一步，隨後才是將 Condition Lever (CL) 順槳並關閉燃油。</div>
+          </details>
+          <div class="tag">Memory-Item / Engine</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 4</span><button class="ts-btn" onclick="seekTo(460)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The Blue hydraulic system has an <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">auxiliary pump</span></span> that can be operated manually to power flaps and nose wheel steering.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">藍色液壓系統有一個備用泵 (Auxiliary pump)，可以手動操作為襟翼與鼻輪轉向提供動力。</div>
+            <div class="explain">當主發動機驅動泵失效時，這是 Blue System 的唯一動力來源，由 DC 電源驅動。</div>
+          </details>
+          <div class="tag">Hydraulics / System-Logic</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 5</span><button class="ts-btn" onclick="seekTo(286)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">To steepen the descent without increasing speed, the pilot can use a technique called <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">side-slip</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">若要在不增加速度的情況下加深下降率，飛行員可以使用稱為「側滑」的技術。</div>
+            <div class="explain">側滑會增加機身阻力，在無動力滑翔若高度過高時是非常有效的修正手段。</div>
+          </details>
+          <div class="tag">Flight-Technique / Glide</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 6</span><button class="ts-btn" onclick="seekTo(231)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">In a double engine failure scenario, the autopilot will <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">disconnect</span></span> automatically.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">在雙發動機失效的情況下，自動駕駛儀會自動斷開。</div>
+            <div class="explain">由於失去主要電源與發動機數據輸入，自動駕駛無法繼續維持運作，飛行員必須立即接手人工飛行。</div>
+          </details>
+          <div class="tag">AFCS / Emergency</div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var primaryLang = 'zh';
+  var embedBlocked = false;
+  var VIDEO_ID = '94fKfjbSBFc';
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '270',
+      width: '480',
+      videoId: VIDEO_ID,
+      playerVars: { 'playsinline': 1, 'origin': window.location.origin },
+      events: { 'onError': onPlayerError }
+    });
+  }
+  function onPlayerError(event) {
+    // 101 / 150 = 影片擁有者禁止嵌入播放,100 = 影片不存在或設為私人,5 = HTML5播放器錯誤
+    if ([101, 150, 100, 5].indexOf(event.data) !== -1) {
+      embedBlocked = true;
+    }
+  }
+  function seekTo(seconds) {
+    if (embedBlocked || !player || !player.seekTo) {
+      window.open('https://www.youtube.com/watch?v=' + VIDEO_ID + '&t=' + seconds + 's', '_blank');
+      return;
+    }
+    player.seekTo(seconds, true);
+    player.playVideo();
+  }
+
+  function applyLang() {
+    var otherLang = primaryLang === 'zh' ? 'en' : 'zh';
+    document.querySelectorAll('.hoverable').forEach(function(el) {
+      var mainEl = el.querySelector('.main-text');
+      var tipEl = el.querySelector('.tooltip');
+      mainEl.textContent = el.dataset[primaryLang] || '';
+      tipEl.textContent = el.dataset[otherLang] || '';
+    });
+  }
+
+  function setLang(lang) {
+    primaryLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    applyLang();
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLang);
+</script>
+</body>
+</html>

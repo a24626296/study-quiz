@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>航空氣象 - 露點 (Dewpoint) 與 METAR 數據分析 - 線上複習</title>
+<style>
+  body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; }
+  .layout { display:flex; gap:20px; padding:20px; align-items:flex-start; flex-wrap:wrap; }
+  .player-col { position:sticky; top:20px; flex:0 0 480px; }
+  .player-col iframe { width:480px; height:270px; border:0; border-radius:8px; }
+  .subject { font-size:18px; font-weight:bold; margin:12px 0; color:#72ef95; }
+  .list-col { flex:1; min-width:320px; }
+  .qcard { background:#1e293b; border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .cloze-card { border-left:4px solid #ff6b6b; }
+  .qcard-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .qnum { color:#64B5F6; font-weight:bold; }
+  .ts-btn { background:#2196F3; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }
+  .ts-btn:hover { background:#1769aa; }
+  .q-text { font-size:16px; line-height:1.6; margin-bottom:6px; }
+  .q-options { color:#cbd5e1; font-size:14px; line-height:1.8; margin-bottom:6px; }
+  .q-zh { color:#94a3b8; font-size:13px; margin:6px 0; }
+  .explain { color:#cbd5e1; font-size:13px; margin-top:6px; }
+  .tag { display:inline-block; margin-top:8px; background:rgba(250,82,82,0.15); color:#ff6b6b; padding:2px 8px; border-radius:4px; font-size:12px; }
+  details { margin-top:8px; }
+  summary { cursor:pointer; color:#64B5F6; font-size:13px; }
+  .answer { margin-top:8px; color:#72ef95; font-weight:bold; }
+  .blank { background:rgba(255,236,153,0.3); border-radius:3px; padding:1px 4px; cursor:pointer; }
+  .blank .blank-inner { visibility:hidden; }
+  .blank.revealed { background:rgba(255,236,153,0.7); }
+  .blank.revealed .blank-inner { visibility:visible; color:#d9480f; font-weight:bold; }
+  .blank:not(.revealed) .blank-inner::before { content:"﹍﹍﹍"; visibility:visible; color:#facc15; }
+  h2 { margin:16px 20px 0; }
+
+  .lang-toggle { display:flex; align-items:center; gap:8px; margin:0 20px 16px; font-size:13px; color:#94a3b8; }
+  .lang-btn { background:#1e293b; color:#cbd5e1; border:1px solid #334155; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:13px; }
+  .lang-btn.active { background:#2196F3; color:#fff; border-color:#2196F3; }
+
+  .hoverable { position:relative; display:block; border-bottom:1px dotted #64B5F6; cursor:help; width:fit-content; }
+  .q-options .hoverable { margin-bottom:4px; }
+  .hoverable .tooltip {
+    display:none; position:absolute; left:0; top:100%; margin-top:6px;
+    background:#0f172a; border:1px solid #64B5F6; color:#e2e8f0;
+    padding:6px 10px; border-radius:6px; font-size:13px; white-space:normal;
+    max-width:380px; z-index:50; box-shadow:0 4px 10px rgba(0,0,0,.4);
+  }
+  .hoverable:hover .tooltip { display:block; }
+  a.back { display:inline-block; margin:16px 20px 0; color:#64B5F6; font-size:13px; text-decoration:none; }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 回複習清單</a>
+<div class="lang-toggle">
+  顯示語言:
+  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+</div>
+<div class="layout">
+  <div class="player-col">
+    <div class="subject">航空氣象 - 露點 (Dewpoint) 與 METAR 數據分析</div>
+    <div id="player"></div>
+  </div>
+  <div class="list-col">
+    <h3>📝 選擇題</h3>
+    
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 1</span><button class="ts-btn" onclick="seekTo(275)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="根據影片中提到的經驗法則 (Rule of Thumb)，若機場 METAR 顯示溫度為 31°C，露點為 23°C，在對流雲 (Convective clouds) 情況下，預估的雲底高度 (Cloud Ceiling) 約為多少？" data-en="According to the rule of thumb mentioned in the video, if the METAR shows a temperature of 31°C and a dewpoint of 23°C, what is the estimated cloud ceiling for convective clouds?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 2,000 feet" data-en="(A) 2,000 feet"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 2,400 feet" data-en="(B) 2,400 feet"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 3,200 feet" data-en="(C) 3,200 feet"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 4,000 feet" data-en="(D) 4,000 feet"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">計算公式為 Spread (Temp - Dewpoint) * 400 feet。在此題中，Spread 為 31 - 23 = 8，故 8 * 400 = 3,200 feet。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 2</span><button class="ts-btn" onclick="seekTo(296)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="關於雲高儀 (Ceilometer) 的限制，下列敘述何者正確？" data-en="Regarding the limitations of a ceilometer, which of the following statements is correct?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 它使用超音波測量，容易受到風速干擾" data-en="(A) It uses ultrasonic waves and is easily disturbed by wind"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 它僅能測量儀器正上方的雲層高度" data-en="(B) It can only measure the height of clouds directly above the instrument"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 它在雲層稀疏 (Few clouds) 時測量最為精確" data-en="(C) It is most accurate when there are few clouds"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 它測得的高度通常比實際雲底低 200 英呎" data-en="(D) The measured height is typically 200 feet lower than the actual cloud base"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">Ceilometer 使用雷射光束垂直向上掃描，因此只能偵測儀器正上方的雲層 (straight above)，在雲量較少時可能無法捕捉到機場整體的雲底狀況。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 3</span><button class="ts-btn" onclick="seekTo(478)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="當溫度與露點的差值 (Spread) 縮小到多少度以下時，飛行員應提高警覺並預期霧 (Fog) 的形成？" data-en="At what temperature-dewpoint spread should a pilot be prepared for the formation of fog?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 0°C" data-en="(A) 0°C"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 2°C" data-en="(B) 2°C"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 5°C" data-en="(C) 5°C"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 10°C" data-en="(D) 10°C"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">影片建議當 Spread 縮小至 2°C 或更小時，即使目前的 Visibility 尚可，仍應針對霧的生成做好 ILS Approach 或相關配套準備。</div>
+          </details>
+        </div>
+        </div>
+    <h3>🧠 背誦重點(點空格看答案)</h3>
+    
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 1</span><button class="ts-btn" onclick="seekTo(157)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">Dewpoint is defined as the temperature the air must be cooled to become <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">saturated</span></span> with water vapor.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">露點被定義為空氣必須冷卻至該溫度，才能使水蒸氣達到飽和狀態。</div>
+            <div class="explain">這是氣象學中關於露點的核心定義，與相對濕度密切相關。</div>
+          </details>
+          <div class="tag">Definition / Meteorology</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 2</span><button class="ts-btn" onclick="seekTo(77)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The METAR contains weather data observed for the last <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">10 minutes</span></span> before the report was issued.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">METAR 包含在報告發布前最後 10 分鐘內觀察到的天氣數據。</div>
+            <div class="explain">理解 METAR 的數據時效性對於評估天氣變化趨勢至關重要。</div>
+          </details>
+          <div class="tag">METAR / Procedures</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 3</span><button class="ts-btn" onclick="seekTo(231)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">When the spread between temperature and dewpoint is 10°C, the relative humidity is approximately <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">50%</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">當溫度與露點的差值為 10°C 時，相對濕度大約為 50%。</div>
+            <div class="explain">這是一個快速判斷空氣濕度狀態的簡化規則。</div>
+          </details>
+          <div class="tag">Meteorology / Rule-of-Thumb</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 4</span><button class="ts-btn" onclick="seekTo(456)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">A ceilometer often registers the cloud base to be <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">100 or 200</span></span> feet higher than it really is due to the 'fluffy' nature of clouds.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">由於雲層邊緣具有蓬鬆且不連續的特性，雲高儀記錄的雲底高度通常比實際高出 100 或 200 英呎。</div>
+            <div class="explain">儀器需要感測到足夠濃度的水滴才會判定為雲底，因此飛行員在邊際天氣下應考慮此誤差。</div>
+          </details>
+          <div class="tag">Limitations / Equipment</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 5</span><button class="ts-btn" onclick="seekTo(68)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The METAR is usually issued every <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">30 or 60</span></span> minutes at most airports.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">在大多數機場，METAR 通常每 30 或 60 分鐘發布一次。</div>
+            <div class="explain">這是機場例行性天氣報告的標準發布週期。</div>
+          </details>
+          <div class="tag">METAR / Regulations</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 6</span><button class="ts-btn" onclick="seekTo(220)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">If the temperature and dewpoint are the same, the relative humidity is <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">100%</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">如果溫度與露點相同，則相對濕度為 100%。</div>
+            <div class="explain">此時空氣達到飽和，極易形成霧、雲或降水。</div>
+          </details>
+          <div class="tag">Meteorology / Concept</div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var primaryLang = 'zh';
+  var embedBlocked = false;
+  var VIDEO_ID = 'U28lG74x8j8';
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '270',
+      width: '480',
+      videoId: VIDEO_ID,
+      playerVars: { 'playsinline': 1, 'origin': window.location.origin },
+      events: { 'onError': onPlayerError }
+    });
+  }
+  function onPlayerError(event) {
+    // 101 / 150 = 影片擁有者禁止嵌入播放,100 = 影片不存在或設為私人,5 = HTML5播放器錯誤
+    if ([101, 150, 100, 5].indexOf(event.data) !== -1) {
+      embedBlocked = true;
+    }
+  }
+  function seekTo(seconds) {
+    if (embedBlocked || !player || !player.seekTo) {
+      window.open('https://www.youtube.com/watch?v=' + VIDEO_ID + '&t=' + seconds + 's', '_blank');
+      return;
+    }
+    player.seekTo(seconds, true);
+    player.playVideo();
+  }
+
+  function applyLang() {
+    var otherLang = primaryLang === 'zh' ? 'en' : 'zh';
+    document.querySelectorAll('.hoverable').forEach(function(el) {
+      var mainEl = el.querySelector('.main-text');
+      var tipEl = el.querySelector('.tooltip');
+      mainEl.textContent = el.dataset[primaryLang] || '';
+      tipEl.textContent = el.dataset[otherLang] || '';
+    });
+  }
+
+  function setLang(lang) {
+    primaryLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    applyLang();
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLang);
+</script>
+</body>
+</html>

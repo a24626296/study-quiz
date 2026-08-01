@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATR 性能與 V1 決策邏輯 (ATR Performance & V1 Decision Logic) - 線上複習</title>
+<style>
+  body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; }
+  .layout { display:flex; gap:20px; padding:20px; align-items:flex-start; flex-wrap:wrap; }
+  .player-col { position:sticky; top:20px; flex:0 0 480px; }
+  .player-col iframe { width:480px; height:270px; border:0; border-radius:8px; }
+  .subject { font-size:18px; font-weight:bold; margin:12px 0; color:#72ef95; }
+  .list-col { flex:1; min-width:320px; }
+  .qcard { background:#1e293b; border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .cloze-card { border-left:4px solid #ff6b6b; }
+  .qcard-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .qnum { color:#64B5F6; font-weight:bold; }
+  .ts-btn { background:#2196F3; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }
+  .ts-btn:hover { background:#1769aa; }
+  .q-text { font-size:16px; line-height:1.6; margin-bottom:6px; }
+  .q-options { color:#cbd5e1; font-size:14px; line-height:1.8; margin-bottom:6px; }
+  .q-zh { color:#94a3b8; font-size:13px; margin:6px 0; }
+  .explain { color:#cbd5e1; font-size:13px; margin-top:6px; }
+  .tag { display:inline-block; margin-top:8px; background:rgba(250,82,82,0.15); color:#ff6b6b; padding:2px 8px; border-radius:4px; font-size:12px; }
+  details { margin-top:8px; }
+  summary { cursor:pointer; color:#64B5F6; font-size:13px; }
+  .answer { margin-top:8px; color:#72ef95; font-weight:bold; }
+  .blank { background:rgba(255,236,153,0.3); border-radius:3px; padding:1px 4px; cursor:pointer; }
+  .blank .blank-inner { visibility:hidden; }
+  .blank.revealed { background:rgba(255,236,153,0.7); }
+  .blank.revealed .blank-inner { visibility:visible; color:#d9480f; font-weight:bold; }
+  .blank:not(.revealed) .blank-inner::before { content:"﹍﹍﹍"; visibility:visible; color:#facc15; }
+  h2 { margin:16px 20px 0; }
+
+  .lang-toggle { display:flex; align-items:center; gap:8px; margin:0 20px 16px; font-size:13px; color:#94a3b8; }
+  .lang-btn { background:#1e293b; color:#cbd5e1; border:1px solid #334155; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:13px; }
+  .lang-btn.active { background:#2196F3; color:#fff; border-color:#2196F3; }
+
+  .hoverable { position:relative; display:block; border-bottom:1px dotted #64B5F6; cursor:help; width:fit-content; }
+  .q-options .hoverable { margin-bottom:4px; }
+  .hoverable .tooltip {
+    display:none; position:absolute; left:0; top:100%; margin-top:6px;
+    background:#0f172a; border:1px solid #64B5F6; color:#e2e8f0;
+    padding:6px 10px; border-radius:6px; font-size:13px; white-space:normal;
+    max-width:380px; z-index:50; box-shadow:0 4px 10px rgba(0,0,0,.4);
+  }
+  .hoverable:hover .tooltip { display:block; }
+  a.back { display:inline-block; margin:16px 20px 0; color:#64B5F6; font-size:13px; text-decoration:none; }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 回複習清單</a>
+<div class="lang-toggle">
+  顯示語言:
+  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+</div>
+<div class="layout">
+  <div class="player-col">
+    <div class="subject">ATR 性能與 V1 決策邏輯 (ATR Performance & V1 Decision Logic)</div>
+    <div id="player"></div>
+  </div>
+  <div class="list-col">
+    <h3>📝 選擇題</h3>
+    
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 1</span><button class="ts-btn" onclick="seekTo(215)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="根據 CS 25 規範與影片中的說明，關於 V1 速度的決策邏輯，下列敘述何者正確？" data-en="According to CS 25 regulations and the video, which of the following statements regarding V1 decision logic is correct?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 飛行員應在聽到 V1 Call-out 時才開始考慮是否中斷起飛" data-en="(A) Pilots should start considering whether to reject the take-off only upon hearing the V1 call-out."><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 決策中斷起飛的行為必須在飛機達到 V1 速度之前就已經完成" data-en="(B) The decision to reject the take-off must be completed before the airplane reaches V1 speed."><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 加速停止距離 (ASD) 的計算中，包含了額外 5 秒鐘供飛行員進行思考決策" data-en="(C) Accelerate-Stop Distance (ASD) calculation includes an extra 5 seconds for pilot decision-making."><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 若在 V1 之後發生引擎失效，應立即踩滿煞車中斷起飛" data-en="(D) If an engine failure occurs after V1, full braking should be applied immediately to reject the take-off."><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">根據 CS 25.107 與影片解析，V1 是行動點而非決策點。加速停止距離 (ASD) 計算中包含的 2 秒鐘 (1s pilot reaction + 1s aircraft reaction) 是用於「執行」動作，而非「思考」。因此，在 V1 呼號結束時，飛行員必須已經完成決策並開始施加煞車。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 2</span><button class="ts-btn" onclick="seekTo(500)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="在 ATR 72 飛機中，當起飛過程中偵測到引擎失效，ATPCS 系統會自動執行哪些動作？" data-en="In an ATR 72 aircraft, what automatic actions are performed by the ATPCS system when an engine failure is detected during take-off?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 將兩具引擎同時推至預設的最大連續馬力 (MCT)" data-en="(A) Both engines are simultaneously pushed to Maximum Continuous Power (MCT)."><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 自動開啟地面減速板 (Ground Spoilers) 並施加最大煞車" data-en="(B) Ground spoilers are automatically deployed and maximum braking is applied."><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 增加運作中引擎的馬力至 Reserve Take-off Power (RTO) 並將失效引擎螺旋槳順槳 (Feather)" data-en="(C) The operating engine&#x27;s power is increased to Reserve Take-off Power (RTO) and the failed engine&#x27;s propeller is feathered."><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 自動接通自動駕駛以維持航向" data-en="(D) Autopilot is automatically engaged to maintain heading."><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">ATR 的 ATPCS (Automatic Take-off Power Control System) 邏輯是：當偵測到一具引擎失效時，會自動將另一具正常運作引擎的馬力提升至 RTO (Reserve Take-off Power)，同時將失效引擎的螺旋槳自動順槳 (Auto-feather)，以減少阻力並增加升力梯度。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 3</span><button class="ts-btn" onclick="seekTo(630)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="影片中提到在菲律賓 Caticlan (RPVE) 舊跑道進行短場起飛時，為何離地後維持在 V2 速度而非典型的 V2+5？" data-en="During short field operations at the old Caticlan (RPVE) runway, why is V2 speed maintained after airborne instead of the typical V2+5?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 為了減少起落架收起時的阻力" data-en="(A) To reduce drag during landing gear retraction."><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) V2 速度下具有最佳的操控餘裕" data-en="(B) V2 speed provides the best control margin."><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 為了獲得較佳的爬升梯度以避開跑道末端的障礙物 (山丘)" data-en="(C) To achieve a better climb gradient for clearing close-in obstacles (hills)."><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 因為飛機重量太輕，不需要加速到 V2+5" data-en="(D) Because the aircraft weight is too low to require V2+5."><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">在短場且有障礙物 (Short field with obstacles) 的環境下，使用 V2 爬升雖然阻力略大於 V2+5，但能提供較陡的爬升路徑 (Steeper climb gradient)，這對於避開離場路徑上近距離的障礙物 (例如 Caticlan 跑道 06 末端的小山丘) 至關重要。</div>
+          </details>
+        </div>
+        </div>
+    <h3>🧠 背誦重點(點空格看答案)</h3>
+    
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 1</span><button class="ts-btn" onclick="seekTo(242)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The Accelerate-Stop Distance (ASD) includes a distance equivalent to <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">2 seconds</span></span> at V1 speed before deceleration.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">加速停止距離 (ASD) 包含了在開始減速前，以 V1 速度行駛 2 秒鐘的等效距離。</div>
+            <div class="explain">這 2 秒包含 1 秒的飛行員反應時間與 1 秒的機械反應時間，這段時間飛機仍在加速。</div>
+          </details>
+          <div class="tag">Performance / Limitation</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 2</span><button class="ts-btn" onclick="seekTo(341)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">According to Boeing statistics, <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">54%</span></span> of RTO accidents/incidents happened after the take-off had been rejected at a speed above V1.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">根據波音的統計數據，54% 的中斷起飛事故發生在超過 V1 速度後才啟動中斷程序。</div>
+            <div class="explain">這強調了高過 V1 後中斷起飛的風險極高，通常會導致跑道衝出。</div>
+          </details>
+          <div class="tag">Statistics / Safety</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 3</span><button class="ts-btn" onclick="seekTo(520)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">On ATR aircraft, many alerts are <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">inhibited</span></span> during take-off to prevent pilot distraction from non-critical problems.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">在 ATR 飛機上，起飛過程中許多警報會被「抑制」，以防止飛行員因非關鍵問題而分心。</div>
+            <div class="explain">T/O INHI 模式確保飛行員只會收到如引擎火警等嚴重故障的警報。</div>
+          </details>
+          <div class="tag">ATR System / Logic</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 4</span><button class="ts-btn" onclick="seekTo(190)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The engine failure speed, symbolized as <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">VEF::VEF</span></span>, is the speed at which the critical engine is assumed to fail.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">引擎失效速度 (VEF) 是指假設關鍵引擎發生故障的速度。</div>
+            <div class="explain">VEF 必須大於等於 VMCG (最小地面控制速度)，且 V1 必須晚於 VEF 至少 1 秒。</div>
+          </details>
+          <div class="tag">V-speeds / Definitions</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 5</span><button class="ts-btn" onclick="seekTo(595)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">For short field operations at Caticlan, pilots used reverse thrust to align the cockpit with poles, ensuring wheels were <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">2 meters</span></span> from the runway end.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">在 Caticlan 的短場作業中，飛行員利用反推力將駕駛艙對準標桿，確保主輪距離跑道末端僅 2 公尺。</div>
+            <div class="explain">這種精確對準 (Pole position) 是為了最大化利用每一公尺的可用跑道長度。</div>
+          </details>
+          <div class="tag">SOP / Short Field</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 6</span><button class="ts-btn" onclick="seekTo(741)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">After the landing gear is retracted, the aircraft shall climb with a gradient of minimum <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">2.4%</span></span> until reaching acceleration altitude.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">當起落架收起後，飛機應以至少 2.4% 的爬升梯度持續爬升，直到達到加速高度。</div>
+            <div class="explain">這是雙發動機飛機在第二階段 (2nd Segment) 爬升時的法規最低馬力梯度要求。</div>
+          </details>
+          <div class="tag">Performance / Regulations</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 7</span><button class="ts-btn" onclick="seekTo(770)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">Obstacles in the take-off path must be flown over with a minimum height of at least <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">35 feet</span></span>.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">起飛路徑上的障礙物必須以至少 35 英尺的高度飛越。</div>
+            <div class="explain">這是法規要求的 Screen Height，確保飛機在引擎失效情況下仍能安全避開障礙物。</div>
+          </details>
+          <div class="tag">Performance / Obstacle Clearance</div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var primaryLang = 'zh';
+  var embedBlocked = false;
+  var VIDEO_ID = 'ABDShZqwtUE';
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '270',
+      width: '480',
+      videoId: VIDEO_ID,
+      playerVars: { 'playsinline': 1, 'origin': window.location.origin },
+      events: { 'onError': onPlayerError }
+    });
+  }
+  function onPlayerError(event) {
+    // 101 / 150 = 影片擁有者禁止嵌入播放,100 = 影片不存在或設為私人,5 = HTML5播放器錯誤
+    if ([101, 150, 100, 5].indexOf(event.data) !== -1) {
+      embedBlocked = true;
+    }
+  }
+  function seekTo(seconds) {
+    if (embedBlocked || !player || !player.seekTo) {
+      window.open('https://www.youtube.com/watch?v=' + VIDEO_ID + '&t=' + seconds + 's', '_blank');
+      return;
+    }
+    player.seekTo(seconds, true);
+    player.playVideo();
+  }
+
+  function applyLang() {
+    var otherLang = primaryLang === 'zh' ? 'en' : 'zh';
+    document.querySelectorAll('.hoverable').forEach(function(el) {
+      var mainEl = el.querySelector('.main-text');
+      var tipEl = el.querySelector('.tooltip');
+      mainEl.textContent = el.dataset[primaryLang] || '';
+      tipEl.textContent = el.dataset[otherLang] || '';
+    });
+  }
+
+  function setLang(lang) {
+    primaryLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    applyLang();
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLang);
+</script>
+</body>
+</html>
