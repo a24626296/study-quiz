@@ -132,7 +132,45 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
 .item-list.view-grid .item-link img { width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; }
 .item-list.view-grid .meta .subject { white-space:normal; }
 .item-list.view-grid .item-actions { flex-direction:row; justify-content:space-between; margin-top:6px; }
-.item-list.view-grid.item.collapsed { display:none; } /* 格狀模式不支援收合,避免版面錯亂 */
+.item-list.view-grid .item.collapsed { display:none; } /* 格狀模式不支援收合,避免版面錯亂 */
+
+/* 小格狀檢視:縮圖更小更密集,類似資料夾縮圖模式 */
+.item-list.view-grid-small {
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(110px, 1fr)); gap:8px;
+}
+.item-list.view-grid-small .item { flex-direction:column; align-items:stretch; padding:6px; margin-bottom:0; }
+.item-list.view-grid-small .item-link { flex-direction:column; align-items:stretch; gap:4px; }
+.item-list.view-grid-small .item-link img { width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:4px; }
+.item-list.view-grid-small .meta .subject {
+  font-size:11px; white-space:normal; display:-webkit-box; -webkit-line-clamp:2;
+  -webkit-box-orient:vertical; overflow:hidden;
+}
+.item-list.view-grid-small .meta .date,
+.item-list.view-grid-small .meta .vid { display:none; }
+.item-list.view-grid-small .item-actions { flex-direction:row; justify-content:space-between; margin-top:4px; gap:4px; }
+.item-list.view-grid-small .yt-link { font-size:10px; }
+.item-list.view-grid-small .del-btn { font-size:10px; padding:2px 6px; }
+.item-list.view-grid-small .item.collapsed { display:none; }
+
+/* 詳細列表檢視:表格形式,無縮圖,一行到底,適合大量項目快速掃視 */
+.item-list.view-details .item {
+  flex-direction:row; align-items:center; padding:6px 12px; margin-bottom:2px; border-radius:4px;
+}
+.item-list.view-details .item-link { flex-direction:row; gap:0; flex:1; min-width:0; }
+.item-list.view-details .item-link img { display:none; }
+.item-list.view-details .meta { display:flex; align-items:center; gap:18px; width:100%; min-width:0; }
+.item-list.view-details .meta .subject {
+  flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:14px;
+}
+.item-list.view-details .meta .date { flex-shrink:0; width:130px; font-size:12px; }
+.item-list.view-details .meta .vid { flex-shrink:0; width:170px; font-size:12px; }
+.item-list.view-details .item-actions { flex-direction:row; gap:10px; flex-shrink:0; margin-left:10px; }
+.item-list.view-details .item.collapsed { display:none; }
+
+@media (max-width: 700px) {
+  .item-list.view-details .meta .vid { display:none; }
+  .item-list.view-details .meta .date { width:auto; }
+}
 
 /* 手機版修正:窄螢幕時影片改成一般排版(非sticky),避免往下滑動時
    題目文字跟固定住的影片重疊在一起 */
@@ -153,4 +191,3 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
   .list-col { min-width: 0; width: 100%; }
   .chat-box { max-height: 280px; }
 }
-
