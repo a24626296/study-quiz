@@ -27,7 +27,8 @@ import time
 import datetime
 import html as html_lib
 import urllib.request
-import xml.etree.ElementTree as ET
+import urllib.parse
+import urllib.error
 
 from google import genai
 from google.genai import types
@@ -39,6 +40,11 @@ API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 if not API_KEY:
     print("❌ 找不到環境變數 GEMINI_API_KEY,請確認 GitHub Secrets 有設定好。")
     sys.exit(1)
+
+# YouTube Data API v3 金鑰,只有在處理「播放清單」網址時才需要用到,
+# 單支影片模式不需要,所以這裡不強制要求一定要有,留到真的要用時才檢查。
+YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "").strip()
+MAX_PLAYLIST_VIDEOS = 30  # 單次workflow最多處理幾支影片,避免清單太長跑到超時
 
 client = genai.Client(api_key=API_KEY)
 MODEL_NAME = "gemini-3-flash-preview"
@@ -115,33 +121,59 @@ def extract_playlist_id_from_url(url):
 
 def fetch_playlist_video_ids(playlist_id):
     """
-    讀取 YouTube 公開播放清單的 RSS 摘要,取出裡面的影片 ID 清單。
+    使用官方 YouTube Data API v3 的 playlistItems.list 讀取播放清單裡的影片 ID。
+    取代先前不穩定、常常 404 的 RSS 摘要做法。
 
-    刻意不用 yt-dlp:yt-dlp 在 GitHub Actions 這種雲端 IP 上常被 YouTube
-    判定為機器人擋下來(需要瀏覽器 cookie 才能繞過,CI 環境沒有瀏覽器)。
-    RSS 摘要是單純的一次網路請求,沒有這個問題。
-
-    ⚠️ 已知限制:YouTube 的公開播放清單 RSS 通常只列出「最新的一部分」
-    影片(實測大約 15 支上下),不保證涵蓋整份清單。清單較長、或需要
-    抓到全部/較舊的影片時,建議改用桌面版 study_pipeline.py 的模式1
-    (用 yt-dlp,在你自己電腦上執行,沒有雲端 IP 被擋的問題)。
+    回傳 (video_ids, truncated):
+      - video_ids:抓到的影片 ID 清單(最多 MAX_PLAYLIST_VIDEOS 支)
+      - truncated:True 表示清單裡還有更多影片,但因為數量上限被截斷了
     """
-    feed_url = f"https://www.youtube.com/feeds/videos.xml?playlist_id={playlist_id}"
-    req = urllib.request.Request(feed_url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=15) as resp:
-        data = resp.read()
+    if not YOUTUBE_API_KEY:
+        raise RuntimeError(
+            "找不到環境變數 YOUTUBE_API_KEY(處理播放清單網址需要這把金鑰),"
+            "請確認 GitHub Secrets 有設定好。"
+        )
 
-    ns = {
-        "atom": "http://www.w3.org/2005/Atom",
-        "yt": "http://www.youtube.com/xml/schemas/2015",
-    }
-    root = ET.fromstring(data)
     video_ids = []
-    for entry in root.findall("atom:entry", ns):
-        vid_el = entry.find("yt:videoId", ns)
-        if vid_el is not None and vid_el.text:
-            video_ids.append(vid_el.text.strip())
-    return video_ids
+    page_token = None
+    base_url = "https://www.googleapis.com/youtube/v3/playlistItems"
+
+    while len(video_ids) < MAX_PLAYLIST_VIDEOS:
+        params = {
+            "part": "contentDetails",
+            "playlistId": playlist_id,
+            "maxResults": "50",
+            "key": YOUTUBE_API_KEY,
+        }
+        if page_token:
+            params["pageToken"] = page_token
+
+        query = urllib.parse.urlencode(params)
+        req = urllib.request.Request(f"{base_url}?{query}")
+
+        try:
+            with urllib.request.urlopen(req, timeout=15) as resp:
+                data = json.loads(resp.read())
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", errors="ignore")
+            if e.code == 403:
+                raise RuntimeError(
+                    f"YouTube Data API 回傳 403(可能是金鑰限制設錯、API 未啟用,"
+                    f"或當日 10,000 額度用完):{body[:300]}"
+                )
+            raise RuntimeError(f"YouTube Data API 回傳 HTTP {e.code}:{body[:300]}")
+
+        for item in data.get("items", []):
+            vid = item.get("contentDetails", {}).get("videoId")
+            if vid:
+                video_ids.append(vid)
+
+        page_token = data.get("nextPageToken")
+        if not page_token:
+            break
+
+    truncated = bool(page_token) and len(video_ids) >= MAX_PLAYLIST_VIDEOS
+    return video_ids[:MAX_PLAYLIST_VIDEOS], truncated
 
 
 def strip_json_fences(text):
@@ -607,21 +639,22 @@ def main():
     # 播放清單模式(網址裡有 list=,但沒有單支影片的 v=)
     playlist_id = extract_playlist_id_from_url(url)
     if playlist_id:
-        print("📋 偵測到播放清單網址,正在讀取清單內容(RSS 摘要)...")
+        print("📋 偵測到播放清單網址,正在讀取清單內容(YouTube Data API v3)...")
         try:
-            video_ids = fetch_playlist_video_ids(playlist_id)
+            video_ids, truncated = fetch_playlist_video_ids(playlist_id)
         except Exception as e:
             print(f"❌ 無法讀取播放清單內容:{type(e).__name__}: {e}")
-            print("   (這個清單可能不支援 RSS 讀取,或暫時連不上。建議改用桌面版")
-            print("    study_pipeline.py 的模式1處理整份清單。)")
             sys.exit(1)
 
         if not video_ids:
-            print("⚠️ 讀不到任何影片,可能是清單為空、設為私人,或超出 RSS 可列出的範圍。")
+            print("⚠️ 讀不到任何影片,可能是清單為空、設為私人,或播放清單 ID 不正確。")
             sys.exit(1)
 
-        print(f"📋 共讀到 {len(video_ids)} 支影片(YouTube 播放清單 RSS 通常只列出最新約15支,")
-        print("   較舊或超出範圍的影片可能抓不到,如需完整清單建議改用桌面版處理)。")
+        print(f"📋 共讀到 {len(video_ids)} 支影片。")
+        if truncated:
+            print(f"   ⚠️ 這份清單影片數量超過單次上限({MAX_PLAYLIST_VIDEOS} 支),"
+                  f"只處理前 {MAX_PLAYLIST_VIDEOS} 支,其餘的可以之後再貼一次網址繼續處理"
+                  f"(已處理過的影片會自動跳過)。")
 
         success_count = 0
         for idx, vid in enumerate(video_ids, 1):
