@@ -491,11 +491,46 @@ function deleteVideo(id) {{
         f.write(index_html)
 
 
+def delete_video(video_id):
+    """
+    刪除指定 video_id 的複習頁面(html + manifest 紀錄),並重建 index.html。
+    這是原本獨立的 delete_video.py 合併進來的邏輯,現在只用 --delete 參數區分。
+    """
+    manifest = load_manifest()
+    existed_in_manifest = video_id in manifest
+    manifest.pop(video_id, None)
+    save_manifest(manifest)
+
+    html_path = os.path.join(ONLINE_STUDY_DIR, f"{video_id}.html")
+    existed_file = os.path.exists(html_path)
+    if existed_file:
+        os.remove(html_path)
+
+    if not existed_in_manifest and not existed_file:
+        print(f"⚠️ 找不到 video_id「{video_id}」的複習頁面或 manifest 紀錄,可能已經被刪除過了。")
+    else:
+        print(f"🗑️ 已刪除:{video_id}(html: {'有' if existed_file else '無'}, manifest: {'有' if existed_in_manifest else '無'})")
+
+    build_index_html()
+    print("✅ 已更新 index.html 清單頁")
+
+
 def main():
     if len(sys.argv) < 2 or not sys.argv[1].strip():
-        print("❌ 沒有收到 YouTube 網址參數。")
+        print("❌ 沒有收到參數。用法:\n"
+              "  產生考題:python generate_from_url.py \"https://www.youtube.com/watch?v=xxxxxxxxxxx\"\n"
+              "  刪除頁面:python generate_from_url.py --delete xxxxxxxxxxx")
         sys.exit(1)
 
+    # --delete 模式:刪除指定影片,不需要呼叫 Gemini
+    if sys.argv[1] == "--delete":
+        if len(sys.argv) < 3 or not sys.argv[2].strip():
+            print("❌ 沒有收到要刪除的 video_id 參數。")
+            sys.exit(1)
+        delete_video(sys.argv[2].strip())
+        return
+
+    # 預設模式:分析網址、出題
     url = sys.argv[1].strip()
     video_id = extract_video_id_from_url(url)
     if not video_id:
