@@ -9,9 +9,12 @@
 <body style="padding:20px;">
 <div class="list-header">
   <h1 style="margin:0;">📚 複習清單(2)</h1>
-  <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
+  <div class="header-actions">
+    <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
+    <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
+  </div>
 </div>
-
+<div class="item-list" id="item-list">
         <div class="item">
           <a class="item-link" href="./viewer.html?id=snfEyp6rTEE">
             <img src="https://i.ytimg.com/vi/snfEyp6rTEE/mqdefault.jpg" loading="lazy">
@@ -40,7 +43,7 @@
             <button class="del-btn" onclick="deleteVideo('qZv61bNeRzo')">🗑 刪除</button>
           </div>
         </div>
-
+</div>
 <script>
 var allCollapsed = false;
 
@@ -52,17 +55,40 @@ function toggleCollapseAll() {
   document.getElementById('collapse-toggle-btn').textContent = allCollapsed ? '📂 全部展開' : '📁 全部收合';
 }
 
+function applyViewMode(mode) {
+  var list = document.getElementById('item-list');
+  var btn = document.getElementById('view-mode-btn');
+  if (mode === 'grid') {
+    list.classList.add('view-grid');
+    btn.textContent = '📋 清單檢視';
+  } else {
+    list.classList.remove('view-grid');
+    btn.textContent = '🔲 格狀檢視';
+  }
+}
+
+function toggleViewMode() {
+  var list = document.getElementById('item-list');
+  var isGrid = list.classList.contains('view-grid');
+  var newMode = isGrid ? 'list' : 'grid';
+  applyViewMode(newMode);
+  try { localStorage.setItem('viewMode', newMode); } catch (e) {}
+}
+
+try {
+  var savedMode = localStorage.getItem('viewMode');
+  if (savedMode === 'grid') applyViewMode('grid');
+} catch (e) {}
+
 function deleteVideo(id) {
   var pathParts = window.location.pathname.split('/').filter(Boolean);
   var repoName = pathParts[0] || '';
   var username = window.location.hostname.split('.')[0];
   var actionsUrl = 'https://github.com/' + username + '/' + repoName + '/actions/workflows/delete_video.yml';
-
   var doOpen = function() {
     alert('已複製影片 ID:' + id + '\n\n即將開啟「刪除線上複習頁面」的 Action 頁面,\n貼上這個 ID 到 video_id 欄位,按 Run workflow 即可刪除。');
     window.open(actionsUrl, '_blank');
   };
-
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(id).then(doOpen).catch(doOpen);
   } else {
