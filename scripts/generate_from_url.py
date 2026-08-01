@@ -307,20 +307,31 @@ def build_online_study_html(video_id, url, quiz_data):
 <script>
   var player;
   var primaryLang = 'zh';
+  var embedBlocked = false;
+  var VIDEO_ID = '{video_id}';
 
   function onYouTubeIframeAPIReady() {{
     player = new YT.Player('player', {{
       height: '270',
       width: '480',
-      videoId: '{video_id}',
-      playerVars: {{ 'playsinline': 1, 'origin': window.location.origin }}
+      videoId: VIDEO_ID,
+      playerVars: {{ 'playsinline': 1, 'origin': window.location.origin }},
+      events: {{ 'onError': onPlayerError }}
     }});
   }}
-  function seekTo(seconds) {{
-    if (player && player.seekTo) {{
-      player.seekTo(seconds, true);
-      player.playVideo();
+  function onPlayerError(event) {{
+    // 101 / 150 = 影片擁有者禁止嵌入播放,100 = 影片不存在或設為私人,5 = HTML5播放器錯誤
+    if ([101, 150, 100, 5].indexOf(event.data) !== -1) {{
+      embedBlocked = true;
     }}
+  }}
+  function seekTo(seconds) {{
+    if (embedBlocked || !player || !player.seekTo) {{
+      window.open('https://www.youtube.com/watch?v=' + VIDEO_ID + '&t=' + seconds + 's', '_blank');
+      return;
+    }}
+    player.seekTo(seconds, true);
+    player.playVideo();
   }}
 
   function applyLang() {{
@@ -347,53 +358,83 @@ def build_online_study_html(video_id, url, quiz_data):
     return html
 
 
+MANIFEST_PATH = os.path.join(ONLINE_STUDY_DIR, "manifest.json")
+
+
+def load_manifest():
+    if os.path.exists(MANIFEST_PATH):
+        with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return {}
+    return {}
+
+
+def save_manifest(manifest):
+    with open(MANIFEST_PATH, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+
+
+def record_manifest(video_id, subject, url):
+    """把這支影片的科目名稱、原始網址、產生時間記錄進 manifest.json"""
+    manifest = load_manifest()
+    manifest[video_id] = {
+        "subject": subject or video_id,
+        "url": url or f"https://www.youtube.com/watch?v={video_id}",
+        "created": datetime.datetime.utcnow().isoformat(timespec="seconds"),
+    }
+    save_manifest(manifest)
+
+
 def build_index_html():
     """
-    掃描 online_study 資料夾裡所有 *.html(排除 index.html 自己)。
+    重建複習清單首頁,顯示科目名稱、原始YouTube連結、產生時間。
 
-    注意:排序依據是「檔名裡嵌入的產生時間」而不是檔案系統的修改時間 ——
-    因為 GitHub Actions 每次都是重新 checkout 整個 repo,舊檔案的 mtime
-    會被洗成 checkout 當下的時間,單純依賴檔案系統 mtime 排序在 CI 環境
-    裡並不可靠。改成從 manifest.json 讀取每支影片真正的產生時間。
+    刪除按鈕:因為 GitHub Pages 是純靜態網站,網頁本身沒有後端可以真的
+    刪除檔案。這裡的做法是——按下刪除後,自動複製影片 ID 並開啟
+    「刪除線上複習頁面」這個 GitHub Action 的頁面,你只要貼上 ID、
+    按 Run workflow,該影片就會被移除並重新部署。不是真正一鍵刪除,
+    但已經是靜態網站能做到最接近的方式。
     """
-    manifest_path = os.path.join(ONLINE_STUDY_DIR, "manifest.json")
-    manifest = {}
-    if os.path.exists(manifest_path):
-        with open(manifest_path, "r", encoding="utf-8") as f:
-            try:
-                manifest = json.load(f)
-            except json.JSONDecodeError:
-                manifest = {}
-
+    manifest = load_manifest()
     files = [
         f for f in glob.glob(os.path.join(ONLINE_STUDY_DIR, "*.html"))
         if os.path.basename(f) != "index.html"
     ]
 
-    def sort_key(f):
+    entries = []
+    for f in files:
         vid = os.path.splitext(os.path.basename(f))[0]
-        return manifest.get(vid, "")  # ISO 時間字串可以直接字串排序
-
-    files.sort(key=sort_key, reverse=True)
+        meta = manifest.get(vid, {})
+        if isinstance(meta, str):  # 相容舊版 manifest(只存時間字串)
+            meta = {"subject": vid, "url": f"https://www.youtube.com/watch?v={vid}", "created": meta}
+        entries.append({
+            "video_id": vid,
+            "subject": meta.get("subject") or vid,
+            "url": meta.get("url") or f"https://www.youtube.com/watch?v={vid}",
+            "created": meta.get("created") or "",
+        })
+    entries.sort(key=lambda e: e["created"], reverse=True)
 
     items_html = ""
-    for f in files:
-        video_id = os.path.splitext(os.path.basename(f))[0]
-        recorded_time = manifest.get(video_id)
-        if recorded_time:
-            display_time = recorded_time.replace("T", " ")[:16]
-        else:
-            display_time = datetime.datetime.fromtimestamp(
-                os.path.getmtime(f)
-            ).strftime("%Y-%m-%d %H:%M")
+    for e in entries:
+        display_time = e["created"].replace("T", " ")[:16] if e["created"] else "(時間未知)"
         items_html += f"""
-        <a class="item" href="./{html_lib.escape(os.path.basename(f))}">
-          <img src="https://i.ytimg.com/vi/{video_id}/mqdefault.jpg" loading="lazy">
-          <div class="meta">
-            <div class="date">{display_time}</div>
-            <div class="vid">{video_id}</div>
+        <div class="item">
+          <a class="item-link" href="./{html_lib.escape(e['video_id'])}.html">
+            <img src="https://i.ytimg.com/vi/{e['video_id']}/mqdefault.jpg" loading="lazy">
+            <div class="meta">
+              <div class="subject">{html_lib.escape(e['subject'])}</div>
+              <div class="date">{html_lib.escape(display_time)}</div>
+              <div class="vid">ID: {html_lib.escape(e['video_id'])}</div>
+            </div>
+          </a>
+          <div class="item-actions">
+            <a class="yt-link" href="{html_lib.escape(e['url'])}" target="_blank" rel="noopener">▶ 原始影片</a>
+            <button class="del-btn" onclick="deleteVideo('{html_lib.escape(e['video_id'])}')">🗑 刪除</button>
           </div>
-        </a>"""
+        </div>"""
 
     index_html = f"""<!DOCTYPE html>
 <html lang="zh-Hant">
@@ -404,37 +445,50 @@ def build_index_html():
 <style>
   body {{ background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; padding:20px; }}
   h1 {{ font-size:20px; margin-bottom:16px; }}
-  .item {{ display:flex; gap:12px; align-items:center; background:#1e293b; border-radius:8px;
-           padding:10px; margin-bottom:10px; text-decoration:none; color:#e2e8f0; }}
-  .item img {{ width:120px; border-radius:6px; flex-shrink:0; }}
-  .meta .date {{ font-size:13px; color:#94a3b8; }}
-  .meta .vid {{ font-size:14px; color:#72ef95; margin-top:4px; }}
+  .item {{ display:flex; justify-content:space-between; align-items:center; gap:12px; background:#1e293b;
+           border-radius:8px; padding:10px; margin-bottom:10px; }}
+  .item-link {{ display:flex; gap:12px; align-items:center; text-decoration:none; color:#e2e8f0; flex:1; min-width:0; }}
+  .item-link img {{ width:120px; border-radius:6px; flex-shrink:0; }}
+  .meta {{ min-width:0; }}
+  .meta .subject {{ font-size:15px; font-weight:bold; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
+  .meta .date {{ font-size:13px; color:#94a3b8; margin-top:2px; }}
+  .meta .vid {{ font-size:12px; color:#72ef95; margin-top:4px; }}
+  .item-actions {{ display:flex; flex-direction:column; gap:6px; flex-shrink:0; }}
+  .yt-link {{ font-size:12px; color:#64B5F6; text-decoration:none; white-space:nowrap; }}
+  .yt-link:hover {{ text-decoration:underline; }}
+  .del-btn {{ background:#3f1d1d; color:#ff6b6b; border:1px solid #ff6b6b; border-radius:6px; padding:4px 10px; font-size:12px; cursor:pointer; }}
+  .del-btn:hover {{ background:#ff6b6b; color:#fff; }}
   .empty {{ color:#94a3b8; }}
 </style>
 </head>
 <body>
-<h1>📚 複習清單({len(files)})</h1>
+<h1>📚 複習清單({len(entries)})</h1>
 {items_html if items_html else '<p class="empty">目前還沒有產生任何複習頁面。</p>'}
+
+<script>
+function deleteVideo(id) {{
+  var pathParts = window.location.pathname.split('/').filter(Boolean);
+  var repoName = pathParts[0] || '';
+  var username = window.location.hostname.split('.')[0];
+  var actionsUrl = 'https://github.com/' + username + '/' + repoName + '/actions/workflows/delete_video.yml';
+
+  var doOpen = function() {{
+    alert('已複製影片 ID:' + id + '\\n\\n即將開啟「刪除線上複習頁面」的 Action 頁面,\\n貼上這個 ID 到 video_id 欄位,按 Run workflow 即可刪除。');
+    window.open(actionsUrl, '_blank');
+  }};
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {{
+    navigator.clipboard.writeText(id).then(doOpen).catch(doOpen);
+  }} else {{
+    doOpen();
+  }}
+}}
+</script>
 </body>
 </html>"""
 
     with open(os.path.join(ONLINE_STUDY_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(index_html)
-
-
-def record_manifest(video_id):
-    """把這支影片的產生時間記錄進 manifest.json,供 index.html 排序使用"""
-    manifest_path = os.path.join(ONLINE_STUDY_DIR, "manifest.json")
-    manifest = {}
-    if os.path.exists(manifest_path):
-        with open(manifest_path, "r", encoding="utf-8") as f:
-            try:
-                manifest = json.load(f)
-            except json.JSONDecodeError:
-                manifest = {}
-    manifest[video_id] = datetime.datetime.utcnow().isoformat()
-    with open(manifest_path, "w", encoding="utf-8") as f:
-        json.dump(manifest, f, ensure_ascii=False, indent=2)
 
 
 def main():
@@ -448,7 +502,8 @@ def main():
         print("❌ 無法從網址判斷出 YouTube 影片 ID,請確認網址格式。")
         sys.exit(1)
 
-    print(f"🌐 分析中:https://www.youtube.com/watch?v={video_id}")
+    clean_url = f"https://www.youtube.com/watch?v={video_id}"
+    print(f"🌐 分析中:{clean_url}")
     quiz_data = generate_quiz_from_youtube_url(video_id)
 
     html_out = build_online_study_html(video_id, url, quiz_data)
@@ -457,7 +512,7 @@ def main():
         f.write(html_out)
     print(f"✅ 已產生:{out_path}")
 
-    record_manifest(video_id)
+    record_manifest(video_id, quiz_data.get("subject", ""), clean_url)
     build_index_html()
     print("✅ 已更新 index.html 清單頁")
 
