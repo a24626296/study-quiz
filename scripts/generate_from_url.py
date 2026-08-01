@@ -350,8 +350,8 @@ def build_index_html():
 <div class="list-header">
   <h1 style="margin:0;">📚 複習清單({len(entries)})</h1>
   <div class="header-actions">
-    <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
     <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
+    <button class="view-mode-btn" id="view-mode-btn" onclick="cycleViewMode()"></button>
   </div>
 </div>
 <div id="item-list" class="item-list">
@@ -369,19 +369,42 @@ function toggleCollapseAll() {{
   document.getElementById('collapse-toggle-btn').textContent = allCollapsed ? '📂 全部展開' : '📁 全部收合';
 }}
 
-function toggleViewMode() {{
-  var container = document.getElementById('item-list');
-  var isGrid = container.classList.toggle('view-grid');
-  try {{ localStorage.setItem('viewMode', isGrid ? 'grid' : 'list'); }} catch (e) {{}}
-  document.getElementById('view-mode-btn').textContent = isGrid ? '📃 清單檢視' : '🔲 格狀檢視';
+// ===== 檢視模式(清單 / 格狀 / 小格狀 / 詳細列表)=====
+var VIEW_MODES = ['list', 'grid', 'grid-small', 'details'];
+var VIEW_LABELS = {{
+  'list': '📋 清單檢視',
+  'grid': '🔲 格狀檢視',
+  'grid-small': '▦ 小格狀檢視',
+  'details': '☰ 詳細列表'
+}};
+var currentMode = 'list';
+
+function applyViewMode(mode) {{
+  if (VIEW_MODES.indexOf(mode) === -1) mode = 'list';
+  var list = document.getElementById('item-list');
+  list.classList.remove('view-grid', 'view-grid-small', 'view-details');
+  if (mode === 'grid') list.classList.add('view-grid');
+  else if (mode === 'grid-small') list.classList.add('view-grid-small');
+  else if (mode === 'details') list.classList.add('view-details');
+  currentMode = mode;
+  document.getElementById('view-mode-btn').textContent = VIEW_LABELS[mode] + '(點擊切換)';
 }}
 
-try {{
-  if (localStorage.getItem('viewMode') === 'grid') {{
-    document.getElementById('item-list').classList.add('view-grid');
-    document.getElementById('view-mode-btn').textContent = '📃 清單檢視';
-  }}
-}} catch (e) {{}}
+function cycleViewMode() {{
+  var idx = VIEW_MODES.indexOf(currentMode);
+  var next = VIEW_MODES[(idx + 1) % VIEW_MODES.length];
+  applyViewMode(next);
+  try {{ localStorage.setItem('viewMode', next); }} catch (e) {{}}
+}}
+
+(function () {{
+  var saved = 'list';
+  try {{
+    var stored = localStorage.getItem('viewMode');
+    if (stored && VIEW_MODES.indexOf(stored) !== -1) saved = stored;
+  }} catch (e) {{}}
+  applyViewMode(saved);
+}})();
 
 function deleteVideo(id) {{
   var pathParts = window.location.pathname.split('/').filter(Boolean);
