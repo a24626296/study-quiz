@@ -28,7 +28,7 @@ jobs:
       - name: 刪除指定影片的複習頁面
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        run: python scripts/delete_video.py "${{ inputs.video_id }}"
+        run: python scripts/generate_from_url.py --delete "${{ inputs.video_id }}"
       - name: 提交並推送變更
         run: |
           git config user.name "quiz-bot"
