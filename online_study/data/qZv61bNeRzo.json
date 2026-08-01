@@ -1,99 +1,99 @@
 {
-  "subject": "航空面試心理學與選拔邏輯 - 招募官觀點",
+  "subject": "航空公司飛行員招募與評鑑心理學 (Airline Pilot Selection & Assessment Psychology)",
   "mc_questions": [
     {
-      "zh_question": "根據招募專家的觀點，航空選拔中的「基礎（Foundation）」知識層面不包含下列哪一項？",
+      "zh_question": "根據受訪專家 Guillaume Debauchez 的觀點，飛行員應試者必須具備的「基礎層面 (Foundation)」知識主要包含下列何者？",
       "zh_options": [
-        "(A) 理解 CRM 的運作流程與邏輯",
-        "(B) 深入了解自我特質與職務契合度",
-        "(C) 準備特定的心理測驗（Psychometric Tests）考古題",
-        "(D) 洞悉面試官背後的考量與需求"
+        "(A) 心理測驗的作答技巧與模擬機科目演練",
+        "(B) 履歷 (CV) 與自傳 (Cover Letter) 的撰寫優化",
+        "(C) 瞭解招募官思維、公司價值觀及 CRM 運作邏輯",
+        "(D) 考題題庫的記憶與技術手冊的背誦"
       ],
-      "en_question": "According to the expert, which of the following is NOT included in the 'Foundation' level of airline selection preparation?",
+      "en_question": "According to Guillaume Debauchez, what does the 'Foundation' level of knowledge primarily consist of for pilot candidates?",
       "en_options": [
-        "(A) Understanding CRM operational processes",
-        "(B) Deep understanding of self and role fit",
-        "(C) Preparing specific psychometric test questions",
-        "(D) Understanding what the recruiter is looking for"
+        "(A) Psychometric test techniques and simulator profile practice",
+        "(B) Optimization of CV and Cover Letter writing",
+        "(C) Understanding the recruiter's mindset, airline values, and CRM operational logic",
+        "(D) Memorizing question banks and technical manuals"
       ],
       "answer": "C",
-      "explanation": "心理測驗、模擬機檢定與履歷修改被歸類為「表面層次（Surface Work）」，而基礎層次包含了解招募官需求、CRM 邏輯以及自我認知 (Understanding yourself)。",
-      "timestamp": "04:50"
+      "explanation": "Guillaume 強調 Foundation 是核心,包含理解招募官的需求 (recruiter mindset)、航空公司的營運與 CRM (Resource Management) 流程以及自我認知,而非僅是 Surface 層面的技術演練。",
+      "timestamp": "04:55"
     },
     {
-      "zh_question": "關於航空公司的選拔機制，影片中提到法國航空（Air France）與漢莎航空（Lufthansa）在申請次數限制上有何主要差異？",
+      "zh_question": "關於航空公司的招募錄取統計，專家提到大型航空公司（包含廉航與主流航空）典型的應徵者錄取率約為多少？",
       "zh_options": [
-        "(A) 法航限制一次，漢莎限制三次",
-        "(B) 兩者皆限制一生只能申請一次",
-        "(C) 法航最多可申請三次（需間隔時間），漢莎通常只有一次機會",
-        "(D) 漢莎航空沒有次數限制，只要執照有效即可"
+        "(A) 50%",
+        "(B) 25%",
+        "(C) 10%",
+        "(D) 75%"
       ],
-      "en_question": "Regarding airline selection rules, what is the main difference mentioned between Air France and Lufthansa concerning application limits?",
+      "en_question": "Regarding recruitment statistics, what is the typical success rate for applicants at major airline selections mentioned in the interview?",
       "en_options": [
-        "(A) Air France limits to once, Lufthansa limits to three times",
-        "(B) Both airlines have a strict one-time-only policy",
-        "(C) Air France allows up to three attempts (with spacing), while Lufthansa is generally a one-time opportunity",
-        "(D) Lufthansa has no limits as long as the license is valid"
-      ],
-      "answer": "C",
-      "explanation": "影片提到 Lufthansa 是 one-time chance，而 Air France 可多達三次，但每次嘗試之間會有顯著的時間間隔（如 2 至 3 年）。",
-      "timestamp": "17:15"
-    },
-    {
-      "zh_question": "在三類面試候選人中，佔比約 50% 的「合格候選人」最常因為什麼原因失敗？",
-      "zh_options": [
-        "(A) 飛行技術或學科能力不足",
-        "(B) 不了解招募官的需求，導致在面試中自亂陣腳",
-        "(C) 英語能力未達標",
-        "(D) 缺乏足夠的飛行時數"
-      ],
-      "en_question": "Among the three categories of candidates, why do the '50% capable candidates' often fail?",
-      "en_options": [
-        "(A) Lack of flying skills or technical knowledge",
-        "(B) Failing to understand what the recruiter wants, leading to self-trapping",
-        "(C) Failing to meet English proficiency standards",
-        "(D) Lacking sufficient flight hours"
+        "(A) 50%",
+        "(B) 25%",
+        "(C) 10%",
+        "(D) 75%"
       ],
       "answer": "B",
-      "explanation": "這類候選人本身能力達標，但因缺乏面試邏輯的「解碼鑰匙 (Decoding keys)」，容易在面試中掉入陷阱 (sliding on the banana peel)，失去信心而失敗。",
-      "timestamp": "15:00"
+      "explanation": "影片中提到大型航空公司及有嚴格制度的招募流程中,典型的 Success rate (成功率) 約為 25%,意味著有 75% 的應徵者會被淘汰。",
+      "timestamp": "12:49"
+    },
+    {
+      "zh_question": "在 Guillaume 劃分的應徵者三種類別中，哪一類人最能透過專業培訓顯著提高成功率？",
+      "zh_options": [
+        "(A) 頂尖 25%：天生具備業務與社交特質的人",
+        "(B) 底部 25%：反應較慢或適職測驗表現不佳的人",
+        "(C) 中間 50%：能力達標但缺乏招募官「解碼鑰匙」的人",
+        "(D) 已經具有多年飛行經驗且不需額外準備的人"
+      ],
+      "en_question": "Among the three categories of candidates described by Guillaume, which group can significantly improve their success rate through professional training?",
+      "en_options": [
+        "(A) Top 25%: Those with natural sales and social traits",
+        "(B) Bottom 25%: Those who are slower or perform poorly in aptitude tests",
+        "(C) Middle 50%: Capable candidates who lack the 'decoding keys' for recruiters",
+        "(D) Experienced pilots who do not require additional preparation"
+      ],
+      "answer": "C",
+      "explanation": "中間 50% 的應徵者具備基本素質,但常在面試中因誤解招募官意圖或自信心不足而受挫。透過培訓獲得 Decoding keys (解碼鑰匙) 後,成功率可大幅提升。",
+      "timestamp": "14:51"
     }
   ],
   "cloze_items": [
     {
-      "cloze_text": "There are two levels of knowledge needed: the {{c1::Foundation}} and the Surface work.",
-      "zh_translation": "成功的選拔需要兩個層次的知識：基礎層次與表面層次。",
-      "explanation": "Foundation 是核心邏輯，Surface 是針對特定關卡的練習。",
-      "tags": "Selection Logic",
-      "timestamp": "04:40"
-    },
-    {
-      "cloze_text": "An unofficial statistic shows that {{c1::50%}} of ATPL holders do not renew their professional licenses after three years.",
-      "zh_translation": "一項非官方統計顯示，50% 的 ATPL 持有人在三年後不再續領其專業執照。",
-      "explanation": "這反映了許多人在取得執照後因無法通過航空公司選拔而被迫轉行。",
-      "tags": "Career Statistics",
+      "cloze_text": "According to unofficial statistics from the French DGAC, {{c1::50%}} of ATPL holders do not renew their professional licenses after 3 years.",
+      "zh_translation": "根據法國民航總局 (DGAC) 的非官方統計，50% 的 ATPL 持有人在 3 年後沒有續聘/續發其專業執照。",
+      "explanation": "這項數據反映了許多人在取得執照後,因無法通過航空公司評鑑或環境因素而最終離開飛行產業。",
+      "tags": "Statistics / ATPL",
       "timestamp": "08:50"
     },
     {
-      "cloze_text": "Any time that you waste now is time that you will lose in {{c1::seniority}}.",
-      "zh_translation": "你現在浪費的任何時間，未來都會轉化為資歷排名的損失。",
-      "explanation": "資歷排名 (Seniority) 在航空公司中決定了升遷、排班與轉機型的優先權。",
-      "tags": "Career Planning",
-      "timestamp": "11:15"
+      "cloze_text": "Candidates often fail because they are left {{c1::guessing}} what the recruiter is looking for instead of performing at their best.",
+      "zh_translation": "應徵者常失敗是因為他們只能「猜測」招募官想要什麼,而不是展現最好的自己。",
+      "explanation": "缺乏對招募標準的理解會導致應試者在面試中過度焦慮並產生似是而非的表現。",
+      "tags": "Mindset / Recruitment",
+      "timestamp": "03:37"
     },
     {
-      "cloze_text": "The candidate must have the {{c1::decoding keys}} to understand the interview exercises.",
-      "zh_translation": "候選人必須擁有「解碼鑰匙」才能理解面試練習背後的意義。",
-      "explanation": "這指的是理解招募官評核的維度，而不僅是回答表面問題。",
-      "tags": "Interview Strategy",
-      "timestamp": "13:40"
+      "cloze_text": "The most daunting part of the assessment is the {{c1::psychologist}}, because candidates don't know what they will find out about them.",
+      "zh_translation": "評鑑中最令人畏懼的部分是「心理學家面試」，因為應徵者不知道對方會挖掘出自己什麼樣的一面。",
+      "explanation": "心理學家在評鑑中扮演關鍵角色,主要考察性格穩定性與潛在風險 (Risk assessment)。",
+      "tags": "Assessment / Interview",
+      "timestamp": "09:37"
     },
     {
-      "cloze_text": "If you don't know why you failed, you lose your {{c1::confidence}} for the next assessment.",
-      "zh_translation": "如果你不知道失敗的原因，你在下一次評核中會失去信心。",
-      "explanation": "了解失敗的具體原因 (feedback) 對於修正表現至關重要。",
-      "tags": "Psychology",
+      "cloze_text": "For a pilot, the most important attribute during an assessment on the airplane or in an interview is {{c1::confidence}}.",
+      "zh_translation": "對於飛行員而言，在飛機評鑑或面試中最重要的人格特質是「自信心」。",
+      "explanation": "自信源於對 Foundation (基礎知識) 的掌握,若在受試中失去自信,將無法發揮應有的判斷力。",
+      "tags": "Pilot Traits / Psychology",
       "timestamp": "16:03"
+    },
+    {
+      "cloze_text": "Recruiters use group exercises to see if you can lead with your best foot forward while still remaining an {{c1::honest}} person.",
+      "zh_translation": "招募官透過團體演練來觀察你是否能在展現領導力的同時，依然保持「誠實/真實」。",
+      "explanation": "航空公司的 CRM 評選標準強調真實性,刻意塑造出的完美形象通常會被識破。",
+      "tags": "CRM / Group Exercise",
+      "timestamp": "05:21"
     }
   ],
   "video_id": "qZv61bNeRzo",
