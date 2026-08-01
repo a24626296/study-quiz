@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ATR 42/72 飛行操作與系統邏輯 - 新進首位官常見錯誤分析 - 線上複習</title>
+<style>
+  body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; }
+  .layout { display:flex; gap:20px; padding:20px; align-items:flex-start; flex-wrap:wrap; }
+  .player-col { position:sticky; top:20px; flex:0 0 480px; }
+  .player-col iframe { width:480px; height:270px; border:0; border-radius:8px; }
+  .subject { font-size:18px; font-weight:bold; margin:12px 0; color:#72ef95; }
+  .list-col { flex:1; min-width:320px; }
+  .qcard { background:#1e293b; border-radius:8px; padding:14px 16px; margin-bottom:14px; }
+  .cloze-card { border-left:4px solid #ff6b6b; }
+  .qcard-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .qnum { color:#64B5F6; font-weight:bold; }
+  .ts-btn { background:#2196F3; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }
+  .ts-btn:hover { background:#1769aa; }
+  .q-text { font-size:16px; line-height:1.6; margin-bottom:6px; }
+  .q-options { color:#cbd5e1; font-size:14px; line-height:1.8; margin-bottom:6px; }
+  .q-zh { color:#94a3b8; font-size:13px; margin:6px 0; }
+  .explain { color:#cbd5e1; font-size:13px; margin-top:6px; }
+  .tag { display:inline-block; margin-top:8px; background:rgba(250,82,82,0.15); color:#ff6b6b; padding:2px 8px; border-radius:4px; font-size:12px; }
+  details { margin-top:8px; }
+  summary { cursor:pointer; color:#64B5F6; font-size:13px; }
+  .answer { margin-top:8px; color:#72ef95; font-weight:bold; }
+  .blank { background:rgba(255,236,153,0.3); border-radius:3px; padding:1px 4px; cursor:pointer; }
+  .blank .blank-inner { visibility:hidden; }
+  .blank.revealed { background:rgba(255,236,153,0.7); }
+  .blank.revealed .blank-inner { visibility:visible; color:#d9480f; font-weight:bold; }
+  .blank:not(.revealed) .blank-inner::before { content:"﹍﹍﹍"; visibility:visible; color:#facc15; }
+  h2 { margin:16px 20px 0; }
+
+  .lang-toggle { display:flex; align-items:center; gap:8px; margin:0 20px 16px; font-size:13px; color:#94a3b8; }
+  .lang-btn { background:#1e293b; color:#cbd5e1; border:1px solid #334155; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:13px; }
+  .lang-btn.active { background:#2196F3; color:#fff; border-color:#2196F3; }
+
+  .hoverable { position:relative; display:block; border-bottom:1px dotted #64B5F6; cursor:help; width:fit-content; }
+  .q-options .hoverable { margin-bottom:4px; }
+  .hoverable .tooltip {
+    display:none; position:absolute; left:0; top:100%; margin-top:6px;
+    background:#0f172a; border:1px solid #64B5F6; color:#e2e8f0;
+    padding:6px 10px; border-radius:6px; font-size:13px; white-space:normal;
+    max-width:380px; z-index:50; box-shadow:0 4px 10px rgba(0,0,0,.4);
+  }
+  .hoverable:hover .tooltip { display:block; }
+  a.back { display:inline-block; margin:16px 20px 0; color:#64B5F6; font-size:13px; text-decoration:none; }
+</style>
+</head>
+<body>
+<a class="back" href="./index.html">← 回複習清單</a>
+<div class="lang-toggle">
+  顯示語言:
+  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
+  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
+  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
+</div>
+<div class="layout">
+  <div class="player-col">
+    <div class="subject">ATR 42/72 飛行操作與系統邏輯 - 新進首位官常見錯誤分析</div>
+    <div id="player"></div>
+  </div>
+  <div class="list-col">
+    <h3>📝 選擇題</h3>
+    
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 1</span><button class="ts-btn" onclick="seekTo(221)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="當 ATR 飛機的 Gust Lock (陣風鎖) 處於 OFF 狀態時,飛行員為何必須握住控制桿(Control Column)?" data-en="Why must the pilot hold the control column when the Gust Lock is OFF in an ATR aircraft?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 為了測試 Fly-by-wire 系統的作動範圍" data-en="(A) To test the movement range of the Fly-by-wire system"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 防止液壓系統產生氣鎖 (Air Lock) 現象" data-en="(B) To prevent air lock in the hydraulic system"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 為了啟動自動飛行系統的初檢程序" data-en="(C) To initiate the autopilot system&#x27;s pre-flight test"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 作為唯一的媒介來保護飛行控制面免受強風陣風損壞" data-en="(D) To act as the only protection for flight controls against damage from wind gusts"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(D)</div>
+            <div class="explain">ATR 使用機械式鋼繩/滑輪系統 (Fly-by-wire with metal wires),當 Gust Lock 釋放後,控制面（特別是 ailerons）極易受地面陣風影響而受損,飛行員必須手動穩固控制桿以提供保護。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 2</span><button class="ts-btn" onclick="seekTo(287)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="關於 ATR 在側風情況下的跑道操作技術,下列觀念何者正確?" data-en="Regarding ATR crosswind runway operations, which of the following concepts is correct?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 控制桿應像開汽車的方向盤一樣用來修正飛機方向" data-en="(A) The control column should be used like a car steering wheel to correct direction"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 副翼 (Ailerons) 僅用於維持機翼水平,方向修正應主要靠方向舵 (Rudder)" data-en="(B) Ailerons are used only to keep wings level; direction should be corrected primarily by the rudder"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 應該在落地滑行時將副翼完全反向偏移 (Cross-control)" data-en="(C) Ailerons should be fully cross-controlled during landing rollout"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 由於機翼位置較低,ATR 對側風的敏感度極低" data-en="(D) Due to the low-wing design, the ATR has very low sensitivity to crosswinds"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(B)</div>
+            <div class="explain">ATR 為高單翼設計,對側風極為敏感。正確技術是副翼偏向風來處以維持機翼水平 (wings level),切勿將副翼當作轉向工具,否則可能導致控制權喪失。</div>
+          </details>
+        </div>
+        </div>
+        <div class="qcard ">
+          <div class="qcard-head"><span class="qnum">選擇題 3</span><button class="ts-btn" onclick="seekTo(638)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="hoverable q-text" data-zh="在五邊進場過程中,當動力桿 (Power Levers) 處於 Flight Idle 且放下 Landing Flaps (Flaps 30/45) 時,飛行員應如何修正動力以維持穩定進場?" data-en="During final approach, when Power Levers are at Flight Idle and Landing Flaps are set, how should the pilot adjust power to maintain a stable approach?"><span class="main-text"></span><span class="tooltip"></span></div>
+          <div class="q-options"><div class="hoverable q-option" data-zh="(A) 保持 Flight Idle 直到 Threshold 以獲得最佳滑行距離" data-en="(A) Maintain Flight Idle until Threshold for best gliding distance"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(B) 立即將動力增加至 45% Torque 以克服阻力" data-en="(B) Immediately increase power to 45% Torque to overcome drag"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(C) 逐漸增加動力至約 15% Torque 左右以防止空速驟降" data-en="(C) Gradually increase power to approximately 15% Torque to prevent rapid speed decay"><span class="main-text"></span><span class="tooltip"></span></div><div class="hoverable q-option" data-zh="(D) 關閉引擎同步系統以獲得更大的螺旋槳風阻" data-en="(D) Disable the engine synchro-phaser for higher propeller drag"><span class="main-text"></span><span class="tooltip"></span></div></div>
+          <details><summary>看答案與解析</summary>
+            <div class="answer">正解:(C)</div>
+            <div class="explain">當 Landing Flaps 放下後飛機阻力劇增,若不提前增加約 15% 的 Torque,空速會快速掉落,導致飛行員後續必須大幅增加動力修正,造成進場不穩定。</div>
+          </details>
+        </div>
+        </div>
+    <h3>🧠 背誦重點(點空格看答案)</h3>
+    
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 1</span><button class="ts-btn" onclick="seekTo(155)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The cockpit preparation for ATR 72-600 requires checking more than <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">120</span></span> items.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">ATR 72-600 的座艙準備工作需要檢查超過 120 個項目。</div>
+            <div class="explain">絕不能依賴記憶完成這項檢查,使用 Checklist 才能確保在飛行前發現潛在技術問題。</div>
+          </details>
+          <div class="tag">Cockpit Prep / Checklist</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 2</span><button class="ts-btn" onclick="seekTo(276)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The ailerons are held <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">into the wind</span></span> when you are on the runway in crosswind conditions.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">在側風情況下,當飛機位於跑道上時,副翼應保持偏向風來的方向。</div>
+            <div class="explain">這是側風起降的基本技術,用以抵銷風對機翼產生的升力差異。</div>
+          </details>
+          <div class="tag">Crosswind / Technique</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 3</span><button class="ts-btn" onclick="seekTo(495)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">The weather radar detects <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">water</span></span>, not turbulence or clouds.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">氣象雷達探測的是水（降雨）,而非亂流或雲層本身。</div>
+            <div class="explain">雷達顯示的強度僅代表含水量,雲層實際範圍通常比雷達顯示的更大。</div>
+          </details>
+          <div class="tag">Radar / Weather</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 4</span><button class="ts-btn" onclick="seekTo(647)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">Your target speed at 1000 feet should be <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">Vapp + 10</span></span> to 15 knots, depending on company policy.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">在 1000 呎高度時,你的目標空速應為進場速度 (Vapp) 加上 10 到 15 浬。</div>
+            <div class="explain">這是建立穩定進場 (Stabilized Approach) 的關鍵指標。</div>
+          </details>
+          <div class="tag">Approach / Speed</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 5</span><button class="ts-btn" onclick="seekTo(889)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">Lower the nose a <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">couple of degrees</span></span> just before touchdown for a smooth landing.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">落地前瞬間將機鼻稍微壓下 1-2 度,可以獲得更平穩的觸地。</div>
+            <div class="explain">這是 ATR 的特殊落地技巧,模仿大型民航機自動落地系統的邏輯。</div>
+          </details>
+          <div class="tag">Landing / Technique</div>
+        </div>
+        </div>
+        <div class="qcard cloze-card">
+          <div class="qcard-head"><span class="qnum">背誦重點 6</span><button class="ts-btn" onclick="seekTo(940)">🎬 跳轉</button></div>
+          <div class="qcard-body">
+          <div class="q-text">Propeller blades act as very effective <span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">airbrakes</span></span> especially when power levers are moved to Ground Idle.</div>
+          <details><summary>看中文對照與解析</summary>
+            <div class="q-zh">當動力桿移至地面怠速 (Ground Idle) 時,螺旋槳葉片是非常有效的減速板。</div>
+            <div class="explain">利用槳葉角度改變產生的阻力,特別是在 70 浬以上時效果顯著。</div>
+          </details>
+          <div class="tag">Propeller / Landing</div>
+        </div>
+        </div>
+  </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var primaryLang = 'zh';
+  var embedBlocked = false;
+  var VIDEO_ID = 'gZoSKMq8Khk';
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '270',
+      width: '480',
+      videoId: VIDEO_ID,
+      playerVars: { 'playsinline': 1, 'origin': window.location.origin },
+      events: { 'onError': onPlayerError }
+    });
+  }
+  function onPlayerError(event) {
+    // 101 / 150 = 影片擁有者禁止嵌入播放,100 = 影片不存在或設為私人,5 = HTML5播放器錯誤
+    if ([101, 150, 100, 5].indexOf(event.data) !== -1) {
+      embedBlocked = true;
+    }
+  }
+  function seekTo(seconds) {
+    if (embedBlocked || !player || !player.seekTo) {
+      window.open('https://www.youtube.com/watch?v=' + VIDEO_ID + '&t=' + seconds + 's', '_blank');
+      return;
+    }
+    player.seekTo(seconds, true);
+    player.playVideo();
+  }
+
+  function applyLang() {
+    var otherLang = primaryLang === 'zh' ? 'en' : 'zh';
+    document.querySelectorAll('.hoverable').forEach(function(el) {
+      var mainEl = el.querySelector('.main-text');
+      var tipEl = el.querySelector('.tooltip');
+      mainEl.textContent = el.dataset[primaryLang] || '';
+      tipEl.textContent = el.dataset[otherLang] || '';
+    });
+  }
+
+  function setLang(lang) {
+    primaryLang = lang;
+    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    applyLang();
+  }
+
+  document.addEventListener('DOMContentLoaded', applyLang);
+</script>
+</body>
+</html>

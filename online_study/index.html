@@ -7,30 +7,86 @@
 <style>
   body { background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; padding:20px; }
   h1 { font-size:20px; margin-bottom:16px; }
-  .item { display:flex; gap:12px; align-items:center; background:#1e293b; border-radius:8px;
-           padding:10px; margin-bottom:10px; text-decoration:none; color:#e2e8f0; }
-  .item img { width:120px; border-radius:6px; flex-shrink:0; }
-  .meta .date { font-size:13px; color:#94a3b8; }
-  .meta .vid { font-size:14px; color:#72ef95; margin-top:4px; }
+  .item { display:flex; justify-content:space-between; align-items:center; gap:12px; background:#1e293b;
+           border-radius:8px; padding:10px; margin-bottom:10px; }
+  .item-link { display:flex; gap:12px; align-items:center; text-decoration:none; color:#e2e8f0; flex:1; min-width:0; }
+  .item-link img { width:120px; border-radius:6px; flex-shrink:0; }
+  .meta { min-width:0; }
+  .meta .subject { font-size:15px; font-weight:bold; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .meta .date { font-size:13px; color:#94a3b8; margin-top:2px; }
+  .meta .vid { font-size:12px; color:#72ef95; margin-top:4px; }
+  .item-actions { display:flex; flex-direction:column; gap:6px; flex-shrink:0; }
+  .yt-link { font-size:12px; color:#64B5F6; text-decoration:none; white-space:nowrap; }
+  .yt-link:hover { text-decoration:underline; }
+  .del-btn { background:#3f1d1d; color:#ff6b6b; border:1px solid #ff6b6b; border-radius:6px; padding:4px 10px; font-size:12px; cursor:pointer; }
+  .del-btn:hover { background:#ff6b6b; color:#fff; }
   .empty { color:#94a3b8; }
 </style>
 </head>
 <body>
-<h1>📚 複習清單(2)</h1>
+<h1>📚 複習清單(3)</h1>
 
-        <a class="item" href="./w68RRawwX3I.html">
-          <img src="https://i.ytimg.com/vi/w68RRawwX3I/mqdefault.jpg" loading="lazy">
-          <div class="meta">
-            <div class="date">2026-08-01 00:42</div>
-            <div class="vid">w68RRawwX3I</div>
+        <div class="item">
+          <a class="item-link" href="./gZoSKMq8Khk.html">
+            <img src="https://i.ytimg.com/vi/gZoSKMq8Khk/mqdefault.jpg" loading="lazy">
+            <div class="meta">
+              <div class="subject">ATR 42/72 飛行操作與系統邏輯 - 新進首位官常見錯誤分析</div>
+              <div class="date">2026-08-01 05:33</div>
+              <div class="vid">ID: gZoSKMq8Khk</div>
+            </div>
+          </a>
+          <div class="item-actions">
+            <a class="yt-link" href="https://www.youtube.com/watch?v=gZoSKMq8Khk" target="_blank" rel="noopener">▶ 原始影片</a>
+            <button class="del-btn" onclick="deleteVideo('gZoSKMq8Khk')">🗑 刪除</button>
           </div>
-        </a>
-        <a class="item" href="./xCfFw3K5D8A.html">
-          <img src="https://i.ytimg.com/vi/xCfFw3K5D8A/mqdefault.jpg" loading="lazy">
-          <div class="meta">
-            <div class="date">2026-08-01 00:42</div>
-            <div class="vid">xCfFw3K5D8A</div>
+        </div>
+        <div class="item">
+          <a class="item-link" href="./w68RRawwX3I.html">
+            <img src="https://i.ytimg.com/vi/w68RRawwX3I/mqdefault.jpg" loading="lazy">
+            <div class="meta">
+              <div class="subject">w68RRawwX3I</div>
+              <div class="date">2026-08-01 00:42</div>
+              <div class="vid">ID: w68RRawwX3I</div>
+            </div>
+          </a>
+          <div class="item-actions">
+            <a class="yt-link" href="https://www.youtube.com/watch?v=w68RRawwX3I" target="_blank" rel="noopener">▶ 原始影片</a>
+            <button class="del-btn" onclick="deleteVideo('w68RRawwX3I')">🗑 刪除</button>
           </div>
-        </a>
+        </div>
+        <div class="item">
+          <a class="item-link" href="./xCfFw3K5D8A.html">
+            <img src="https://i.ytimg.com/vi/xCfFw3K5D8A/mqdefault.jpg" loading="lazy">
+            <div class="meta">
+              <div class="subject">xCfFw3K5D8A</div>
+              <div class="date">(時間未知)</div>
+              <div class="vid">ID: xCfFw3K5D8A</div>
+            </div>
+          </a>
+          <div class="item-actions">
+            <a class="yt-link" href="https://www.youtube.com/watch?v=xCfFw3K5D8A" target="_blank" rel="noopener">▶ 原始影片</a>
+            <button class="del-btn" onclick="deleteVideo('xCfFw3K5D8A')">🗑 刪除</button>
+          </div>
+        </div>
+
+<script>
+function deleteVideo(id) {
+  var pathParts = window.location.pathname.split('/').filter(Boolean);
+  var repoName = pathParts[0] || '';
+  var username = window.location.hostname.split('.')[0];
+  var actionsUrl = 'https://github.com/' + username + '/' + repoName + '/actions/workflows/delete_video.yml';
+
+  var doOpen = function() {
+    alert('已複製影片 ID:' + id + '\n\n即將開啟「刪除線上複習頁面」的 Action 頁面,\n貼上這個 ID 到 video_id 欄位,按 Run workflow 即可刪除。');
+    window.open(actionsUrl, '_blank');
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(id).then(doOpen).catch(doOpen);
+  } else {
+    doOpen();
+  }
+}
+</script>
 </body>
 </html>
