@@ -349,9 +349,14 @@ def build_index_html():
 <body style="padding:20px;">
 <div class="list-header">
   <h1 style="margin:0;">📚 複習清單({len(entries)})</h1>
-  <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
+  <div class="header-actions">
+    <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
+    <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
+  </div>
 </div>
+<div id="item-list" class="item-list">
 {items_html if items_html else '<p class="empty">目前還沒有產生任何複習頁面。</p>'}
+</div>
 
 <script>
 var allCollapsed = false;
@@ -363,6 +368,20 @@ function toggleCollapseAll() {{
   }});
   document.getElementById('collapse-toggle-btn').textContent = allCollapsed ? '📂 全部展開' : '📁 全部收合';
 }}
+
+function toggleViewMode() {{
+  var container = document.getElementById('item-list');
+  var isGrid = container.classList.toggle('view-grid');
+  try {{ localStorage.setItem('viewMode', isGrid ? 'grid' : 'list'); }} catch (e) {{}}
+  document.getElementById('view-mode-btn').textContent = isGrid ? '📃 清單檢視' : '🔲 格狀檢視';
+}}
+
+try {{
+  if (localStorage.getItem('viewMode') === 'grid') {{
+    document.getElementById('item-list').classList.add('view-grid');
+    document.getElementById('view-mode-btn').textContent = '📃 清單檢視';
+  }}
+}} catch (e) {{}}
 
 function deleteVideo(id) {{
   var pathParts = window.location.pathname.split('/').filter(Boolean);
