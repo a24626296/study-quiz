@@ -53,6 +53,9 @@ MAX_RETRIES_ON_TRANSIENT = 3  # 429限流 / 503過載 共用的重試次數上�
 ONLINE_STUDY_DIR = os.path.normpath("./online_study")
 os.makedirs(ONLINE_STUDY_DIR, exist_ok=True)
 
+DATA_DIR = os.path.join(ONLINE_STUDY_DIR, "data")
+os.makedirs(DATA_DIR, exist_ok=True)
+
 # 關鍵修正:避免 GitHub Pages 用 Jekyll 處理這個資料夾。
 # Jekyll 的 Liquid 樣板引擎會把 HTML/JS 裡的 {{ ... }} 誤判成樣板語法,
 # 一旦 Gemini 產生的克漏字格式跟預期的正規表示式沒有完全對上,殘留的
@@ -97,6 +100,8 @@ QUIZ_SYSTEM_PROMPT = """
 - cloze_text 裡的挖空標記務必嚴格使用 {{c1::關鍵字}} 這個格式,前後不要加空格、不要用全形符號,只能有一組 c1
 - explanation 欄位要簡潔(1-2句話),不要跟 zh_translation 重複
 - timestamp 一律用 MM:SS 或 HH:MM:SS 格式的純文字,不要加中括號、不要加其他符號
+- 【重要】如果某段音訊聽不清楚、口齒不清、背景雜音干擾、或你對內容不夠確定,請直接跳過該段,不要用猜測或腦補的方式硬出題。寧可整體題數少一點,也不要出現似是而非、可能誤導使用者的錯誤內容
+- 如果整支影片的音訊品質太差,導致能確實聽懂的內容不足以出滿 3 題選擇題或 4 則背誦重點,就依實際能確定的內容出題即可,不用硬湊到規定的數量上限
 - 除了上述 JSON 物件之外,不要輸出任何文字
 """
 
@@ -238,197 +243,23 @@ def timestamp_to_seconds(timestamp):
     return int(hh) * 3600 + int(mm) * 60 + int(ss)
 
 
-def build_online_study_html(video_id, url, quiz_data):
-    """產生一個單頁 HTML:左邊嵌入 YouTube 播放器,右邊列出題目,點時間戳記直接跳轉播放進度"""
-    subject = quiz_data.get("subject", "")
+def write_video_data(video_id, url, quiz_data):
+    """
+    把 Gemini 回傳的 quiz_data 存成 data/{video_id}.json,不再產生完整 HTML。
 
-    def q_block(idx, title, body_html, seconds, extra_class=""):
-        seek_attr = f'onclick="seekTo({seconds})"' if seconds is not None else ""
-        ts_badge = (
-            f'<button class="ts-btn" {seek_attr}>🎬 跳轉</button>'
-            if seconds is not None else ""
-        )
-        return f"""
-        <div class="qcard {extra_class}">
-          <div class="qcard-head"><span class="qnum">{title}</span>{ts_badge}</div>
-          <div class="qcard-body">{body_html}</div>
-        </div>"""
+    畫面渲染完全交給共用的 viewer.html + viewer.js + style.css 處理
+    (資料/樣板分離,類似 Anki 正面/背面 Code 的概念)。以後要改按鈕、
+    改樣式,只要改那三個共用檔案,所有影片頁面重新整理就會套用新樣板,
+    完全不用重新出題、也不用一支一支影片重新產生。
+    """
+    data = dict(quiz_data)
+    data["video_id"] = video_id
+    data["url"] = url or f"https://www.youtube.com/watch?v={video_id}"
 
-    def esc(text):
-        return html_lib.escape(str(text or ""), quote=True)
-
-    def hoverable(zh_text, en_text, css_class=""):
-        return (
-            f'<div class="hoverable {css_class}" data-zh="{esc(zh_text)}" data-en="{esc(en_text)}">'
-            f'<span class="main-text"></span><span class="tooltip"></span></div>'
-        )
-
-    mc_html_parts = []
-    for i, q in enumerate(quiz_data.get("mc_questions", []), 1):
-        seconds = timestamp_to_seconds(q.get("timestamp"))
-        zh_opts = q.get("zh_options", [])
-        en_opts = q.get("en_options", [])
-        options_html = ""
-        for oi in range(max(len(zh_opts), len(en_opts))):
-            zh_o = zh_opts[oi] if oi < len(zh_opts) else ""
-            en_o = en_opts[oi] if oi < len(en_opts) else ""
-            options_html += hoverable(zh_o, en_o, "q-option")
-        question_html = hoverable(q.get("zh_question", ""), q.get("en_question", ""), "q-text")
-        body = f"""
-          {question_html}
-          <div class="q-options">{options_html}</div>
-          <details><summary>看答案與解析</summary>
-            <div class="answer">正解:({q.get('answer', '')})</div>
-            <div class="explain">{esc(q.get('explanation', ''))}</div>
-          </details>
-        """
-        mc_html_parts.append(q_block(i, f"選擇題 {i}", body, seconds))
-
-    cz_html_parts = []
-    for i, c in enumerate(quiz_data.get("cloze_items", []), 1):
-        seconds = timestamp_to_seconds(c.get("timestamp"))
-        cloze_text = c.get("cloze_text", "")
-        cloze_masked = re.sub(
-            r'\{\{c1::(.*?)\}\}',
-            r"""<span class="blank" onclick="this.classList.add('revealed')"><span class="blank-inner">\1</span></span>""",
-            cloze_text
-        )
-        # 安全網:確保替換後不再殘留任何 {{ }},避免 Jekyll 誤判樣板語法
-        cloze_masked = strip_stray_cloze_markup(cloze_masked)
-        body = f"""
-          <div class="q-text">{cloze_masked}</div>
-          <details><summary>看中文對照與解析</summary>
-            <div class="q-zh">{esc(c.get('zh_translation', ''))}</div>
-            <div class="explain">{esc(c.get('explanation', ''))}</div>
-          </details>
-          <div class="tag">{esc(c.get('tags', ''))}</div>
-        """
-        cz_html_parts.append(q_block(i, f"背誦重點 {i}", body, seconds, extra_class="cloze-card"))
-
-    html = f"""<!DOCTYPE html>
-<html lang="zh-Hant">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{subject} - 線上複習</title>
-<style>
-  body {{ background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; }}
-  .layout {{ display:flex; gap:20px; padding:20px; align-items:flex-start; flex-wrap:wrap; }}
-  .player-col {{ position:sticky; top:20px; flex:0 0 480px; }}
-  .player-col iframe {{ width:480px; height:270px; border:0; border-radius:8px; }}
-  .subject {{ font-size:18px; font-weight:bold; margin:12px 0; color:#72ef95; }}
-  .list-col {{ flex:1; min-width:320px; }}
-  .qcard {{ background:#1e293b; border-radius:8px; padding:14px 16px; margin-bottom:14px; }}
-  .cloze-card {{ border-left:4px solid #ff6b6b; }}
-  .qcard-head {{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }}
-  .qnum {{ color:#64B5F6; font-weight:bold; }}
-  .ts-btn {{ background:#2196F3; color:#fff; border:none; padding:4px 10px; border-radius:4px; cursor:pointer; font-size:12px; }}
-  .ts-btn:hover {{ background:#1769aa; }}
-  .q-text {{ font-size:16px; line-height:1.6; margin-bottom:6px; }}
-  .q-options {{ color:#cbd5e1; font-size:14px; line-height:1.8; margin-bottom:6px; }}
-  .q-zh {{ color:#94a3b8; font-size:13px; margin:6px 0; }}
-  .explain {{ color:#cbd5e1; font-size:13px; margin-top:6px; }}
-  .tag {{ display:inline-block; margin-top:8px; background:rgba(250,82,82,0.15); color:#ff6b6b; padding:2px 8px; border-radius:4px; font-size:12px; }}
-  details {{ margin-top:8px; }}
-  summary {{ cursor:pointer; color:#64B5F6; font-size:13px; }}
-  .answer {{ margin-top:8px; color:#72ef95; font-weight:bold; }}
-  .blank {{ background:rgba(255,236,153,0.3); border-radius:3px; padding:1px 4px; cursor:pointer; }}
-  .blank .blank-inner {{ visibility:hidden; }}
-  .blank.revealed {{ background:rgba(255,236,153,0.7); }}
-  .blank.revealed .blank-inner {{ visibility:visible; color:#d9480f; font-weight:bold; }}
-  .blank:not(.revealed) .blank-inner::before {{ content:"﹍﹍﹍"; visibility:visible; color:#facc15; }}
-  h2 {{ margin:16px 20px 0; }}
-
-  .lang-toggle {{ display:flex; align-items:center; gap:8px; margin:0 20px 16px; font-size:13px; color:#94a3b8; }}
-  .lang-btn {{ background:#1e293b; color:#cbd5e1; border:1px solid #334155; padding:5px 12px; border-radius:6px; cursor:pointer; font-size:13px; }}
-  .lang-btn.active {{ background:#2196F3; color:#fff; border-color:#2196F3; }}
-
-  .hoverable {{ position:relative; display:block; border-bottom:1px dotted #64B5F6; cursor:help; width:fit-content; }}
-  .q-options .hoverable {{ margin-bottom:4px; }}
-  .hoverable .tooltip {{
-    display:none; position:absolute; left:0; top:100%; margin-top:6px;
-    background:#0f172a; border:1px solid #64B5F6; color:#e2e8f0;
-    padding:6px 10px; border-radius:6px; font-size:13px; white-space:normal;
-    max-width:380px; z-index:50; box-shadow:0 4px 10px rgba(0,0,0,.4);
-  }}
-  .hoverable:hover .tooltip {{ display:block; }}
-  a.back {{ display:inline-block; margin:16px 20px 0; color:#64B5F6; font-size:13px; text-decoration:none; }}
-</style>
-</head>
-<body>
-<a class="back" href="./index.html">← 回複習清單</a>
-<div class="lang-toggle">
-  顯示語言:
-  <button id="btn-zh" class="lang-btn active" onclick="setLang('zh')">中文為主</button>
-  <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
-  <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
-</div>
-<div class="layout">
-  <div class="player-col">
-    <div class="subject">{subject}</div>
-    <div id="player"></div>
-  </div>
-  <div class="list-col">
-    <h3>📝 選擇題</h3>
-    {''.join(mc_html_parts) if mc_html_parts else '<p>(無)</p>'}
-    <h3>🧠 背誦重點(點空格看答案)</h3>
-    {''.join(cz_html_parts) if cz_html_parts else '<p>(無)</p>'}
-  </div>
-</div>
-
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  var player;
-  var primaryLang = 'zh';
-  var embedBlocked = false;
-  var VIDEO_ID = '{video_id}';
-
-  function onYouTubeIframeAPIReady() {{
-    player = new YT.Player('player', {{
-      height: '270',
-      width: '480',
-      videoId: VIDEO_ID,
-      playerVars: {{ 'playsinline': 1, 'origin': window.location.origin }},
-      events: {{ 'onError': onPlayerError }}
-    }});
-  }}
-  function onPlayerError(event) {{
-    // 101 / 150 = 影片擁有者禁止嵌入播放,100 = 影片不存在或設為私人,5 = HTML5播放器錯誤
-    if ([101, 150, 100, 5].indexOf(event.data) !== -1) {{
-      embedBlocked = true;
-    }}
-  }}
-  function seekTo(seconds) {{
-    if (embedBlocked || !player || !player.seekTo) {{
-      window.open('https://www.youtube.com/watch?v=' + VIDEO_ID + '&t=' + seconds + 's', '_blank');
-      return;
-    }}
-    player.seekTo(seconds, true);
-    player.playVideo();
-  }}
-
-  function applyLang() {{
-    var otherLang = primaryLang === 'zh' ? 'en' : 'zh';
-    document.querySelectorAll('.hoverable').forEach(function(el) {{
-      var mainEl = el.querySelector('.main-text');
-      var tipEl = el.querySelector('.tooltip');
-      mainEl.textContent = el.dataset[primaryLang] || '';
-      tipEl.textContent = el.dataset[otherLang] || '';
-    }});
-  }}
-
-  function setLang(lang) {{
-    primaryLang = lang;
-    document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    applyLang();
-  }}
-
-  document.addEventListener('DOMContentLoaded', applyLang);
-</script>
-</body>
-</html>"""
-    return html
+    data_path = os.path.join(DATA_DIR, f"{video_id}.json")
+    with open(data_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    return data_path
 
 
 MANIFEST_PATH = os.path.join(ONLINE_STUDY_DIR, "manifest.json")
@@ -463,6 +294,7 @@ def record_manifest(video_id, subject, url):
 def build_index_html():
     """
     重建複習清單首頁,顯示科目名稱、原始YouTube連結、產生時間。
+    連結指向共用的 viewer.html?id=xxx(不再是每支影片各自的html檔案)。
 
     刪除按鈕:因為 GitHub Pages 是純靜態網站,網頁本身沒有後端可以真的
     刪除檔案。這裡的做法是——按下刪除後,自動複製影片 ID 並開啟
@@ -471,10 +303,7 @@ def build_index_html():
     但已經是靜態網站能做到最接近的方式。
     """
     manifest = load_manifest()
-    files = [
-        f for f in glob.glob(os.path.join(ONLINE_STUDY_DIR, "*.html"))
-        if os.path.basename(f) != "index.html"
-    ]
+    files = glob.glob(os.path.join(DATA_DIR, "*.json"))
 
     entries = []
     for f in files:
@@ -495,7 +324,7 @@ def build_index_html():
         display_time = e["created"].replace("T", " ")[:16] if e["created"] else "(時間未知)"
         items_html += f"""
         <div class="item">
-          <a class="item-link" href="./{html_lib.escape(e['video_id'])}.html">
+          <a class="item-link" href="./viewer.html?id={html_lib.escape(e['video_id'])}">
             <img src="https://i.ytimg.com/vi/{e['video_id']}/mqdefault.jpg" loading="lazy">
             <div class="meta">
               <div class="subject">{html_lib.escape(e['subject'])}</div>
@@ -515,30 +344,26 @@ def build_index_html():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>複習清單</title>
-<style>
-  body {{ background:#0f172a; color:#e2e8f0; font-family:"Microsoft JhengHei",Arial,sans-serif; margin:0; padding:20px; }}
-  h1 {{ font-size:20px; margin-bottom:16px; }}
-  .item {{ display:flex; justify-content:space-between; align-items:center; gap:12px; background:#1e293b;
-           border-radius:8px; padding:10px; margin-bottom:10px; }}
-  .item-link {{ display:flex; gap:12px; align-items:center; text-decoration:none; color:#e2e8f0; flex:1; min-width:0; }}
-  .item-link img {{ width:120px; border-radius:6px; flex-shrink:0; }}
-  .meta {{ min-width:0; }}
-  .meta .subject {{ font-size:15px; font-weight:bold; color:#e2e8f0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
-  .meta .date {{ font-size:13px; color:#94a3b8; margin-top:2px; }}
-  .meta .vid {{ font-size:12px; color:#72ef95; margin-top:4px; }}
-  .item-actions {{ display:flex; flex-direction:column; gap:6px; flex-shrink:0; }}
-  .yt-link {{ font-size:12px; color:#64B5F6; text-decoration:none; white-space:nowrap; }}
-  .yt-link:hover {{ text-decoration:underline; }}
-  .del-btn {{ background:#3f1d1d; color:#ff6b6b; border:1px solid #ff6b6b; border-radius:6px; padding:4px 10px; font-size:12px; cursor:pointer; }}
-  .del-btn:hover {{ background:#ff6b6b; color:#fff; }}
-  .empty {{ color:#94a3b8; }}
-</style>
+<link rel="stylesheet" href="./style.css">
 </head>
-<body>
-<h1>📚 複習清單({len(entries)})</h1>
+<body style="padding:20px;">
+<div class="list-header">
+  <h1 style="margin:0;">📚 複習清單({len(entries)})</h1>
+  <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
+</div>
 {items_html if items_html else '<p class="empty">目前還沒有產生任何複習頁面。</p>'}
 
 <script>
+var allCollapsed = false;
+
+function toggleCollapseAll() {{
+  allCollapsed = !allCollapsed;
+  document.querySelectorAll('.item').forEach(function(el) {{
+    el.classList.toggle('collapsed', allCollapsed);
+  }});
+  document.getElementById('collapse-toggle-btn').textContent = allCollapsed ? '📂 全部展開' : '📁 全部收合';
+}}
+
 function deleteVideo(id) {{
   var pathParts = window.location.pathname.split('/').filter(Boolean);
   var repoName = pathParts[0] || '';
@@ -566,7 +391,7 @@ function deleteVideo(id) {{
 
 def delete_video(video_id):
     """
-    刪除指定 video_id 的複習頁面(html + manifest 紀錄),並重建 index.html。
+    刪除指定 video_id 的複習資料(data/{id}.json + manifest 紀錄),並重建 index.html。
     這是原本獨立的 delete_video.py 合併進來的邏輯,現在只用 --delete 參數區分。
     """
     manifest = load_manifest()
@@ -574,22 +399,22 @@ def delete_video(video_id):
     manifest.pop(video_id, None)
     save_manifest(manifest)
 
-    html_path = os.path.join(ONLINE_STUDY_DIR, f"{video_id}.html")
-    existed_file = os.path.exists(html_path)
+    data_path = os.path.join(DATA_DIR, f"{video_id}.json")
+    existed_file = os.path.exists(data_path)
     if existed_file:
-        os.remove(html_path)
+        os.remove(data_path)
 
     if not existed_in_manifest and not existed_file:
-        print(f"⚠️ 找不到 video_id「{video_id}」的複習頁面或 manifest 紀錄,可能已經被刪除過了。")
+        print(f"⚠️ 找不到 video_id「{video_id}」的複習資料或 manifest 紀錄,可能已經被刪除過了。")
     else:
-        print(f"🗑️ 已刪除:{video_id}(html: {'有' if existed_file else '無'}, manifest: {'有' if existed_in_manifest else '無'})")
+        print(f"🗑️ 已刪除:{video_id}(data: {'有' if existed_file else '無'}, manifest: {'有' if existed_in_manifest else '無'})")
 
     build_index_html()
     print("✅ 已更新 index.html 清單頁")
 
 
 def process_one_video(video_id, source_url):
-    """處理單一影片:分析出題、寫入html、記錄manifest。回傳是否成功。"""
+    """處理單一影片:分析出題、寫入JSON資料、記錄manifest。回傳是否成功。"""
     clean_url = f"https://www.youtube.com/watch?v={video_id}"
     print(f"🌐 分析中:{clean_url}")
     try:
@@ -598,11 +423,8 @@ def process_one_video(video_id, source_url):
         print(f"❌ 這支影片處理失敗,略過繼續下一支:{type(e).__name__}: {e}")
         return False
 
-    html_out = build_online_study_html(video_id, source_url, quiz_data)
-    out_path = os.path.join(ONLINE_STUDY_DIR, f"{video_id}.html")
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(html_out)
-    print(f"✅ 已產生:{out_path}")
+    data_path = write_video_data(video_id, source_url, quiz_data)
+    print(f"✅ 已產生:{data_path}")
 
     record_manifest(video_id, quiz_data.get("subject", ""), clean_url)
     return True
