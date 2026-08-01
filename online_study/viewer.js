@@ -8,6 +8,19 @@
   var systemContext = '';
   var CHAT_MODEL = 'gemini-3-flash-preview';
 
+  // 頂部選項列摺疊狀態:記住使用者上次的選擇(這是一般靜態網站,不是
+  // Claude 的 artifact 沙盒,可以正常使用 localStorage)
+  window.toggleTopBar = function () {
+    var content = document.getElementById('top-bar-content');
+    var isOpen = content.classList.toggle('open');
+    try { localStorage.setItem('topBarOpen', isOpen ? '1' : '0'); } catch (e) {}
+  };
+  try {
+    if (localStorage.getItem('topBarOpen') === '1') {
+      document.getElementById('top-bar-content').classList.add('open');
+    }
+  } catch (e) {}
+
   if (!videoId) {
     document.getElementById('app').innerHTML = '<p class="empty">網址缺少 ?id= 參數,請從複習清單頁點進來。</p>';
     return;
