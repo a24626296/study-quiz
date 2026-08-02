@@ -1,0 +1,27 @@
+name: 執行測試
+on:
+  push:
+    paths:
+      - 'study_pipeline.py'
+      - 'scripts/**'
+      - 'tests/**'
+      - 'check_sync.py'
+  workflow_dispatch: {}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取得 repo
+        uses: actions/checkout@v4
+      - name: 安裝 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: 安裝套件
+        run: |
+          python -m pip install --upgrade pip
+          pip install pytest
+      - name: 執行同步檢查(本機版跟雲端版該一致的邏輯有沒有跑掉)
+        run: python check_sync.py
+      - name: 執行自動化測試
+        run: python -m pytest tests/ -v
