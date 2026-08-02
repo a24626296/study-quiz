@@ -21,6 +21,22 @@
     }
   } catch (e) {}
 
+  // 拖曳影片框調整大小時,同步更新左欄(.player-col)本身的寬度,
+  // 這樣 flexbox 才會正確讓右邊題目欄跟著收縮讓出空間,而不是被蓋住。
+  (function initPlayerResize() {
+    var resizableEl = document.getElementById('player-resizable');
+    var playerColEl = document.querySelector('.player-col');
+    if (!resizableEl || !playerColEl || typeof ResizeObserver === 'undefined') return;
+    var ro = new ResizeObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        var newWidth = Math.round(entries[i].contentRect.width);
+        playerColEl.style.flex = '0 0 ' + newWidth + 'px';
+        playerColEl.style.width = newWidth + 'px';
+      }
+    });
+    ro.observe(resizableEl);
+  })();
+
   if (!videoId) {
     document.getElementById('app').innerHTML = '<p class="empty">網址缺少 ?id= 參數,請從複習清單頁點進來。</p>';
     return;
