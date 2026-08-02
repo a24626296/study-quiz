@@ -56,6 +56,15 @@
     document.title = (data.subject || '線上複習') + ' - 線上複習';
     document.getElementById('subject').textContent = data.subject || '';
 
+    if (data.has_transcript) {
+      var link = document.createElement('a');
+      link.href = './data/' + encodeURIComponent(videoId) + '.srt';
+      link.download = videoId + '.srt';
+      link.className = 'transcript-link';
+      link.textContent = '📝 下載修正逐字稿(.srt)';
+      document.getElementById('subject').insertAdjacentElement('afterend', link);
+    }
+
     window.onYouTubeIframeAPIReady = function () {
       player = new YT.Player('player', {
         height: '270',
