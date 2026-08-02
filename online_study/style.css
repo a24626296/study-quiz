@@ -27,7 +27,7 @@ body { background: var(--bg); color: var(--text); font-family: "Microsoft JhengH
   height: 270px;
   min-width: 260px;
   min-height: 150px;
-  max-width: 100%;
+  max-width: 900px;
   border-radius: 8px;
   border: 1px solid #334155;
 }
@@ -120,10 +120,11 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
 
 /* 複習清單頁 */
 .list-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px; }
-.header-actions { display:flex; gap:8px; }
-.collapse-all-btn, .view-mode-btn { background:var(--card); color:#cbd5e1; border:1px solid #334155; padding:6px 14px; border-radius:6px; cursor:pointer; font-size:13px; }
+.header-actions { display:flex; gap:8px; flex-wrap:wrap; }
+.collapse-all-btn, .view-mode-btn, .archive-toggle-btn { background:var(--card); color:#cbd5e1; border:1px solid #334155; padding:6px 14px; border-radius:6px; cursor:pointer; font-size:13px; }
 .item { display:flex; justify-content:space-between; align-items:center; gap:12px; background:var(--card);
         border-radius:8px; padding:10px; margin-bottom:10px; }
+.archive-checkbox { width:18px; height:18px; flex-shrink:0; cursor:pointer; accent-color: var(--green); }
 .item-link { display:flex; gap:12px; align-items:center; text-decoration:none; color:var(--text); flex:1; min-width:0; }
 .item-link img { width:120px; border-radius:6px; flex-shrink:0; transition:opacity 0.15s; }
 .meta { min-width:0; }
@@ -135,6 +136,11 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
 .yt-link:hover { text-decoration:underline; }
 .del-btn { background:#3f1d1d; color:var(--red); border:1px solid var(--red); border-radius:6px; padding:4px 10px; font-size:12px; cursor:pointer; }
 .del-btn:hover { background:var(--red); color:#fff; }
+
+/* 已封存狀態:預設隱藏,開啟「顯示已封存」才會用淡化樣式露出來 */
+.item.archived { display:none; }
+.item-list.show-archived .item.archived { display:flex; opacity:0.55; }
+.item-list.show-archived.view-grid .item.archived { display:flex; }
 
 /* 收合狀態:只留科目名稱 */
 .item.collapsed .item-link img,
@@ -149,6 +155,7 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
   display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:14px;
 }
 .item-list.view-grid .item { flex-direction:column; align-items:stretch; padding:10px; }
+.item-list.view-grid .archive-checkbox { align-self:flex-end; }
 .item-list.view-grid .item-link { flex-direction:column; align-items:stretch; gap:8px; }
 .item-list.view-grid .item-link img { width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; }
 .item-list.view-grid .meta .subject { white-space:normal; }
@@ -182,3 +189,4 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
   .list-col { min-width: 0; width: 100%; }
   .chat-box { max-height: 280px; }
 }
+
