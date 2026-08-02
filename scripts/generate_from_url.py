@@ -37,9 +37,10 @@ from google.genai import types
 # 基本設定
 # ==========================================
 API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
-if not API_KEY:
-    print("❌ 找不到環境變數 GEMINI_API_KEY,請確認 GitHub Secrets 有設定好。")
-    sys.exit(1)
+# 注意:這裡刻意不強制要求 API_KEY 一定要存在——
+# --delete 跟 --rebuild-index 這兩個模式根本不需要呼叫 Gemini,
+# 檢查挪到真正要呼叫 Gemini 的地方(generate_quiz_from_youtube_url)才做,
+# 這樣「部署複習頁面(不出題)」這種不需要 Gemini 的 workflow 就不用被迫帶這把金鑰。
 
 # YouTube Data API v3 金鑰,只有在處理「播放清單」網址時才需要用到,
 # 單支影片模式不需要,所以這裡不強制要求一定要有,留到真的要用時才檢查。
@@ -51,7 +52,7 @@ YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "").strip()
 MY_CHANNEL_ID = os.environ.get("MY_CHANNEL_ID", "").strip()
 MAX_PLAYLIST_VIDEOS = 30  # 單次workflow最多處理幾支影片,避免清單太長跑到超時
 
-client = genai.Client(api_key=API_KEY)
+client = genai.Client(api_key=API_KEY or "missing-key-placeholder")
 MODEL_NAME = "gemini-3-flash-preview"
 MAX_RETRIES_ON_TRANSIENT = 3  # 429限流 / 503過載 共用的重試次數上限
 
@@ -259,6 +260,9 @@ def strip_stray_cloze_markup(text):
 
 def generate_quiz_from_youtube_url(video_id, with_transcript=False):
     """直接把 YouTube 影片交給 Gemini 分析,不下載、不上傳檔案。附帶 429 / 503 重試。"""
+    if not API_KEY:
+        raise RuntimeError("找不到環境變數 GEMINI_API_KEY,請確認 GitHub Secrets 有設定好。")
+
     clean_url = f"https://www.youtube.com/watch?v={video_id}"
     prompt_template = build_quiz_prompt(with_transcript=with_transcript)
     prompt = f"{prompt_template}\n影片網址:{clean_url}。請直接分析這支 YouTube 影片後出題。"
@@ -395,6 +399,28 @@ def record_manifest(video_id, subject, url):
         "created": datetime.datetime.utcnow().isoformat(timespec="seconds"),
     }
     save_manifest(manifest)
+
+
+REQUIRED_ASSETS = ["viewer.html", "viewer.js", "style.css", "chat-config.js"]
+
+
+def check_required_assets():
+    """
+    基本自我檢查:確認 viewer.html / viewer.js / style.css / chat-config.js
+    這幾個共用靜態檔案都存在。這幾個檔案是手動加進 repo 的,不是 Python
+    自動產生的,漏加會導致複習頁面 404、或某些功能(如收合、封存)沒作用
+    卻沒有任何錯誤訊息——過去我們就因為漏傳這幾個檔案卡了好幾次。
+    這裡只用「印出警告」不會讓 workflow 失敗,因為就算暫時缺檔案,
+    出題本身還是能正常進行、資料不會遺失,只是複習頁面顯示會不完整。
+    """
+    missing = [name for name in REQUIRED_ASSETS if not os.path.exists(os.path.join(ONLINE_STUDY_DIR, name))]
+    if missing:
+        print(f"⚠️ 【自我檢查】online_study/ 資料夾裡缺少這些共用靜態檔案:{', '.join(missing)}")
+        print("   複習頁面可能會 404 或部分功能(收合/封存/語言切換等)沒有作用。")
+        print("   請把這些檔案加進 repo 的 online_study/ 資料夾(通常是我之前提供給你的檔案)。")
+    else:
+        print("✅ 【自我檢查】共用靜態檔案(viewer.html/viewer.js/style.css/chat-config.js)都存在")
+    return missing
 
 
 def build_index_html():
@@ -616,8 +642,19 @@ def main():
               "  產生考題(單支影片):python generate_from_url.py \"https://www.youtube.com/watch?v=xxxxxxxxxxx\"\n"
               "  產生考題(播放清單):python generate_from_url.py \"https://www.youtube.com/playlist?list=xxxxxxxxxxx\"\n"
               "  刪除頁面:python generate_from_url.py --delete xxxxxxxxxxx\n"
+              "  只重建清單頁(不呼叫Gemini):python generate_from_url.py --rebuild-index\n"
               "  加上 --with-transcript 或環境變數 WITH_TRANSCRIPT=1 可額外產生修正逐字稿(較慢)")
         sys.exit(1)
+
+    # --rebuild-index 模式:只重新產生 index.html + 檢查必要的共用靜態檔案存不存在,
+    # 不呼叫 Gemini、不需要 GEMINI_API_KEY。用途:每次「部署複習頁面」的 workflow
+    # 執行時都會跑這個,確保 index.html 永遠反映目前腳本版本的最新邏輯,
+    # 不用再靠「觸發假刪除」這種變通方式強迫重建。
+    if sys.argv[1] == "--rebuild-index":
+        check_required_assets()
+        build_index_html()
+        print("✅ 已重建 index.html 清單頁(未呼叫 Gemini)")
+        return
 
     # --delete 模式:刪除指定影片,不需要呼叫 Gemini
     if sys.argv[1] == "--delete":
@@ -642,6 +679,8 @@ def main():
 
     url = args[0].strip()
     video_id = extract_video_id_from_url(url)
+
+    check_required_assets()  # 自我檢查:提早發現漏傳的共用靜態檔案
 
     # 單支影片模式
     if video_id:
