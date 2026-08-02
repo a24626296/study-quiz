@@ -44,6 +44,11 @@ if not API_KEY:
 # YouTube Data API v3 金鑰,只有在處理「播放清單」網址時才需要用到,
 # 單支影片模式不需要,所以這裡不強制要求一定要有,留到真的要用時才檢查。
 YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", "").strip()
+
+# 你自己的 YouTube 頻道 ID(選填)。填了之後,程式會自動判斷影片是不是
+# 你自己頻道的,只有自己的影片才會自動加開逐字稿功能;不是的話就跳過,
+# 不用每次手動選。去 YouTube Studio → 設定 → 頻道 → 進階設定 可以查到頻道 ID。
+MY_CHANNEL_ID = os.environ.get("MY_CHANNEL_ID", "").strip()
 MAX_PLAYLIST_VIDEOS = 30  # 單次workflow最多處理幾支影片,避免清單太長跑到超時
 
 client = genai.Client(api_key=API_KEY)
@@ -64,7 +69,7 @@ NOJEKYLL_PATH = os.path.join(ONLINE_STUDY_DIR, ".nojekyll")
 if not os.path.exists(NOJEKYLL_PATH):
     open(NOJEKYLL_PATH, "a", encoding="utf-8").close()
 
-QUIZ_SYSTEM_PROMPT = """
+QUIZ_SYSTEM_PROMPT_BASE = """
 你是一位資深的航空公司總檢定官與系統教官。
 請詳細分析這段音訊內容,針對裡面的核心觀念與系統邏輯,製作一套考題。
 
@@ -91,14 +96,7 @@ QUIZ_SYSTEM_PROMPT = """
       "tags": "簡短分類,例如 Engine / Hydraulics / Limitations / Memory-Item",
       "timestamp": "05:12"
     }
-  ],
-  "transcript": [
-    {
-      "start": "00:00",
-      "end": "00:04",
-      "text": "這段時間範圍內實際講的內容,逐字稿形式,聽到什麼語言就寫什麼語言"
-    }
-  ]
+  ]__TRANSCRIPT_JSON_FIELD__
 }
 
 規則:
@@ -106,13 +104,39 @@ QUIZ_SYSTEM_PROMPT = """
 - cloze_items:請出 4~8 個值得直接背誦的 Memory Item、限制數據(limitations)、定義或口訣,適合「記憶型」的知識點;每一則只挖一個重點(只用 {{c1::}},不要有 c2、c3)
 - cloze_text 裡的挖空標記務必嚴格使用 {{c1::關鍵字}} 這個格式,前後不要加空格、不要用全形符號,只能有一組 c1
 - explanation 欄位要簡潔(1-2句話),不要跟 zh_translation 重複
-- timestamp 一律用 MM:SS 或 HH:MM:SS 格式的純文字,不要加中括號、不要加其他符號
-- transcript:請把整支影片從頭到尾的逐字稿,依照實際講話的自然停頓切成一段一段(每段大約 3~8 秒,不要切太細也不要切太長),依序列出,涵蓋整支影片,不要只挑重點段落。這是要拿來取代 YouTube 現有字幕用的,所以要盡量完整、準確反映實際說出的內容,而不是摘要或改寫
-- transcript 的每一段一樣適用「不確定就跳過」原則:如果某幾秒聽不清楚,可以把那幾秒的 text 留空字串,或用 "(聽不清楚)" 標記,不要用猜的填內容
+- timestamp 一律用 MM:SS 或 HH:MM:SS 格式的純文字,不要加中括號、不要加其他符號__TRANSCRIPT_RULES__
 - 【重要】如果某段音訊聽不清楚、口齒不清、背景雜音干擾、或你對內容不夠確定,請直接跳過該段,不要用猜測或腦補的方式硬出題。寧可整體題數少一點,也不要出現似是而非、可能誤導使用者的錯誤內容
 - 如果整支影片的音訊品質太差,導致能確實聽懂的內容不足以出滿 3 題選擇題或 4 則背誦重點,就依實際能確定的內容出題即可,不用硬湊到規定的數量上限
 - 除了上述 JSON 物件之外,不要輸出任何文字
 """
+
+# 逐字稿是「可選」附加項目,預設不開啟——原因是逐字稿要求 Gemini
+# 把整支影片從頭到尾逐句轉出來,對 20 分鐘左右的影片就可能多產生
+# 上百段內容,回應時間可能拉長到 5 分鐘以上。只有真的想修正自己
+# 影片字幕時才需要開啟(用 --with-transcript 或 workflow 的 with_transcript 選項)。
+TRANSCRIPT_JSON_FIELD = """,
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:04",
+      "text": "這段時間範圍內實際講的內容,逐字稿形式,聽到什麼語言就寫什麼語言"
+    }
+  ]"""
+
+TRANSCRIPT_RULES = """
+- transcript:請把整支影片從頭到尾的逐字稿,依照實際講話的自然停頓切成一段一段(每段大約 3~8 秒,不要切太細也不要切太長),依序列出,涵蓋整支影片,不要只挑重點段落。這是要拿來取代 YouTube 現有字幕用的,所以要盡量完整、準確反映實際說出的內容,而不是摘要或改寫
+- transcript 的每一段一樣適用「不確定就跳過」原則:如果某幾秒聽不清楚,可以把那幾秒的 text 留空字串,或用 "(聽不清楚)" 標記,不要用猜的填內容"""
+
+
+def build_quiz_prompt(with_transcript=False):
+    """
+    用簡單字串替換組出最終 prompt(不用 str.format(),因為範本裡本身就有
+    大量 JSON 範例用的大括號,跟 .format() 的佔位符語法會衝突)。
+    """
+    prompt = QUIZ_SYSTEM_PROMPT_BASE
+    prompt = prompt.replace("__TRANSCRIPT_JSON_FIELD__", TRANSCRIPT_JSON_FIELD if with_transcript else "")
+    prompt = prompt.replace("__TRANSCRIPT_RULES__", TRANSCRIPT_RULES if with_transcript else "")
+    return prompt
 
 
 def extract_video_id_from_url(url):
@@ -131,6 +155,31 @@ def extract_playlist_id_from_url(url):
     """從網址取出播放清單 ID(list= 後面那串)"""
     m = re.search(r'[?&]list=([a-zA-Z0-9_-]+)', url)
     return m.group(1) if m else None
+
+
+def get_video_channel_id(video_id):
+    """查詢一支影片屬於哪個 YouTube 頻道,用於自動判斷是不是自己的影片"""
+    if not YOUTUBE_API_KEY:
+        return None
+    params = {"part": "snippet", "id": video_id, "key": YOUTUBE_API_KEY}
+    query = urllib.parse.urlencode(params)
+    req = urllib.request.Request(f"https://www.googleapis.com/youtube/v3/videos?{query}")
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+        items = data.get("items", [])
+        if items:
+            return items[0].get("snippet", {}).get("channelId")
+    except Exception:
+        pass
+    return None
+
+
+def is_own_video(video_id):
+    """判斷這支影片是不是 MY_CHANNEL_ID 設定的那個頻道所有"""
+    if not MY_CHANNEL_ID:
+        return False
+    return get_video_channel_id(video_id) == MY_CHANNEL_ID
 
 
 def fetch_playlist_video_ids(playlist_id):
@@ -208,10 +257,11 @@ def strip_stray_cloze_markup(text):
     return re.sub(r'\{\{c1::(.*?)\}\}', r'\1', text)
 
 
-def generate_quiz_from_youtube_url(video_id):
+def generate_quiz_from_youtube_url(video_id, with_transcript=False):
     """直接把 YouTube 影片交給 Gemini 分析,不下載、不上傳檔案。附帶 429 / 503 重試。"""
     clean_url = f"https://www.youtube.com/watch?v={video_id}"
-    prompt = f"{QUIZ_SYSTEM_PROMPT}\n影片網址:{clean_url}。請直接分析這支 YouTube 影片後出題。"
+    prompt_template = build_quiz_prompt(with_transcript=with_transcript)
+    prompt = f"{prompt_template}\n影片網址:{clean_url}。請直接分析這支 YouTube 影片後出題。"
     video_part = types.Part(file_data=types.FileData(file_uri=clean_url))
 
     attempt = 0
@@ -488,12 +538,18 @@ def delete_video(video_id):
     print("✅ 已更新 index.html 清單頁")
 
 
-def process_one_video(video_id, source_url):
+def process_one_video(video_id, source_url, with_transcript=False):
     """處理單一影片:分析出題、寫入JSON資料、記錄manifest。回傳是否成功。"""
     clean_url = f"https://www.youtube.com/watch?v={video_id}"
-    print(f"🌐 分析中:{clean_url}")
+
+    auto_own = is_own_video(video_id)
+    effective_with_transcript = with_transcript or auto_own
+    if auto_own and not with_transcript:
+        print(f"🔍 偵測到這是你自己頻道的影片,自動加開逐字稿功能")
+
+    print(f"🌐 分析中:{clean_url}" + ("(含逐字稿,會比較慢)" if effective_with_transcript else ""))
     try:
-        quiz_data = generate_quiz_from_youtube_url(video_id)
+        quiz_data = generate_quiz_from_youtube_url(video_id, with_transcript=effective_with_transcript)
     except Exception as e:
         print(f"❌ 這支影片處理失敗,略過繼續下一支:{type(e).__name__}: {e}")
         return False
@@ -510,7 +566,8 @@ def main():
         print("❌ 沒有收到參數。用法:\n"
               "  產生考題(單支影片):python generate_from_url.py \"https://www.youtube.com/watch?v=xxxxxxxxxxx\"\n"
               "  產生考題(播放清單):python generate_from_url.py \"https://www.youtube.com/playlist?list=xxxxxxxxxxx\"\n"
-              "  刪除頁面:python generate_from_url.py --delete xxxxxxxxxxx")
+              "  刪除頁面:python generate_from_url.py --delete xxxxxxxxxxx\n"
+              "  加上 --with-transcript 或環境變數 WITH_TRANSCRIPT=1 可額外產生修正逐字稿(較慢)")
         sys.exit(1)
 
     # --delete 模式:刪除指定影片,不需要呼叫 Gemini
@@ -521,12 +578,25 @@ def main():
         delete_video(sys.argv[2].strip())
         return
 
-    url = sys.argv[1].strip()
+    # 逐字稿是可選功能(預設關閉,因為會讓每支影片明顯變慢):
+    # 可以用 --with-transcript 參數,或環境變數 WITH_TRANSCRIPT=1 開啟
+    args = sys.argv[1:]
+    with_transcript = "--with-transcript" in args
+    if with_transcript:
+        args = [a for a in args if a != "--with-transcript"]
+    if os.environ.get("WITH_TRANSCRIPT", "").strip().lower() in ("1", "true", "yes"):
+        with_transcript = True
+
+    if not args or not args[0].strip():
+        print("❌ 沒有收到網址參數。")
+        sys.exit(1)
+
+    url = args[0].strip()
     video_id = extract_video_id_from_url(url)
 
     # 單支影片模式
     if video_id:
-        ok = process_one_video(video_id, url)
+        ok = process_one_video(video_id, url, with_transcript=with_transcript)
         build_index_html()
         print("✅ 已更新 index.html 清單頁")
         if not ok:
@@ -556,7 +626,7 @@ def main():
         success_count = 0
         for idx, vid in enumerate(video_ids, 1):
             print(f"---- [{idx}/{len(video_ids)}] ----")
-            if process_one_video(vid, f"https://www.youtube.com/watch?v={vid}"):
+            if process_one_video(vid, f"https://www.youtube.com/watch?v={vid}", with_transcript=with_transcript):
                 success_count += 1
             time.sleep(5)  # 稍微錯開,避免瞬間對 Gemini API 打太多請求
 
