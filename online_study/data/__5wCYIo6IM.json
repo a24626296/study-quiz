@@ -1,0 +1,95 @@
+{
+  "subject": "飛行員招募評估 - 面試、履歷與模擬機考選準備",
+  "mc_questions": [
+    {
+      "zh_question": "根據教官的建議,在參加針對新機型(New Type)的模擬機評核(Simulator Assessment)時,考官最看重的核心能力為何？",
+      "zh_options": [
+        "(A) 精準的落地技巧 (Landing Skills)",
+        "(B) 對該機型系統手冊的背誦能力",
+        "(C) 資源管理 (CRM) 與非正常情況的管理能力",
+        "(D) 儀表飛行的航道保持精度"
+      ],
+      "en_question": "According to the instructor, what is the core competency that examiners value most during a simulator assessment for a new aircraft type?",
+      "en_options": [
+        "(A) Precise landing skills",
+        "(B) Rote memorization of the aircraft system manual",
+        "(C) CRM (Crew Resource Management) and management of non-normals",
+        "(D) Tracking accuracy during instrument flight"
+      ],
+      "answer": "C",
+      "explanation": "教官強調,針對新機型,航空公司知道你沒飛過,所以不會專注於落地好壞,而是觀察你的 CRM、團隊合作以及在壓力下管理非正常情況 (Management of non-normals) 的能力。",
+      "timestamp": "20:08"
+    },
+    {
+      "zh_question": "在小組討論或小組活動面試中,應徵者應該抱持什麼樣的觀念？",
+      "zh_options": [
+        "(A) 展現出最強的領導力以壓過其他人",
+        "(B) 其他人都是潛在的競爭對手 (Competitors)",
+        "(C) 保持沉默以避免犯錯",
+        "(D) 其他人是合作夥伴,應展現團隊協作能力"
+      ],
+      "en_question": "What mindset should a candidate maintain during a group exercise or interview?",
+      "en_options": [
+        "(A) Demonstrate the strongest leadership to overpower others",
+        "(B) View others as potential competitors for the job",
+        "(C) Remain silent to avoid making mistakes",
+        "(D) View others as collaborators and demonstrate teamwork skills"
+      ],
+      "answer": "D",
+      "explanation": "教官指出,許多應徵者誤將同組人視為競爭對手,但航空公司可能錄取整組人或一個都不錄取,重點在於觀察你如何與團隊溝通、協作以及在壓力下的表現。",
+      "timestamp": "17:22"
+    },
+    {
+      "zh_question": "關於航空公司的職位申請要求(Application Requirements),下列敘述何者正確？",
+      "zh_options": [
+        "(A) 如果只差幾小時飛行時數,可以先投遞履歷",
+        "(B) 應務必在完全符合所有準則後再申請,以免留下被拒紀錄影響未來",
+        "(C) 如果有綠卡問題,錄取後再解決即可",
+        "(D) 申請表上的細節(如飛過的航點)不重要,面試再談即可"
+      ],
+      "en_question": "Regarding airline application requirements, which of the following statements is correct?",
+      "en_options": [
+        "(A) You can apply first even if you are a few flight hours short",
+        "(B) You must meet all criteria before applying to avoid a rejection record impacting your future",
+        "(C) Green card issues can be resolved after being hired",
+        "(D) Details on the application form (e.g., destinations flown) are not important and can be discussed during the interview"
+      ],
+      "answer": "B",
+      "explanation": "教官強調必須「Meet all the requirements」才申請。未達標即申請可能導致被拒絕,甚至在未來符合資格時,仍因先前的拒絕紀錄或罰則 (Penalties) 受到影響。",
+      "timestamp": "01:54"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "In the simulator assessment, the instructors want to see your {{c1::CRM}}, teamwork, and management of non-normals.",
+      "zh_translation": "在模擬機評估中,教官想要看到的是你的資源管理(CRM)、團隊合作以及對非正常情況的管理。",
+      "explanation": "對於不熟悉的機種,飛行技巧是其次,跨職能合作與情境意識才是評核重點。",
+      "tags": "Simulator / CRM",
+      "timestamp": "20:07"
+    },
+    {
+      "cloze_text": "Your interview starts at the {{c1::airport}} when you board their airplane or step into their facilities.",
+      "zh_translation": "當你登上他們的飛機或踏入他們的設施時,你的面試就已經在機場開始了。",
+      "explanation": "航空公司會從應徵者與地勤、空服員或飯店員工的互動中觀察其職業素養。",
+      "tags": "Professionalism",
+      "timestamp": "15:55"
+    },
+    {
+      "cloze_text": "Though it is not a mandatory requirement, I strongly recommend you to have a {{c1::university degree}} for the applications.",
+      "zh_translation": "雖然這不是強制性要求,但我強烈建議你在申請時具備大學學位。",
+      "explanation": "在競爭激烈的招募中,大學學位能讓申請者更具優勢,尤其是在美國的航空公司。",
+      "tags": "Application / Education",
+      "timestamp": "19:27"
+    },
+    {
+      "cloze_text": "When answering behavioral questions, use the {{c1::STAR}} technique or a similar methodological thinking process to explain your situation.",
+      "zh_translation": "回答行為面試題時,使用 STAR 原則或類似的方法論思考過程來解釋你的情況。",
+      "explanation": "航空公司想看的是你解決問題的邏輯架構,而不僅僅是故事內容。",
+      "tags": "Interview / Technique",
+      "timestamp": "17:42"
+    }
+  ],
+  "video_id": "__5wCYIo6IM",
+  "url": "https://www.youtube.com/watch?v=__5wCYIo6IM",
+  "has_transcript": true
+}
