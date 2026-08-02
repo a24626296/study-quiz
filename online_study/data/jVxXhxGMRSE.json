@@ -1,0 +1,102 @@
+{
+  "subject": "飛航安全管理 - FOQA 與數據驅動安全概念",
+  "mc_questions": [
+    {
+      "zh_question": "FOQA（飛行運行品質保證）系統與傳統黑盒子（FDR）事故調查最大的邏輯差異為何？",
+      "zh_options": [
+        "(A) FOQA 只在飛機發生重落地時才提取數據",
+        "(B) FOQA 主張即使飛機平安落地，也應分析每次飛行的數據以找尋潛在風險",
+        "(C) FOQA 主要用來處罰飛行表現不佳的組員",
+        "(D) FOQA 只能記錄駕駛艙內的通話內容"
+      ],
+      "en_question": "What is the primary logical difference between FOQA and traditional FDR accident investigation?",
+      "en_options": [
+        "(A) FOQA only extracts data when a hard landing occurs.",
+        "(B) FOQA advocates analyzing data from every flight, even safe ones, to find potential risks.",
+        "(C) FOQA is primarily used to punish crew members with poor performance.",
+        "(D) FOQA can only record cockpit voice communications."
+      ],
+      "answer": "B",
+      "explanation": "傳統事故調查是事後挖掘原因，而 FOQA 是主動式的安全管理，透過分析 Normal Operations 的數據來發現 Unstable Approach 等徵兆，達到預防效果。",
+      "timestamp": "01:44"
+    },
+    {
+      "zh_question": "根據影片中提到的「海因里希法則（Heinrich's Law）」，航空公司若要防止 1 起重大空難，最有效的管理手段是什麼？",
+      "zh_options": [
+        "(A) 投入所有資源調查那 1 起重大空難",
+        "(B) 增加保險額度以支應賠償",
+        "(C) 壓制並減少底層那 3,000 起「不安全行為」",
+        "(D) 只針對 29 起輕微事故進行懲處"
+      ],
+      "en_question": "According to Heinrich's Law mentioned in the video, what is the most effective management method to prevent 1 major air disaster?",
+      "en_options": [
+        "(A) Devote all resources to investigating that 1 major crash.",
+        "(B) Increase insurance coverage to handle compensation.",
+        "(C) Suppress and reduce the 3,000 'unsafe acts' at the base level.",
+        "(D) Only punish the 29 minor accidents."
+      ],
+      "answer": "C",
+      "explanation": "海因里希法則指出事故具有金字塔結構，透過 FOQA 數據管理底層的大量 Unsafe Events，能有效降低事故演變成 Major Accident 的機率。",
+      "timestamp": "05:37"
+    },
+    {
+      "zh_question": "FOQA 系統如何促成飛機製造商（如 Boeing 或 Airbus）的進步？",
+      "zh_options": [
+        "(A) 提供更多行銷廣告素材",
+        "(B) 根據航空公司回傳的大量真實飛行數據，進一步優化飛機設計",
+        "(C) 監控組員是否按照標準作業程序操作，以減少保固支出",
+        "(D) 讓製造商能更準確地判定空難責任歸屬"
+      ],
+      "en_question": "How does the FOQA system contribute to the progress of aircraft manufacturers (e.g., Boeing or Airbus)?",
+      "en_options": [
+        "(A) By providing more marketing and advertising materials.",
+        "(B) By optimizing aircraft design based on a large amount of real flight data feedback from airlines.",
+        "(C) By monitoring if crews follow SOPs to reduce warranty costs.",
+        "(D) By allowing manufacturers to more accurately determine liability in crashes."
+      ],
+      "answer": "B",
+      "explanation": "FOQA 的數據不僅用於訓練，還會反饋給 OEM (Original Equipment Manufacturer)，幫助改進系統邏輯與機體設計，提升整體安全性。",
+      "timestamp": "07:07"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "FOQA 讓飛行安全從玄學變成了 {{c1::科學}}。",
+      "zh_translation": "FOQA turned flight safety from metaphysics into science.",
+      "explanation": "強調安全管理不再憑感覺或運氣，而是建立在客觀數據的分析基礎上。",
+      "tags": "SMS / Philosophy",
+      "timestamp": "03:21"
+    },
+    {
+      "cloze_text": "黑盒子裡的 FDR（{{c1::Flight Data Recorder}}）記錄著上千項飛行參數，包括姿態、軌跡與系統狀態。",
+      "zh_translation": "The FDR (Flight Data Recorder) in the black box records thousands of flight parameters, including attitude, trajectory, and system status.",
+      "explanation": "FDR 是 FOQA 數據的主要來源，包含姿態 (Attitude)、推力 (Thrust) 及各控制面動作。",
+      "tags": "Systems / FDR",
+      "timestamp": "02:00"
+    },
+    {
+      "cloze_text": "在海因里希法則中，底層每 3,000 起不安全行為，可能會演變成 {{c1::1}} 起重大空難。",
+      "zh_translation": "In Heinrich's Law, for every 3,000 unsafe acts at the bottom, it may evolve into 1 major air disaster.",
+      "explanation": "強調事故預防必須從小規模的不安全行為 (Unsafe Acts) 抓起。",
+      "tags": "Safety Management",
+      "timestamp": "05:37"
+    },
+    {
+      "cloze_text": "如果飛行數據顯示組員進場不穩定，航空公司會安排其進入 {{c1::模擬機}} (Simulator) 接受強化訓練。",
+      "zh_translation": "If flight data shows a crew's approach is unstable, the airline will arrange for them to receive intensive training in a simulator.",
+      "explanation": "FOQA 的數據可用於針對性訓練 (Targeted Training)，而非僅僅是處罰。",
+      "tags": "Training / FOQA",
+      "timestamp": "03:03"
+    },
+    {
+      "cloze_text": "飛行安全才是航空公司最硬的 {{c1::底氣}}。",
+      "zh_translation": "Flight safety is the strongest backbone (confidence) of an airline.",
+      "explanation": "無論行銷手段如何，安全始終是航空業的核心基石。",
+      "tags": "Safety Culture",
+      "timestamp": "06:31"
+    }
+  ],
+  "video_id": "jVxXhxGMRSE",
+  "url": "https://www.youtube.com/watch?v=jVxXhxGMRSE",
+  "has_transcript": false
+}
