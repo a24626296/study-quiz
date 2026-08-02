@@ -62,7 +62,8 @@
       link.download = videoId + '.srt';
       link.className = 'transcript-link';
       link.textContent = '📝 下載修正逐字稿(.srt)';
-      document.getElementById('subject').insertAdjacentElement('afterend', link);
+      var topBarContent = document.getElementById('top-bar-content');
+      if (topBarContent) topBarContent.appendChild(link);
     }
 
     window.onYouTubeIframeAPIReady = function () {
