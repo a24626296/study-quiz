@@ -241,6 +241,7 @@ def fetch_playlist_video_ids(playlist_id):
 
 
 def strip_json_fences(text):
+    """防呆:萬一 Gemini 還是加了 ```json 包裹,先剝掉再解析"""
     text = text.strip()
     text = re.sub(r'^```json\s*', '', text, flags=re.IGNORECASE)
     text = re.sub(r'^```\s*', '', text)
@@ -296,6 +297,7 @@ def generate_quiz_from_youtube_url(video_id, with_transcript=False):
 
 
 def timestamp_to_seconds(timestamp):
+    """把 MM:SS / HH:MM:SS 轉成總秒數,轉不了回傳 None"""
     if not timestamp:
         return None
     m = re.match(r'^\s*(?:(\d{1,2}):)?(\d{1,2}):(\d{2})\s*$', str(timestamp))
