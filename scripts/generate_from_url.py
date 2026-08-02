@@ -91,6 +91,13 @@ QUIZ_SYSTEM_PROMPT = """
       "tags": "簡短分類,例如 Engine / Hydraulics / Limitations / Memory-Item",
       "timestamp": "05:12"
     }
+  ],
+  "transcript": [
+    {
+      "start": "00:00",
+      "end": "00:04",
+      "text": "這段時間範圍內實際講的內容,逐字稿形式,聽到什麼語言就寫什麼語言"
+    }
   ]
 }
 
@@ -100,6 +107,8 @@ QUIZ_SYSTEM_PROMPT = """
 - cloze_text 裡的挖空標記務必嚴格使用 {{c1::關鍵字}} 這個格式,前後不要加空格、不要用全形符號,只能有一組 c1
 - explanation 欄位要簡潔(1-2句話),不要跟 zh_translation 重複
 - timestamp 一律用 MM:SS 或 HH:MM:SS 格式的純文字,不要加中括號、不要加其他符號
+- transcript:請把整支影片從頭到尾的逐字稿,依照實際講話的自然停頓切成一段一段(每段大約 3~8 秒,不要切太細也不要切太長),依序列出,涵蓋整支影片,不要只挑重點段落。這是要拿來取代 YouTube 現有字幕用的,所以要盡量完整、準確反映實際說出的內容,而不是摘要或改寫
+- transcript 的每一段一樣適用「不確定就跳過」原則:如果某幾秒聽不清楚,可以把那幾秒的 text 留空字串,或用 "(聽不清楚)" 標記,不要用猜的填內容
 - 【重要】如果某段音訊聽不清楚、口齒不清、背景雜音干擾、或你對內容不夠確定,請直接跳過該段,不要用猜測或腦補的方式硬出題。寧可整體題數少一點,也不要出現似是而非、可能誤導使用者的錯誤內容
 - 如果整支影片的音訊品質太差,導致能確實聽懂的內容不足以出滿 3 題選擇題或 4 則背誦重點,就依實際能確定的內容出題即可,不用硬湊到規定的數量上限
 - 除了上述 JSON 物件之外,不要輸出任何文字
@@ -243,6 +252,39 @@ def timestamp_to_seconds(timestamp):
     return int(hh) * 3600 + int(mm) * 60 + int(ss)
 
 
+def seconds_to_srt_time(total_seconds):
+    """把總秒數轉成 SRT 格式的時間碼:HH:MM:SS,mmm"""
+    if total_seconds is None:
+        total_seconds = 0
+    total_seconds = max(0, int(total_seconds))
+    hh = total_seconds // 3600
+    mm = (total_seconds % 3600) // 60
+    ss = total_seconds % 60
+    return f"{hh:02d}:{mm:02d}:{ss:02d},000"
+
+
+def build_srt(segments):
+    """把 [{'start':'00:00','end':'00:04','text':'...'}] 轉成標準 .srt 格式的字幕檔內容"""
+    lines = []
+    idx = 0
+    for seg in segments or []:
+        text = (seg.get("text") or "").strip()
+        if not text:
+            continue
+        start_sec = timestamp_to_seconds(seg.get("start"))
+        end_sec = timestamp_to_seconds(seg.get("end"))
+        if start_sec is None:
+            continue
+        if end_sec is None or end_sec <= start_sec:
+            end_sec = start_sec + 3  # 保底給3秒長度,避免end缺漏或格式錯誤
+        idx += 1
+        lines.append(str(idx))
+        lines.append(f"{seconds_to_srt_time(start_sec)} --> {seconds_to_srt_time(end_sec)}")
+        lines.append(text)
+        lines.append("")
+    return "\n".join(lines)
+
+
 def write_video_data(video_id, url, quiz_data):
     """
     把 Gemini 回傳的 quiz_data 存成 data/{video_id}.json,不再產生完整 HTML。
@@ -251,10 +293,24 @@ def write_video_data(video_id, url, quiz_data):
     (資料/樣板分離,類似 Anki 正面/背面 Code 的概念)。以後要改按鈕、
     改樣式,只要改那三個共用檔案,所有影片頁面重新整理就會套用新樣板,
     完全不用重新出題、也不用一支一支影片重新產生。
+
+    如果 Gemini 有回傳 transcript(逐字稿片段),額外存成同名的 .srt 檔案,
+    方便你下載後去 YouTube Studio 手動替換掉原本品質不佳的字幕。
     """
+    transcript_segments = quiz_data.pop("transcript", None)
+    has_transcript = False
+    if transcript_segments:
+        srt_content = build_srt(transcript_segments)
+        if srt_content.strip():
+            srt_path = os.path.join(DATA_DIR, f"{video_id}.srt")
+            with open(srt_path, "w", encoding="utf-8") as f:
+                f.write(srt_content)
+            has_transcript = True
+
     data = dict(quiz_data)
     data["video_id"] = video_id
     data["url"] = url or f"https://www.youtube.com/watch?v={video_id}"
+    data["has_transcript"] = has_transcript
 
     data_path = os.path.join(DATA_DIR, f"{video_id}.json")
     with open(data_path, "w", encoding="utf-8") as f:
@@ -350,8 +406,8 @@ def build_index_html():
 <div class="list-header">
   <h1 style="margin:0;">📚 複習清單({len(entries)})</h1>
   <div class="header-actions">
+    <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
     <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
-    <button class="view-mode-btn" id="view-mode-btn" onclick="cycleViewMode()"></button>
   </div>
 </div>
 <div id="item-list" class="item-list">
@@ -369,42 +425,19 @@ function toggleCollapseAll() {{
   document.getElementById('collapse-toggle-btn').textContent = allCollapsed ? '📂 全部展開' : '📁 全部收合';
 }}
 
-// ===== 檢視模式(清單 / 格狀 / 小格狀 / 詳細列表)=====
-var VIEW_MODES = ['list', 'grid', 'grid-small', 'details'];
-var VIEW_LABELS = {{
-  'list': '📋 清單檢視',
-  'grid': '🔲 格狀檢視',
-  'grid-small': '▦ 小格狀檢視',
-  'details': '☰ 詳細列表'
-}};
-var currentMode = 'list';
-
-function applyViewMode(mode) {{
-  if (VIEW_MODES.indexOf(mode) === -1) mode = 'list';
-  var list = document.getElementById('item-list');
-  list.classList.remove('view-grid', 'view-grid-small', 'view-details');
-  if (mode === 'grid') list.classList.add('view-grid');
-  else if (mode === 'grid-small') list.classList.add('view-grid-small');
-  else if (mode === 'details') list.classList.add('view-details');
-  currentMode = mode;
-  document.getElementById('view-mode-btn').textContent = VIEW_LABELS[mode] + '(點擊切換)';
+function toggleViewMode() {{
+  var container = document.getElementById('item-list');
+  var isGrid = container.classList.toggle('view-grid');
+  try {{ localStorage.setItem('viewMode', isGrid ? 'grid' : 'list'); }} catch (e) {{}}
+  document.getElementById('view-mode-btn').textContent = isGrid ? '📃 清單檢視' : '🔲 格狀檢視';
 }}
 
-function cycleViewMode() {{
-  var idx = VIEW_MODES.indexOf(currentMode);
-  var next = VIEW_MODES[(idx + 1) % VIEW_MODES.length];
-  applyViewMode(next);
-  try {{ localStorage.setItem('viewMode', next); }} catch (e) {{}}
-}}
-
-(function () {{
-  var saved = 'list';
-  try {{
-    var stored = localStorage.getItem('viewMode');
-    if (stored && VIEW_MODES.indexOf(stored) !== -1) saved = stored;
-  }} catch (e) {{}}
-  applyViewMode(saved);
-}})();
+try {{
+  if (localStorage.getItem('viewMode') === 'grid') {{
+    document.getElementById('item-list').classList.add('view-grid');
+    document.getElementById('view-mode-btn').textContent = '📃 清單檢視';
+  }}
+}} catch (e) {{}}
 
 function deleteVideo(id) {{
   var pathParts = window.location.pathname.split('/').filter(Boolean);
