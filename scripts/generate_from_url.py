@@ -429,7 +429,9 @@ def build_index_html():
     for e in entries:
         display_time = e["created"].replace("T", " ")[:16] if e["created"] else "(時間未知)"
         items_html += f"""
-        <div class="item">
+        <div class="item" data-id="{html_lib.escape(e['video_id'])}">
+          <input type="checkbox" class="archive-checkbox" title="標記為已學完(暫時隱藏,不會刪除)"
+                 onchange="toggleArchive('{html_lib.escape(e['video_id'])}', this.checked)">
           <a class="item-link" href="./viewer.html?id={html_lib.escape(e['video_id'])}">
             <img src="https://i.ytimg.com/vi/{e['video_id']}/mqdefault.jpg" loading="lazy">
             <div class="meta">
@@ -456,6 +458,7 @@ def build_index_html():
 <div class="list-header">
   <h1 style="margin:0;">📚 複習清單({len(entries)})</h1>
   <div class="header-actions">
+    <button class="archive-toggle-btn" id="archive-toggle-btn" onclick="toggleShowArchived()">📦 顯示已封存 (0)</button>
     <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
     <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
   </div>
@@ -466,6 +469,52 @@ def build_index_html():
 
 <script>
 var allCollapsed = false;
+var ARCHIVE_KEY = 'archivedVideos';
+var showArchived = false;
+
+function loadArchivedSet() {{
+  try {{
+    return new Set(JSON.parse(localStorage.getItem(ARCHIVE_KEY) || '[]'));
+  }} catch (e) {{
+    return new Set();
+  }}
+}}
+
+function saveArchivedSet(setObj) {{
+  try {{ localStorage.setItem(ARCHIVE_KEY, JSON.stringify(Array.from(setObj))); }} catch (e) {{}}
+}}
+
+function updateArchiveButtonLabel(count) {{
+  var btn = document.getElementById('archive-toggle-btn');
+  btn.textContent = (showArchived ? '📂 隱藏已封存' : '📦 顯示已封存') + ' (' + count + ')';
+}}
+
+function applyArchivedState() {{
+  var archived = loadArchivedSet();
+  document.querySelectorAll('.item').forEach(function(el) {{
+    var id = el.dataset.id;
+    var isArchived = archived.has(id);
+    el.classList.toggle('archived', isArchived);
+    var cb = el.querySelector('.archive-checkbox');
+    if (cb) cb.checked = isArchived;
+  }});
+  document.getElementById('item-list').classList.toggle('show-archived', showArchived);
+  updateArchiveButtonLabel(archived.size);
+}}
+
+function toggleArchive(id, checked) {{
+  var archived = loadArchivedSet();
+  if (checked) {{ archived.add(id); }} else {{ archived.delete(id); }}
+  saveArchivedSet(archived);
+  applyArchivedState();
+}}
+
+function toggleShowArchived() {{
+  showArchived = !showArchived;
+  applyArchivedState();
+}}
+
+applyArchivedState();
 
 function toggleCollapseAll() {{
   allCollapsed = !allCollapsed;
