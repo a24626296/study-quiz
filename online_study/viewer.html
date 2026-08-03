@@ -17,8 +17,14 @@
       <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
       <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
     </div>
+    <div class="pdf-link-row">
+      📖 手冊 PDF 連結(可含頁碼錨點,例如 .../manual.pdf#page=42):
+      <input type="text" id="pdf-link-input" placeholder="貼上 PDF 網址...">
+      <button onclick="savePdfLink()">儲存</button>
+    </div>
   </div>
 </div>
+<div id="pdf-open-bar"></div>
 <div id="app" class="layout">
   <div class="player-col">
     <div class="subject" id="subject"></div>
