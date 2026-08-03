@@ -1,99 +1,99 @@
 {
-  "subject": "ATR 72 - 起落架系統 (Landing Gear System)",
+  "subject": "ATR 72-600 系統 - PEC (Propeller Electronic Control) 螺旋槳電子控制系統",
   "mc_questions": [
     {
-      "zh_question": "關於 ATR 72 起落架系統的動力來源與控制邏輯,下列敘述何者正確?",
+      "zh_question": "關於 ATR 72-600 的 PEC (Propeller Electronic Control) 系統架構,下列敘述何者正確?",
       "zh_options": [
-        "(A) 起落架的收放由 Blue System 提供液壓動力",
-        "(B) 起落架為液壓控制 (Hydraulically controlled) 且液壓驅動 (Hydraulically actuated)",
-        "(C) 起落架為電器控制 (Electrically controlled) 且由 Green System 液壓驅動",
-        "(D) 緊急放輪 (Emergency Extension) 必須依靠 Blue System 的蓄壓器壓力"
+        "(A) 每一具引擎只有一個 PEC 通道,若失效則直接進入手動模式",
+        "(B) 每一具引擎配備兩個完全獨立的 PEC (PEC 1 與 PEC 2)",
+        "(C) 每一具引擎有一個 PEC,內部包含兩個獨立通道 (Channel A 與 B)",
+        "(D) PEC 只負責監控螺旋槳轉速,不參與槳距控制"
       ],
-      "en_question": "Regarding the ATR 72 landing gear system power source and control logic, which of the following is correct?",
+      "en_question": "Regarding the PEC (Propeller Electronic Control) system architecture of the ATR 72-600, which of the following statements is correct?",
       "en_options": [
-        "(A) Retraction and extension are powered by the Blue hydraulic system",
-        "(B) The landing gear is hydraulically controlled and hydraulically actuated",
-        "(C) The landing gear is electrically controlled and hydraulically actuated by the Green system",
-        "(D) Emergency extension relies on Blue system accumulator pressure"
+        "(A) Each engine has only one PEC channel; if it fails, it enters manual mode directly.",
+        "(B) Each engine is equipped with two completely independent PECs (PEC 1 and PEC 2).",
+        "(C) Each engine has one PEC, which contains two independent channels (Channel A and B).",
+        "(D) The PEC is only responsible for monitoring propeller speed and does not participate in pitch control."
       ],
       "answer": "C",
-      "explanation": "ATR 起落架系統由 Green System 提供動力,但在控制面上是透過電器訊號傳遞給選向閥 (Selector Valve)。Normal operation requires electrical power for control and hydraulic pressure (Green system) for actuation.",
-      "timestamp": "02:45"
+      "explanation": "每具引擎由一個單獨的 PEC 組件控制,但該組件內部具有兩個獨立通道 (Channel A & B) 提供備援(Redundancy)。系統會自動選擇主動通道(Active channel),若主動通道失效,另一通道會自動接管。",
+      "timestamp": "00:35"
     },
     {
-      "zh_question": "在起落架控制面板上,當起落架手柄移至 UP 位,但紅色 UNLK 燈持續亮著,最可能的系統邏輯解釋為何?",
+      "zh_question": "當 PEC 按鈕上的 'FAULT' 燈亮起時,這通常代表什麼意義?",
       "zh_options": [
-        "(A) 起落架已經完全收起並上鎖",
-        "(B) 起落架尚未到達選定位置或未在上鎖位置 (Not in the selected position / Not locked)",
-        "(C) 這是正常的過渡狀態,不論收多久都不會消失",
-        "(D) 代表綠色液壓系統壓力過高"
+        "(A) 兩個通道都已失效,螺旋槳進入順槳狀態",
+        "(B) 至少有一個通道偵測到故障或 PEC 偵測到系統不一致 (Disagreement)",
+        "(C) 引擎發生火警,必須立即關車",
+        "(D) 螺旋槳轉速 (Np) 低於 70%"
       ],
-      "en_question": "On the L/G control panel, if the red UNLK lights remain illuminated after the L/G lever is moved to UP, what is the most likely system logic explanation?",
+      "en_question": "When the 'FAULT' light on the PEC pushbutton illuminates, what does it typically signify?",
       "en_options": [
-        "(A) The landing gear is fully retracted and locked",
-        "(B) The landing gear is not in the selected position or not locked",
-        "(C) This is a normal transient state and will never disappear",
-        "(D) It indicates that the Green system pressure is too high"
+        "(A) Both channels have failed, and the propeller is feathered.",
+        "(B) At least one channel has detected a fault or the PEC detected a system disagreement.",
+        "(C) An engine fire has occurred, and the engine must be shut down immediately.",
+        "(D) Propeller speed (Np) is below 70%."
       ],
       "answer": "B",
-      "explanation": "起落架指示燈中,紅色 UNLK (Unlock) 燈亮表示起落架處於不安全狀態 (Unsafe condition),即起落架位置與手柄選取的 position 不一致,或是尚未完成 Locking 動作 (Up-locked or Down-locked)。",
-      "timestamp": "04:12"
+      "explanation": "FAULT 燈亮表示 PEC 偵測到內部故障(例如單一通道失效)或系統輸入/輸出不一致。如果雙通道皆失效,則按鈕會顯示 OFF 且螺旋槳可能失去電子調速功能。",
+      "timestamp": "01:20"
     },
     {
-      "zh_question": "起落架手柄 (L/G selector lever) 的鎖定機構 (Lever Lock) 是為了防止在地面誤收起落架。此鎖定機構何時會自動解鎖?",
+      "zh_question": "PEC 在地面進行測試 (PEC Test) 的主要目的是什麼?",
       "zh_options": [
-        "(A) 當飛機空速達到 V1 時",
-        "(B) 當發動機啟動完成後",
-        "(C) 當兩側主起落架的 Shock Absorbers 皆伸展 (Weight-Off-Wheels) 時",
-        "(D) 當液壓系統壓力達到 3000 PSI 時"
+        "(A) 測試燃油控制單元 (HMU) 的機械行程",
+        "(B) 驗證 PEC 對螺旋槳超速 (Overspeed) 保護邏輯與順槳電磁閥的作動",
+        "(C) 清除引擎滑油系統中的氣泡",
+        "(D) 檢查起落架收放行程是否與 PEC 連動"
       ],
-      "en_question": "The L/G selector lever lock mechanism prevents accidental retraction on the ground. When does this lock automatically release?",
+      "en_question": "What is the primary purpose of conducting a PEC Test on the ground?",
       "en_options": [
-        "(A) When airspeed reaches V1",
-        "(B) After engine start is complete",
-        "(C) When both main gear shock absorbers are extended (Weight-Off-Wheels)",
-        "(D) When hydraulic pressure reaches 3000 PSI"
+        "(A) To test the mechanical travel of the Hydromechanical Unit (HMU).",
+        "(B) To verify the PEC's overspeed protection logic and feather solenoid operation.",
+        "(C) To clear air bubbles from the engine oil system.",
+        "(D) To check if the landing gear extension/retraction is linked with the PEC."
       ],
-      "answer": "C",
-      "explanation": "Lever Lock 受控於主起落架上的近接感應器 (Proximity Sensors)。當飛機起飛離地,避震支柱 (Shock Absorbers) 伸展,感應到 Weight-Off-Wheels 時,Solonoid 會動作讓 Lock 釋放,手柄才能移往 UP 位。",
-      "timestamp": "04:48"
+      "answer": "B",
+      "explanation": "PEC Test 主要用於驗證電子保護邏輯,包含模擬超速情況下的順槳指令(Feather command)與通道切換邏輯,確保安全防護機制正常。",
+      "timestamp": "02:45"
     }
   ],
   "cloze_items": [
     {
-      "cloze_text": "The maximum speed for landing gear retraction (VLO retract) is {{c1::160}} KIAS.",
-      "zh_translation": "起落架收起的速度上限 (VLO retract) 為 160 節。",
-      "explanation": "收輪時受風壓影響最大,故 VLO retract 通常低於 VLO extension。",
-      "tags": "Limitations",
-      "timestamp": "03:55"
+      "cloze_text": "The PEC provides automatic {{c1::synchrophasing}} to minimize cabin noise and vibration.",
+      "zh_translation": "PEC 提供自動同相調速功能,以最小化客艙噪音與震動。",
+      "explanation": "Synchrophasing 是透過微調左右槳葉的相對角度,減少兩側螺旋槳壓力波疊加產生的噪音。",
+      "tags": "PEC / Comfort",
+      "timestamp": "01:05"
     },
     {
-      "cloze_text": "The maximum speed with the landing gear extended (VLE) is {{c1::185}} KIAS.",
-      "zh_translation": "起落架伸展狀態下的最大允許速度 (VLE) 為 185 節。",
-      "explanation": "這是起落架完全放下並鎖定後的結構速限。",
-      "tags": "Limitations",
-      "timestamp": "04:00"
+      "cloze_text": "Each PEC is normally powered by its own {{c1::PMA}} (Permanent Magnet Alternator) when Np is above a certain threshold.",
+      "zh_translation": "當螺旋槳轉速 (Np) 高於特定門檻時,每個 PEC 通常由其專屬的 PMA (永久磁鐵發電機) 供電。",
+      "explanation": "PMA 使 PEC 具備獨立電源,不受飛機直流電系統故障影響,但在低轉速或啟動時則需依賴 DC Essential Bus。",
+      "tags": "Power Source / Electrical",
+      "timestamp": "00:50"
     },
     {
-      "cloze_text": "During emergency extension, the gear is extended using {{c1::gravity}} after releasing the hydraulic pressure.",
-      "zh_translation": "在緊急放輪過程中,釋放液壓壓力後,起落架是利用重力下墜伸展的。",
-      "explanation": "Free-fall extension 依靠組件自重與氣動力完成放輪與上鎖。",
-      "tags": "Emergency",
-      "timestamp": "05:45"
+      "cloze_text": "When the PEC is selected to OFF, the propeller pitch is controlled by the {{c1::mechanical back-up}} governor.",
+      "zh_translation": "當 PEC 被選擇為 OFF 時,螺旋槳槳距由機械備援調速器控制。",
+      "explanation": "失去 PEC 電子控制後,螺旋槳會退回到傳統的機械液壓調速模式,此時 Np 可能會隨動力變化而波動。",
+      "tags": "Failure Logic / Backup",
+      "timestamp": "01:45"
     },
     {
-      "cloze_text": "The Anti-skid system is deactivated when the aircraft speed drops below {{c1::10}} knots.",
-      "zh_translation": "當飛機速度降至 10 節以下時,防滑系統 (Anti-skid) 會停止作動。",
-      "explanation": "低速時為了維持煞車效率,系統會停用防滑邏輯以便完全煞停。",
-      "tags": "Brakes",
-      "timestamp": "02:15"
+      "cloze_text": "The PEC test is inhibited when the aircraft is {{c1::in flight}}.",
+      "zh_translation": "當飛機處於飛行狀態時,PEC 測試功能會被抑制(鎖定)。",
+      "explanation": "為了防止飛行中意外觸發順槳或邏輯干擾,PEC 測試只能在地面、引擎運作且符合特定動力設定下執行。",
+      "tags": "Limitations / Safety",
+      "timestamp": "03:10"
     },
     {
-      "cloze_text": "Landing gear operation and nose wheel steering are powered by the {{c1::Green}} hydraulic system.",
-      "zh_translation": "起落架操作與鼻輪轉向皆由綠色液壓系統供壓。",
-      "explanation": "這是 ATR 系統佈置的核心邏輯,Green 負責多數起落架相關組件。",
-      "tags": "Hydraulics",
-      "timestamp": "02:40"
+      "cloze_text": "The PEC optimizes the propeller efficiency by maintaining the selected {{c1::Np}} based on the Power Management selector position.",
+      "zh_translation": "PEC 根據動力管理選擇器的位置,透過維持選定的 Np (螺旋槳轉速) 來優化螺旋槳效率。",
+      "explanation": "PEC 的核心任務是根據不同飛行階段(Take-off, MCT, Cruise)維持穩定的螺旋槳轉速。",
+      "tags": "System Logic / NP",
+      "timestamp": "00:42"
     }
   ],
   "video_id": "dxgrZaonSRE",

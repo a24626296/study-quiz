@@ -1,0 +1,102 @@
+{
+  "subject": "飛行性能與速度定義 (Takeoff Speeds & Performance Definitions)",
+  "mc_questions": [
+    {
+      "zh_question": "根據影片中提到的起飛性能規範，Liftoff speed (VLOF) 在全引擎運作(All-engine)與單發動機失效(OEI)時，分別與 Vmu 有什麼倍數關係？",
+      "zh_options": [
+        "(A) 全引擎為 1.1 Vmu，OEI 為 1.05 Vmu",
+        "(B) 全引擎為 1.2 Vmu，OEI 為 1.1 Vmu",
+        "(C) 全引擎為 1.05 Vmu，OEI 為 1.1 Vmu",
+        "(D) 全引擎與 OEI 皆為 1.15 Vmu"
+      ],
+      "en_question": "According to the takeoff performance regulations mentioned, what is the relationship between Liftoff speed (VLOF) and Vmu for all-engine and OEI conditions?",
+      "en_options": [
+        "(A) 1.1 Vmu for all-engine, 1.05 Vmu for OEI",
+        "(B) 1.2 Vmu for all-engine, 1.1 Vmu for OEI",
+        "(C) 1.05 Vmu for all-engine, 1.1 Vmu for OEI",
+        "(D) 1.15 Vmu for both all-engine and OEI"
+      ],
+      "answer": "A",
+      "explanation": "影片中明確提到 VLOF (Liftoff speed) 在 All-engine 情況下為 1.1 倍的 Vmu (Minimum Unstick Speed)，而在 One engine inoperative (OEI) 情況下則為 1.05 倍的 Vmu。",
+      "timestamp": "00:32"
+    },
+    {
+      "zh_question": "在定義 V1 (Takeoff Action Speed) 時，它代表的是飛行員在哪個時間點的速度？",
+      "zh_options": [
+        "(A) 決定要放棄起飛的時間點",
+        "(B) 實際執行第一個停止動作（如踩剎車或收油門）的時間點",
+        "(C) 發動機失效被察覺的時間點",
+        "(D) 飛機達到 Vref 的時間點"
+      ],
+      "en_question": "When defining V1 (Takeoff Action Speed), it represents the pilot's speed at which specific point in time?",
+      "en_options": [
+        "(A) The moment the decision to abort is made",
+        "(B) The moment the first action to stop (e.g., brakes or idle thrust) is executed",
+        "(C) The moment the engine failure is recognized",
+        "(D) The moment the aircraft reaches Vref"
+      ],
+      "answer": "B",
+      "explanation": "V1 被定義為 Takeoff Action Speed，指的是飛行員執行第一個停止動作（First action of the decision being executed）的速度，而非僅僅是「決定」的速度。",
+      "timestamp": "01:14"
+    },
+    {
+      "zh_question": "在檢定 VmcA (空中最小操縱速度) 時，認證標準對於「坡度 (Bank Angle)」與「航向變化 (Heading Change)」的要求為何？",
+      "zh_options": [
+        "(A) 坡度不得超過 10 度，航向變化不限",
+        "(B) 坡度不得超過 3 度，航向變化不得超過 10 度",
+        "(C) 坡度不得超過 5 度，航向變化不得超過 20 度",
+        "(D) 坡度必須保持水平，航向變化不得超過 5 度"
+      ],
+      "en_question": "During the certification of VmcA (Minimum Control Speed in Air), what are the requirements for 'Bank Angle' and 'Heading Change'?",
+      "en_options": [
+        "(A) Bank angle not exceeding 10 degrees, no limit on heading change",
+        "(B) Bank angle not exceeding 3 degrees, heading change not exceeding 10 degrees",
+        "(C) Bank angle not exceeding 5 degrees, heading change not exceeding 20 degrees",
+        "(D) Wings level, heading change not exceeding 5 degrees"
+      ],
+      "answer": "C",
+      "explanation": "影片中提到 VmcA 的測量標準包含：Maximum bank angle allowed 為 5 度，且在操縱過程中 Heading change 不得超過 20 度。",
+      "timestamp": "02:54"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "V1 是 Takeoff {{c1::action}} speed，意即飛行員執行第一個停止動作（如剎車或收油門）時的速度。",
+      "zh_translation": "V1 是起飛「動作」速度，也就是飛行員採取第一個停止動作（如踩剎車或收油門）時的速度。",
+      "explanation": "強調 V1 是行動點而非單純的思考決定點。",
+      "tags": "Takeoff / Definitions",
+      "timestamp": "01:14"
+    },
+    {
+      "cloze_text": "在測量 VmcA 時，飛行員施加在方向舵踏板上的力矩（Rudder pedal force）不應超過 {{c1::150}} 磅。",
+      "zh_translation": "測量 VmcA 時，方向舵踏板力不應超過 150 磅。",
+      "explanation": "這是 FAR 25 部對操縱力的限制要求。",
+      "tags": "VmcA / Certification",
+      "timestamp": "02:48"
+    },
+    {
+      "cloze_text": "Category A 飛機的進場速度定義為小於 {{c1::91}} 浬 (knots)。",
+      "zh_translation": "Category A 飛機的進場速度定義為小於 91 浬。",
+      "explanation": "根據 Vref 或 1.3 倍的 Vs0 定義之進場分類。",
+      "tags": "Approach Category / Limitation",
+      "timestamp": "05:08"
+    },
+    {
+      "cloze_text": "Category B 飛機的進場速度範圍是 91 浬或以上，但小於 {{c1::121}} 浬。",
+      "zh_translation": "Category B 飛機的進場速度範圍是 91 浬至 121 浬。",
+      "explanation": "進場分類是為了障礙物迴避與轉彎半徑計算。",
+      "tags": "Approach Category",
+      "timestamp": "05:08"
+    },
+    {
+      "cloze_text": "在單發動機失效(OEI)時，VLOF 不得小於 {{c1::1.05}} 倍的 Vmu。",
+      "zh_translation": "在單發動機失效時，離地速度 (VLOF) 不得小於最小不失速速度 (Vmu) 的 1.05 倍。",
+      "explanation": "這是確保離地時具備足夠安全餘裕的性能限制。",
+      "tags": "V-speeds / Performance",
+      "timestamp": "00:37"
+    }
+  ],
+  "video_id": "fshHpsUlfq0",
+  "url": "https://www.youtube.com/watch?v=fshHpsUlfq0",
+  "has_transcript": true
+}

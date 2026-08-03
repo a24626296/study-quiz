@@ -1,0 +1,95 @@
+{
+  "subject": "多發動機飛機 - 關鍵發動機 (Critical Engine) 原理與故障分析",
+  "mc_questions": [
+    {
+      "zh_question": "根據影片內容，P-factor 是如何導致左發動機成為「關鍵發動機」(Critical Engine) 的？",
+      "zh_options": [
+        "(A) 左發動機產生的推力總值比右發動機大",
+        "(B) 螺旋槳向左轉動導致推力中心向機身靠近",
+        "(C) 右發動機運轉時，其推力中心距離機身中心線的偏航力臂 (Moment Arm) 較長",
+        "(D) 左發動機失效時，方向舵的補償能力會自然增加"
+      ],
+      "en_question": "According to the video, how does P-factor make the left engine the critical engine?",
+      "en_options": [
+        "(A) The left engine produces more total thrust than the right engine",
+        "(B) The propellers rotate counter-clockwise, moving the thrust center toward the fuselage",
+        "(C) When the right engine is operating, its thrust center has a longer yawing moment arm relative to the fuselage centerline",
+        "(D) Rudder effectiveness naturally increases when the left engine fails"
+      ],
+      "answer": "C",
+      "explanation": "在螺旋槳順時針轉動的飛機中，P-factor 導致推力中心向右偏移。右引擎運轉時，其推力中心到重心(CG)的距離(Arm 'a')大於左引擎運轉時的距離(Arm 'b')。因此當左引擎失效時，右引擎產生的 Yawing Moment 更大，更難以控制，故左引擎為 Critical Engine。",
+      "timestamp": "01:35"
+    },
+    {
+      "zh_question": "螺旋螺旋槳氣流 (Spiraling Slipstream) 如何影響單發動機失效時的操控？",
+      "zh_options": [
+        "(A) 右引擎的氣流會打在垂直尾翼左側，幫助抵銷偏航",
+        "(B) 左引擎的氣流會打在垂直尾翼左側，若右引擎失效，可協助補償偏航",
+        "(C) 左引擎失效時，右引擎的氣流能有效擊中垂直尾翼以維持平衡",
+        "(D) 氣流會增加水平尾翼的升力，減少抬頭力矩"
+      ],
+      "en_question": "How does the spiraling slipstream affect handling during an engine failure?",
+      "en_options": [
+        "(A) The right engine's slipstream hits the left side of the vertical fin to help counteract yaw",
+        "(B) The left engine's slipstream hits the left side of the vertical fin, helping compensate for yaw if the right engine fails",
+        "(C) When the left engine fails, the right engine's slipstream effectively hits the vertical fin to maintain balance",
+        "(D) The slipstream increases horizontal stabilizer lift, reducing the pitch-up moment"
+      ],
+      "answer": "B",
+      "explanation": "左引擎產生的 Spiraling Slipstream 會擊中垂直尾翼(Vertical Fin)的左側。若右引擎失效(Right engine fail)，此氣流產生的力量剛好能抵銷飛機向死引擎偏轉的傾向。但若左引擎失效，右引擎的氣流會遠離垂直尾翼，無法提供此補償效果。",
+      "timestamp": "02:47"
+    },
+    {
+      "zh_question": "加速氣流 (Accelerated Slipstream) 對於關鍵發動機失效的影響為何？",
+      "zh_options": [
+        "(A) 僅影響飛機的偏航 (Yaw) 控制",
+        "(B) 會增加失效發動機側的升力",
+        "(C) 左右引擎失效時產生的滾轉力矩 (Rolling Moment) 大小相同",
+        "(D) 由於 P-factor 影響，左引擎失效會產生較劇烈的滾轉力矩，且失去輔助抬頭的下壓力"
+      ],
+      "en_question": "What is the impact of Accelerated Slipstream on critical engine failure?",
+      "en_options": [
+        "(A) It only affects the yaw control of the aircraft",
+        "(B) It increases lift on the side of the failed engine",
+        "(C) The rolling moment generated is the same regardless of which engine fails",
+        "(D) Due to P-factor, a left engine failure results in a more severe rolling moment and loss of pitch-up assistance from tail-down force"
+      ],
+      "answer": "D",
+      "explanation": "加速氣流受 P-factor 影響使右翼升力增加較多。左引擎失效時，右引擎長力臂產生的 Rolling Moment 較劇烈。此外，左引擎氣流原本能 energize 水平尾翼產生 Tail-down force 輔助 Pitch up，失效後會增加操作難度。",
+      "timestamp": "11:24"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "在傳統雙發動機飛機中，螺旋槳轉動方向通常為 {{c1::Clockwise}} (從後方看)。",
+      "zh_translation": "在傳統雙發動機飛機中，螺旋槳轉動方向通常為順時針 (從後方看)。",
+      "explanation": "這是定義關鍵發動機的前提，若兩具引擎反向轉動(Counter-rotating)，則可能沒有關鍵發動機。",
+      "tags": "Engine / Aerodynamics",
+      "timestamp": "12:35"
+    },
+    {
+      "cloze_text": "根據 P-factor 原理，在高攻角狀態下，下行槳葉產生的推力中心會位於螺旋槳盤的 {{c1::右側}}。",
+      "zh_translation": "根據 P-factor 原理，在高攻角狀態下，下行槳葉產生的推力中心會位於螺旋槳盤的右側。",
+      "explanation": "這導致了左右發動機對機身中心線產生不對稱的力臂 (Asymmetric thrust)。",
+      "tags": "Aerodynamics",
+      "timestamp": "01:28"
+    },
+    {
+      "cloze_text": "扭力反作用力 (Torque Reaction) 是根據牛頓第 {{c1::三}} 運動定律產生的效果。",
+      "zh_translation": "扭力反作用力 (Torque Reaction) 是根據牛頓第三運動定律產生的效果。",
+      "explanation": "螺旋槳向右轉，機身就會產生向左滾轉的反作用力，這在左引擎失效時會加劇向左的滾轉倾向。",
+      "tags": "Physics / Roll-Control",
+      "timestamp": "12:35"
+    },
+    {
+      "cloze_text": "加速氣流會吹向水平穩定翼 (Horizontal Stabilizer) 的下方，產生 {{c1::Tail-down force}} 來幫助飛機抬頭。",
+      "zh_translation": "加速氣流會吹向水平穩定翼 (Horizontal Stabilizer) 的下方，產生下壓力 (Tail-down force) 來幫助飛機抬頭。",
+      "explanation": "當關鍵發動機失效，失去這股氣流會使得在單發動機飛行時更難維持高度與姿態。",
+      "tags": "Aerodynamics / Stability",
+      "timestamp": "11:47"
+    }
+  ],
+  "video_id": "VG-FecC3xUA",
+  "url": "https://www.youtube.com/watch?v=VG-FecC3xUA",
+  "has_transcript": true
+}

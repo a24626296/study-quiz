@@ -1,0 +1,102 @@
+{
+  "subject": "多發發動機與低高度故障處置 - VYSE 與故障識別邏輯",
+  "mc_questions": [
+    {
+      "zh_question": "在多發發動機（Multi-engine）飛機中，當發生發動機失效且飛行員不確定應維持什麼速度時，所謂的『Magic Number』是指哪一個速度？",
+      "zh_options": [
+        "(A) Vmc (Minimum Controllable Speed)",
+        "(B) Vx (Best Angle of Climb)",
+        "(C) VYSE (Best Rate of Climb OEI / Blue Line)",
+        "(D) Vfe (Maximum Flap Extended Speed)"
+      ],
+      "en_question": "In a multi-engine aircraft, if an engine failure occurs and the pilot is unsure of the target airspeed, which 'Magic Number' should be maintained?",
+      "en_options": [
+        "(A) Vmc",
+        "(B) Vx",
+        "(C) VYSE",
+        "(D) Vfe"
+      ],
+      "answer": "C",
+      "explanation": "影片中提到 VYSE 是多發發動機的『Magic Number』，在單發失效（OEI）情況下，若不確定速度，應至少維持 VYSE（通常是儀表上的 Blue Line），以確保最佳爬升率或最小下降率。",
+      "timestamp": "01:25"
+    },
+    {
+      "zh_question": "根據影片描述，在 100 呎執行 Go-around 時若發生發動機失效，且當前時速（如 71 節）低於 VYSE（如 85 節），飛行員的首要動作為何？",
+      "zh_options": [
+        "(A) 立即拉起機頭增加高度",
+        "(B) 勇敢地把機頭壓下去以加速至 VYSE",
+        "(C) 維持機頭高度，等待發動機推力增加",
+        "(D) 立即放下起落架準備迫降"
+      ],
+      "en_question": "According to the video, during a go-around at 100ft with an engine failure, if the current airspeed (e.g., 71 kts) is below VYSE (e.g., 85 kts), what is the pilot's primary action?",
+      "en_options": [
+        "(A) Pull the nose up immediately to gain altitude",
+        "(B) Bravely push the nose down to accelerate to VYSE",
+        "(C) Maintain pitch attitude and wait for thrust to build",
+        "(D) Immediately extend the landing gear for emergency landing"
+      ],
+      "answer": "B",
+      "explanation": "低高度 OEI 時，速度（Airspeed）比高度更重要。若速度低於 VYSE，必須先降低機頭（Pitch down）以獲取足夠速度，否則飛機將失去爬升性能或導致失控。",
+      "timestamp": "01:50"
+    },
+    {
+      "zh_question": "教官提到的『公式化處置』或『肌肉記憶（Muscle Memory）』在發動機失效時可能導致哪種嚴重後果？",
+      "zh_options": [
+        "(A) 處置動作太慢，導致飛機失速",
+        "(B) 太過緊張，忘記通報航管",
+        "(C) 未確實識別故障發動機，進而關錯正常的發動機",
+        "(D) 過度依賴自動駕駛，導致系統衝突"
+      ],
+      "en_question": "What serious consequence did the instructor mention regarding 'formulaic responses' or 'muscle memory' during an engine failure?",
+      "en_options": [
+        "(A) Delayed response leading to a stall",
+        "(B) Excessive anxiety causing failure to notify ATC",
+        "(C) Failure to identify the faulty engine, leading to shutting down the wrong (good) engine",
+        "(D) Over-reliance on autopilot leading to system conflicts"
+      ],
+      "answer": "C",
+      "explanation": "教官以復興航 235 事件為例，說明飛行員若因習慣（如預設左發失效）或肌肉記憶而未經確認即進行關閉程序（Shut down procedure），極可能關掉正常的發動機導致災難。",
+      "timestamp": "06:10"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "在低高度發動機失效（OEI）時，飛行員必須防範三大事故因素：方向控制喪失、性能喪失、以及 {{c1::速度喪失}} (Loss of Airspeed)。",
+      "zh_translation": "In low altitude OEI flight, pilots must guard against three major accident factors: loss of directional control, loss of performance, and loss of airspeed.",
+      "explanation": "這三者是 OEI 處置的核心概念，其中速度喪失往往會直接導致失速或失去控制力。",
+      "tags": "OEI / Aerodynamics",
+      "timestamp": "00:45"
+    },
+    {
+      "cloze_text": "發動機失效處置的 Memory Item 口訣為：{{c1::Mixture Rich}}, Pitch Full Forward, Throttle Set, Pitch Set。",
+      "zh_translation": "The mnemonic for engine failure handling is: Mixture Rich, Pitch Full Forward, Throttle Set, Pitch Set.",
+      "explanation": "這是多發螺旋槳飛機在 OEI 發生時，為了獲取最大推力與建立爬升姿態的標準程序。",
+      "tags": "Memory-Item / OEI",
+      "timestamp": "01:05"
+    },
+    {
+      "cloze_text": "在 multi-engine 飛行中，當你不知道要飛什麼速度時，應至少維持 {{c1::VYSE}}。",
+      "zh_translation": "In multi-engine flying, when you are unsure of the airspeed, maintain at least VYSE.",
+      "explanation": "VYSE 是單發失效時的最佳爬升率速度，是安全的基本保證。",
+      "tags": "Limitations / V-speeds",
+      "timestamp": "01:30"
+    },
+    {
+      "cloze_text": "教官提到的 cockpit technique：在 OEI 爬升時，Horizon（地平線）一定要蓋過 {{c1::Compass}} (指南針)，以維持正確的 Pitch 姿態。",
+      "zh_translation": "Cockpit technique: During OEI climb, the horizon must cover the compass to maintain the correct pitch attitude.",
+      "explanation": "這是一種視覺參考技巧，用來幫助飛行員在緊急狀態下快速建立並維持穩定的姿態。",
+      "tags": "Flight-Technique",
+      "timestamp": "03:40"
+    },
+    {
+      "cloze_text": "如果發動機失效發生在起落架（Landing Gear）收起之前，飛行員應維持鼻輪正直、{{c1::收回油門}} (Close Throttle) 並在剩餘跑道落地。",
+      "zh_translation": "If engine failure occurs before selecting gear up, keep the nose straight, close the throttle, and land on the runway.",
+      "explanation": "起落架未收時阻力巨大，若此時發生 OEI 應放棄飛行，選擇在跑道落地。",
+      "tags": "Emergency / Takeoff",
+      "timestamp": "08:55"
+    }
+  ],
+  "video_id": "vHOv_5uQiMw",
+  "url": "https://www.youtube.com/watch?v=vHOv_5uQiMw",
+  "has_transcript": true
+}

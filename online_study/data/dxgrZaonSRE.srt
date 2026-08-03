@@ -1,135 +1,83 @@
 1
 00:00:00,000 --> 00:00:05,000
-The ATR 72 is equipped with a retractable tricycle landing gear system.
+The PEC is a dual-channel digital controller for each propeller.
 
 2
-00:00:05,000 --> 00:00:11,000
-It consists of a twin-wheel nose gear and two twin-wheel main gear units.
+00:00:05,000 --> 00:00:10,000
+It manages the propeller speed and the blade angle (pitch) in all flight phases.
 
 3
-00:00:11,000 --> 00:00:16,000
-The main landing gear units retract into the fuselage pods.
+00:00:10,000 --> 00:00:15,000
+For each engine, we have one PEC unit with two independent channels, Channel A and Channel B.
 
 4
-00:00:16,000 --> 00:00:20,000
-While the nose gear retracts forward into the nose section.
+00:00:15,000 --> 00:00:20,000
+Usually, one channel is active while the other one is in standby.
 
 5
-00:00:20,000 --> 00:00:25,000
-Each landing gear is maintained in the retracted position by a mechanical up-lock.
+00:00:20,000 --> 00:00:26,000
+If the active channel fails, the standby channel takes over automatically without any crew action.
 
 6
-00:00:25,000 --> 00:00:30,000
-The main landing gear is supported by a structural frame attached to the fuselage.
+00:00:26,000 --> 00:00:32,000
+The PEC receives inputs from the Power Management selector, the Power Lever, and the Condition Lever.
 
 7
-00:00:30,000 --> 00:00:36,000
-It features a trailing arm design and a shock absorber for smooth landings.
+00:00:32,000 --> 00:00:38,000
+By processing these inputs, it maintains the target Np (propeller speed) for the selected configuration.
 
 8
-00:00:36,000 --> 00:00:41,000
-The braking system is located on the main wheels and includes anti-skid protection.
+00:00:38,000 --> 00:00:44,000
+It also provides the synchrophasing function to keep the noise level in the cabin as low as possible.
 
 9
-00:00:41,000 --> 00:00:46,000
-The nose gear is steerable and provides directional control on the ground.
+00:00:44,000 --> 00:00:50,000
+Power supply for the PEC comes from the Permanent Magnet Alternator (PMA) of its respective engine.
 
 10
-00:00:46,000 --> 00:00:51,000
-It also has a centering mechanism to ensure it is aligned before retraction.
+00:00:50,000 --> 00:00:56,000
+This means the PEC remains functional even if there's a total loss of the aircraft's electrical DC system.
 
 11
-00:00:51,000 --> 00:00:55,000
-The landing gear system is electrically controlled and hydraulically operated.
+00:00:56,000 --> 00:01:02,000
+On the overhead panel, we have the PEC pushbuttons with FAULT and OFF indicators.
 
 12
-00:00:55,000 --> 00:01:00,000
-Hydraulic power is provided by the Green hydraulic system.
+00:01:02,000 --> 00:01:08,000
+The FAULT light comes on if the PEC detects a major internal failure or a signal disagreement.
 
 13
-00:01:00,000 --> 00:01:05,000
-The landing gear selector lever on the center pedestal controls the operation.
+00:01:08,000 --> 00:01:14,000
+If both channels are lost, the PEC is automatically set to OFF and the propeller is in backup mode.
 
 14
-00:01:05,000 --> 00:01:10,000
-A locking mechanism prevents the lever from being moved to UP while on the ground.
+00:01:14,000 --> 00:01:20,000
+In this backup mode, the propeller speed is controlled by the mechanical governor, but the Np might fluctuate.
 
 15
-00:01:10,000 --> 00:01:15,000
-This lock is released when the aircraft is airborne and the shock absorbers extend.
+00:01:20,000 --> 00:01:26,000
+Regarding the PEC test, it is a ground procedure to check the safety functions of the system.
 
 16
-00:01:15,000 --> 00:01:21,000
-During retraction, hydraulic pressure is applied to release the down-locks.
+00:01:26,000 --> 00:01:32,000
+During the test, we verify that the feathering logic and overspeed protection work correctly.
 
 17
-00:01:21,000 --> 00:01:27,000
-Then actuators pull the gear into the bays where they are held by up-locks.
+00:01:32,000 --> 00:01:38,000
+The test is inhibited in flight to prevent any unintended propeller behavior while in the air.
 
 18
-00:01:27,000 --> 00:01:33,000
-The landing gear doors are mechanically linked and close after the gear is retracted.
+00:01:38,000 --> 00:01:44,000
+When you perform the test, you will see the Np drop slightly as the PEC tests its ability to feather.
 
 19
-00:01:33,000 --> 00:01:38,000
-For extension, the up-locks are released and hydraulic pressure moves the gear down.
+00:01:44,000 --> 00:01:50,000
+If the test fails, a maintenance action is required before the next flight.
 
 20
-00:01:38,000 --> 00:01:43,000
-Internal locks within the actuators ensure the gear is locked in the down position.
+00:01:50,000 --> 00:01:56,000
+The PEC is also linked with the EEC for engine power coordination and auto-feathering logic.
 
 21
-00:01:43,000 --> 00:01:48,000
-The position of the gear is indicated by lights on the landing gear control panel.
-
-22
-00:01:48,000 --> 00:01:54,000
-Three green lights indicate the gear is down and locked.
-
-23
-00:01:54,000 --> 00:01:59,000
-A red UNLK light means the gear is in transit or not locked.
-
-24
-00:01:59,000 --> 00:02:05,000
-If the green hydraulic system fails, an emergency extension is available.
-
-25
-00:02:05,000 --> 00:02:11,000
-The pilot must pull the emergency gear release handle.
-
-26
-00:02:11,000 --> 00:02:16,000
-This bypasses the normal hydraulics and allows the gear to extend by gravity.
-
-27
-00:02:16,000 --> 00:02:22,000
-Aerodynamic forces also help the gear to reach the down-locked position.
-
-28
-00:02:22,000 --> 00:02:28,000
-The nose wheel steering is also powered by the Green system and controlled by pedals or tiller.
-
-29
-00:02:28,000 --> 00:02:35,000
-The steering angle is limited depending on the control source used.
-
-30
-00:02:35,000 --> 00:02:40,000
-The anti-skid system monitors wheel speed to prevent tire lock-up.
-
-31
-00:02:40,000 --> 00:02:46,000
-It ensures maximum braking efficiency even on contaminated runways.
-
-32
-00:02:46,000 --> 00:02:51,000
-Regular maintenance of tires and brake wear indicators is essential.
-
-33
-00:02:51,000 --> 00:02:56,000
-Visual inspection of the gear during walkaround ensures no leaks or damage.
-
-34
-00:02:56,000 --> 00:03:00,000
-Proper landing gear operation is critical for flight safety.
+00:01:56,000 --> 00:02:02,000
+Overall, the PEC simplifies the pilot's workload by managing the propeller automatically.

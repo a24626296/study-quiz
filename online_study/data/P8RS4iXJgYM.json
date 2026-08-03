@@ -1,0 +1,102 @@
+{
+  "subject": "空氣動力學 - 升力產生原理與飛行操作觀念",
+  "mc_questions": [
+    {
+      "zh_question": "根據教官在影片中的說明，關於 Bernoulli (伯努利原理) 與 Coanda Effect (負壓/物理黏附效應) 在升力產生中的角色，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 兩者完全互斥，只有 Bernoulli 是正確的",
+        "(B) 兩者是在飛行的不同時機點發生，Coanda Effect 主要負責氣流初期附著與初始化",
+        "(C) 升力完全是由於幾何形狀造成的，與 Bernoulli 無關",
+        "(D) Bernoulli 只在失速(Stall)發生時才起作用"
+      ],
+      "en_question": "According to the instructor's explanation regarding Bernoulli's Principle and the Coanda Effect in lift generation, which of the following is correct?",
+      "en_options": [
+        "(A) They are mutually exclusive; only Bernoulli is correct",
+        "(B) They occur at different times; Coanda Effect is primarily responsible for initial flow attachment and initialization",
+        "(C) Lift is entirely due to geometry and has nothing to do with Bernoulli",
+        "(D) Bernoulli only takes effect during a stall"
+      ],
+      "answer": "B",
+      "explanation": "影片中提到，Bernoulli 原理並非過時，而是與 Coanda Effect 應用於不同的時間點。Coanda Effect (或稱為附壁效應/負壓效應) 負責在飛行初期或加速度約 40-60 節時讓氣流附著在機翼表面(Lamination)；一旦氣流穩定附著，之後的升力維持則適用 Bernoulli 原理。",
+      "timestamp": "12:55"
+    },
+    {
+      "zh_question": "在飛行過程中，飛行員透過操作「襟翼」(Flaps) 或 「前緣縫翼」(Slats)，主要是在改變機翼的哪一個物理參數來增加升力？",
+      "zh_options": [
+        "(A) 機翼的幾何長度 (Span)",
+        "(B) 攻角 (Angle of Attack)",
+        "(C) 弧度 (Camber) 與 表面積 (Surface)",
+        "(D) 空氣密度 (Density)"
+      ],
+      "en_question": "During flight, when a pilot operates Flaps or Slats, which physical parameter of the wing is primarily being changed to increase lift?",
+      "en_options": [
+        "(A) Wing Span",
+        "(B) Angle of Attack",
+        "(C) Camber and Surface area",
+        "(D) Air Density"
+      ],
+      "answer": "C",
+      "explanation": "教官在課程中區分了飛行員「能控制」與「不能控制」的參數。機翼原始設計的 Camber 和厚度是不可變的，但透過 Flaps 或 Slats 的伸展，飛行員可以暫時改變機翼的弧度 (Camber) 與增加有效表面積 (Surface)，進而增加升力係數。",
+      "timestamp": "16:05"
+    },
+    {
+      "zh_question": "何謂「駐點」(Stagnation Point)？其氣流速度與機翼的相對關係為何？",
+      "zh_options": [
+        "(A) 機翼後緣流速最快的一點",
+        "(B) 機翼前緣某一點，該點的氣流相對速度為零",
+        "(C) 氣流離開機翼表面的分離點",
+        "(D) 機翼上方負壓最大的點"
+      ],
+      "en_question": "What is the 'Stagnation Point,' and what is the relationship between air velocity and the wing at this point?",
+      "en_options": [
+        "(A) The point on the trailing edge where velocity is highest",
+        "(B) A point near the leading edge where relative fluid velocity is zero",
+        "(C) The separation point where air leaves the wing surface",
+        "(D) The point of maximum negative pressure on top of the wing"
+      ],
+      "answer": "B",
+      "explanation": "影片解釋 Stagnation Point 是在 Leading Edge 附近，氣流行進方向與機翼表面垂直的一點。由於作用力與反作用力抵銷，該點的流體相對速度會降至零，這也是氣流分支成機翼上方流動與下方流動的分界線。",
+      "timestamp": "21:12"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "在流體中，若發生正向渦流，必定會伴隨產生一個{{c1::逆向}}渦流，這在機翼上稱為 Bound Vortex 與 Starting Vortex 的關係。",
+      "zh_translation": "In a fluid, a forward vortex will always be accompanied by a reverse vortex, known as the relationship between the Bound Vortex and the Starting Vortex on a wing.",
+      "explanation": "這符合流體力學中的環量守恆觀念，機翼前進產生的啟動渦流會對應產生一個繞翼環流。",
+      "tags": "Aerodynamics",
+      "timestamp": "04:12"
+    },
+    {
+      "cloze_text": "升力公式為 L = {{c1::Cl}} * 1/2 * ρ * V^2 * S，其中 Cl 代表升力係數。",
+      "zh_translation": "The lift equation is L = Cl * 1/2 * ρ * V^2 * S, where Cl represents the lift coefficient.",
+      "explanation": "升力的大小取決於升力係數、空氣密度、速度平方以及機翼表面積。",
+      "tags": "Limitations",
+      "timestamp": "15:20"
+    },
+    {
+      "cloze_text": "飛行員透過改變 Pitch (俯仰) 或 Power (動力設定) 來控制{{c1::Angle of Attack}} (攻角)。",
+      "zh_translation": "The pilot controls the Angle of Attack (AOA) by changing the Pitch or Power setting.",
+      "explanation": "即使俯仰角固定，動力改變導致飛行路徑改變時，攻角也會隨之改變。",
+      "tags": "Flight Control",
+      "timestamp": "18:48"
+    },
+    {
+      "cloze_text": "當機翼達到 {{c1::Critical AOA}} (臨界攻角) 時，氣流會開始發生分離，導致升力驟減，進入失速狀態。",
+      "zh_translation": "When the wing reaches the Critical AOA (Critical Angle of Attack), flow separation occurs, causing a rapid decrease in lift and entering a stall.",
+      "explanation": "失速是由於攻角過大導致氣流無法順著機翼表面流動而分離。",
+      "tags": "Stall",
+      "timestamp": "20:25"
+    },
+    {
+      "cloze_text": "不受物體進入空氣影響的原始氣流，稱為 {{c1::Free Stream Air}} (自由流空氣)。",
+      "zh_translation": "Air that is unaffected by an object moving through it is called 'Free Stream Air.'",
+      "explanation": "距離機翼足夠遠、未受壓力波干擾的氣流即為自由流。",
+      "tags": "Definitions",
+      "timestamp": "23:15"
+    }
+  ],
+  "video_id": "P8RS4iXJgYM",
+  "url": "https://www.youtube.com/watch?v=P8RS4iXJgYM",
+  "has_transcript": true
+}

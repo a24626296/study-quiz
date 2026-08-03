@@ -1,0 +1,95 @@
+{
+  "subject": "飛行性能與速度定義 (Aviation Performance & V-Speeds)",
+  "mc_questions": [
+    {
+      "zh_question": "根據影片內容,關於 $V_1$ (Takeoff Action Speed) 的敘述,下列何者正確?",
+      "zh_options": [
+        "(A) 是飛行員在決定中斷起飛時,飛機達到停止狀態的速度",
+        "(B) 是飛行員必須採取第一個動作(如踩煞車或收油門)以確保飛機能在加速停止距離內停下的最大速度",
+        "(C) $V_1$ 必須大於 $V_R$,以確保起飛安全",
+        "(D) $V_1$ 是指單發動機失效後,飛機能繼續安全起飛的最小速度"
+      ],
+      "en_question": "According to the video, which statement regarding $V_1$ (Takeoff Action Speed) is correct?",
+      "en_options": [
+        "(A) The speed at which the aircraft comes to a complete stop during a rejected takeoff.",
+        "(B) The maximum speed during takeoff at which the pilot must take the first action (e.g., applying brakes or reducing thrust) to stop within the accelerate-stop distance.",
+        "(C) $V_1$ must be greater than $V_R$ to ensure takeoff safety.",
+        "(D) The minimum speed at which the aircraft can safely continue takeoff after a single engine failure."
+      ],
+      "answer": "B",
+      "explanation": "$V_1$ 定義為起飛過程中,飛行員必須採取第一個中斷動作(first action to stop)的最大速度,這包含踩煞車或收油門。如果超過此速度才採取動作,飛機可能無法在剩餘的 Accelerate-Stop Distance (ASD) 內停下。",
+      "timestamp": "01:13"
+    },
+    {
+      "zh_question": "在判定 $V_{MCA}$ (空中最小控制速度) 的認證標準中,下列哪一項物理限制是錯誤的?",
+      "zh_options": [
+        "(A) 方向舵踏板力(Rudder Pedal Force)不可超過 150 磅",
+        "(B) 最大坡度(Bank Angle)不可超過 5 度",
+        "(C) 航向改變(Heading Change)不可超過 20 度",
+        "(D) 必須在起落架放下(Gear Down)且襟翼在起飛位時測定"
+      ],
+      "en_question": "In the certification criteria for $V_{MCA}$ (Minimum Control Speed in Air), which of the following physical limitations is incorrect?",
+      "en_options": [
+        "(A) Rudder pedal force must not exceed 150 lbs.",
+        "(B) Maximum bank angle must not exceed 5 degrees.",
+        "(C) Heading change must not exceed 20 degrees.",
+        "(D) It must be determined with the landing gear down and flaps in takeoff position."
+      ],
+      "answer": "D",
+      "explanation": "影片中提到 $V_{MCA}$ 的認證標準包括 Rudder Pedal Force 不過 150 lbs、Bank Angle 最大 5 度、Heading Change 不過 20 度。通常 $V_{MCA}$ 是在最不利的重心與組態下測得,而非限定在 Gear Down。",
+      "timestamp": "02:40"
+    },
+    {
+      "zh_question": "飛機的進場類別(Aircraft Approach Category)是基於哪一個速度的 1.3 倍來定義的?",
+      "zh_options": [
+        "(A) $V_2$ (Takeoff Safety Speed)",
+        "(B) $V_{REF}$ (Reference Landing Speed)",
+        "(C) $V_{S0}$ (Stall speed in landing configuration)",
+        "(D) $V_{MCA}$ (Minimum Control Speed in Air)"
+      ],
+      "en_question": "The Aircraft Approach Category is defined based on 1.3 times which speed?",
+      "en_options": [
+        "(A) $V_2$ (Takeoff Safety Speed)",
+        "(B) $V_{REF}$ (Reference Landing Speed)",
+        "(C) $V_{S0}$ (Stall speed in landing configuration)",
+        "(D) $V_{MCA}$ (Minimum Control Speed in Air)"
+      ],
+      "answer": "C",
+      "explanation": "根據 FAA/ICAO 規範,進場類別是依據飛機在最大認證著陸重量下,處於著陸組態(landing configuration)時失速速度 $V_{S0}$ 的 1.3 倍來劃分的。",
+      "timestamp": "06:20"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "在 $V_{MCA}$ 認證中,維持方向控制所需的方向舵踏板力不得超過 {{c1::150}} 磅。",
+      "zh_translation": "In $V_{MCA}$ certification, the rudder pedal force required to maintain directional control shall not exceed 150 pounds.",
+      "explanation": "這是 FAR 25 認證規範中的物理限制數值,確保飛行員在單發失效時有體力維持控制。",
+      "tags": "Certification / Limitations",
+      "timestamp": "02:45"
+    },
+    {
+      "cloze_text": "進場類別 Category C 的速度範圍是 121 節以上,但小於 {{c1::141}} 節。",
+      "zh_translation": "The speed range for Approach Category C is 121 knots or more but less than 141 knots.",
+      "explanation": "Category C 是多數中型噴射客機(如 A320, B737)所在的進場類別。",
+      "tags": "Approach / Categories",
+      "timestamp": "05:10"
+    },
+    {
+      "cloze_text": "在起飛性能中,$V_{LOF}$ (離地速度) 對於所有發動機運作時,不得小於 $V_{MU}$ 的 {{c1::1.1}} 倍。",
+      "zh_translation": "In takeoff performance, $V_{LOF}$ (liftoff speed) for all engines operating must not be less than 1.1 times $V_{MU}$.",
+      "explanation": "$V_{MU}$ 是 Minimum Unstick Speed。1.1 倍的餘裕是為了避免過早拉起導致失速或擦地尾。",
+      "tags": "Takeoff / Performance",
+      "timestamp": "00:32"
+    },
+    {
+      "cloze_text": "在 $V_{MCA}$ 的演示中,飛機允許的最大坡度(Bank Angle)為 {{c1::5}} 度。",
+      "zh_translation": "In $V_{MCA}$ demonstration, the maximum bank angle allowed for the aircraft is 5 degrees.",
+      "explanation": "在單發失效維持直線飛行時,適度的 Bank 轉向運作中發動機一側可協助減輕 Rudder 負擔,但法規限制最大 5 度。",
+      "tags": "Flight Dynamics / Certification",
+      "timestamp": "02:54"
+    }
+  ],
+  "video_id": "orHYk4KljV4",
+  "url": "https://www.youtube.com/watch?v=orHYk4KljV4",
+  "has_transcript": true
+}

@@ -1,0 +1,199 @@
+1
+00:00:00,000 --> 00:00:04,000
+就是由 AFM 所計算出來的一個一個 V-speed
+
+2
+00:00:04,000 --> 00:00:11,000
+那是一個呃...
+
+3
+00:00:11,000 --> 00:00:18,000
+就是說他用數學算出來的一個最保守的一個一個安全數,一個一個 Event Speed
+
+4
+00:00:18,000 --> 00:00:25,000
+就是發生 Event。那這個是還沒有加入 In-service Allowance 的部分
+
+5
+00:00:25,000 --> 00:00:30,000
+好,那剛剛的那一個...
+
+6
+00:00:30,000 --> 00:00:36,000
+我們的 Lift-off speed 是 1.1 倍的 V-mu All-engine Operating
+
+7
+00:00:36,000 --> 00:00:43,000
+然後是 One-engine Inoperative 是 1.05
+
+8
+00:00:43,000 --> 00:00:48,000
+好,然後再來就是 Minimum Control Speed with critical engine inoperative
+
+9
+00:00:48,000 --> 00:00:54,000
+那這邊可以基本上它...你們小飛機的 Vmc 就是 Vmca
+
+10
+00:00:54,000 --> 00:01:00,000
+對,OK。好,你們沒有 Vmcg
+
+11
+00:01:00,000 --> 00:01:07,000
+原因是因為呃,Certification 沒有 Requirement,對
+
+12
+00:01:07,000 --> 00:01:13,000
+好,那 Minimum Stall Speed 是你們都已經知道,Rotation Speed
+
+13
+00:01:13,000 --> 00:01:19,000
+然後 V1 是 Max speed during the takeoff when the pilot must take the first action to stop
+
+14
+00:01:19,000 --> 00:01:27,000
+within the accelerate-stop distance, such as applying brakes or reducing the thrust
+
+15
+00:01:27,000 --> 00:01:36,000
+Also the minimum speed follow a failure of critical engine at Vef
+
+16
+00:01:36,000 --> 00:01:42,000
+at which the pilot can continue the takeoff and achieve the required height
+
+17
+00:01:42,000 --> 00:01:47,000
+above the takeoff surface within the takeoff distance
+
+18
+00:01:47,000 --> 00:01:54,000
+那 V2 是 Takeoff Safety Speed
+
+19
+00:01:54,000 --> 00:02:00,000
+那 the target speed that allows for the optimum climb
+
+20
+00:02:00,000 --> 00:02:05,000
+V2 min 是 Minimum Takeoff Safety Speed 最低的
+
+21
+00:02:05,000 --> 00:02:10,000
+那 Vso 是 Stall speed or minimum steady flight speed in landing configuration
+
+22
+00:02:10,000 --> 00:02:15,000
+Vs1 是 for... the stall speed obtained in a specified configuration
+
+23
+00:02:15,000 --> 00:02:19,000
+所以你可以有 Flap 1 的 Vs1,你也可以有 Flap Up 的
+
+24
+00:02:19,000 --> 00:02:26,000
+那個什麼,Vs1,對,OK 嗎?
+
+25
+00:02:26,000 --> 00:02:32,000
+好,那一般來講我們的 Vs1 是指定 Configuration 的,一般,對
+
+26
+00:02:32,000 --> 00:02:39,000
+好,那 Vmca 是 Minimum Control Speed in Air,好
+
+27
+00:02:39,000 --> 00:02:45,000
+那這個通常我們在記 Vmca 的時候就是什麼,Rudder Pedal 不超過多少磅,150 磅
+
+28
+00:02:45,000 --> 00:02:51,000
+Maximum Bank Angle 允許值是多少? 5 度,最大的 Bank Angle
+
+29
+00:02:51,000 --> 00:02:57,000
+然後,但是,然後再來就是 Maintain Directional Control, Heading Change 不可以超過幾度? 20 度
+
+30
+00:02:57,000 --> 00:03:03,000
+好,對
+
+31
+00:03:03,000 --> 00:03:08,000
+Vx 是 Best Angle Climb, Vy 是 Best Rate Climb
+
+32
+00:03:08,000 --> 00:03:12,000
+那 Vref 是 Reference speed for the landing
+
+33
+00:03:12,000 --> 00:03:17,000
+target speed for final approach which adjusts the normal approach speed for factors
+
+34
+00:03:17,000 --> 00:03:22,000
+好,那 Vsse, Engine-out inoperative,好
+
+35
+00:03:22,000 --> 00:03:26,000
+大概是這幾個。好,那接下來我們就要談論到...
+
+36
+00:03:26,000 --> 00:03:32,000
+Reference Speed, Reference Speed 的部分
+
+37
+00:03:32,000 --> 00:04:30,000
+(操作電腦搜尋中,無語音)
+
+38
+00:04:31,000 --> 00:04:38,000
+好,那我們接下來看的是,剛剛我們 Takeoff speed 大致都看完了
+
+39
+00:04:38,000 --> 00:04:45,000
+那我們接下來看 Landing speed 的部分, AIM
+
+40
+00:04:45,000 --> 00:05:08,000
+(翻閱 AIM 手冊中,無語音)
+
+41
+00:05:08,000 --> 00:05:14,000
+好,我們現在講在 Approach 的部分,在 FAA 如果你們有照這個 Instrument Commercial 的話
+
+42
+00:05:14,000 --> 00:05:21,000
+雖然我之前說不用背,但是如果有的話,你可以 Refer 到 Approach 的部分
+
+43
+00:05:21,000 --> 00:05:28,000
+在第八章吧
+
+44
+00:05:28,000 --> 00:07:07,000
+(翻閱文件內容,背景雜音)
+
+45
+00:07:07,000 --> 00:07:15,000
+好,我們現在講在 Approach 的部分,在 FAA...
+
+46
+00:07:15,000 --> 00:07:22,000
+Aircraft Approach Categories: A grouping of aircraft based on a speed of 1.3 times the stall speed
+
+47
+00:07:22,000 --> 00:07:29,000
+in the landing configuration at maximum gross landing weight
+
+48
+00:07:30,000 --> 00:07:35,000
+Category A: Speed less than 91 knots
+
+49
+00:07:35,000 --> 00:07:40,000
+Category B: 91 knots or more but less than 121 knots
+
+50
+00:07:40,000 --> 00:07:45,000
+Category C: 121 knots or more but less than 141 knots
