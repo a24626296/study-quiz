@@ -71,6 +71,7 @@
   function render(data) {
     document.title = (data.subject || '線上複習') + ' - 線上複習';
     document.getElementById('subject').textContent = data.subject || '';
+    initPdfLink();
 
     if (data.has_transcript) {
       var link = document.createElement('a');
@@ -341,6 +342,44 @@
     });
     return lines.join('\n');
   }
+
+  // ===== PDF 手冊連結(存在 localStorage,每支影片各自記一個網址) =====
+  function pdfLinkKey() {
+    return 'pdfLink_' + videoId;
+  }
+
+  function initPdfLink() {
+    var input = document.getElementById('pdf-link-input');
+    var bar = document.getElementById('pdf-open-bar');
+    var saved = '';
+    try { saved = localStorage.getItem(pdfLinkKey()) || ''; } catch (e) {}
+    if (input) input.value = saved;
+    renderPdfOpenBar(saved, bar);
+  }
+
+  function renderPdfOpenBar(url, bar) {
+    bar = bar || document.getElementById('pdf-open-bar');
+    if (!bar) return;
+    if (url) {
+      bar.innerHTML = '<a class="pdf-open-link" href="' + url.replace(/"/g, '&quot;') +
+        '" target="_blank" rel="noopener">📖 開啟手冊 PDF</a>';
+    } else {
+      bar.innerHTML = '';
+    }
+  }
+
+  window.savePdfLink = function () {
+    var input = document.getElementById('pdf-link-input');
+    var url = (input.value || '').trim();
+    try {
+      if (url) {
+        localStorage.setItem(pdfLinkKey(), url);
+      } else {
+        localStorage.removeItem(pdfLinkKey());
+      }
+    } catch (e) {}
+    renderPdfOpenBar(url);
+  };
 
   function initChat() {
     var notice = document.getElementById('chat-notice');
