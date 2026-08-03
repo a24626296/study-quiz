@@ -1,0 +1,109 @@
+{
+  "subject": "航空公司飛行員面試技巧與專業素養 - 職能行為與決策邏輯",
+  "mc_questions": [
+    {
+      "zh_question": "在回答行為面試題（如：如何處理駕駛艙衝突）時，教官建議使用哪種結構化方式來回答？",
+      "zh_options": [
+        "(A) CRM 溝通模型",
+        "(B) STARR 方法（情境、任務、行動、結果、反思）",
+        "(C) FORDEC 決策模型",
+        "(D) 威脅與差錯管理 (TEM)"
+      ],
+      "en_question": "When answering behavioral interview questions (e.g., handling conflict in the cockpit), which structured method does the instructor recommend?",
+      "en_options": [
+        "(A) CRM Communication Model",
+        "(B) STARR Method (Situation, Task, Action, Result, Reflection)",
+        "(C) FORDEC Decision-making Model",
+        "(D) Threat and Error Management (TEM)"
+      ],
+      "answer": "B",
+      "explanation": "影片中強調使用 STARR (Situation, Task, Action, Result, Reflection) 架構，能確保應徵者完整交代事件背景、具體採取的行動以及最後的正向結果與個人反思，這在 Behavioral Interview 中是標準做法。",
+      "timestamp": "04:50"
+    },
+    {
+      "zh_question": "關於面試題目「你最大的弱點是什麼？」，下列何者是教官給予應徵者的核心建議？",
+      "zh_options": [
+        "(A) 誠實地說出一個會嚴重影響飛安的生理缺陷",
+        "(B) 宣稱自己是一個「完美主義者」以展現嚴謹態度",
+        "(C) 提供一個真實但非核心職能的弱點，並說明如何積極改進",
+        "(D) 表示自己沒有任何明顯弱點，以維持專業形象"
+      ],
+      "en_question": "Regarding the question 'What is your greatest weakness?', what core advice does the instructor provide to candidates?",
+      "en_options": [
+        "(A) Honestly state a physiological defect that severely affects flight safety",
+        "(B) Claim to be a 'perfectionist' to demonstrate a rigorous attitude",
+        "(C) Provide a genuine weakness that isn't a core competency, and show how you are improving it",
+        "(D) State that you have no obvious weaknesses to maintain a professional image"
+      ],
+      "answer": "C",
+      "explanation": "教官特別警告不要說自己是 Perfectionist，因為這是不切實際且缺乏自我意識的表現。正確策略是提供 Genuine Weakness 並轉化為正向的進步歷程。",
+      "timestamp": "07:59"
+    },
+    {
+      "zh_question": "當在飛行中面臨未預期的亂流且需要做出困難決策時，應優先考量哪些專業特質？",
+      "zh_options": [
+        "(A) 節省燃油成本與維持班表準點",
+        "(B) 安全 (Safety)、計算後的決策、冷靜以及良好的溝通",
+        "(C) 駕駛艙權威與快速無誤的操作",
+        "(D) 乘客的觀感與服務流程的完整"
+      ],
+      "en_question": "When facing unexpected turbulence and needing to make a difficult decision in the air, which professional qualities should be prioritized?",
+      "en_options": [
+        "(A) Fuel cost savings and maintaining schedule punctuality",
+        "(B) Safety, calculated decision-making, calmness, and good communication",
+        "(C) Cockpit authority and rapid, error-free operations",
+        "(D) Passenger perception and service flow integrity"
+      ],
+      "answer": "B",
+      "explanation": "在處理 In-flight difficult decisions 時，核心邏輯是 Safety First。應透過 Calculated decision-making (如分析天氣數據與 NOTAMs) 搭配冷靜溝通來解決問題。",
+      "timestamp": "11:23"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "In the STARR method, the final R stands for {{c1::Reflection}}, which explains what you learned from the experience.",
+      "zh_translation": "在 STARR 方法中，最後一個 R 代表「反思」，用來解釋你從該次經驗中學到了什麼。",
+      "explanation": "許多應徵者只說到結果(Result)，但資深教官更看重應徵者是否具備自我檢視與持續學習的能力。",
+      "tags": "Interview-Strategy",
+      "timestamp": "05:40"
+    },
+    {
+      "cloze_text": "As a pilot, it is your duty to ensure the {{c1::safety}} of all those onboard at all times.",
+      "zh_translation": "作為一名飛行員，你的職責是隨時確保機上所有人的安全。",
+      "explanation": "Safety 是航空業的最高指導原則，在面試中所有決策題的回答都必須以此為基石。",
+      "tags": "Professionalism",
+      "timestamp": "06:17"
+    },
+    {
+      "cloze_text": "Do NOT say that you are a {{c1::perfectionist}} during your pilot interview, as it is unrealistic and lacks self-awareness.",
+      "zh_translation": "在飛行員面試中，不要說自己是個「完美主義者」，因為這是不切實際且缺乏自我認知的。",
+      "explanation": "這是一個極其常見的面試地雷，教官強烈建議避免這種陳腔濫調。",
+      "tags": "Weakness-Question",
+      "timestamp": "07:59"
+    },
+    {
+      "cloze_text": "Studying the {{c1::job description}} is essential to show how your skills match the airline's specific needs.",
+      "zh_translation": "研究「職位描述 (Job Description)」對於展現你的技能如何匹配航空公司的具體需求至關重要。",
+      "explanation": "應徵者應找出 JD 中的關鍵字（如 Safety-focused, Communication），並將其融入答案中。",
+      "tags": "Preparation",
+      "timestamp": "01:52"
+    },
+    {
+      "cloze_text": "In the cockpit conflict example, the pilots reviewed real-time {{c1::weather data}} and NOTAMs together to reach an objective decision.",
+      "zh_translation": "在駕駛艙衝突的範例中，飛行員們一起查閱即時天氣數據與航行通告 (NOTAMs)，以達成客觀的決策。",
+      "explanation": "數據化管理 (Data-driven) 是解決專業分歧的最佳方式，能有效降低個人情緒干擾。",
+      "tags": "CRM",
+      "timestamp": "06:30"
+    },
+    {
+      "cloze_text": "When making difficult decisions, the instructor highlights that {{c1::clear communication}} with both the crew and passengers is vital for building trust.",
+      "zh_translation": "在做出困難決策時，教官強調與組員及乘客的「清晰溝通」對於建立信任至關重要。",
+      "explanation": "決策不只是下令，還包含資訊的有效傳達與情緒管理 (Passenger/Crew confidence)。",
+      "tags": "Communication",
+      "timestamp": "12:54"
+    }
+  ],
+  "video_id": "qc6AtQy0s6U",
+  "url": "https://www.youtube.com/watch?v=qc6AtQy0s6U",
+  "has_transcript": false
+}
