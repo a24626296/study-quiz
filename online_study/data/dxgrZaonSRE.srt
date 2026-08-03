@@ -1,0 +1,135 @@
+1
+00:00:00,000 --> 00:00:05,000
+The ATR 72 is equipped with a retractable tricycle landing gear system.
+
+2
+00:00:05,000 --> 00:00:11,000
+It consists of a twin-wheel nose gear and two twin-wheel main gear units.
+
+3
+00:00:11,000 --> 00:00:16,000
+The main landing gear units retract into the fuselage pods.
+
+4
+00:00:16,000 --> 00:00:20,000
+While the nose gear retracts forward into the nose section.
+
+5
+00:00:20,000 --> 00:00:25,000
+Each landing gear is maintained in the retracted position by a mechanical up-lock.
+
+6
+00:00:25,000 --> 00:00:30,000
+The main landing gear is supported by a structural frame attached to the fuselage.
+
+7
+00:00:30,000 --> 00:00:36,000
+It features a trailing arm design and a shock absorber for smooth landings.
+
+8
+00:00:36,000 --> 00:00:41,000
+The braking system is located on the main wheels and includes anti-skid protection.
+
+9
+00:00:41,000 --> 00:00:46,000
+The nose gear is steerable and provides directional control on the ground.
+
+10
+00:00:46,000 --> 00:00:51,000
+It also has a centering mechanism to ensure it is aligned before retraction.
+
+11
+00:00:51,000 --> 00:00:55,000
+The landing gear system is electrically controlled and hydraulically operated.
+
+12
+00:00:55,000 --> 00:01:00,000
+Hydraulic power is provided by the Green hydraulic system.
+
+13
+00:01:00,000 --> 00:01:05,000
+The landing gear selector lever on the center pedestal controls the operation.
+
+14
+00:01:05,000 --> 00:01:10,000
+A locking mechanism prevents the lever from being moved to UP while on the ground.
+
+15
+00:01:10,000 --> 00:01:15,000
+This lock is released when the aircraft is airborne and the shock absorbers extend.
+
+16
+00:01:15,000 --> 00:01:21,000
+During retraction, hydraulic pressure is applied to release the down-locks.
+
+17
+00:01:21,000 --> 00:01:27,000
+Then actuators pull the gear into the bays where they are held by up-locks.
+
+18
+00:01:27,000 --> 00:01:33,000
+The landing gear doors are mechanically linked and close after the gear is retracted.
+
+19
+00:01:33,000 --> 00:01:38,000
+For extension, the up-locks are released and hydraulic pressure moves the gear down.
+
+20
+00:01:38,000 --> 00:01:43,000
+Internal locks within the actuators ensure the gear is locked in the down position.
+
+21
+00:01:43,000 --> 00:01:48,000
+The position of the gear is indicated by lights on the landing gear control panel.
+
+22
+00:01:48,000 --> 00:01:54,000
+Three green lights indicate the gear is down and locked.
+
+23
+00:01:54,000 --> 00:01:59,000
+A red UNLK light means the gear is in transit or not locked.
+
+24
+00:01:59,000 --> 00:02:05,000
+If the green hydraulic system fails, an emergency extension is available.
+
+25
+00:02:05,000 --> 00:02:11,000
+The pilot must pull the emergency gear release handle.
+
+26
+00:02:11,000 --> 00:02:16,000
+This bypasses the normal hydraulics and allows the gear to extend by gravity.
+
+27
+00:02:16,000 --> 00:02:22,000
+Aerodynamic forces also help the gear to reach the down-locked position.
+
+28
+00:02:22,000 --> 00:02:28,000
+The nose wheel steering is also powered by the Green system and controlled by pedals or tiller.
+
+29
+00:02:28,000 --> 00:02:35,000
+The steering angle is limited depending on the control source used.
+
+30
+00:02:35,000 --> 00:02:40,000
+The anti-skid system monitors wheel speed to prevent tire lock-up.
+
+31
+00:02:40,000 --> 00:02:46,000
+It ensures maximum braking efficiency even on contaminated runways.
+
+32
+00:02:46,000 --> 00:02:51,000
+Regular maintenance of tires and brake wear indicators is essential.
+
+33
+00:02:51,000 --> 00:02:56,000
+Visual inspection of the gear during walkaround ensures no leaks or damage.
+
+34
+00:02:56,000 --> 00:03:00,000
+Proper landing gear operation is critical for flight safety.

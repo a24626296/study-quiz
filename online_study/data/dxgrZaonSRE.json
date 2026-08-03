@@ -1,0 +1,102 @@
+{
+  "subject": "ATR 72 - 起落架系統 (Landing Gear System)",
+  "mc_questions": [
+    {
+      "zh_question": "關於 ATR 72 起落架系統的動力來源與控制邏輯,下列敘述何者正確?",
+      "zh_options": [
+        "(A) 起落架的收放由 Blue System 提供液壓動力",
+        "(B) 起落架為液壓控制 (Hydraulically controlled) 且液壓驅動 (Hydraulically actuated)",
+        "(C) 起落架為電器控制 (Electrically controlled) 且由 Green System 液壓驅動",
+        "(D) 緊急放輪 (Emergency Extension) 必須依靠 Blue System 的蓄壓器壓力"
+      ],
+      "en_question": "Regarding the ATR 72 landing gear system power source and control logic, which of the following is correct?",
+      "en_options": [
+        "(A) Retraction and extension are powered by the Blue hydraulic system",
+        "(B) The landing gear is hydraulically controlled and hydraulically actuated",
+        "(C) The landing gear is electrically controlled and hydraulically actuated by the Green system",
+        "(D) Emergency extension relies on Blue system accumulator pressure"
+      ],
+      "answer": "C",
+      "explanation": "ATR 起落架系統由 Green System 提供動力,但在控制面上是透過電器訊號傳遞給選向閥 (Selector Valve)。Normal operation requires electrical power for control and hydraulic pressure (Green system) for actuation.",
+      "timestamp": "02:45"
+    },
+    {
+      "zh_question": "在起落架控制面板上,當起落架手柄移至 UP 位,但紅色 UNLK 燈持續亮著,最可能的系統邏輯解釋為何?",
+      "zh_options": [
+        "(A) 起落架已經完全收起並上鎖",
+        "(B) 起落架尚未到達選定位置或未在上鎖位置 (Not in the selected position / Not locked)",
+        "(C) 這是正常的過渡狀態,不論收多久都不會消失",
+        "(D) 代表綠色液壓系統壓力過高"
+      ],
+      "en_question": "On the L/G control panel, if the red UNLK lights remain illuminated after the L/G lever is moved to UP, what is the most likely system logic explanation?",
+      "en_options": [
+        "(A) The landing gear is fully retracted and locked",
+        "(B) The landing gear is not in the selected position or not locked",
+        "(C) This is a normal transient state and will never disappear",
+        "(D) It indicates that the Green system pressure is too high"
+      ],
+      "answer": "B",
+      "explanation": "起落架指示燈中,紅色 UNLK (Unlock) 燈亮表示起落架處於不安全狀態 (Unsafe condition),即起落架位置與手柄選取的 position 不一致,或是尚未完成 Locking 動作 (Up-locked or Down-locked)。",
+      "timestamp": "04:12"
+    },
+    {
+      "zh_question": "起落架手柄 (L/G selector lever) 的鎖定機構 (Lever Lock) 是為了防止在地面誤收起落架。此鎖定機構何時會自動解鎖?",
+      "zh_options": [
+        "(A) 當飛機空速達到 V1 時",
+        "(B) 當發動機啟動完成後",
+        "(C) 當兩側主起落架的 Shock Absorbers 皆伸展 (Weight-Off-Wheels) 時",
+        "(D) 當液壓系統壓力達到 3000 PSI 時"
+      ],
+      "en_question": "The L/G selector lever lock mechanism prevents accidental retraction on the ground. When does this lock automatically release?",
+      "en_options": [
+        "(A) When airspeed reaches V1",
+        "(B) After engine start is complete",
+        "(C) When both main gear shock absorbers are extended (Weight-Off-Wheels)",
+        "(D) When hydraulic pressure reaches 3000 PSI"
+      ],
+      "answer": "C",
+      "explanation": "Lever Lock 受控於主起落架上的近接感應器 (Proximity Sensors)。當飛機起飛離地,避震支柱 (Shock Absorbers) 伸展,感應到 Weight-Off-Wheels 時,Solonoid 會動作讓 Lock 釋放,手柄才能移往 UP 位。",
+      "timestamp": "04:48"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The maximum speed for landing gear retraction (VLO retract) is {{c1::160}} KIAS.",
+      "zh_translation": "起落架收起的速度上限 (VLO retract) 為 160 節。",
+      "explanation": "收輪時受風壓影響最大,故 VLO retract 通常低於 VLO extension。",
+      "tags": "Limitations",
+      "timestamp": "03:55"
+    },
+    {
+      "cloze_text": "The maximum speed with the landing gear extended (VLE) is {{c1::185}} KIAS.",
+      "zh_translation": "起落架伸展狀態下的最大允許速度 (VLE) 為 185 節。",
+      "explanation": "這是起落架完全放下並鎖定後的結構速限。",
+      "tags": "Limitations",
+      "timestamp": "04:00"
+    },
+    {
+      "cloze_text": "During emergency extension, the gear is extended using {{c1::gravity}} after releasing the hydraulic pressure.",
+      "zh_translation": "在緊急放輪過程中,釋放液壓壓力後,起落架是利用重力下墜伸展的。",
+      "explanation": "Free-fall extension 依靠組件自重與氣動力完成放輪與上鎖。",
+      "tags": "Emergency",
+      "timestamp": "05:45"
+    },
+    {
+      "cloze_text": "The Anti-skid system is deactivated when the aircraft speed drops below {{c1::10}} knots.",
+      "zh_translation": "當飛機速度降至 10 節以下時,防滑系統 (Anti-skid) 會停止作動。",
+      "explanation": "低速時為了維持煞車效率,系統會停用防滑邏輯以便完全煞停。",
+      "tags": "Brakes",
+      "timestamp": "02:15"
+    },
+    {
+      "cloze_text": "Landing gear operation and nose wheel steering are powered by the {{c1::Green}} hydraulic system.",
+      "zh_translation": "起落架操作與鼻輪轉向皆由綠色液壓系統供壓。",
+      "explanation": "這是 ATR 系統佈置的核心邏輯,Green 負責多數起落架相關組件。",
+      "tags": "Hydraulics",
+      "timestamp": "02:40"
+    }
+  ],
+  "video_id": "dxgrZaonSRE",
+  "url": "https://www.youtube.com/watch?v=dxgrZaonSRE",
+  "has_transcript": true
+}
