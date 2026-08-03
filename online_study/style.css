@@ -118,6 +118,13 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
 .chat-input-row button:disabled { opacity:0.5; cursor:not-allowed; }
 .chat-notice { font-size:12px; color:var(--muted); }
 
+.pdf-link-row { display:flex; align-items:center; gap:8px; margin-top:12px; font-size:13px; color:var(--muted); flex-wrap:wrap; }
+.pdf-link-row input { flex:1; min-width:200px; background:#0b1220; border:1px solid #334155; color:var(--text); padding:5px 10px; border-radius:6px; font-size:13px; }
+.pdf-link-row button { background:#2196F3; color:#fff; border:none; padding:5px 14px; border-radius:6px; cursor:pointer; font-size:13px; }
+#pdf-open-bar { padding:0 20px; }
+.pdf-open-link { display:inline-block; margin:8px 0; font-size:13px; color:var(--green); text-decoration:none; border:1px solid var(--green); padding:4px 10px; border-radius:6px; }
+.pdf-open-link:hover { background:var(--green); color:#0f172a; }
+
 /* 複習清單頁 */
 .list-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px; }
 .header-actions { display:flex; gap:8px; flex-wrap:wrap; }
