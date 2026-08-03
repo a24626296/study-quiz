@@ -140,7 +140,8 @@ QUIZ_SYSTEM_PROMPT_BASE = """
 - mc_questions:請出 3~5 題觀念理解或故障邏輯單選題,適合「理解型」的知識點
 - cloze_items:請出 4~8 個值得直接背誦的 Memory Item、限制數據(limitations)、定義或口訣,適合「記憶型」的知識點;每一則只挖一個重點(只用 {{c1::}},不要有 c2、c3)
 - explanation 欄位要簡潔(1-2句話),不要跟 zh_translation 重複
-- timestamp 一律用 MM:SS 或 HH:MM:SS 格式的純文字,不要加中括號、不要加其他符號__TRANSCRIPT_RULES__
+- timestamp 一律用 MM:SS 或 HH:MM:SS 格式的純文字,不要加中括號、不要加其他符號
+- 【重要】所有題目、選項、解析、逐字稿內容,一律使用「純文字」,絕對不要使用 LaTeX 或 Markdown 數學語法(例如不要寫成 $V_1$、$V_{MCA}$、\\text{}、\\frac{}這種格式)。像 V1、VR、VMCA、V2 這類代號,直接寫成一般文字(例如「V1」或「V_MCA」都可以,但絕對不能包含 $ 符號),因為顯示的網頁不會渲染 LaTeX,帶 $ 符號會讓使用者看到一堆奇怪的原始符號,而不是正常的文字__TRANSCRIPT_RULES__
 - 【重要】如果某段音訊聽不清楚、口齒不清、背景雜音干擾、或你對內容不夠確定,請直接跳過該段,不要用猜測或腦補的方式硬出題。寧可整體題數少一點,也不要出現似是而非、可能誤導使用者的錯誤內容
 - 如果整支影片的音訊品質太差,導致能確實聽懂的內容不足以出滿規定的題數,就依實際能確定的內容出題即可,不用硬湊到上限
 - 除了上述 JSON 物件之外,不要輸出任何文字
@@ -161,6 +162,7 @@ TRANSCRIPT_JSON_FIELD = """,
 
 TRANSCRIPT_RULES = """
 - transcript:請把整支影片從頭到尾的逐字稿,依照實際講話的自然停頓切成一段一段(每段大約 3~8 秒,不要切太細也不要切太長),依序列出,涵蓋整支影片,不要只挑重點段落。這是要拿來取代 YouTube 現有字幕用的,所以要盡量完整、準確反映實際說出的內容,而不是摘要或改寫
+- transcript 的準確度要求比出題內容更高,因為使用者會直接拿這份逐字稿取代原本的字幕:遇到 V1、VR、V2、VMCA 這類專業代號或術語時,請根據上下文判斷正確的專業寫法,不要照發音直接寫成同音的其他字詞或亂碼;如果實在無法確定某個詞是什麼,寧可保守地寫出你聽到的大概內容並標記,也不要完全省略或瞎猜替換成不相關的詞
 - transcript 的每一段一樣適用「不確定就跳過」原則:如果某幾秒聽不清楚,可以把那幾秒的 text 留空字串,或用 "(聽不清楚)" 標記,不要用猜的填內容"""
 
 
@@ -218,6 +220,28 @@ def load_processed_set():
 def save_processed_set(processed_set):
     with open(PROCESSED_LOG_PATH, "w", encoding="utf-8") as f:
         json.dump(sorted(processed_set), f, ensure_ascii=False, indent=2)
+
+TITLES_MAP_PATH = "./video_titles.json"
+
+def load_titles_map():
+    if os.path.exists(TITLES_MAP_PATH):
+        with open(TITLES_MAP_PATH, "r", encoding="utf-8") as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return {}
+    return {}
+
+def record_video_title(dedup_key, subject):
+    """記錄某個本機檔案(用dedup_key識別)對應的Gemini出題科目名稱,供上傳YouTube時當標題用"""
+    titles = load_titles_map()
+    titles[dedup_key] = subject
+    with open(TITLES_MAP_PATH, "w", encoding="utf-8") as f:
+        json.dump(titles, f, ensure_ascii=False, indent=2)
+
+def lookup_video_title(dedup_key, fallback):
+    titles = load_titles_map()
+    return titles.get(dedup_key) or fallback
 
 def sanitize_tsv_field(text):
     """TSV 每一列必須是單行:清掉 tab 與換行,避免匯入時欄位錯位或被切成兩題"""
@@ -533,6 +557,7 @@ def process_single_audio(file_path, quota_state, force=False, video_id_override=
         mc_count, cz_count = write_quiz_to_anki_tsv(
             quiz_data, base_id, video_id, subject_fallback=safe_base_name
         )
+        record_video_title(dedup_key, quiz_data.get("subject", "") or safe_base_name)
 
         processed_set.add(dedup_key)
         save_processed_set(processed_set)
@@ -1292,8 +1317,191 @@ def run_online_quick_mode():
         pass
 
 # ==========================================
-# 9. 選單
+# 8c. YouTube 上傳功能(OAuth 授權,上傳影片+字幕+加入播放清單)
 # ==========================================
+# 跟前面用 YOUTUBE_API_KEY 的唯讀查詢不同,上傳影片/字幕/加入播放清單是會
+# 「寫入」你頻道的動作,YouTube 不允許單純用 API Key 做這件事,一定要走
+# OAuth 使用者授權(你親自登入同意一次,之後重複使用,不用每次都登入)。
+#
+# 設定步驟(第一次使用前):
+# 1. Google Cloud Console → 同一個專案(或另建) → APIs & Services → 憑證
+# 2. 建立憑證 → OAuth 用戶端 ID → 應用程式類型選「電腦版應用程式」
+# 3. 下載 JSON,改名成 client_secret.json,放在跟 study_pipeline.py 同一個資料夾
+# 4. 需要額外安裝套件:pip install google-auth-oauthlib google-api-python-client
+YOUTUBE_UPLOAD_SCOPES = [
+    "https://www.googleapis.com/auth/youtube.upload",
+    "https://www.googleapis.com/auth/youtube.force-ssl",
+]
+CLIENT_SECRET_PATH = "./client_secret.json"
+UPLOAD_TOKEN_PATH = "./upload_token.json"
+
+def get_youtube_upload_service():
+    """建立有上傳權限的 YouTube API 連線,第一次會跳瀏覽器要你登入同意授權"""
+    try:
+        from google.oauth2.credentials import Credentials
+        from google_auth_oauthlib.flow import InstalledAppFlow
+        from google.auth.transport.requests import Request
+        from googleapiclient.discovery import build
+    except ImportError:
+        raise RuntimeError(
+            "缺少必要套件,請先執行:\n"
+            "  pip install google-auth-oauthlib google-api-python-client"
+        )
+
+    creds = None
+    if os.path.exists(UPLOAD_TOKEN_PATH):
+        creds = Credentials.from_authorized_user_file(UPLOAD_TOKEN_PATH, YOUTUBE_UPLOAD_SCOPES)
+
+    if not creds or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            if not os.path.exists(CLIENT_SECRET_PATH):
+                raise RuntimeError(
+                    f"找不到 {CLIENT_SECRET_PATH}。\n"
+                    "   請先去 Google Cloud Console 建立「OAuth 用戶端 ID」(應用程式類型選電腦版應用程式),\n"
+                    "   下載 JSON 後改名成 client_secret.json,放在這支程式同一個資料夾。"
+                )
+            flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_PATH, YOUTUBE_UPLOAD_SCOPES)
+            log("  🔐 需要授權,即將開啟瀏覽器,請登入你的 YouTube 帳號並同意授權...")
+            creds = flow.run_local_server(port=0)
+        with open(UPLOAD_TOKEN_PATH, "w", encoding="utf-8") as f:
+            f.write(creds.to_json())
+
+    return build("youtube", "v3", credentials=creds)
+
+def upload_video_to_youtube(service, file_path, title, description="", privacy_status="unlisted", tags=None):
+    """上傳一支影片,回傳新影片的 video_id。用 resumable upload,大檔案也能穩定上傳。"""
+    from googleapiclient.http import MediaFileUpload
+
+    body = {
+        "snippet": {
+            "title": (title or os.path.basename(file_path))[:100],  # YouTube標題上限100字
+            "description": (description or "")[:5000],
+            "tags": tags or [],
+        },
+        "status": {
+            "privacyStatus": privacy_status,
+            "selfDeclaredMadeForKids": False,
+        },
+    }
+    media = MediaFileUpload(file_path, chunksize=-1, resumable=True)
+    request = service.videos().insert(part="snippet,status", body=body, media_body=media)
+
+    response = None
+    while response is None:
+        status, response = request.next_chunk()
+        if status:
+            log(f"    ⬆️ 上傳進度:{int(status.progress() * 100)}%")
+    return response["id"]
+
+def add_video_to_playlist(service, video_id, playlist_id):
+    """把影片加進指定播放清單"""
+    body = {
+        "snippet": {
+            "playlistId": playlist_id,
+            "resourceId": {"kind": "youtube#video", "videoId": video_id},
+        }
+    }
+    service.playlistItems().insert(part="snippet", body=body).execute()
+
+def upload_captions_to_video(service, video_id, srt_path, language="zh-Hant", name="AI 修正字幕"):
+    """上傳字幕檔(.srt)到指定影片"""
+    from googleapiclient.http import MediaFileUpload
+
+    body = {
+        "snippet": {
+            "videoId": video_id,
+            "language": language,
+            "name": name,
+            "isDraft": False,
+        }
+    }
+    media = MediaFileUpload(srt_path, mimetype="application/octet-stream")
+    service.captions().insert(part="snippet", body=body, media_body=media).execute()
+
+def mode_youtube_upload():
+    """
+    批次上傳模式:掃描 audio_files/ 資料夾,選好一批影片跟一個播放清單,
+    一次自動跑完全部上傳(影片標題用出題時的科目名稱,有對應.srt字幕的話也一併上傳)。
+    """
+    files = discover_audio_files()
+    if not files:
+        log(f"⚠️ 在目前目錄與 {INPUT_DIR} 都沒有找到任何影音檔案。")
+        return
+
+    print(f"\n📂 找到 {len(files)} 個影音檔案:\n")
+    for idx, f in enumerate(files, 1):
+        print(f"  [{idx}] {f}")
+
+    print("\n請輸入要上傳的編號,可以用逗號或範圍,例如:1,3,5-7")
+    sel_str = input("你的選擇:").strip()
+    selected_indices = parse_selection(sel_str, len(files))
+    if not selected_indices:
+        log("⚠️ 沒有選到任何合法的編號,回到主選單。")
+        return
+    selected_files = [files[i - 1] for i in selected_indices]
+
+    print(f"\n已選擇 {len(selected_files)} 個檔案:")
+    for f in selected_files:
+        print(f"  - {f}")
+
+    playlist_id = input(
+        "\n要加入哪個播放清單?(去 YouTube 播放清單網址複製 list= 後面那串 ID,"
+        "不需要加清單直接按 Enter):"
+    ).strip()
+
+    confirm = input(f"\n即將以「不公開(Unlisted)」上傳這 {len(selected_files)} 支影片,確定嗎?(y/n):").strip().lower()
+    if confirm != "y":
+        log("已取消,回到主選單。")
+        return
+
+    try:
+        service = get_youtube_upload_service()
+    except Exception as e:
+        log(f"❌ 無法建立 YouTube 上傳連線:{e}")
+        return
+
+    success_count = 0
+    for idx, file_path in enumerate(selected_files, 1):
+        original_filename = os.path.basename(file_path)
+        safe_base_name = re.sub(r'[\\/*?:"<>|]', "", os.path.splitext(original_filename)[0])
+        video_id_in_name = extract_youtube_id(original_filename)
+        dedup_key = video_id_in_name or safe_base_name
+
+        title = lookup_video_title(dedup_key, fallback=safe_base_name)
+
+        log(f"---- [{idx}/{len(selected_files)}] {original_filename} ----")
+        log(f"  📝 標題:{title}")
+
+        try:
+            new_video_id = upload_video_to_youtube(
+                service, file_path, title=title, privacy_status="unlisted"
+            )
+            log(f"  ✅ 已上傳,YouTube 影片 ID:{new_video_id}")
+        except Exception as e:
+            log(f"  ❌ 上傳失敗,略過繼續下一支:{type(e).__name__}: {e}")
+            continue
+
+        if playlist_id:
+            try:
+                add_video_to_playlist(service, new_video_id, playlist_id)
+                log(f"  ✅ 已加入播放清單")
+            except Exception as e:
+                log(f"  ⚠️ 加入播放清單失敗(影片本身已上傳成功):{e}")
+
+        srt_candidate = os.path.join(DATA_DIR, f"{dedup_key}.srt")
+        if os.path.exists(srt_candidate):
+            try:
+                upload_captions_to_video(service, new_video_id, srt_candidate)
+                log(f"  ✅ 已上傳修正字幕")
+            except Exception as e:
+                log(f"  ⚠️ 字幕上傳失敗(影片本身已上傳成功):{e}")
+
+        success_count += 1
+        time.sleep(2)  # 避免瞬間對API打太多請求
+
+    log(f"\n✨ 批次上傳完成:{success_count}/{len(selected_files)} 支成功。")
 def print_banner():
     print("=" * 50)
     print("  ✈️  航空考題 → Anki 自動化流程")
@@ -1314,13 +1522,14 @@ def choose_mode():
     print("  [2] 掃描資料夾,自動處理全部還沒做過的影音檔")
     print("  [3] 掃描資料夾,我自己勾選要處理哪幾支")
     print("  [4] 線上快速模式(不下載,直接分析YouTube網址,產生可點擊時間戳記的網頁)")
+    print("  [5] 上傳影片到 YouTube(可選加入播放清單、上傳修正字幕)")
     print("  [0] 離開\n")
 
     while True:
-        choice = input("請輸入選項數字(1 / 2 / 3 / 4 / 0):").strip()
-        if choice in ("0", "1", "2", "3", "4"):
+        choice = input("請輸入選項數字(1 / 2 / 3 / 4 / 5 / 0):").strip()
+        if choice in ("0", "1", "2", "3", "4", "5"):
             return choice
-        print("  ⚠️ 請輸入 0、1、2、3 或 4。")
+        print("  ⚠️ 請輸入 0、1、2、3、4 或 5。")
 
 def mode_youtube():
     print("\n網址來源:")
@@ -1438,6 +1647,8 @@ def main():
             mode_manual_select()
         elif choice == "4":
             run_online_quick_mode()
+        elif choice == "5":
+            mode_youtube_upload()
 
         again = input("\n要回到主選單再做一次嗎?(y/n):").strip().lower()
         if again != "y":
