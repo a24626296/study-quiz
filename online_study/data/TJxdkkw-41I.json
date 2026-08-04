@@ -1,0 +1,109 @@
+{
+  "subject": "IFR 程序與儀器飛行 - 航空公司面試觀念",
+  "mc_questions": [
+    {
+      "zh_question": "當航管指令為「Climb via SID to 6,000 ft」，但該 SID 圖表標註的最高高度 (Top Altitude) 為 10,000 ft 時，飛行員應該在何處平飛？",
+      "zh_options": [
+        "(A) 繼續爬升至 10,000 ft，因為 SID 是公布程序",
+        "(B) 在 6,000 ft 平飛，因為航管的口頭指令優先於圖表程序",
+        "(C) 詢問航管確認，因為指令與圖表矛盾",
+        "(D) 先在 6,000 ft 平飛，之後自動爬升至 10,000 ft"
+      ],
+      "en_question": "When ATC clearance is 'Climb via SID to 6,000 ft', but the published SID top altitude is 10,000 ft, what altitude should the pilot set and level off at?",
+      "en_options": [
+        "(A) Continue to 10,000 ft because it is the published procedure",
+        "(B) Level off at 6,000 ft because specific ATC instructions override published procedures",
+        "(C) Query ATC for clarification due to conflict",
+        "(D) Level off at 6,000 ft and then automatically climb to 10,000 ft"
+      ],
+      "answer": "B",
+      "explanation": "航管提供的具體高度指令 (Specific Altitude Instruction) 優先權高於公布的 SID/STAR 程序。'Climb via SID' 僅代表遵循其橫向軌跡 (Lateral Track)，高度應以指令為準。",
+      "timestamp": "02:08"
+    },
+    {
+      "zh_question": "關於 Decision Altitude (DA) 與 Minimum Descent Altitude (MDA) 的邏輯差異，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 兩者皆為硬性限制，在未看到跑道前絕對不能低於該高度",
+        "(B) DA 適用於精確進場，是一個「決策點」；MDA 適用於非精確進場，是一個「硬性底限」",
+        "(C) MDA 可以在到達後立即執行重飛，不需要平飛一段距離",
+        "(D) DA 必須在到達後執行平飛 (Level off) 直到 Missed Approach Point"
+      ],
+      "en_question": "Regarding the logical difference between DA and MDA, which statement is correct?",
+      "en_options": [
+        "(A) Both are hard floors and the aircraft must never go below them without visuals",
+        "(B) DA is a 'decision point' for precision approaches; MDA is a 'hard floor' for non-precision approaches",
+        "(C) Upon reaching MDA, one must initiate an immediate go-around without leveling off",
+        "(D) DA requires a level-off until reaching the Missed Approach Point"
+      ],
+      "answer": "B",
+      "explanation": "DA 用於精確進場 (Precision Approach)，飛行員在該點決定 Land 或 Go-around。MDA 用於非精確進場，飛行員需平飛至 MDA 直到看見跑道或到達 MAPt，且在未建立視覺參考前絕對禁止低於 MDA。",
+      "timestamp": "02:23"
+    },
+    {
+      "zh_question": "在等待航線 (Holding) 中使用 Green Dot Speed 的主要目的是什麼？",
+      "zh_options": [
+        "(A) 獲得最大空速以減少延誤",
+        "(B) 獲得最大爬升梯度",
+        "(C) 獲得最大耐航時間 (Maximum Endurance) 與最低每小時燃油消耗",
+        "(D) 確保襟翼收回時的最小操作速度"
+      ],
+      "en_question": "What is the primary purpose of flying at Green Dot Speed while in a hold?",
+      "en_options": [
+        "(A) To achieve maximum airspeed to reduce delay",
+        "(B) To achieve the best climb gradient",
+        "(C) To achieve Maximum Endurance and the lowest hourly fuel burn",
+        "(D) To ensure the minimum operating speed for a clean configuration"
+      ],
+      "answer": "C",
+      "explanation": "Green Dot Speed 代表最佳升阻比 (Best lift-to-drag ratio)，在 Holding 時提供最大耐航時間 (Maximum Endurance)，即以最低的每小時燃油流量 (Lowest fuel flow per hour) 換取最多的空中停留時間。",
+      "timestamp": "03:18"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "A specific altitude instruction from ATC always {{c1::overrides}} the published procedure.",
+      "zh_translation": "航管給出的特定高度指令永遠優先於公布的程序（如 SID/STAR）。",
+      "explanation": "這是面試常考的權限邏輯，口頭指令 (Verbal instruction) 高於圖表。",
+      "tags": "ATC-Clearance",
+      "timestamp": "02:08"
+    },
+    {
+      "cloze_text": "Think of an MDA (Minimum Descent Altitude) as a {{c1::hard floor}} on a non-precision approach.",
+      "zh_translation": "將 MDA（最低下降高度）視為非精確進場中的一個硬性底限（地板）。",
+      "explanation": "非精確進場在未看見跑道前，嚴禁下放超過 MDA。",
+      "tags": "Approach-Logic",
+      "timestamp": "02:40"
+    },
+    {
+      "cloze_text": "Green Dot Speed is the speed for maximum endurance, providing the lowest {{c1::hourly fuel burn}}.",
+      "zh_translation": "Green Dot Speed 是最大耐航速度，提供最低的每小時燃油消耗。",
+      "explanation": "在 Hold 中等待時，省油換取時間是首要目標。",
+      "tags": "Performance",
+      "timestamp": "03:18"
+    },
+    {
+      "cloze_text": "A typical Category I ILS requires an RVR of at least {{c1::550}} meters.",
+      "zh_translation": "典型的第一類儀器降落系統 (CAT I ILS) 要求跑道視程 (RVR) 至少為 550 公尺。",
+      "explanation": "這是 IFR 操作中的基本法規限制數值。",
+      "tags": "Limitations",
+      "timestamp": "04:29"
+    },
+    {
+      "cloze_text": "The missed approach procedure must be executed from {{c1::memory}}.",
+      "zh_translation": "重飛程序必須憑記憶執行。",
+      "explanation": "重飛屬於高壓力、高動態階段，沒時間翻查圖表，必須內化為直覺反應。",
+      "tags": "Memory-Item",
+      "timestamp": "05:00"
+    },
+    {
+      "cloze_text": "If visuals are lost below 100 ft on a CAT I ILS, the only correct action is an immediate {{c1::go-around}}.",
+      "zh_translation": "在 CAT I ILS 進場中，若在 100 呎以下失去視覺參考，唯一正確的動作是立即重飛。",
+      "explanation": "即使已通過決策高度且接近著陸，失去參考就必須放棄進場，這是航空安全的底線。",
+      "tags": "Safety-Logic",
+      "timestamp": "06:05"
+    }
+  ],
+  "video_id": "TJxdkkw-41I",
+  "url": "https://youtu.be/TJxdkkw-41I?si=z6r11iziPyPNIkpG",
+  "has_transcript": false
+}
