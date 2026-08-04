@@ -21,7 +21,7 @@ body { background: var(--bg); color: var(--text); font-family: "Microsoft JhengH
 .player-col iframe { width:480px; height:270px; border:0; border-radius:8px; }
 
 .player-resizable {
-  resize: both;
+  position: relative;
   overflow: hidden;
   width: 480px;
   height: 270px;
@@ -37,6 +37,21 @@ body { background: var(--bg); color: var(--text); font-family: "Microsoft JhengH
   height: 100% !important;
   display: block;
 }
+.resize-handle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 34px;
+  height: 34px;
+  cursor: nwse-resize;
+  touch-action: none;
+  background: linear-gradient(135deg, transparent 46%, var(--accent) 48%, var(--accent) 54%, transparent 56%);
+  border-bottom-right-radius: 8px;
+  opacity: 0.9;
+  z-index: 5;
+}
+.resize-handle:hover,
+.resize-handle:active { opacity: 1; background: linear-gradient(135deg, transparent 40%, var(--accent) 42%); }
 .resize-hint { font-size:11px; color:var(--muted); margin-top:4px; }
 .subject { font-size:18px; font-weight:bold; margin:12px 0; color:var(--green); }
 .transcript-link { display:inline-block; margin-top:8px; font-size:12px; color:var(--accent); text-decoration:none; border:1px solid var(--accent); padding:4px 10px; border-radius:6px; }
@@ -186,14 +201,16 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
     aspect-ratio: 16 / 9;
   }
   .player-resizable {
-    resize: none;
     width: 100% !important;
     height: auto !important;
     max-width: 480px;
     aspect-ratio: 16 / 9;
   }
+  .resize-handle {
+    width: 44px;
+    height: 44px;
+  }
   .resize-hint { display: none; }
   .list-col { min-width: 0; width: 100%; }
   .chat-box { max-height: 280px; }
 }
-
