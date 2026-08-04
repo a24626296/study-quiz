@@ -37,6 +37,45 @@
     ro.observe(resizableEl);
   })();
 
+  // 自訂拖曳手把:取代瀏覽器原生的 CSS resize(手把太小、觸控裝置完全不支援)。
+  // 用 Pointer Events 統一處理滑鼠跟觸控(iPad 也能正常拖曳)。
+  (function initCustomResizeHandle() {
+    var container = document.getElementById('player-resizable');
+    var handle = document.getElementById('resize-handle');
+    if (!container || !handle) return;
+
+    var dragging = false;
+    var startX = 0, startY = 0, startW = 0, startH = 0;
+    var MIN_W = 260, MIN_H = 150, MAX_W = 900;
+
+    handle.addEventListener('pointerdown', function (e) {
+      dragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      startW = container.offsetWidth;
+      startH = container.offsetHeight;
+      try { handle.setPointerCapture(e.pointerId); } catch (err) {}
+      e.preventDefault();
+    });
+
+    handle.addEventListener('pointermove', function (e) {
+      if (!dragging) return;
+      var newW = Math.min(MAX_W, Math.max(MIN_W, startW + (e.clientX - startX)));
+      var newH = Math.max(MIN_H, startH + (e.clientY - startY));
+      container.style.width = newW + 'px';
+      container.style.height = newH + 'px';
+      e.preventDefault();
+    });
+
+    function endDrag(e) {
+      if (!dragging) return;
+      dragging = false;
+      try { handle.releasePointerCapture(e.pointerId); } catch (err) {}
+    }
+    handle.addEventListener('pointerup', endDrag);
+    handle.addEventListener('pointercancel', endDrag);
+  })();
+
   if (!videoId) {
     document.getElementById('app').innerHTML = '<p class="empty">網址缺少 ?id= 參數,請從複習清單頁點進來。</p>';
     return;
@@ -88,7 +127,12 @@
         height: '270',
         width: '480',
         videoId: videoId,
-        playerVars: { playsinline: 1, origin: window.location.origin },
+        playerVars: {
+          playsinline: 1,
+          origin: window.location.origin,
+          cc_load_policy: 1,   // 預設開啟字幕
+          cc_lang_pref: 'zh-Hant',  // 如果影片本身有繁中字幕軌,優先用這個
+        },
         events: { onError: onPlayerError }
       });
     };
