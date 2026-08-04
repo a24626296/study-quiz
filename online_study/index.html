@@ -8,7 +8,7 @@
 </head>
 <body style="padding:20px;">
 <div class="list-header">
-  <h1 style="margin:0;">📚 複習清單(13)</h1>
+  <h1 style="margin:0;">📚 複習清單(14)</h1>
   <div class="header-actions">
     <button class="archive-toggle-btn" id="archive-toggle-btn" onclick="toggleShowArchived()">📦 顯示已封存 (0)</button>
     <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
@@ -17,6 +17,22 @@
 </div>
 <div id="item-list" class="item-list">
 
+        <div class="item" data-id="j4LhrJB6GTM">
+          <input type="checkbox" class="archive-checkbox" title="標記為已學完(暫時隱藏,不會刪除)"
+                 onchange="toggleArchive('j4LhrJB6GTM', this.checked)">
+          <a class="item-link" href="./viewer.html?id=j4LhrJB6GTM">
+            <img src="https://i.ytimg.com/vi/j4LhrJB6GTM/mqdefault.jpg" loading="lazy">
+            <div class="meta">
+              <div class="subject">起飛性能 - 跑道長度需求 (Takeoff Performance - Field Length Requirements)</div>
+              <div class="date">2026-08-04 02:13</div>
+              <div class="vid">ID: j4LhrJB6GTM</div>
+            </div>
+          </a>
+          <div class="item-actions">
+            <a class="yt-link" href="https://www.youtube.com/watch?v=j4LhrJB6GTM" target="_blank" rel="noopener">▶ 原始影片</a>
+            <button class="del-btn" onclick="deleteVideo('j4LhrJB6GTM')">🗑 刪除</button>
+          </div>
+        </div>
         <div class="item" data-id="TJxdkkw-41I">
           <input type="checkbox" class="archive-checkbox" title="標記為已學完(暫時隱藏,不會刪除)"
                  onchange="toggleArchive('TJxdkkw-41I', this.checked)">

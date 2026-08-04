@@ -1,0 +1,109 @@
+{
+  "subject": "起飛性能 - 跑道長度需求 (Takeoff Performance - Field Length Requirements)",
+  "mc_questions": [
+    {
+      "zh_question": "根據影片內容,若引擎失效發生在起飛決定速度 (V1) 之後,飛行員應如何處理?",
+      "zh_options": [
+        "(A) 立即執行最大手動煞車並中斷起飛",
+        "(B) 必須繼續完成起飛 (Continue the takeoff)",
+        "(C) 視賸餘跑道長度決定是否中斷",
+        "(D) 減小另一具引擎推力以保持方向控制"
+      ],
+      "en_question": "According to the video, if an engine failure occurs after the takeoff decision speed (V1), what should the crew do?",
+      "en_options": [
+        "(A) Immediately apply maximum manual braking and reject the takeoff",
+        "(B) The crew must continue the takeoff",
+        "(C) Decide whether to reject based on remaining runway length",
+        "(D) Reduce thrust on the remaining engine to maintain directional control"
+      ],
+      "answer": "B",
+      "explanation": "影片明確指出,若首個煞車動作無法在 V1 之前啟動,則組員必須繼續起飛 (The crew must continue the takeoff),因為此時剩餘跑道已不足以安全減速停下。",
+      "timestamp": "02:03"
+    },
+    {
+      "zh_question": "在乾跑道 (Dry runway) 的單發失效情況下,飛機必須在跑道盡頭達到多少的高度 (Screen Height)?",
+      "zh_options": [
+        "(A) 15 呎",
+        "(B) 50 呎",
+        "(C) 35 呎",
+        "(D) 25 呎"
+      ],
+      "en_question": "In the case of a one-engine inoperative takeoff on a dry runway, what is the required height (Screen Height) at the end of the runway?",
+      "en_options": [
+        "(A) 15 feet",
+        "(B) 50 feet",
+        "(C) 35 feet",
+        "(D) 25 feet"
+      ],
+      "answer": "C",
+      "explanation": "影片提到 dry runway 的 Screen Height 要求為 35 呎,而 wet runway 則為 15 呎。",
+      "timestamp": "03:07"
+    },
+    {
+      "zh_question": "何謂「平衡欄場長度」(Balanced Field Length)?",
+      "zh_options": [
+        "(A) 全引擎起飛距離與單發失效起飛距離相等時的長度",
+        "(B) 加速停止距離 (Accelerate-stop distance) 等於單發失效起飛距離時的長度",
+        "(C) 飛機加速至 V1 所需的最小跑道距離",
+        "(D) 考慮 15% 安全餘裕後的起飛距離"
+      ],
+      "en_question": "What is defined as the 'Balanced Field Length'?",
+      "en_options": [
+        "(A) The length when all-engine takeoff distance equals one-engine out takeoff distance",
+        "(B) The length where the accelerate-stop distance equals the one-engine inoperative takeoff distance",
+        "(C) The minimum runway distance required to accelerate the aircraft to V1",
+        "(D) The takeoff distance after considering a 15% safety margin"
+      ],
+      "answer": "B",
+      "explanation": "Balanced Field Length 發生在加速停止距離與單發失效起飛距離的交點,此時對應的速度稱為 Balanced V1。",
+      "timestamp": "08:26"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "For the normal all-engine takeoff, there must be an extra {{c1::15}}% margin of runway available over the actual takeoff distance.",
+      "zh_translation": "對於正常的各發動機皆運作之起飛,跑道必須比實際起飛距離多出 15% 的額外餘裕。",
+      "explanation": "這是為了確保正常運作下有足夠的安全緩衝空間。",
+      "tags": "Takeoff / Limitations",
+      "timestamp": "01:23"
+    },
+    {
+      "cloze_text": "The required screen height above the end of the runway is {{c1::15}} feet for a wet runway.",
+      "zh_translation": "濕跑道的跑道盡頭所需越障高度 (Screen Height) 為 15 呎。",
+      "explanation": "相較於乾跑道的 35 呎,濕跑道的要求較低以補償煞車效率下降。",
+      "tags": "Takeoff / Performance",
+      "timestamp": "03:12"
+    },
+    {
+      "cloze_text": "The FAA regulations account for {{c1::1}} second of recognition and reaction time between the event and the crew's initial application of a braking action.",
+      "zh_translation": "FAA 規章在失效事件發生到組員初次採取煞車行動之間,計入了 1 秒鐘的辨識與反應時間。",
+      "explanation": "此時間包含在加速停止距離 (Accelerate-stop distance) 的計算中。",
+      "tags": "Regulations / Performance",
+      "timestamp": "04:12"
+    },
+    {
+      "cloze_text": "The minimum safe flying speed reached at screen height is called the takeoff safety speed, {{c1::V2}}.",
+      "zh_translation": "在越障高度 (Screen Height) 達到的最小安全飛行速度稱為起飛安全速度, 即 V2。",
+      "explanation": "V2 是確保單發失效後能安全爬升的速度。",
+      "tags": "Definition / V-Speeds",
+      "timestamp": "02:58"
+    },
+    {
+      "cloze_text": "The FAR Field Length is determined by the {{c1::longest}} of the accelerate-stop distance, the engine-out takeoff distance, and the all-engine takeoff distance (with margin).",
+      "zh_translation": "FAR 欄場長度是由加速停止距離、單發失效起飛距離及全發動機起飛距離(含餘裕)中的最長者所決定。",
+      "explanation": "這是性能計算中為了保證安全性所採用的最嚴格(最受限)值。",
+      "tags": "Performance / Definitions",
+      "timestamp": "06:01"
+    },
+    {
+      "cloze_text": "If the first braking action can be initiated at or prior to {{c1::V1}}, then the crew will be able to reject the takeoff within the available runway.",
+      "zh_translation": "如果第一次煞車動作能在 V1 或之前啟動,則組員能在可用跑道內中斷起飛。",
+      "explanation": "V1 的定義核心在於中斷或繼續起飛的決策邊界。",
+      "tags": "Procedures / V1",
+      "timestamp": "01:54"
+    }
+  ],
+  "video_id": "j4LhrJB6GTM",
+  "url": "https://youtu.be/j4LhrJB6GTM?si=lrh4eQwhUp_REaA4",
+  "has_transcript": false
+}
