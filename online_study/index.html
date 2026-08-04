@@ -8,7 +8,7 @@
 </head>
 <body style="padding:20px;">
 <div class="list-header">
-  <h1 style="margin:0;">📚 複習清單(11)</h1>
+  <h1 style="margin:0;">📚 複習清單(12)</h1>
   <div class="header-actions">
     <button class="archive-toggle-btn" id="archive-toggle-btn" onclick="toggleShowArchived()">📦 顯示已封存 (0)</button>
     <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
@@ -17,6 +17,22 @@
 </div>
 <div id="item-list" class="item-list">
 
+        <div class="item" data-id="nrWkP1pcNvE">
+          <input type="checkbox" class="archive-checkbox" title="標記為已學完(暫時隱藏,不會刪除)"
+                 onchange="toggleArchive('nrWkP1pcNvE', this.checked)">
+          <a class="item-link" href="./viewer.html?id=nrWkP1pcNvE">
+            <img src="https://i.ytimg.com/vi/nrWkP1pcNvE/mqdefault.jpg" loading="lazy">
+            <div class="meta">
+              <div class="subject">支線航空公司技術面試與 Jeppesen 圖表分析 (Regional Airline Technical Interview &amp; Jeppesen Chart Analysis)</div>
+              <div class="date">2026-08-04 00:40</div>
+              <div class="vid">ID: nrWkP1pcNvE</div>
+            </div>
+          </a>
+          <div class="item-actions">
+            <a class="yt-link" href="https://www.youtube.com/watch?v=nrWkP1pcNvE" target="_blank" rel="noopener">▶ 原始影片</a>
+            <button class="del-btn" onclick="deleteVideo('nrWkP1pcNvE')">🗑 刪除</button>
+          </div>
+        </div>
         <div class="item" data-id="qc6AtQy0s6U">
           <input type="checkbox" class="archive-checkbox" title="標記為已學完(暫時隱藏,不會刪除)"
                  onchange="toggleArchive('qc6AtQy0s6U', this.checked)">

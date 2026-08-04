@@ -1,0 +1,109 @@
+{
+  "subject": "支線航空公司技術面試與 Jeppesen 圖表分析 (Regional Airline Technical Interview & Jeppesen Chart Analysis)",
+  "mc_questions": [
+    {
+      "zh_question": "根據影片中提到的『3比1原則』(3:1 rule)，若飛機目前高度為 28,000 呎，目標是在 JOVEM 定點以最低限制高度 13,000 呎通過，請問應於距離該點多少海浬處開始下降？",
+      "zh_options": [
+        "(A) 15 海浬",
+        "(B) 30 海浬",
+        "(C) 45 海浬",
+        "(D) 60 海浬"
+      ],
+      "en_question": "According to the '3:1 rule' mentioned in the video, if you are at 28,000 feet and need to cross the JOVEM fix at its minimum altitude of 13,000 feet, how many nautical miles before the fix should you start your descent?",
+      "en_options": [
+        "(A) 15 NM",
+        "(B) 30 NM",
+        "(C) 45 NM",
+        "(D) 60 NM"
+      ],
+      "answer": "C",
+      "explanation": "計算邏輯為：(28,000 - 13,000) = 15,000 呎。去掉千位零後得到 15，再乘以 3，得出應在 45 NM 處開始下降。這是航空業常用的下降導航規劃(Descent Planning)簡算法。",
+      "timestamp": "09:44"
+    },
+    {
+      "zh_question": "關於進場燈光系統(Approach Light Systems)，ALSF-II 與一般的 MALSR 系統在圖表顯示上最主要的視覺特徵差異為何？",
+      "zh_options": [
+        "(A) ALSF-II 包含紅色側排燈(red side row bars)",
+        "(B) MALSR 具有閃光定位燈(sequenced flashers)",
+        "(C) ALSF-II 的長度較短",
+        "(D) MALSR 專用於二類進場(CAT II)"
+      ],
+      "en_question": "Regarding Approach Light Systems, what is the primary visual difference in chart symbology between ALSF-II and a standard MALSR system?",
+      "en_options": [
+        "(A) ALSF-II includes red side row bars",
+        "(B) MALSR features sequenced flashers",
+        "(C) ALSF-II is shorter in length",
+        "(D) MALSR is specifically for CAT II approaches"
+      ],
+      "answer": "A",
+      "explanation": "ALSF-II (Approach Lighting System with Sequenced Flashing lights, version II) 在 Jeppesen 圖表上會標示紅色側排燈(red side row bars)，這通常用於低能見度進場，幫助飛行員在決策高度(DA)前識別跑道環境。",
+      "timestamp": "03:47"
+    },
+    {
+      "zh_question": "根據 Part 121 法規，關於 ATC 通報能見度與跑道進場圖最低能見度的法律效力，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 只要 ATC 通報能見度低於最低限制，無論在進場何處都必須重飛",
+        "(B) 通過最終進場點(FAF)後，由飛行員判斷的飛行能見度(Flight Visibility)具有控制權",
+        "(C) ATC 的通報能見度永遠優先於飛行員觀測值",
+        "(D) 只有 RVR 才能作為進場的依據"
+      ],
+      "en_question": "According to Part 121 regulations, regarding the legal status of ATC reported visibility vs. minimum visibility on an approach chart, which of the following is correct?",
+      "en_options": [
+        "(A) If ATC reports visibility below minimums, you must go-around regardless of position",
+        "(B) After passing the Final Approach Fix (FAF), flight visibility as determined by the pilot is controlling",
+        "(C) ATC reported visibility always takes precedence over pilot observation",
+        "(D) Only RVR can be used as the basis for an approach"
+      ],
+      "answer": "B",
+      "explanation": "在 Part 121 營運中，若在通過 FAF 之前 ATC 通報能見度低於最低要求，則不得開始進場；但一旦通過 FAF，是否繼續進場下降至落地，則取決於飛行員觀測到的飛行能見度(Flight Visibility)是否符合圖表要求。",
+      "timestamp": "13:07"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "On a Jeppesen airport diagram, a circle with a number 1 inside is called a {{c1::ball flag}}, which refers the pilot to additional notes or constraints.",
+      "zh_translation": "在 Jeppesen 機場圖上，圓圈內標註數字 1 的符號被稱為「球形旗標」(ball flag)，用來引導飛行員查看額外的註解或限制。",
+      "explanation": "當圖面過於擁擠無法直接顯示限制(如高度或速度)時，Jeppesen 會使用 ball flag 來連結文字說明。",
+      "tags": "Charts / Jeppesen",
+      "timestamp": "08:33"
+    },
+    {
+      "cloze_text": "The three phases of a thunderstorm are Cumulus, {{c1::Mature}}, and Dissipating.",
+      "zh_translation": "雷雨的三個階段分別是：積雲階段、成熟階段以及消散階段。",
+      "explanation": "這是氣象考題中的基礎知識，Mature 階段的特徵是同時存在上升氣流與下降氣流。",
+      "tags": "Meteorology",
+      "timestamp": "11:06"
+    },
+    {
+      "cloze_text": "The three types of structural icing mentioned in technical interviews are Clear, Rime, and {{c1::Mixed}}.",
+      "zh_translation": "技術面試中提到的三種結構性積冰類型為：透明積冰、霧狀積冰以及混合積冰。",
+      "explanation": "飛行員應能區分不同積冰形式的成因及其對空氣動力性能的影響。",
+      "tags": "Meteorology / Icing",
+      "timestamp": "11:55"
+    },
+    {
+      "cloze_text": "The symbol 'HS' on an airport diagram stands for {{c1::Hot Spot}}, indicating an area with a higher risk of runway incursions.",
+      "zh_translation": "機場圖上的「HS」代號代表「熱點」(Hot Spot)，標示出跑道侵入風險較高的區域。",
+      "explanation": "飛行員在地面滑行前應特別查閱 10-9A 頁面以了解這些熱點的詳細描述。",
+      "tags": "Airport Operations",
+      "timestamp": "05:22"
+    },
+    {
+      "cloze_text": "A temporary pilot certificate has a duration of {{c1::120}} days.",
+      "zh_translation": "臨時飛行員證照的有效期為 120 天。",
+      "explanation": "這是法規常識題，飛行員在等待正式硬卡證照寄達期間使用此臨時證明。",
+      "tags": "Regulations",
+      "timestamp": "13:25"
+    },
+    {
+      "cloze_text": "The symbol 'ARP' on the airport diagram indicates the {{c1::Airport Reference Point}}, which is the geometric center of the airport.",
+      "zh_translation": "機場圖上的「ARP」符號代表「機場參考點」，即機場的幾何中心。",
+      "explanation": "ARP 通常是導航資料庫中定義機場座標的依據。",
+      "tags": "Charts / Definitions",
+      "timestamp": "04:45"
+    }
+  ],
+  "video_id": "nrWkP1pcNvE",
+  "url": "https://www.youtube.com/watch?v=nrWkP1pcNvE&t=3s",
+  "has_transcript": false
+}
