@@ -1,106 +1,573 @@
 {
-  "subject": "穿音速氣動力學 - 馬赫俯衝與棺材角",
+  "subject": "高階飛行理論 - 穿音速空氣動力學 (Transonic Aerodynamics)",
   "mc_questions": [
     {
-      "zh_question": "根據影片教學，下列哪一個因素是決定音速（Speed of Sound）的唯一變因？",
+      "zh_question": "根據影片內容，決定音速（Speed of Sound）的最主要物理因素為何？",
       "zh_options": [
-        "(A) 空氣密度 (Density)",
+        "(A) 空氣密度 (Air Density)",
         "(B) 飛行高度 (Altitude)",
-        "(C) 空氣溫度 (Temperature)",
-        "(D) 飛機重量 (Weight)"
+        "(C) 空氣溫度 (Air Temperature)",
+        "(D) 飛機總重 (Aircraft Weight)"
       ],
-      "en_question": "According to the video, which of the following is the only factor that affects the speed of sound?",
+      "en_question": "According to the video, what is the primary physical factor that determines the Speed of Sound?",
       "en_options": [
         "(A) Air Density",
-        "(B) Flight Altitude",
+        "(B) Altitude",
         "(C) Air Temperature",
-        "(D) Aircraft Weight"
+        "(D) Aircraft Gross Weight"
       ],
       "answer": "C",
-      "explanation": "音速僅受空氣溫度影響。溫度越高，空氣分子運動越快，傳遞壓力波的速度也就越快。雖然音速隨高度變化，那是因為氣溫隨高度改變而導致的間接結果。",
-      "timestamp": "08:30"
+      "explanation": "影片明確指出音速僅受一個因素影響，即空氣溫度。溫暖空氣中分子運動快，壓力波傳遞也快；寒冷空氣中分子運動慢，音速隨之降低。Altitude 雖影響溫度，但 Temperature 才是直接決定音速的因素。",
+      "timestamp": "08:32"
     },
     {
-      "zh_question": "當飛機遭遇馬赫俯衝（Mach Tuck）時，主要造成低頭力矩的原因為何？",
+      "zh_question": "當飛機以 1 馬赫（Mach 1.0）或更快的速度飛向觀察者時，觀察者在飛機經過之前聽不到聲音的原因為何？",
       "zh_options": [
-        "(A) 升力中心（Center of Pressure）向前移動",
-        "(B) 升力中心向後移動且尾翼下推力減少",
-        "(C) 飛機重心（Center of Gravity）向後移動",
-        "(D) 引擎推力過大導致機頭下壓"
+        "(A) 衝擊波將所有聲音能量吸收",
+        "(B) 引擎在超音速時產生的噪音頻率低於人耳聽覺範圍",
+        "(C) 壓力波傳遞的速度與飛機前進速度相同或更慢",
+        "(D) 高高度的空氣稀薄導致聲音無法傳播"
       ],
-      "en_question": "When an aircraft experiences Mach Tuck, what is the primary cause of the nose-down pitching moment?",
+      "en_question": "When an aircraft travels at Mach 1.0 or faster toward an observer, why can't the observer hear any noise until the plane passes?",
       "en_options": [
-        "(A) Center of pressure moves forward",
-        "(B) Center of pressure moves aft and tail downwash decreases",
-        "(C) Center of gravity moves aft",
-        "(D) Excessive engine thrust pushing the nose down"
+        "(A) The shockwave absorbs all sound energy",
+        "(B) Engine noise at supersonic speeds is below human hearing range",
+        "(C) Pressure waves travel at the same speed or slower than the aircraft's forward velocity",
+        "(D) Thin air at high altitudes prevents sound propagation"
+      ],
+      "answer": "C",
+      "explanation": "在超音速飛行中，飛機的前進速度（Forward Speed）等於或大於音速（Speed of Sound），這意味著壓力波（噪音）無法在飛機之前傳抵達觀察者，直到飛機通過觀察者正上方時，聲音才隨後抵達。",
+      "timestamp": "14:25"
+    },
+    {
+      "zh_question": "在進入平流層（Stratosphere）後，如果氣溫停止隨高度增加而下降（等溫層），音速會發生什麼變化？",
+      "zh_options": [
+        "(A) 音速將保持恆定",
+        "(B) 音速將繼續隨高度增加而下降",
+        "(C) 音速將會顯著增加",
+        "(D) 音速會變為零"
+      ],
+      "en_question": "Upon entering the Stratosphere, if the air temperature stops decreasing with altitude (isothermal layer), what happens to the Speed of Sound?",
+      "en_options": [
+        "(A) The speed of sound remains constant",
+        "(B) The speed of sound continues to decrease with altitude",
+        "(C) The speed of sound increases significantly",
+        "(D) The speed of sound becomes zero"
+      ],
+      "answer": "A",
+      "explanation": "音速遵循溫度曲線。如果在平流層中溫度保持恆定（Level out），音速也會趨於穩定，不再隨高度上升而改變。",
+      "timestamp": "11:18"
+    },
+    {
+      "zh_question": "根據影片內容,臨界馬赫數 (Critical Mach Number, M_crit) 的定義為何?",
+      "zh_options": [
+        "(A) 飛機整體的飛行速度達到音速 (Mach 1.0) 的時刻",
+        "(B) 機身上任何一點的局部氣流速度首次達到音速 (Mach 1.0) 時的飛機飛行馬赫數",
+        "(C) 衝擊波移至機翼後緣 (Trailing Edge) 時的馬赫數",
+        "(D) 飛機進入超音速巡航所需的最低馬赫數"
+      ],
+      "en_question": "According to the video, what is the definition of Critical Mach Number (M_crit)?",
+      "en_options": [
+        "(A) The moment when the entire aircraft reaches the speed of sound (Mach 1.0)",
+        "(B) The aircraft Mach number at which supersonic flow first appears on any part of the airframe",
+        "(C) The Mach number at which the shock wave moves to the trailing edge of the wing",
+        "(D) The minimum Mach number required for an aircraft to enter supersonic cruise"
       ],
       "answer": "B",
-      "explanation": "在穿音速範圍內，機翼根部產生的激波（Shock Wave）會導致氣流分離，使得升力中心（Center of Pressure）向後移動（力臂變長），同時機翼產生的下洗流（Downwash）被激波破壞，導致水平尾翼失去下推力，兩者共同作用使飛機強烈俯衝。",
-      "timestamp": "31:12"
+      "explanation": "Critical Mach Number (M_crit) 是指當飛機飛行時,機身上某個區域(通常是機翼上表面)的局部氣流速度 (Local Airflow) 率先達到 Mach 1.0 時,飛機本身所對應的飛行馬赫數。這通常發生在飛機整體速度低於 Mach 1.0 的時候。",
+      "timestamp": "17:42"
     },
     {
-      "zh_question": "為什麼許多穿音速或超音速飛機採用全動式平尾（Stabilator），而非傳統的升降舵（Elevator）？",
+      "zh_question": "當氣流通過「法向衝擊波」(Normal Shock Wave) 時,其流動特性會發生什麼變化?",
       "zh_options": [
-        "(A) 為了減輕飛機整體重量",
-        "(B) 為了減少高速飛行時的摩擦阻力",
-        "(C) 避免激波導致氣流分離後，使後緣升降舵失去控制效能",
-        "(D) 為了在起飛時獲得更大的抬頭力矩"
+        "(A) 氣流方向會發生明顯偏轉",
+        "(B) 氣流方向保持不變",
+        "(C) 氣流速度會進一步加速",
+        "(D) 氣流壓力會劇烈下降"
       ],
-      "en_question": "Why do many transonic or supersonic aircraft use a stabilator instead of a conventional elevator?",
+      "en_question": "When airflow passes through a Normal Shock Wave, what happens to its flow characteristics?",
       "en_options": [
-        "(A) To reduce the total weight of the aircraft",
-        "(B) To decrease skin friction drag at high speeds",
-        "(C) To prevent loss of control effectiveness when elevators are blanketed by separated flow behind shock waves",
-        "(D) To achieve a greater nose-up moment during takeoff"
+        "(A) The airflow direction undergoes a significant deflection",
+        "(B) The airflow direction remains unchanged",
+        "(C) The airflow velocity accelerates further",
+        "(D) The airflow pressure drops drastically"
+      ],
+      "answer": "B",
+      "explanation": "影片中提到,法向衝擊波 (Normal Shock Wave) 的一個重要特徵是氣流穿過它時「不會改變方向」 (does not change direction),但氣流性質(如壓力、速度)會發生劇烈變化。",
+      "timestamp": "18:41"
+    },
+    {
+      "zh_question": "氣流從超音速區域經過衝擊波進入次音速區域時,壓力會如何變化?",
+      "zh_options": [
+        "(A) 從高壓瞬時轉變為低壓",
+        "(B) 壓力保持恆定,僅速度變化",
+        "(C) 從低壓瞬時轉變為高壓",
+        "(D) 壓力會隨著距離緩慢上升"
+      ],
+      "en_question": "How does the pressure change as airflow moves from a supersonic region to a subsonic region across a shock wave?",
+      "en_options": [
+        "(A) Instantaneous change from high pressure to low pressure",
+        "(B) Pressure remains constant, only velocity changes",
+        "(C) Instantaneous change from low pressure to high pressure",
+        "(D) Pressure increases slowly with distance"
       ],
       "answer": "C",
-      "explanation": "當激波形成並導致氣流分離時，位於水平尾翼後緣的傳統升降舵會被亂流「覆蓋」（Blanketing），導致操控失效。全動式平尾（Stabilator）讓整個水平安定面偏轉，在穿音速範圍內仍能維持操控效能。",
-      "timestamp": "40:05"
+      "explanation": "衝擊波 (Shock Wave) 是一個極薄的非連續面。當氣流由超音速區域 (Supersonic) 穿過衝擊波進入次音速區域 (Subsonic) 時,壓力會幾乎在瞬間 (instantaneously) 從低壓跳變到高壓,這種劇烈的壓力梯度變化會消耗大量能量。",
+      "timestamp": "19:52"
+    },
+    {
+      "zh_question": "在跨音速範圍內，若飛機發生由翼根 (Wing Root) 震波引起的 Mach Tuck，壓力中心 (Center of Pressure) 的移動趨勢為何？",
+      "zh_options": [
+        "(A) 向前移動 (Forward shift)",
+        "(B) 向後移動 (Aft shift)",
+        "(C) 保持固定不變",
+        "(D) 向上移動造成失速"
+      ],
+      "en_question": "In the transonic range, if Mach Tuck is caused by a wing root shockwave, what is the movement trend of the Center of Pressure (CP)?",
+      "en_options": [
+        "(A) Forward shift",
+        "(B) Aft shift",
+        "(C) Remains stationary",
+        "(D) Upward shift causing a stall"
+      ],
+      "answer": "B",
+      "explanation": "當後掠翼的翼根處發生氣流分離時，該處升力大幅減少，升力貢獻轉向尚未受影響的翼尖。由於翼尖在空間位置上比翼根更靠後，導致全機 Center of Pressure (CP) 向後移動，進而拉長了與重心 (CG) 之間的力臂 (Arm)，產生強大的低頭力矩 (Nose-down pitching moment)。",
+      "timestamp": "33:15"
+    },
+    {
+      "zh_question": "關於「升降舵包覆 (Elevator Blanketing)」現象，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 是由重心過度前移引起",
+        "(B) 震波後方的氣流分離導致升降舵失去效能",
+        "(C) 可透過增加推力來解決",
+        "(D) 僅發生在超音速巡航階段"
+      ],
+      "en_question": "Which of the following statements regarding 'Elevator Blanketing' is correct?",
+      "en_options": [
+        "(A) It is caused by an excessive forward CG shift",
+        "(B) Flow separation behind a shockwave causes the elevator to lose effectiveness",
+        "(C) It can be resolved by increasing thrust",
+        "(D) It only occurs during supersonic cruise"
+      ],
+      "answer": "B",
+      "explanation": "當水平尾翼表面產生震波時，其後方的亂流或分離氣流會「包覆 (Blanketing)」住位於後緣的升降舵 (Elevator)，使得飛行員即使向後拉駕駛桿也無法產生有效的抬頭力矩來對抗 Mach Tuck。",
+      "timestamp": "37:15"
+    },
+    {
+      "zh_question": "若飛行員在跨音速階段感受到飛機不正常地抬頭 (Mach Pitch Up)，最可能的原因為何？",
+      "zh_options": [
+        "(A) 翼根處先產生震波失速",
+        "(B) 水平尾翼產生震波包覆",
+        "(C) 翼尖 (Wing Tip) 處先發生震波失速",
+        "(D) 輔助動力單元 (APU) 故障造成重量偏移"
+      ],
+      "en_question": "If a pilot experiences an abnormal nose pitch-up in the transonic phase (Mach Pitch Up), what is the most likely cause?",
+      "en_options": [
+        "(A) Shock-induced stall occurs at the wing root first",
+        "(B) Shockwave blanketing on the horizontal stabilizer",
+        "(C) Shock-induced stall occurs at the wing tips first",
+        "(D) APU failure causing a weight shift"
+      ],
+      "answer": "C",
+      "explanation": "Mach Pitch Up 是較少見的情況，通常發生在翼尖先於翼根發生失速時。由於後掠翼的翼尖位置較靠後，翼尖升力消失會使 Center of Pressure 前移，縮短與 CG 的距離甚至移至 CG 之前，導致飛機產生抬頭力矩。",
+      "timestamp": "42:45"
+    },
+    {
+      "zh_question": "根據影片所述,後掠翼 (Swept Wings) 延遲震波 (Shock Wave) 產生的主要物理邏輯為何?",
+      "zh_options": [
+        "(A) 後掠翼增加了機翼的總升力面積,進而降低了失速速度",
+        "(B) 後掠翼將相對風分解,使平行的弦向流 (Chordwise flow) 速度低於總相對風速",
+        "(C) 後掠翼產生的展向流 (Spanwise flow) 能直接抵消機翼上方的超音速氣流",
+        "(D) 後掠翼透過減少機翼厚度來降低阻力,與氣流分解無關"
+      ],
+      "en_question": "According to the video, what is the primary physical logic behind how swept wings delay the formation of shock waves?",
+      "en_options": [
+        "(A) Swept wings increase total lift area, thereby reducing stall speed.",
+        "(B) Swept wings decompose relative wind, making the chordwise flow velocity lower than the total relative wind speed.",
+        "(C) The spanwise flow generated by swept wings directly cancels out the supersonic flow above the wing.",
+        "(D) Swept wings reduce drag by decreasing wing thickness, independent of flow decomposition."
+      ],
+      "answer": "B",
+      "explanation": "後掠翼將風分解為弦向 (Chordwise) 與展向 (Spanwise) 分量。機翼的弧度 (Camber) 僅會加速 Chordwise flow,而由於此分量速度小於總相對風 (Relative Wind),因此延遲了氣流達到臨界馬赫數 (M_crit) 的時間。但代價是惡化了低速性能 (Poor low speed characteristics)。",
+      "timestamp": "53:15"
+    },
+    {
+      "zh_question": "在穿音速 (Transonic) 範圍內,為何使用副翼 (Ailerons) 進行滾轉可能導致「控制反轉」 (Control Reversal)?",
+      "zh_options": [
+        "(A) 副翼下偏會增加阻力,導致飛機向反方向偏航 (Yaw)",
+        "(B) 副翼上偏會破壞升力,導致機翼因失速而劇烈下墜",
+        "(C) 副翼下偏會加速上方氣流,若誘發超音速流與震波分離,將導致該側升力反而下降",
+        "(D) 高速下的動壓過大,導致副翼機械結構受損而無法正常運作"
+      ],
+      "en_question": "In the transonic range, why can using ailerons for roll result in 'control reversal'?",
+      "en_options": [
+        "(A) Downward aileron deflection increases drag, causing adverse yaw in the opposite direction.",
+        "(B) Upward aileron deflection destroys lift, causing the wing to drop violently due to a stall.",
+        "(C) Downward deflection accelerates the airflow; if this induces supersonic flow and shock separation, lift on that side will decrease instead.",
+        "(D) Excessive dynamic pressure at high speeds damages the aileron structure, preventing normal operation."
+      ],
+      "answer": "C",
+      "explanation": "當副翼下偏欲增加升力時,會進一步加速該機翼上方的氣流。若已接近臨界馬赫數,此加速會誘發震波與氣流分離 (Shock separation),導致升力不增反減,飛機向預期相反的方向滾轉。因此現代民航機在 Cruise 時常鎖定副翼,僅用擾流板 (Spoilers) 滾轉。",
+      "timestamp": "57:45"
+    },
+    {
+      "zh_question": "關於「棺材角」 (Coffin Corner) 的系統限制,下列敘述何者正確?",
+      "zh_options": [
+        "(A) 它是低速失速速度 (Vs) 與最大結構負荷極限的交會點",
+        "(B) 在此點附近,飛行員僅剩下極窄的速度區間,減速會失速,加速則會遭遇馬赫抖振 (Mach Buffet)",
+        "(C) 隨著高度增加,音速變快,導致 Coffin Corner 在高空會消失",
+        "(D) 現代發動機推力極大,可以輕易穿越 Coffin Corner 進入持續超音速飛行"
+      ],
+      "en_question": "Which of the following statements regarding the system limitations of 'Coffin Corner' is correct?",
+      "en_options": [
+        "(A) It is the intersection of the low-speed stall speed (Vs) and the maximum structural load limit.",
+        "(B) Near this point, the pilot has a very narrow speed margin; decelerating leads to a stall, while accelerating leads to Mach buffet.",
+        "(C) As altitude increases, the speed of sound increases, causing the Coffin Corner to disappear at high altitudes.",
+        "(D) Modern engines provide sufficient thrust to easily fly through the Coffin Corner into sustained supersonic flight."
+      ],
+      "answer": "B",
+      "explanation": "Coffin Corner 是低速失速線 (隨著高度增加因空氣稀薄而上升) 與馬赫抖振線 (隨著高度增加因音速變慢而下降) 的交點。在此高度飛行,速度區間極小,操作難度極高。現代發動機多有平定推力 (Flat rated) 限制,在高空推力也會下降,限制了飛機穿越此區域的能力。",
+      "timestamp": "01:00:30"
+    },
+    {
+      "zh_question": "為什麼像 E175 或 CRJ 系列這類現代區間噴射客機，在平飛（Level Flight）時較不容易遇到 Coffin Corner（棺材角）現象？",
+      "zh_options": [
+        "(A) 因為它們的飛行高度通常低於對流層頂",
+        "(B) 因為現代機翼設計完全消除了 Mach Buffet",
+        "(C) 因為它們受到推力限制（Thrust Limited），平飛推力不足以達到 Mach Buffet 的速度",
+        "(D) 因為現代發動機在高空推力不隨溫度變化"
+      ],
+      "en_question": "Why do modern regional jets like the E175 or CRJ series rarely encounter Coffin Corner in level flight compared to older jets?",
+      "en_options": [
+        "(A) Because they typically fly below the tropopause",
+        "(B) Because modern wing designs completely eliminate Mach Buffet",
+        "(C) Because they are Thrust Limited and cannot generate enough thrust to reach Mach Buffet in level flight",
+        "(D) Because modern engines' thrust does not change with temperature at altitude"
+      ],
+      "answer": "C",
+      "explanation": "影片提到現代客機（如 E175/CRJ）在平飛時通常受限於發動機推力（Thrust Limited），推力不足以將飛機加速到產生 Mach Buffet（超速）的程度。相較之下，舊式飛機如 707 或 DC-8 則有足夠推力在平飛中進入 Coffin Corner。但需注意，現代飛機在下降（Descending flight）時仍可能超速。",
+      "timestamp": "01:00:35"
+    },
+    {
+      "zh_question": "當噴射機在高高度巡航時，如果外界大氣溫度從 -60度C 升至 -50度C，對飛行性能有何潛在風險？",
+      "zh_options": [
+        "(A) 空氣密度增加導致阻力大幅上升",
+        "(B) 大氣溫暖導致空氣密度下降，發動機推力減小，飛機可能被迫減速至接近失速速度",
+        "(C) 聲速增加會讓飛機更容易產生 Mach Buffet",
+        "(D) 發動機轉速會因為溫度升高而自動鎖死在低轉速"
+      ],
+      "en_question": "When a jet is cruising at high altitude, if the Outside Air Temperature (OAT) warms from -60C to -50C, what is the potential performance risk?",
+      "en_options": [
+        "(A) Air density increases, causing a significant increase in drag",
+        "(B) Warmer air is less dense, reducing engine thrust; the aircraft may decelerate toward its stall speed",
+        "(C) The increase in the speed of sound makes the aircraft more prone to Mach Buffet",
+        "(D) Engine RPM will automatically lock at a low setting due to the temperature rise"
+      ],
+      "answer": "B",
+      "explanation": "在高空即使溫差僅 10 度（如 -60C 到 -50C），空氣密度仍會改變。溫暖空氣密度較低，噴射發動機輸出推力會下降。若飛機已處於推力限制狀態，推力不足以維持巡航速度，飛機將減速，導致速度裕度縮小，甚至接近 Stall Speed。",
+      "timestamp": "01:02:40"
+    },
+    {
+      "zh_question": "關於超臨界機翼（Supercritical Wing）的優點，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 它透過改變弧度設計來提高臨界馬赫數（Critical Mach Number），進而擴大失速與超速之間的範圍",
+        "(B) 它主要用於增加低速起降時的升力",
+        "(C) 它能完全消除翼尖渦流，減少誘導阻力",
+        "(D) 它的主要功能是讓飛機能在極低高度以超音速飛行"
+      ],
+      "en_question": "Which of the following is correct regarding the advantage of a Supercritical Wing?",
+      "en_options": [
+        "(A) It increases the Critical Mach Number by changing the camber design, widening the margin between stall and overspeed",
+        "(B) It is primarily used to increase lift during low-speed takeoff and landing",
+        "(C) It can completely eliminate wingtip vortices to reduce induced drag",
+        "(D) Its primary function is to allow aircraft to fly supersonically at very low altitudes"
+      ],
+      "answer": "A",
+      "explanation": "超臨界機翼（Supercritical Wing）透過特殊的弧度（Camber）設計，延遲了激波（Shock wave）的產生，進而提高了臨界馬赫數（Critical Mach Number）。這在圖表上表現為擴大了 Corner（角）的寬度，讓飛機在高空有更寬廣的安全操作速度範圍。",
+      "timestamp": "01:04:15"
+    },
+    {
+      "zh_question": "根據 Vmcg (Minimum Control Speed on Ground) 的定義，在發動機失效後，飛機必須在哪種狀態下維持方向控制？",
+      "en_question": "According to the definition of Vmcg (Minimum Control Speed on Ground), how must the aircraft maintain directional control after an engine failure?",
+      "zh_options": [
+        "(A) 僅使用起落架煞車 (Brakes)",
+        "(B) 僅使用前輪轉向 (Nose-wheel steering)",
+        "(C) 僅使用主要空氣動力控制面（如方向舵）",
+        "(D) 同時使用前輪轉向與差異煞車"
+      ],
+      "en_options": [
+        "(A) Using wheel brakes only",
+        "(B) Using nose-wheel steering only",
+        "(C) Using primary aerodynamic controls (e.g., rudder) only",
+        "(D) Using both nose-wheel steering and differential braking"
+      ],
+      "answer": "C",
+      "explanation": "Vmcg 的定義是在起飛滾行過程中，當關鍵發動機突然失效時，僅靠主要空氣動力控制（Primary Aerodynamic Controls，通常指 Rudder）即可維持飛機控制的最低速度。法規要求此時不得依賴前輪轉向（Nose-wheel steering）。",
+      "timestamp": "01:15:15"
+    },
+    {
+      "zh_question": "下列關於 V1 速度與 Vmcg 速度之間邏輯關係的敘述，何者正確？",
+      "en_question": "Which of the following statements regarding the logical relationship between V1 and Vmcg is correct?",
+      "zh_options": [
+        "(A) V1 必須小於或等於 Vmcg",
+        "(B) V1 必須大於或等於 Vmcg",
+        "(C) V1 僅與 VR 有關，與 Vmcg 無關",
+        "(D) 在高海拔機場，Vmcg 必定大於 V1"
+      ],
+      "en_options": [
+        "(A) V1 must be less than or equal to Vmcg",
+        "(B) V1 must be greater than or equal to Vmcg",
+        "(C) V1 is only related to VR and unrelated to Vmcg",
+        "(D) At high altitude airports, Vmcg must be greater than V1"
+      ],
+      "answer": "B",
+      "explanation": "為了確保在 V1（起飛決斷速度）發動機失效後，飛行員仍能在地面維持方向控制以繼續起飛或安全停機，V1 絕不能低於 Vmcg (V1 >= Vmcg)。",
+      "timestamp": "01:15:42"
+    },
+    {
+      "zh_question": "環境因素如何影響 Vmcg 速度的大小？",
+      "en_question": "How do environmental factors affect the Vmcg speed?",
+      "zh_options": [
+        "(A) 溫度降低（空氣密度增加）會導致發動機推力增大，從而使 Vmcg 增加",
+        "(B) 密度高度增加會導致發動機推力增大，從而使 Vmcg 增加",
+        "(C) 使用減推力（Reduced Thrust）起飛會使 Vmcg 增加",
+        "(D) 逆風成分增加會顯著降低 Vmcg 速度"
+      ],
+      "en_options": [
+        "(A) Lower temperature (higher density) leads to higher thrust, which increases Vmcg",
+        "(B) Higher density altitude leads to higher thrust, which increases Vmcg",
+        "(C) Using reduced thrust for takeoff will increase Vmcg",
+        "(D) Increased headwind component significantly reduces Vmcg"
+      ],
+      "answer": "A",
+      "explanation": "Vmcg 取決於失效發動機產生的不對稱推力。在低溫或低海拔（高密度）環境下，發動機產生的最大推力較大，造成的偏航力矩（Yawing Moment）也較強，因此需要更高的空速產生的舵效來抵銷，故 Vmcg 會增加。",
+      "timestamp": "01:16:05"
     }
   ],
   "cloze_items": [
     {
-      "cloze_text": "The speed at which air flow over some part of the airframe first reaches Mach 1.0 is called the {{c1::Critical Mach Number}}.",
-      "zh_translation": "飛機氣體流動在機身某部分首次達到 1.0 馬赫的速度被稱為臨界馬赫數。",
-      "explanation": "這是飛機開始產生激波並進入穿音速 regime 的速度門檻。",
-      "tags": "Aerodynamics / Definition",
-      "timestamp": "17:40"
+      "cloze_text": "The speed of sound is affected by only one thing, and that is the {{c1::temperature}} of the air.",
+      "zh_translation": "音速僅受一個因素影響，那就是空氣的溫度。",
+      "explanation": "這是穿音速空氣動力學的基礎邏輯，音速不直接受高度或密度影響，而是受分子熱運動（溫度）影響。",
+      "tags": "Aerodynamics / Definitions",
+      "timestamp": "08:32"
     },
     {
-      "cloze_text": "Mach Tuck is a constant nose-down pitching moment that occurs as an aircraft enters the {{c1::transonic}} range.",
-      "zh_translation": "馬赫俯衝是指飛機進入穿音速範圍時，發生的持續性低頭俯衝力矩。",
-      "explanation": "馬赫俯衝通常發生在臨界馬赫數與 1.0 馬赫之間。",
-      "tags": "Aerodynamics / Mach-Tuck",
-      "timestamp": "13:35"
+      "cloze_text": "The warmer the air is, the {{c1::faster}} the speed of sound because air molecules move more quickly.",
+      "zh_translation": "空氣越溫暖，音速就越快，因為空氣分子的移動速度更敏捷。",
+      "explanation": "溫度越高分子能量越高，碰撞傳遞壓力波（聲音）的速度就越快。",
+      "tags": "Aerodynamics / Theory",
+      "timestamp": "09:55"
     },
     {
-      "cloze_text": "Coffin Corner is the point where the slow speed stall and {{c1::overspeed}} (Mach buffet) limits meet.",
-      "zh_translation": "棺材角是指低速失速限制與超速（馬赫震動）限制相遇的點。",
-      "explanation": "在此高度下，飛行員的操作空間極小，增加或減少一點速度都可能導致失速或結構損壞。",
-      "tags": "Limitations / Coffin-Corner",
-      "timestamp": "50:40"
+      "cloze_text": "Right at the speed of sound, pressure waves pile up to form a {{c1::shockwave}}.",
+      "zh_translation": "正好在音速時，壓力波會堆積形成衝擊波（激波）。",
+      "explanation": "當飛行速度達到 Mach 1.0，機體前方的壓力波無法散逸，會累積形成波首衝擊波（Bow Wave/Shockwave）。",
+      "tags": "Transonic / Phenomena",
+      "timestamp": "13:40"
     },
     {
-      "cloze_text": "To recover from a coffin corner situation, the pilot must maintain airspeed and {{c1::descend}} to a lower altitude.",
-      "zh_translation": "要從棺材角情況中恢復，飛行員必須維持空速並下降到較低的高度。",
-      "explanation": "下降可以增加低速失速與高速馬赫限制之間的邊際（Margin）。",
-      "tags": "Procedures / Memory-Item",
-      "timestamp": "61:00"
+      "cloze_text": "The speed of sound changes with altitude because {{c1::air temperature}} changes with altitude.",
+      "zh_translation": "音速隨高度變化，是因為空氣溫度隨高度變化。",
+      "explanation": "飛行員常有音速隨高度改變的直覺，但其物理本質是因高度引起的溫度遞減率（Lapse Rate）。",
+      "tags": "Aerodynamics / Meteorology",
+      "timestamp": "10:10"
     },
     {
-      "cloze_text": "Modern jet engines are typically {{c1::derated}} or flat-rated, meaning their power output is limited at lower altitudes to preserve engine life.",
-      "zh_translation": "現代噴射發動機通常經過減額或額定限制，這意味著它們在低高度時的動力輸出被限制，以保護發動機壽命。",
-      "explanation": "這也是為什麼現代飛機在高高度時較不容易像舊型飛機那樣因馬赫震動進入棺材角，因為動力受限。",
-      "tags": "Engine / Limitations",
-      "timestamp": "80:10"
+      "cloze_text": "The first time you would hear an aircraft traveling at Mach 1 or faster is as it {{c1::passes right over you}}.",
+      "zh_translation": "當一架以 1 馬赫或更快速度飛行的飛機飛過你正上方時，你才會第一次聽到它。",
+      "explanation": "這說明了超音速飛機與其聲音傳播的領先/落後關係。",
+      "tags": "Operational / Observation",
+      "timestamp": "14:38"
     },
     {
-      "cloze_text": "A {{c1::swept}} wing design helps increase the Critical Mach Number by effectively making the wing 'feel' like it is flying slower.",
-      "zh_translation": "後掠翼設計透過讓機翼感受到的有效氣流速度減慢，幫助提高臨界馬赫數。",
-      "explanation": "後掠翼會將氣流分解為與弦線平行及垂直的分量，從而延後激波的產生。",
-      "tags": "Aerodynamics / Design",
+      "cloze_text": "Sound travels {{c1::slower}} on a cold day compared to a hot day.",
+      "zh_translation": "與熱天相比,聲音在寒冷的天氣中傳播速度較慢。",
+      "explanation": "音速與空氣溫度成正比,溫度越低,空氣分子動能越小,傳播波的速度就越慢。",
+      "tags": "Aerodynamics",
+      "timestamp": "15:13"
+    },
+    {
+      "cloze_text": "The Critical Mach Number is always {{c1::lower}} than Mach 1.00.",
+      "zh_translation": "臨界馬赫數總是低於馬赫數 1.00。",
+      "explanation": "因為氣流在流經機翼上表面時會加速,所以當局部達到音速時,飛機本身的飛行速度尚未達到音速。",
+      "tags": "Limitations",
+      "timestamp": "18:26"
+    },
+    {
+      "cloze_text": "The rapid pressure increase across a shock wave often leads to airflow {{c1::separation}}.",
+      "zh_translation": "穿過衝擊波的壓力劇增通常會導致氣流分離。",
+      "explanation": "衝擊波後的高壓會產生強大的逆壓力梯度 (Adverse Pressure Gradient),使邊界層氣流失去動能並脫離翼面。",
+      "tags": "Stall-Logic",
+      "timestamp": "20:31"
+    },
+    {
+      "cloze_text": "In subsonic flight, the center of pressure is typically located at about {{c1::25%}} of the Mean Aerodynamic Chord (MAC).",
+      "zh_translation": "在次音速飛行中,壓力中心通常位於平均氣動力弦長 (MAC) 的大約 25% 處。",
+      "explanation": "這是次音速機翼設計的經典升力分佈特徵,但在進入跨音速出現衝擊波後,這個中心會向後移動。",
+      "tags": "Aerodynamics",
+      "timestamp": "22:55"
+    },
+    {
+      "cloze_text": "A sonic boom is a {{c1::continuous}} pressure wave that moves along the ground as the aircraft exceeds the speed of sound.",
+      "zh_translation": "音爆是一種隨著飛機超越音速而在地面上移動的連續壓力波。",
+      "explanation": "常見誤解是音爆只在突破音障那一瞬間發生,實際上它是飛機超音速飛行時持續產生的錐形壓力波跡。 ",
+      "tags": "Definitions",
+      "timestamp": "27:23"
+    },
+    {
+      "cloze_text": "Crossing a shock wave causes the airflow to lose a significant amount of {{c1::energy}}.",
+      "zh_translation": "穿過衝擊波會導致氣流損失大量能量。",
+      "explanation": "這種能量損失表現為壓力的劇增和速度的驟降,是產生波動阻力 (Wave Drag) 的主因。",
+      "tags": "Aerodynamics",
+      "timestamp": "20:06"
+    },
+    {
+      "cloze_text": "在亞音速飛行時，升力中心 (Center of Lift) 通常位於平均氣動力弦 (MAC) 的 {{c1::25%}} 處。",
+      "zh_translation": "In subsonic flight, the center of lift is typically located at 25% of the Mean Aerodynamic Chord (MAC).",
+      "explanation": "這是亞音速氣動力學的基本設計準則，進入超音速後則會大幅後移至約 50% MAC。",
+      "tags": "Aerodynamics",
+      "timestamp": "30:15"
+    },
+    {
+      "cloze_text": "為了對抗低頭力矩，飛機的水平尾翼必須產生一個 {{c1::向下::方向}} 的升力 (Tail Down Force)。",
+      "zh_translation": "To counteract the nose-down pitching moment, the aircraft's horizontal stabilizer must generate a downward lift (Tail Down Force).",
+      "explanation": "水平尾翼本質上是一個倒置的機翼，其向下作用力用來平衡重心在前、升力中心在後所產生的低頭力。 ",
+      "tags": "System Logic",
+      "timestamp": "30:40"
+    },
+    {
+      "cloze_text": "跨音速範圍 (Transonic Range) 是指飛機表面開始出現局部超音速流，大約始於馬赫數 {{c1::0.8}} 左右。",
+      "zh_translation": "The transonic range refers to the stage where local supersonic flow starts appearing on the aircraft, typically beginning around Mach 0.8.",
+      "explanation": "此階段氣流行為複雜，震波的出現會導致控制面效能與氣動力平衡發生劇烈變化。",
+      "tags": "Limitations",
+      "timestamp": "31:45"
+    },
+    {
+      "cloze_text": "超音速飛機多採用全動式水平尾翼 ({{c1::Stabilators::英文代號}})，以避免控制面因震波氣流分離而失效。",
+      "zh_translation": "Supersonic aircraft often use all-movable horizontal stabilizers (Stabilators) to prevent control effectiveness loss due to shock-induced flow separation.",
+      "explanation": "與傳統包含 Elevator 的固定式安定面不同，Stabilator 透過整體旋轉來維持在高速下的操控性。",
+      "tags": "Flight Controls",
+      "timestamp": "40:05"
+    },
+    {
+      "cloze_text": "若 Mach Tuck 發生且升降舵失效，飛行員應使用阻力裝置（如 {{c1::起落架}}）來強迫減速。",
+      "zh_translation": "If Mach Tuck occurs and elevators become ineffective, the pilot should use drag devices (such as landing gear) to force deceleration.",
+      "explanation": "雖然超過速度限制放下起落架會損壞艙門，但在緊急狀況下，這是取回飛機控制權的有效手段。",
+      "tags": "Recovery-Item",
+      "timestamp": "43:35"
+    },
+    {
+      "cloze_text": "翼部震波會減少流經尾翼的 {{c1::下洗氣流::Downwash}}，導致水平尾翼失去向下的平衡力。 ",
+      "zh_translation": "Wing shockwaves reduce the downwash flowing over the tail, causing the horizontal stabilizer to lose its downward balancing force.",
+      "explanation": "缺乏下洗氣流會使尾翼無法產生足夠的向下力，進而加劇飛機低頭傾向。",
+      "tags": "Aerodynamics",
+      "timestamp": "44:40"
+    },
+    {
+      "cloze_text": "Swept wings improve high-speed performance, but they require complex slats and flaps because they have poor {{c1::low speed}} characteristics.",
+      "zh_translation": "後掠翼改善了高速性能,但它們需要複雜的前緣縫翼和襟翼,因為它們的低速特性很差。",
+      "explanation": "後掠翼在低速時產生的升力效率較低,且容易從翼尖開始失速 (Tip stall),因此需要昂貴且沉重的增升裝置。",
+      "tags": "Aerodynamics",
       "timestamp": "54:30"
+    },
+    {
+      "cloze_text": "Vortex generators on the bottom of the horizontal stabilizer pump {{c1::high energy air}} into the boundary layer to prevent airflow separation.",
+      "zh_translation": "位於水平安定面底部的渦流產生器將高能量空氣泵入邊界層,以防止氣流分離。",
+      "explanation": "這能確保在高速飛行且升降舵 (Elevator) 作用時,氣流依然能貼附在表面,維持操控效能。",
+      "tags": "Flight Controls",
+      "timestamp": "58:30"
+    },
+    {
+      "cloze_text": "Modern jet engines are typically {{c1::flat rated}}, meaning the FADEC limits the amount of power the engine can produce at low altitudes.",
+      "zh_translation": "現代噴射發動機通常是「平定推力」的,這意味著 FADEC 會限制發動機在低高度時能產生的動力輸出。",
+      "explanation": "這通常是為了保護機身結構極限或確保發動機壽命,FADEC 會在低空電子化地限制燃油流量。",
+      "tags": "Engine",
+      "timestamp": "01:01:15"
+    },
+    {
+      "cloze_text": "The speed of sound gets {{c1::slower}} as an aircraft climbs higher in the atmosphere.",
+      "zh_translation": "隨著飛機在大氣層中爬升得越高,音速會變得越慢。",
+      "explanation": "音速主要受溫度影響,高空溫度較低,因此音速隨之下降,這縮小了高速巡航的速度餘裕。",
+      "tags": "Aerodynamics",
+      "timestamp": "01:00:25"
+    },
+    {
+      "cloze_text": "Uneven shock wave formation between wings can cause a sudden {{c1::wing drop}} and unwanted roll.",
+      "zh_translation": "兩翼之間震波產生的不對稱會導致突然的「掉機翼」現象及非預期的滾轉。",
+      "explanation": "如果一側機翼先產生震波導致升力損失,飛機將會向該側劇烈滾轉,這在穿音速飛行中非常危險。",
+      "tags": "Aerodynamics",
+      "timestamp": "56:15"
+    },
+    {
+      "cloze_text": "Older aircraft like the 707 or DC-8 could easily reach Coffin Corner because they weren't {{c1::thrust limited}} in level flight.",
+      "zh_translation": "像 707 或 DC-8 這樣的舊式飛機很容易進入『棺材角』，因為它們在平飛時不受推力限制。",
+      "explanation": "現代飛機設計更注重效率，在高空平飛時推力裕度通常小於舊式飛機。",
+      "tags": "Aerodynamics / Performance",
+      "timestamp": "01:00:15"
+    },
+    {
+      "cloze_text": "As air temperature increases at high altitude, it becomes {{c1::less dense}}, which reduces the power output of a jet engine.",
+      "zh_translation": "當高空氣溫升高時，空氣會變得較不濃稠（密度降低），這會減少噴射發動機的功率輸出。",
+      "explanation": "發動機在高空需要吸入足夠質量的空氣來產生推力，低密度空氣會直接影響性能。",
+      "tags": "Engine / Performance",
+      "timestamp": "01:02:10"
+    },
+    {
+      "cloze_text": "A supercritical wing changes the {{c1::camber}} design to increase the Critical Mach number.",
+      "zh_translation": "超臨界機翼透過改變弧度（Camber）設計來增加臨界馬赫數。",
+      "explanation": "臨界馬赫數是指機翼表面局部氣流首次達到音速時的飛行馬赫數。",
+      "tags": "Aerodynamics / Wing-Design",
+      "timestamp": "01:04:10"
+    },
+    {
+      "cloze_text": "To get out of a Coffin Corner situation, the best solution is to {{c1::descend}}.",
+      "zh_translation": "要脫離『棺材角』的情況，最好的解決方案就是下降高度。",
+      "explanation": "下降到較低高度可以增加空氣密度，進而同時降低失速速度並提高馬赫緩衝速度裕度。",
+      "tags": "Emergency / Recovery",
+      "timestamp": "01:10:20"
+    },
+    {
+      "cloze_text": "Indicated Airspeed (IAS) drops as altitude increases for a constant True Airspeed (TAS) because the air is {{c1::less dense}}.",
+      "zh_translation": "在真速（TAS）固定時，指示空速（IAS）會隨著高度增加而下降，因為空氣密度降低了。",
+      "explanation": "空速管（Pitot tube）感測的是空氣分子的衝擊力，分子變少則感測到的動壓降低。",
+      "tags": "Instruments / Aerodynamics",
+      "timestamp": "01:06:40"
+    },
+    {
+      "cloze_text": "On older mechanical airspeed indicators, the moving needle representing the maximum operating speed limit is called the {{c1::barber pole}}.",
+      "zh_translation": "在舊式的機械空速表上，代表最大操作速度限制的可動指針被稱為『理髮店招牌柱』（Barber pole）。",
+      "explanation": "該指針（紅黑或紅白相間）會隨高度自動移動，顯示當前高度下的 Vmo 或 Mmo 限制。",
+      "tags": "Instruments / Limitations",
+      "timestamp": "01:08:45"
+    },
+    {
+      "cloze_text": "During Vmcg certification, the aircraft must not deviate more than {{c1::30}} feet from the runway centerline after an engine failure.",
+      "zh_translation": "在 Vmcg 驗證測試中，發動機失效後飛機偏離跑道中心線不得超過 30 英尺。",
+      "explanation": "這是法規（如 FAR 25）對於地面最小控制速度定義中的橫向偏離限制硬指標。",
+      "tags": "Certification / Performance",
+      "timestamp": "01:15:28"
+    },
+    {
+      "cloze_text": "Vmcg is determined assuming the {{c1::critical engine}} is suddenly made inoperative.",
+      "zh_translation": "Vmcg 的判定是假設關鍵發動機突然失效的情況下進行的。",
+      "explanation": "關鍵發動機失效會產生最大的不對稱力矩，是性能計算的最嚴苛條件。",
+      "tags": "Aerodynamics / Engine Failure",
+      "timestamp": "01:15:35"
+    },
+    {
+      "cloze_text": "If the calculated V1 is less than Vmcg, the pilot must {{c1::increase}} V1 to at least equal Vmcg.",
+      "zh_translation": "如果計算出的 V1 小於 Vmcg，飛行員必須將 V1 增加到至少等於 Vmcg 的數值。",
+      "explanation": "這確保了在決定繼續起飛的最低速度下，飛機仍具備地面操縱性。",
+      "tags": "Takeoff / Limitations",
+      "timestamp": "01:15:55"
+    },
+    {
+      "cloze_text": "Vmcg usually {{c1::decreases}} as density altitude increases because engine thrust is reduced.",
+      "zh_translation": "隨著密度高度增加，由於發動機推力減小，Vmcg 通常會隨之減小。",
+      "explanation": "推力越小，不對稱力矩越小，維持平衡所需的最小速度就越低。",
+      "tags": "Performance / Environment",
+      "timestamp": "01:16:12"
     }
   ],
   "video_id": "GU3fx6eQMGg",
