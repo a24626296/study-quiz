@@ -56,6 +56,14 @@ client = genai.Client(api_key=API_KEY or "missing-key-placeholder")
 MODEL_NAME = "gemini-3-flash-preview"
 MAX_RETRIES_ON_TRANSIENT = 3  # 429限流 / 503過載 共用的重試次數上限
 
+# 出題 prompt 裡的「每次出 3~5 題 / 4~8 則」是針對「一次送給 Gemini 的素材」講的,
+# 不是針對整支影片。所以短影片(單次送出)沒問題,但長影片如果整支一次丟給 Gemini,
+# 題數還是卡在同一個範圍,等於長影片吃虧。
+# 解法:超過 CHUNK_THRESHOLD_SECONDS 的影片,自動切成每段約 CHUNK_SIZE_SECONDS 的
+# 小段落分別出題再合併,讓題數隨影片長度等比例增加。
+CHUNK_THRESHOLD_SECONDS = 25 * 60  # 超過 25 分鐘才啟動分段模式
+CHUNK_SIZE_SECONDS = 15 * 60       # 每段送給 Gemini 的長度(約 15 分鐘)
+
 ONLINE_STUDY_DIR = os.path.normpath("./online_study")
 os.makedirs(ONLINE_STUDY_DIR, exist_ok=True)
 
@@ -131,14 +139,35 @@ TRANSCRIPT_RULES = """
 - transcript 的每一段一樣適用「不確定就跳過」原則:如果某幾秒聽不清楚,可以把那幾秒的 text 留空字串,或用 "(聽不清楚)" 標記,不要用猜的填內容"""
 
 
-def build_quiz_prompt(with_transcript=False):
+def build_quiz_prompt(with_transcript=False, chunk_range=None, chunk_info=None):
     """
     用簡單字串替換組出最終 prompt(不用 str.format(),因為範本裡本身就有
     大量 JSON 範例用的大括號,跟 .format() 的佔位符語法會衝突)。
+
+    chunk_range / chunk_info 只有在「分段模式」處理長影片時才會傳入:
+      - chunk_range: (start_seconds, end_seconds),這一段對應原始影片的哪個區間
+      - chunk_info: (目前第幾段, 總共幾段)
+    有傳入時會在 prompt 最後加一段補充說明,提醒 Gemini 這只是整支影片的一小段,
+    出題規則(3~5 題 / 4~8 則)是針對「這一段」講的,不用因為知道還有其他段落
+    就刻意出更少或更多。
     """
     prompt = QUIZ_SYSTEM_PROMPT_BASE
     prompt = prompt.replace("__TRANSCRIPT_JSON_FIELD__", TRANSCRIPT_JSON_FIELD if with_transcript else "")
     prompt = prompt.replace("__TRANSCRIPT_RULES__", TRANSCRIPT_RULES if with_transcript else "")
+
+    if chunk_range is not None:
+        start_sec, end_sec = chunk_range
+        idx, total = chunk_info if chunk_info else (1, 1)
+        prompt += (
+            f"\n\n【分段說明】你現在收到的不是整支影片,而是原始影片中的一段片段"
+            f"(第 {idx}/{total} 段,對應原始影片時間 {seconds_to_mmss(start_sec)} ~ {seconds_to_mmss(end_sec)})。"
+            f"上面「出 3~5 題選擇題、4~8 則克漏字」的規則,是針對「這一段片段」講的,"
+            f"跟整支影片其他段落無關,不用因為知道還有其他段落就刻意少出或多出。"
+            f"\ntimestamp(以及逐字稿的 start/end,如果有的話)請一律填「這段片段本身」的相對時間,"
+            f"也就是把這段片段當成從 00:00 開始計算,不用自己換算成整支影片的時間,"
+            f"系統之後會自動加上這段的起始時間換算成整支影片的絕對時間戳記。"
+        )
+
     return prompt
 
 
@@ -261,15 +290,29 @@ def strip_stray_cloze_markup(text):
     return re.sub(r'\{\{c1::(.*?)\}\}', r'\1', text)
 
 
-def generate_quiz_from_youtube_url(video_id, with_transcript=False):
-    """直接把 YouTube 影片交給 Gemini 分析,不下載、不上傳檔案。附帶 429 / 503 重試。"""
+def generate_quiz_from_youtube_url(video_id, with_transcript=False, chunk_range=None, chunk_info=None):
+    """
+    直接把 YouTube 影片交給 Gemini 分析,不下載、不上傳檔案。附帶 429 / 503 重試。
+
+    chunk_range=(start_sec, end_sec) 有帶入時,會用 Gemini 的 video_metadata
+    start_offset / end_offset 只擷取影片裡的這一小段交給模型分析(而不是整支),
+    這是給長影片分段出題模式用的;不帶就維持原本「整支影片一次送出」的行為。
+    """
     if not API_KEY:
         raise RuntimeError("找不到環境變數 GEMINI_API_KEY,請確認 GitHub Secrets 有設定好。")
 
     clean_url = f"https://www.youtube.com/watch?v={video_id}"
-    prompt_template = build_quiz_prompt(with_transcript=with_transcript)
+    prompt_template = build_quiz_prompt(with_transcript=with_transcript, chunk_range=chunk_range, chunk_info=chunk_info)
     prompt = f"{prompt_template}\n影片網址:{clean_url}。請直接分析這支 YouTube 影片後出題。"
-    video_part = types.Part(file_data=types.FileData(file_uri=clean_url))
+
+    part_kwargs = {"file_data": types.FileData(file_uri=clean_url)}
+    if chunk_range is not None:
+        start_sec, end_sec = chunk_range
+        part_kwargs["video_metadata"] = types.VideoMetadata(
+            start_offset=seconds_to_gemini_offset(start_sec),
+            end_offset=seconds_to_gemini_offset(end_sec),
+        )
+    video_part = types.Part(**part_kwargs)
 
     attempt = 0
     while True:
@@ -296,6 +339,162 @@ def generate_quiz_from_youtube_url(video_id, with_transcript=False):
         raise RuntimeError("無法取得 Gemini 回應。")
     raw_text = strip_json_fences(response.text)
     return json.loads(raw_text)
+
+
+def parse_iso8601_duration(duration_str):
+    """把 YouTube Data API 回傳的 ISO 8601 時長字串(例如 'PT1H5M30S')轉成總秒數,轉不了回傳 None"""
+    if not duration_str:
+        return None
+    m = re.match(r'^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$', duration_str)
+    if not m:
+        return None
+    hh, mm, ss = (int(g) if g else 0 for g in m.groups())
+    total = hh * 3600 + mm * 60 + ss
+    return total or None
+
+
+def get_video_duration_seconds(video_id):
+    """
+    查詢影片總長度(秒),用來判斷要不要啟動分段出題模式。
+    需要 YOUTUBE_API_KEY;查不到(沒設定金鑰、影片不存在、API 出錯...)一律回傳 None,
+    呼叫端看到 None 就會自動退回原本「整支影片一次出題」的模式,不會讓整個流程失敗。
+    """
+    if not YOUTUBE_API_KEY:
+        return None
+    params = {"part": "contentDetails", "id": video_id, "key": YOUTUBE_API_KEY}
+    query = urllib.parse.urlencode(params)
+    req = urllib.request.Request(f"https://www.googleapis.com/youtube/v3/videos?{query}")
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            data = json.loads(resp.read())
+        items = data.get("items", [])
+        if items:
+            return parse_iso8601_duration(items[0].get("contentDetails", {}).get("duration"))
+    except Exception as e:
+        print(f"⚠️ 查詢影片長度失敗,將退回不分段模式:{type(e).__name__}: {e}")
+    return None
+
+
+def build_time_chunks(duration_seconds, chunk_size=CHUNK_SIZE_SECONDS):
+    """把總長度(秒)切成一段一段的 (start_sec, end_sec) 區間,最後一段自動涵蓋到片尾"""
+    chunks = []
+    start = 0
+    while start < duration_seconds:
+        end = min(start + chunk_size, duration_seconds)
+        chunks.append((start, end))
+        start = end
+    return chunks
+
+
+def seconds_to_mmss(total_seconds):
+    """秒數轉成 MM:SS,超過一小時自動變成 HH:MM:SS"""
+    total_seconds = max(0, int(total_seconds))
+    hh = total_seconds // 3600
+    mm = (total_seconds % 3600) // 60
+    ss = total_seconds % 60
+    if hh:
+        return f"{hh:02d}:{mm:02d}:{ss:02d}"
+    return f"{mm:02d}:{ss:02d}"
+
+
+def seconds_to_gemini_offset(total_seconds):
+    """轉成 Gemini video_metadata 的 start_offset / end_offset 格式,例如 125 → '125s'"""
+    return f"{int(total_seconds)}s"
+
+
+def shift_timestamp(timestamp, offset_seconds):
+    """
+    把模型回傳的時間戳記(相對於「這一段片段」開頭算起)加上這段片段在整支
+    影片裡的起始時間,換算成整支影片的絕對時間戳記。轉不了就原樣回傳,不讓
+    單一格式異常的時間戳記中斷整個合併流程。
+    """
+    base = timestamp_to_seconds(timestamp)
+    if base is None:
+        return timestamp
+    return seconds_to_mmss(base + offset_seconds)
+
+
+def merge_quiz_chunks(chunk_results, chunk_offsets):
+    """把各段分別出題的結果合併成一份,並把每一題的 timestamp 換算成整支影片的絕對時間"""
+    merged = {"subject": "", "mc_questions": [], "cloze_items": []}
+    has_transcript_field = any("transcript" in c for c in chunk_results)
+    if has_transcript_field:
+        merged["transcript"] = []
+
+    for quiz_data, offset_sec in zip(chunk_results, chunk_offsets):
+        if not merged["subject"] and quiz_data.get("subject"):
+            merged["subject"] = quiz_data["subject"]
+
+        for q in quiz_data.get("mc_questions", []) or []:
+            q = dict(q)
+            if q.get("timestamp"):
+                q["timestamp"] = shift_timestamp(q["timestamp"], offset_sec)
+            merged["mc_questions"].append(q)
+
+        for c in quiz_data.get("cloze_items", []) or []:
+            c = dict(c)
+            if c.get("timestamp"):
+                c["timestamp"] = shift_timestamp(c["timestamp"], offset_sec)
+            merged["cloze_items"].append(c)
+
+        if has_transcript_field:
+            for seg in quiz_data.get("transcript", []) or []:
+                seg = dict(seg)
+                if seg.get("start"):
+                    seg["start"] = shift_timestamp(seg["start"], offset_sec)
+                if seg.get("end"):
+                    seg["end"] = shift_timestamp(seg["end"], offset_sec)
+                merged["transcript"].append(seg)
+
+    return merged
+
+
+def generate_quiz_for_video(video_id, with_transcript=False):
+    """
+    出題的整合入口:
+      - 短影片(查不到長度,或長度在 CHUNK_THRESHOLD_SECONDS 以內)維持原本「整支
+        一次送給 Gemini」的做法,行為跟以前完全一樣。
+      - 長影片會先查詢時長,切成每段約 CHUNK_SIZE_SECONDS 的小段落分別出題,
+        再合併結果、把每段的時間戳記換算回整支影片的絕對時間。
+        這樣題數會隨影片長度等比例增加,不會被「單次送出」的固定題數範圍卡住。
+    """
+    duration = get_video_duration_seconds(video_id)
+
+    if not duration or duration <= CHUNK_THRESHOLD_SECONDS:
+        if not duration:
+            print("ℹ️ 沒查到影片長度(可能未設定 YOUTUBE_API_KEY),採用不分段模式一次出題。")
+        return generate_quiz_from_youtube_url(video_id, with_transcript=with_transcript)
+
+    chunks = build_time_chunks(duration)
+    print(f"⏱️ 影片長度約 {duration // 60} 分鐘,超過 {CHUNK_THRESHOLD_SECONDS // 60} 分鐘門檻,"
+          f"將切成 {len(chunks)} 段分別出題再合併。")
+
+    chunk_results = []
+    chunk_offsets = []
+    for idx, (start_sec, end_sec) in enumerate(chunks, 1):
+        print(f"  ---- 第 {idx}/{len(chunks)} 段({seconds_to_mmss(start_sec)} ~ {seconds_to_mmss(end_sec)}) ----")
+        try:
+            quiz_data = generate_quiz_from_youtube_url(
+                video_id,
+                with_transcript=with_transcript,
+                chunk_range=(start_sec, end_sec),
+                chunk_info=(idx, len(chunks)),
+            )
+        except Exception as e:
+            print(f"  ⚠️ 這一段處理失敗,略過繼續下一段:{type(e).__name__}: {e}")
+            continue
+        chunk_results.append(quiz_data)
+        chunk_offsets.append(start_sec)
+        if idx < len(chunks):
+            time.sleep(5)  # 段落之間稍微錯開,避免瞬間對 Gemini API 打太多請求
+
+    if not chunk_results:
+        raise RuntimeError("所有分段都處理失敗,沒有任何可用的出題結果。")
+
+    merged = merge_quiz_chunks(chunk_results, chunk_offsets)
+    print(f"✅ 分段出題完成,共 {len(merged['mc_questions'])} 題選擇題、"
+          f"{len(merged['cloze_items'])} 則克漏字(來自 {len(chunk_results)}/{len(chunks)} 段)。")
+    return merged
 
 
 def timestamp_to_seconds(timestamp):
@@ -628,7 +827,7 @@ def process_one_video(video_id, source_url, with_transcript=False):
 
     print(f"🌐 分析中:{clean_url}" + ("(含逐字稿,會比較慢)" if effective_with_transcript else ""))
     try:
-        quiz_data = generate_quiz_from_youtube_url(video_id, with_transcript=effective_with_transcript)
+        quiz_data = generate_quiz_for_video(video_id, with_transcript=effective_with_transcript)
     except Exception as e:
         print(f"❌ 這支影片處理失敗,略過繼續下一支:{type(e).__name__}: {e}")
         return False
