@@ -184,6 +184,17 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
 .item-list.view-grid .item-actions { flex-direction:row; justify-content:space-between; margin-top:6px; }
 .item-list.view-grid.item.collapsed { display:none; } /* 格狀模式不支援收合,避免版面錯亂 */
 
+/* 答對題目收合功能(複習頁面,選擇題/克漏字卡片) */
+.qnum-wrap { display:flex; align-items:center; }
+.qcard-badge { display:none; margin-left:8px; color:var(--green); font-size:12px; font-weight:normal; }
+.qcard.qcard-correct .qcard-badge { display:inline; }
+.qcard-head-actions { display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.qcard-collapse-toggle { background:#334155; }
+.qcard-collapse-toggle:hover { background:#475569; }
+.qcard.collapsed-correct { padding:8px 16px; }
+.qcard.collapsed-correct .qcard-body { display:none; }
+.qcard.collapsed-correct .qcard-head { margin-bottom:0; }
+
 /* 手機版修正:窄螢幕時影片改成一般排版(非sticky),避免往下滑動時
    題目文字跟固定住的影片重疊在一起 */
 @media (max-width: 860px) {
