@@ -1,0 +1,109 @@
+{
+  "subject": "穿音速氣動力學 - 馬赫俯衝與棺材角",
+  "mc_questions": [
+    {
+      "zh_question": "根據影片教學，下列哪一個因素是決定音速（Speed of Sound）的唯一變因？",
+      "zh_options": [
+        "(A) 空氣密度 (Density)",
+        "(B) 飛行高度 (Altitude)",
+        "(C) 空氣溫度 (Temperature)",
+        "(D) 飛機重量 (Weight)"
+      ],
+      "en_question": "According to the video, which of the following is the only factor that affects the speed of sound?",
+      "en_options": [
+        "(A) Air Density",
+        "(B) Flight Altitude",
+        "(C) Air Temperature",
+        "(D) Aircraft Weight"
+      ],
+      "answer": "C",
+      "explanation": "音速僅受空氣溫度影響。溫度越高，空氣分子運動越快，傳遞壓力波的速度也就越快。雖然音速隨高度變化，那是因為氣溫隨高度改變而導致的間接結果。",
+      "timestamp": "08:30"
+    },
+    {
+      "zh_question": "當飛機遭遇馬赫俯衝（Mach Tuck）時，主要造成低頭力矩的原因為何？",
+      "zh_options": [
+        "(A) 升力中心（Center of Pressure）向前移動",
+        "(B) 升力中心向後移動且尾翼下推力減少",
+        "(C) 飛機重心（Center of Gravity）向後移動",
+        "(D) 引擎推力過大導致機頭下壓"
+      ],
+      "en_question": "When an aircraft experiences Mach Tuck, what is the primary cause of the nose-down pitching moment?",
+      "en_options": [
+        "(A) Center of pressure moves forward",
+        "(B) Center of pressure moves aft and tail downwash decreases",
+        "(C) Center of gravity moves aft",
+        "(D) Excessive engine thrust pushing the nose down"
+      ],
+      "answer": "B",
+      "explanation": "在穿音速範圍內，機翼根部產生的激波（Shock Wave）會導致氣流分離，使得升力中心（Center of Pressure）向後移動（力臂變長），同時機翼產生的下洗流（Downwash）被激波破壞，導致水平尾翼失去下推力，兩者共同作用使飛機強烈俯衝。",
+      "timestamp": "31:12"
+    },
+    {
+      "zh_question": "為什麼許多穿音速或超音速飛機採用全動式平尾（Stabilator），而非傳統的升降舵（Elevator）？",
+      "zh_options": [
+        "(A) 為了減輕飛機整體重量",
+        "(B) 為了減少高速飛行時的摩擦阻力",
+        "(C) 避免激波導致氣流分離後，使後緣升降舵失去控制效能",
+        "(D) 為了在起飛時獲得更大的抬頭力矩"
+      ],
+      "en_question": "Why do many transonic or supersonic aircraft use a stabilator instead of a conventional elevator?",
+      "en_options": [
+        "(A) To reduce the total weight of the aircraft",
+        "(B) To decrease skin friction drag at high speeds",
+        "(C) To prevent loss of control effectiveness when elevators are blanketed by separated flow behind shock waves",
+        "(D) To achieve a greater nose-up moment during takeoff"
+      ],
+      "answer": "C",
+      "explanation": "當激波形成並導致氣流分離時，位於水平尾翼後緣的傳統升降舵會被亂流「覆蓋」（Blanketing），導致操控失效。全動式平尾（Stabilator）讓整個水平安定面偏轉，在穿音速範圍內仍能維持操控效能。",
+      "timestamp": "40:05"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The speed at which air flow over some part of the airframe first reaches Mach 1.0 is called the {{c1::Critical Mach Number}}.",
+      "zh_translation": "飛機氣體流動在機身某部分首次達到 1.0 馬赫的速度被稱為臨界馬赫數。",
+      "explanation": "這是飛機開始產生激波並進入穿音速 regime 的速度門檻。",
+      "tags": "Aerodynamics / Definition",
+      "timestamp": "17:40"
+    },
+    {
+      "cloze_text": "Mach Tuck is a constant nose-down pitching moment that occurs as an aircraft enters the {{c1::transonic}} range.",
+      "zh_translation": "馬赫俯衝是指飛機進入穿音速範圍時，發生的持續性低頭俯衝力矩。",
+      "explanation": "馬赫俯衝通常發生在臨界馬赫數與 1.0 馬赫之間。",
+      "tags": "Aerodynamics / Mach-Tuck",
+      "timestamp": "13:35"
+    },
+    {
+      "cloze_text": "Coffin Corner is the point where the slow speed stall and {{c1::overspeed}} (Mach buffet) limits meet.",
+      "zh_translation": "棺材角是指低速失速限制與超速（馬赫震動）限制相遇的點。",
+      "explanation": "在此高度下，飛行員的操作空間極小，增加或減少一點速度都可能導致失速或結構損壞。",
+      "tags": "Limitations / Coffin-Corner",
+      "timestamp": "50:40"
+    },
+    {
+      "cloze_text": "To recover from a coffin corner situation, the pilot must maintain airspeed and {{c1::descend}} to a lower altitude.",
+      "zh_translation": "要從棺材角情況中恢復，飛行員必須維持空速並下降到較低的高度。",
+      "explanation": "下降可以增加低速失速與高速馬赫限制之間的邊際（Margin）。",
+      "tags": "Procedures / Memory-Item",
+      "timestamp": "61:00"
+    },
+    {
+      "cloze_text": "Modern jet engines are typically {{c1::derated}} or flat-rated, meaning their power output is limited at lower altitudes to preserve engine life.",
+      "zh_translation": "現代噴射發動機通常經過減額或額定限制，這意味著它們在低高度時的動力輸出被限制，以保護發動機壽命。",
+      "explanation": "這也是為什麼現代飛機在高高度時較不容易像舊型飛機那樣因馬赫震動進入棺材角，因為動力受限。",
+      "tags": "Engine / Limitations",
+      "timestamp": "80:10"
+    },
+    {
+      "cloze_text": "A {{c1::swept}} wing design helps increase the Critical Mach Number by effectively making the wing 'feel' like it is flying slower.",
+      "zh_translation": "後掠翼設計透過讓機翼感受到的有效氣流速度減慢，幫助提高臨界馬赫數。",
+      "explanation": "後掠翼會將氣流分解為與弦線平行及垂直的分量，從而延後激波的產生。",
+      "tags": "Aerodynamics / Design",
+      "timestamp": "54:30"
+    }
+  ],
+  "video_id": "GU3fx6eQMGg",
+  "url": "https://www.youtube.com/watch?v=GU3fx6eQMGg",
+  "has_transcript": false
+}
