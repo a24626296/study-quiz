@@ -8,6 +8,10 @@
   var systemContext = '';
   var CHAT_MODEL = 'gemini-3-flash-preview';
 
+  // 答對題目是否收合的總開關(每次按「作答完成」都會重設為 true,
+  // 也就是預設先把這次答對的題目收起來)
+  var allCorrectCollapsed = true;
+
   // 頂部選項列摺疊狀態:記住使用者上次的選擇(這是一般靜態網站,不是
   // Claude 的 artifact 沙盒,可以正常使用 localStorage)
   window.toggleTopBar = function () {
@@ -107,6 +111,16 @@
     return hh * 3600 + mm * 60 + ss;
   }
 
+  // 把秒數轉回 mm:ss(超過一小時自動變成 hh:mm:ss),用來顯示在跳轉按鈕上
+  function formatSeconds(totalSeconds) {
+    totalSeconds = Math.max(0, Math.floor(totalSeconds));
+    var hh = Math.floor(totalSeconds / 3600);
+    var mm = Math.floor((totalSeconds % 3600) / 60);
+    var ss = totalSeconds % 60;
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    return hh ? (pad(hh) + ':' + pad(mm) + ':' + pad(ss)) : (pad(mm) + ':' + pad(ss));
+  }
+
   function render(data) {
     document.title = (data.subject || '線上複習') + ' - 線上複習';
     document.getElementById('subject').textContent = data.subject || '';
@@ -175,6 +189,35 @@
     return div;
   }
 
+  // 建立「跳轉」按鈕(文字顯示實際時間點,例如 🎬 00:50)+「展開/收合」按鈕
+  // 的共用區塊,選擇題跟克漏字都會用到。
+  function buildHeadActions(seconds, card) {
+    var headActions = document.createElement('div');
+    headActions.className = 'qcard-head-actions';
+
+    if (seconds !== null) {
+      var btn = document.createElement('button');
+      btn.className = 'ts-btn';
+      btn.type = 'button';
+      btn.textContent = '🎬 ' + formatSeconds(seconds);
+      btn.onclick = function () { seekTo(seconds); };
+      headActions.appendChild(btn);
+    }
+
+    var collapseToggle = document.createElement('button');
+    collapseToggle.className = 'ts-btn qcard-collapse-toggle';
+    collapseToggle.type = 'button';
+    collapseToggle.style.display = 'none'; // 答對之後才會顯示出來
+    collapseToggle.textContent = '展開';
+    collapseToggle.onclick = function () {
+      var collapsed = card.classList.toggle('collapsed-correct');
+      collapseToggle.textContent = collapsed ? '展開' : '收合';
+    };
+    headActions.appendChild(collapseToggle);
+
+    return headActions;
+  }
+
   function renderMC(questions) {
     var container = document.getElementById('mc-list');
     if (!questions.length) {
@@ -188,14 +231,9 @@
 
       var head = document.createElement('div');
       head.className = 'qcard-head';
-      head.innerHTML = '<span class="qnum">選擇題 ' + (i + 1) + '</span>';
-      if (seconds !== null) {
-        var btn = document.createElement('button');
-        btn.className = 'ts-btn';
-        btn.textContent = '🎬 跳轉';
-        btn.onclick = (function (s) { return function () { seekTo(s); }; })(seconds);
-        head.appendChild(btn);
-      }
+      head.innerHTML = '<span class="qnum-wrap"><span class="qnum">選擇題 ' + (i + 1) +
+        '</span><span class="qcard-badge">✅ 已學會</span></span>';
+      head.appendChild(buildHeadActions(seconds, card));
       card.appendChild(head);
 
       var body = document.createElement('div');
@@ -253,14 +291,9 @@
 
       var head = document.createElement('div');
       head.className = 'qcard-head';
-      head.innerHTML = '<span class="qnum">背誦重點 ' + (i + 1) + '</span>';
-      if (seconds !== null) {
-        var btn = document.createElement('button');
-        btn.className = 'ts-btn';
-        btn.textContent = '🎬 跳轉';
-        btn.onclick = (function (s) { return function () { seekTo(s); }; })(seconds);
-        head.appendChild(btn);
-      }
+      head.innerHTML = '<span class="qnum-wrap"><span class="qnum">背誦重點 ' + (i + 1) +
+        '</span><span class="qcard-badge">✅ 已學會</span></span>';
+      head.appendChild(buildHeadActions(seconds, card));
       card.appendChild(head);
 
       var body = document.createElement('div');
@@ -327,6 +360,26 @@
     });
   }
 
+  // 根據這一題對錯,更新卡片的樣式 class 跟「展開/收合」按鈕的顯示狀態。
+  // 答對:套用 qcard-correct,並依照目前的總開關狀態決定要不要收合。
+  // 答錯:清掉收合狀態,展開/收合按鈕隱藏(答錯的題目不提供收合,要留著複習)。
+  function markCardResult(card, isCorrect) {
+    if (!card) return;
+    card.classList.remove('qcard-correct', 'qcard-wrong');
+    card.classList.add(isCorrect ? 'qcard-correct' : 'qcard-wrong');
+    var toggle = card.querySelector('.qcard-collapse-toggle');
+    if (isCorrect) {
+      card.classList.toggle('collapsed-correct', allCorrectCollapsed);
+      if (toggle) {
+        toggle.style.display = 'inline-block';
+        toggle.textContent = allCorrectCollapsed ? '展開' : '收合';
+      }
+    } else {
+      card.classList.remove('collapsed-correct');
+      if (toggle) toggle.style.display = 'none';
+    }
+  }
+
   window.finishQuiz = function () {
     var mcContainers = document.querySelectorAll('.q-options[data-correct]');
     var mcTotal = mcContainers.length;
@@ -340,7 +393,9 @@
         if (val === correct) row.classList.add('opt-correct');
         else if (selected && val === selected.value) row.classList.add('opt-wrong');
       });
-      if (selected && selected.value === correct) mcCorrect++;
+      var isCorrect = !!selected && selected.value === correct;
+      if (isCorrect) mcCorrect++;
+      markCardResult(el.closest('.qcard'), isCorrect);
     });
 
     var clozeInputs = document.querySelectorAll('.cloze-answer-input');
@@ -350,7 +405,8 @@
       var userVal = (input.value || '').trim().toLowerCase();
       var correctVal = (input.dataset.correct || '').trim().toLowerCase();
       var feedback = input.parentElement.querySelector('.cloze-feedback');
-      if (userVal && userVal === correctVal) {
+      var isCorrect = !!userVal && userVal === correctVal;
+      if (isCorrect) {
         clozeCorrect++;
         input.classList.add('input-correct');
         input.classList.remove('input-wrong');
@@ -360,6 +416,7 @@
         input.classList.remove('input-correct');
         if (feedback) feedback.textContent = '❌ 正確答案:' + input.dataset.correct;
       }
+      markCardResult(input.closest('.qcard'), isCorrect);
     });
 
     var totalQ = mcTotal + clozeTotal;
@@ -368,6 +425,32 @@
     document.getElementById('score-summary').innerHTML =
       '選擇題 ' + mcCorrect + '/' + mcTotal + '　背誦重點 ' + clozeCorrect + '/' + clozeTotal +
       '　總分 <b>' + totalCorrect + '/' + totalQ + '</b>(' + pct + '%)';
+
+    var collapseBtn = document.getElementById('collapse-correct-btn');
+    if (collapseBtn) {
+      if (totalCorrect > 0) {
+        allCorrectCollapsed = true; // 每次「作答完成」都先預設收合這次答對的題目
+        collapseBtn.style.display = 'inline-block';
+        collapseBtn.textContent = '📂 展開已學會的題目';
+      } else {
+        collapseBtn.style.display = 'none';
+      }
+    }
+  };
+
+  // 「展開已學會的題目 / 收合已學會的題目」總開關,一次切換全部答對的卡片
+  window.toggleCollapseCorrect = function () {
+    allCorrectCollapsed = !allCorrectCollapsed;
+    document.querySelectorAll('.qcard-correct').forEach(function (card) {
+      card.classList.toggle('collapsed-correct', allCorrectCollapsed);
+    });
+    document.querySelectorAll('.qcard-correct .qcard-collapse-toggle').forEach(function (btn) {
+      btn.textContent = allCorrectCollapsed ? '展開' : '收合';
+    });
+    var collapseBtn = document.getElementById('collapse-correct-btn');
+    if (collapseBtn) {
+      collapseBtn.textContent = allCorrectCollapsed ? '📂 展開已學會的題目' : '📁 收合已學會的題目';
+    }
   };
 
   // ===== AI 對話框 =====
