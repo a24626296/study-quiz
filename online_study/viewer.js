@@ -482,10 +482,59 @@
     return lines.join('\n');
   }
 
-  // ===== PDF 手冊連結(存在 localStorage,每支影片各自記一個網址) =====
+  // ===== PDF 手冊連結(每支影片各自記一個「目前使用」的網址;
+  //       另外全域存一份「歷史清單」,存過的連結都留著,方便之後用選的切換回去) =====
   function pdfLinkKey() {
     return 'pdfLink_' + videoId;
   }
+
+  var PDF_LINK_HISTORY_KEY = 'pdfLinkHistory';
+
+  function loadPdfLinkHistory() {
+    try {
+      var raw = localStorage.getItem(PDF_LINK_HISTORY_KEY);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function addToPdfLinkHistory(url) {
+    if (!url) return;
+    var list = loadPdfLinkHistory().filter(function (u) { return u !== url; });
+    list.unshift(url);
+    if (list.length > 25) list = list.slice(0, 25);
+    try { localStorage.setItem(PDF_LINK_HISTORY_KEY, JSON.stringify(list)); } catch (e) {}
+    renderPdfLinkHistoryDropdown();
+  }
+
+  function renderPdfLinkHistoryDropdown() {
+    var sel = document.getElementById('pdf-link-history');
+    if (!sel) return;
+    var list = loadPdfLinkHistory();
+    var html = '<option value="">📋 從歷史連結套用...</option>';
+    list.forEach(function (u) {
+      var label;
+      if (isPrivateDocLink(u)) {
+        var info = parsePrivateLink(u);
+        label = '🔒 ' + info.repo + ' / ' + info.path;
+      } else {
+        label = u.length > 55 ? u.slice(0, 52) + '...' : u;
+      }
+      html += '<option value="' + u.replace(/"/g, '&quot;') + '">' +
+        label.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</option>';
+    });
+    sel.innerHTML = html;
+  }
+
+  window.loadPdfLinkFromHistory = function (url) {
+    if (!url) return;
+    var input = document.getElementById('pdf-link-input');
+    if (input) input.value = url;
+    window.savePdfLink();
+    var sel = document.getElementById('pdf-link-history');
+    if (sel) sel.value = '';
+  };
 
   function initPdfLink() {
     var input = document.getElementById('pdf-link-input');
@@ -494,6 +543,7 @@
     try { saved = localStorage.getItem(pdfLinkKey()) || ''; } catch (e) {}
     if (input) input.value = saved;
     renderPdfOpenBar(saved, bar);
+    renderPdfLinkHistoryDropdown();
   }
 
   function renderPdfOpenBar(url, bar) {
@@ -531,6 +581,7 @@
         localStorage.removeItem(pdfLinkKey());
       }
     } catch (e) {}
+    if (url) addToPdfLinkHistory(url);
     renderPdfOpenBar(url);
   };
 
@@ -577,7 +628,7 @@
   window.setupPrivatePdfLink = function () {
     var ownerRepo = prompt('請輸入「GitHub帳號/repo名稱」,例如 a24626296/study-private-docs:', '');
     if (!ownerRepo || ownerRepo.indexOf('/') === -1) return;
-    var path = prompt('請輸入檔案在 repo 裡的路徑,例如 PrinciplesofFlightATPL-CAE.pdf:', '');
+    var path = prompt('請輸入檔案在 repo 裡的路徑,「一定要含副檔名」,例如 PrinciplesofFlightATPL-CAE.pdf:', '');
     if (!path) return;
     var page = prompt('要預設跳到第幾頁?(不填就是第 1 頁):', '');
     var link = 'private:' + ownerRepo.replace(/^\/+|\/+$/g, '') + '/' + path.replace(/^\/+/, '');
@@ -603,13 +654,18 @@
         'Accept': 'application/vnd.github.raw+json'
       }
     }).then(function (res) {
-      if (res.status === 401 || res.status === 403 || res.status === 404) {
-        clearGithubToken();
-        var err = new Error('AUTH_FAILED');
+      if (!res.ok) {
+        var err = new Error('HTTP_' + res.status);
         err.status = res.status;
+        err.apiUrl = apiUrl;
+        // 401/403 = 權杖本身有問題,清掉讓使用者重輸入。
+        // 404 不一定是權杖問題,常常是路徑/檔名打錯,所以不自動清權杖。
+        if (res.status === 401 || res.status === 403) {
+          clearGithubToken();
+          err.authFailed = true;
+        }
         throw err;
       }
-      if (!res.ok) throw new Error('HTTP_' + res.status);
       return res.arrayBuffer();
     });
   }
@@ -747,12 +803,24 @@
       onPdfDocLoaded(doc, info.page);
     }).catch(function (err) {
       console.error('私人 PDF 載入失敗:', err);
-      if (err && err.message === 'AUTH_FAILED' && !isRetry) {
-        wrap.innerHTML = '<div class="pdf-loading">權杖無效或已過期,請重新輸入…</div>';
+      var detail = '可能是網路問題,或瀏覽器擋下了跨網域請求。';
+      if (err && err.status === 404) {
+        detail = '收到 404 Not Found。最常見的三個原因:①路徑打錯(檢查副檔名 .pdf 有沒有漏打、大小寫、有沒有多打空白);②repo 名稱打錯;③權杖沒有勾到這個 repo 的存取權限(GitHub 對沒權限的私人資源也會回 404,故意不回 403,避免洩漏「這個檔案是不是存在」)。';
+      } else if (err && err.status === 401) {
+        detail = '收到 401 Unauthorized,權杖無效或已經被撤銷。';
+      } else if (err && err.status === 403) {
+        detail = '收到 403 Forbidden,權杖存在但權限不足(檢查 Contents 有沒有設成 Read-only、有沒有勾到正確的 repo)。';
+      } else if (err && err.status) {
+        detail = '收到 HTTP ' + err.status + '。';
+      }
+      if (err && err.authFailed && !isRetry) {
+        wrap.innerHTML = '<div class="pdf-loading">' + detail + '<br>請重新輸入權杖…</div>';
         var newToken = promptForGithubToken();
         if (newToken) { openPrivatePdf(url, wrap, true); return; }
       }
-      wrap.innerHTML = '<div class="pdf-loading">私人文件載入失敗,請確認 repo 名稱、檔案路徑、以及權杖權限是否正確。</div>';
+      wrap.innerHTML = '<div class="pdf-loading">私人文件載入失敗。<br>' + detail +
+        (err && err.apiUrl ? '<br><span style="opacity:0.55;font-size:11px;word-break:break-all;">請求網址:' + err.apiUrl + '</span>' : '') +
+        '</div>';
     });
   }
 
