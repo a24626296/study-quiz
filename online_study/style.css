@@ -151,6 +151,15 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
   cursor:pointer;
 }
 .pdf-private-setup-btn:hover { color:var(--text); border-color:#f2c94c; }
+.pdf-link-history-select {
+  background:#0b1220;
+  color:var(--text);
+  border:1px solid #334155;
+  border-radius:6px;
+  padding:5px 8px;
+  font-size:12px;
+  max-width:220px;
+}
 
 /* ===== 內嵌 PDF 檢視器(含黃色重點畫線) ===== */
 .pdf-viewer-panel {
