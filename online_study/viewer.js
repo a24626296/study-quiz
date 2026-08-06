@@ -1,6 +1,9 @@
 (function () {
   var params = new URLSearchParams(window.location.search);
   var videoId = params.get('id');
+  var startParam = params.get('t');
+  var startSeconds = startParam !== null ? parseInt(startParam, 10) : null;
+  if (startSeconds !== null && isNaN(startSeconds)) startSeconds = null;
   var player;
   var embedBlocked = false;
   var primaryLang = 'zh';
@@ -148,7 +151,15 @@
           cc_load_policy: 1,   // 預設開啟字幕
           cc_lang_pref: 'zh-Hant',  // 如果影片本身有繁中字幕軌,優先用這個
         },
-        events: { onError: onPlayerError }
+        events: {
+          onError: onPlayerError,
+          onReady: function () {
+            if (startSeconds !== null) {
+              player.seekTo(startSeconds, true);
+              player.playVideo();
+            }
+          }
+        }
       });
     };
     var ytScript = document.createElement('script');
@@ -514,22 +525,26 @@
     renderPdfOpenBar(url);
   };
 
-  // ===== 內嵌 PDF 檢視器 + 黃色重點畫線 =====
+  // ===== 內嵌 PDF 檢視器 + 黃色重點畫線 + 文字框 =====
   // 重點座標存成 0~1 的相對比例,換頁/縮放/重新整理都不會跑掉。
-  // 每支影片各自一組重點(用 videoId 當 key),理由跟 pdfLink 一樣。
+  // 改為用「PDF 網址(去掉 #page 錨點)」當 key,所以同一份文件被不同
+  // 複習頁面引用時,重點是共用的(而不是各支影片各自獨立)。
   var pdfDoc = null;
   var pdfCurrentPage = 1;
   var pdfScale = 1.2;
-  var pdfMode = 'highlight'; // 'highlight' | 'erase'
+  var pdfMode = 'highlight'; // 'highlight' | 'erase' | 'text'
   var pdfStatusTimer = null;
+  var pdfHighlights = {};
+  var pdfCurrentDocKey = '';
 
-  function pdfHighlightKey() {
-    return 'pdfHighlights_' + videoId;
+  function pdfHighlightKey(url) {
+    var base = (url || '').split('#')[0].trim();
+    return 'pdfHighlights::' + base;
   }
 
-  function loadPdfHighlights() {
+  function loadPdfHighlights(key) {
     try {
-      var raw = localStorage.getItem(pdfHighlightKey());
+      var raw = localStorage.getItem(key);
       return raw ? JSON.parse(raw) : {};
     } catch (e) {
       return {};
@@ -537,10 +552,8 @@
   }
 
   function savePdfHighlights() {
-    try { localStorage.setItem(pdfHighlightKey(), JSON.stringify(pdfHighlights)); } catch (e) {}
+    try { localStorage.setItem(pdfCurrentDocKey, JSON.stringify(pdfHighlights)); } catch (e) {}
   }
-
-  var pdfHighlights = loadPdfHighlights();
 
   function flashPdfStatus(msg) {
     var el = document.getElementById('pdfStatus');
@@ -553,6 +566,30 @@
   function getPageFromUrl(url) {
     var m = /#page=(\d+)/.exec(url || '');
     return m ? parseInt(m[1], 10) : 1;
+  }
+
+  // 讀取目前影片播放到第幾秒(讀不到就傳回 null,標註仍會建立,只是沒有時間戳)
+  function getCurrentVideoTime() {
+    try {
+      if (player && typeof player.getCurrentTime === 'function') {
+        return Math.round(player.getCurrentTime());
+      }
+    } catch (e) {}
+    return null;
+  }
+
+  // 點擊「已存有影片時間戳」的標註時觸發:同一支影片就直接跳轉播放,
+  // 不同影片(同一份 PDF 被別支影片引用時畫的)就開新分頁帶 ?t= 秒數跳過去。
+  function jumpToAnnotation(item) {
+    if (item.videoTime == null) return;
+    if (!item.videoId || item.videoId === videoId) {
+      seekTo(item.videoTime || 0);
+      flashPdfStatus('已跳轉到影片 ' + formatSeconds(item.videoTime));
+      var col = document.querySelector('.player-col');
+      if (col) col.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      window.open('./viewer.html?id=' + encodeURIComponent(item.videoId) + '&t=' + item.videoTime, '_blank');
+    }
   }
 
   function openPdfViewer(url) {
@@ -578,6 +615,9 @@
     var cleanUrl = url.split('#')[0];
     var initialPage = getPageFromUrl(url);
 
+    pdfCurrentDocKey = pdfHighlightKey(url);
+    pdfHighlights = loadPdfHighlights(pdfCurrentDocKey);
+
     pdfjsLib.getDocument(cleanUrl).promise.then(function (doc) {
       pdfDoc = doc;
       pdfCurrentPage = Math.min(Math.max(initialPage, 1), doc.numPages);
@@ -600,11 +640,16 @@
   function setPdfToolbarMode() {
     var hBtn = document.getElementById('pdfHighlightModeBtn');
     var eBtn = document.getElementById('pdfEraseModeBtn');
+    var tBtn = document.getElementById('pdfTextModeBtn');
     if (!hBtn || !eBtn) return;
     hBtn.classList.toggle('active', pdfMode === 'highlight');
     eBtn.classList.toggle('active', pdfMode === 'erase');
+    if (tBtn) tBtn.classList.toggle('active', pdfMode === 'text');
     var canvas = document.getElementById('pdfHighlightCanvas');
-    if (canvas) canvas.classList.toggle('pan-mode', pdfMode === 'erase');
+    if (canvas) {
+      canvas.classList.toggle('pan-mode', pdfMode === 'erase');
+      canvas.style.cursor = pdfMode === 'highlight' ? 'crosshair' : (pdfMode === 'erase' ? 'cell' : 'text');
+    }
   }
 
   function renderPdfPage(num) {
@@ -646,12 +691,119 @@
     var ctx = canvas.getContext('2d');
     var list = pdfHighlights[pageNum] || [];
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    list.forEach(function (h) { drawPdfHighlightRect(ctx, h, canvas.width, canvas.height); });
+    list.forEach(function (h) { drawPdfAnnotation(ctx, h, canvas.width, canvas.height); });
   }
 
-  function drawPdfHighlightRect(ctx, h, w, hgt) {
-    ctx.fillStyle = 'rgba(242, 201, 76, 0.45)';
-    ctx.fillRect(h.x * w, h.y * hgt, h.w * w, h.h * hgt);
+  function drawPdfAnnotation(ctx, h, canvasW, canvasH) {
+    if (h.type === 'text') {
+      var box = computeTextBox(ctx, h.text, canvasW, canvasH);
+      var x = h.x * canvasW, y = h.y * canvasH;
+      ctx.fillStyle = 'rgba(255, 249, 219, 0.96)';
+      ctx.strokeStyle = '#caa93a';
+      ctx.lineWidth = 1.5;
+      roundRect(ctx, x, y, box.w, box.h, 6);
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = '#3a2f0b';
+      ctx.font = box.fontSize + 'px sans-serif';
+      ctx.textBaseline = 'alphabetic';
+      box.lines.forEach(function (line, i) {
+        ctx.fillText(line, x + box.pad, y + box.pad + box.fontSize * 0.9 + i * box.lineHeight);
+      });
+      drawTimeBadge(ctx, h, x, y);
+    } else {
+      var rx = h.x * canvasW, ry = h.y * canvasH;
+      ctx.fillStyle = 'rgba(242, 201, 76, 0.45)';
+      ctx.fillRect(rx, ry, h.w * canvasW, h.h * canvasH);
+      drawTimeBadge(ctx, h, rx, ry);
+    }
+  }
+
+  // 標註右上角的小標籤,顯示這是從影片的哪一秒畫的(▶ mm:ss),可以點擊跳轉
+  function drawTimeBadge(ctx, h, boxX, boxY) {
+    if (h.videoTime == null) return;
+    var label = '▶ ' + formatSeconds(h.videoTime);
+    ctx.font = '10px sans-serif';
+    var tw = ctx.measureText(label).width;
+    var ty = Math.max(2, boxY - 14);
+    ctx.fillStyle = 'rgba(30,30,30,0.78)';
+    ctx.fillRect(boxX, ty, tw + 10, 13);
+    ctx.fillStyle = '#fff';
+    ctx.textBaseline = 'alphabetic';
+    ctx.fillText(label, boxX + 5, ty + 10);
+  }
+
+  // 文字框排版:依目前縮放比例決定字級跟最大寬度,換行後量出所需的框大小
+  function computeTextBox(ctx, text, canvasW, canvasH) {
+    var fontSize = Math.max(11, Math.round(14 * (pdfScale / 1.2)));
+    ctx.font = fontSize + 'px sans-serif';
+    var maxWidth = Math.min(canvasW * 0.34, 260 * (pdfScale / 1.2));
+    var rawLines = String(text).split('\n');
+    var lines = [];
+    rawLines.forEach(function (rl) {
+      lines = lines.concat(wrapCanvasText(ctx, rl, maxWidth));
+    });
+    var lineHeight = fontSize * 1.35;
+    var widest = 0;
+    lines.forEach(function (l) { widest = Math.max(widest, ctx.measureText(l).width); });
+    var pad = 8;
+    return {
+      fontSize: fontSize,
+      lines: lines,
+      lineHeight: lineHeight,
+      w: Math.min(maxWidth, widest) + pad * 2,
+      h: lines.length * lineHeight + pad * 2,
+      pad: pad
+    };
+  }
+
+  // 逐字換行(中英文混排時,用逐字比對寬度比用空白斷字更準)
+  function wrapCanvasText(ctx, text, maxWidth) {
+    var lines = [];
+    var current = '';
+    for (var i = 0; i < text.length; i++) {
+      var test = current + text[i];
+      if (ctx.measureText(test).width > maxWidth && current) {
+        lines.push(current);
+        current = text[i];
+      } else {
+        current = test;
+      }
+    }
+    lines.push(current);
+    return lines;
+  }
+
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.arcTo(x + w, y, x + w, y + h, r);
+    ctx.arcTo(x + w, y + h, x, y + h, r);
+    ctx.arcTo(x, y + h, x, y, r);
+    ctx.arcTo(x, y, x + w, y, r);
+    ctx.closePath();
+  }
+
+  // 找出點擊位置命中的標註(重點框或文字框都適用),擦除/編輯共用
+  function findAnnotationAt(canvas, pageNum, pos) {
+    var list = pdfHighlights[pageNum] || [];
+    var ctx = canvas.getContext('2d');
+    for (var i = list.length - 1; i >= 0; i--) {
+      var h = list[i];
+      if (h.type === 'text') {
+        var box = computeTextBox(ctx, h.text, canvas.width, canvas.height);
+        var x = h.x * canvas.width, y = h.y * canvas.height;
+        if (pos.x >= x && pos.x <= x + box.w && pos.y >= y && pos.y <= y + box.h) {
+          return { item: h, index: i };
+        }
+      } else {
+        var px = pos.x / canvas.width, py = pos.y / canvas.height;
+        if (px >= h.x && px <= h.x + h.w && py >= h.y && py <= h.y + h.h) {
+          return { item: h, index: i };
+        }
+      }
+    }
+    return null;
   }
 
   function setupPdfHighlightLayer(canvas, pageNum) {
@@ -667,33 +819,50 @@
       };
     }
 
-    function eraseAt(pos) {
-      var list = pdfHighlights[pageNum] || [];
-      var px = pos.x / canvas.width, py = pos.y / canvas.height;
-      var idx = -1;
-      for (var i = 0; i < list.length; i++) {
-        var h = list[i];
-        if (px >= h.x && px <= h.x + h.w && py >= h.y && py <= h.y + h.h) { idx = i; break; }
-      }
-      if (idx !== -1) {
-        list.splice(idx, 1);
+    function handleTextTap(pos) {
+      var hit = findAnnotationAt(canvas, pageNum, pos);
+      if (hit && hit.item.type === 'text') {
+        var edited = prompt('編輯文字框內容(清空並確定 = 刪除):', hit.item.text);
+        if (edited === null) return; // 取消,不動作
+        if (edited.trim() === '') {
+          pdfHighlights[pageNum].splice(hit.index, 1);
+          flashPdfStatus('已刪除文字框');
+        } else {
+          hit.item.text = edited;
+          flashPdfStatus('已更新文字框');
+        }
         savePdfHighlights();
-        flashPdfStatus('已刪除重點');
         drawPdfHighlights(canvas, pageNum);
+        return;
       }
+      var text = prompt('輸入文字框內容:', '');
+      if (!text || !text.trim()) return;
+      var rec = {
+        type: 'text',
+        x: pos.x / canvas.width,
+        y: pos.y / canvas.height,
+        text: text,
+        videoId: videoId,
+        videoTime: getCurrentVideoTime()
+      };
+      if (!pdfHighlights[pageNum]) pdfHighlights[pageNum] = [];
+      pdfHighlights[pageNum].push(rec);
+      savePdfHighlights();
+      flashPdfStatus('已新增文字框');
+      drawPdfHighlights(canvas, pageNum);
     }
 
     function down(evt) {
       evt.preventDefault();
       var pos = getPos(evt);
-      if (pdfMode === 'erase') { eraseAt(pos); return; }
-      drawing = true;
       startX = pos.x;
       startY = pos.y;
+      if (pdfMode === 'highlight') drawing = true;
+      // 擦除、文字框都在放開時(up)依「有沒有移動」判斷,這裡不用做事
     }
 
     function move(evt) {
-      if (!drawing) return;
+      if (pdfMode !== 'highlight' || !drawing) return;
       evt.preventDefault();
       var pos = getPos(evt);
       var ctx = canvas.getContext('2d');
@@ -704,18 +873,57 @@
     }
 
     function up(evt) {
-      if (!drawing) return;
-      drawing = false;
       var pos = getPos(evt.changedTouches ? { touches: evt.changedTouches } : evt);
-      var rx = Math.min(startX, pos.x), ry = Math.min(startY, pos.y);
-      var rw = Math.abs(pos.x - startX), rh = Math.abs(pos.y - startY);
-      if (rw < 4 || rh < 4) { drawPdfHighlights(canvas, pageNum); return; }
-      var rec = { x: rx / canvas.width, y: ry / canvas.height, w: rw / canvas.width, h: rh / canvas.height };
-      if (!pdfHighlights[pageNum]) pdfHighlights[pageNum] = [];
-      pdfHighlights[pageNum].push(rec);
-      savePdfHighlights();
-      flashPdfStatus('已儲存重點');
-      drawPdfHighlights(canvas, pageNum);
+
+      if (pdfMode === 'highlight') {
+        if (!drawing) return;
+        drawing = false;
+        var rx = Math.min(startX, pos.x), ry = Math.min(startY, pos.y);
+        var rw = Math.abs(pos.x - startX), rh = Math.abs(pos.y - startY);
+        var moveDist = Math.max(rw, rh);
+
+        if (moveDist < 4) {
+          // 沒有明顯拖曳,視為「點擊」:如果點到既有標註且有時間戳,就跳轉回影片
+          var hit = findAnnotationAt(canvas, pageNum, pos);
+          if (hit && hit.item.videoTime != null) jumpToAnnotation(hit.item);
+          drawPdfHighlights(canvas, pageNum);
+          return;
+        }
+
+        var rec = {
+          type: 'rect',
+          x: rx / canvas.width,
+          y: ry / canvas.height,
+          w: rw / canvas.width,
+          h: rh / canvas.height,
+          videoId: videoId,
+          videoTime: getCurrentVideoTime()
+        };
+        if (!pdfHighlights[pageNum]) pdfHighlights[pageNum] = [];
+        pdfHighlights[pageNum].push(rec);
+        savePdfHighlights();
+        flashPdfStatus('已儲存重點');
+        drawPdfHighlights(canvas, pageNum);
+        return;
+      }
+
+      if (pdfMode === 'erase') {
+        var hitToErase = findAnnotationAt(canvas, pageNum, pos);
+        if (hitToErase) {
+          pdfHighlights[pageNum].splice(hitToErase.index, 1);
+          savePdfHighlights();
+          flashPdfStatus('已刪除');
+          drawPdfHighlights(canvas, pageNum);
+        }
+        return;
+      }
+
+      if (pdfMode === 'text') {
+        var tapDist = Math.hypot(pos.x - startX, pos.y - startY);
+        if (tapDist > 8) return; // 拖曳誤觸不算,文字框只用點的
+        handleTextTap(pos);
+        return;
+      }
     }
 
     canvas.addEventListener('mousedown', down);
@@ -738,6 +946,7 @@
   function initPdfViewerToolbar() {
     var hBtn = document.getElementById('pdfHighlightModeBtn');
     var eBtn = document.getElementById('pdfEraseModeBtn');
+    var tBtn = document.getElementById('pdfTextModeBtn');
     var clearBtn = document.getElementById('pdfClearPageBtn');
     var prevBtn = document.getElementById('pdfPrevBtn');
     var nextBtn = document.getElementById('pdfNextBtn');
@@ -749,9 +958,12 @@
 
     hBtn.onclick = function () { pdfMode = 'highlight'; setPdfToolbarMode(); };
     eBtn.onclick = function () { pdfMode = 'erase'; setPdfToolbarMode(); };
+    if (tBtn) tBtn.onclick = function () { pdfMode = 'text'; setPdfToolbarMode(); };
     clearBtn.onclick = function () {
       if (!pdfDoc) return;
-      if (!confirm('確定要清空這一頁的所有重點嗎?')) return;
+      var msg = '這一頁的重點/文字框是「同一份 PDF 文件」共用的,\n' +
+        '清空後,所有引用同一份文件、同一頁的複習頁面都會一起被清空。\n\n確定要清空這一頁嗎?';
+      if (!confirm(msg)) return;
       pdfHighlights[pdfCurrentPage] = [];
       savePdfHighlights();
       var canvas = document.getElementById('pdfHighlightCanvas');
