@@ -25,6 +25,28 @@
   </div>
 </div>
 <div id="pdf-open-bar"></div>
+<div id="pdf-viewer-panel" class="pdf-viewer-panel" style="display:none;">
+  <div class="pdf-toolbar">
+    <button id="pdfHighlightModeBtn" class="pdf-tool-btn active">🖍️ 畫重點</button>
+    <button id="pdfEraseModeBtn" class="pdf-tool-btn">🧹 擦除</button>
+    <button id="pdfClearPageBtn" class="pdf-tool-btn pdf-tool-danger">清空本頁</button>
+    <span class="pdf-toolbar-sep"></span>
+    <button id="pdfPrevBtn" class="pdf-tool-btn">‹ 上一頁</button>
+    <input id="pdfPageNum" class="pdf-page-input" type="number" min="1" value="1">
+    <span id="pdfPageInfo" class="pdf-page-info">/ --</span>
+    <button id="pdfNextBtn" class="pdf-tool-btn">下一頁 ›</button>
+    <span class="pdf-toolbar-sep"></span>
+    <button id="pdfZoomOutBtn" class="pdf-tool-btn">－</button>
+    <span id="pdfZoomLabel" class="pdf-zoom-label">100%</span>
+    <button id="pdfZoomInBtn" class="pdf-tool-btn">＋</button>
+    <span class="pdf-toolbar-spacer"></span>
+    <span id="pdfStatus" class="pdf-status"></span>
+    <button id="pdfCloseBtn" class="pdf-tool-btn">✕ 關閉</button>
+  </div>
+  <div id="pdf-viewer-wrap" class="pdf-viewer-wrap">
+    <div class="pdf-loading">PDF 載入中…</div>
+  </div>
+</div>
 <div id="app" class="layout">
   <div class="player-col">
     <div class="subject" id="subject"></div>
@@ -55,6 +77,7 @@
     </div>
   </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="./chat-config.js"></script>
 <script src="./viewer.js"></script>
 </body>
