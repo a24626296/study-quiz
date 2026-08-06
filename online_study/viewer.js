@@ -862,6 +862,15 @@
     }
 
     function move(evt) {
+      if (pdfMode === 'highlight' && !drawing) {
+        // 只是滑鼠移過去(還沒按下),用來判斷要不要換成「可點擊」的手指游標
+        if (!evt.touches) {
+          var hoverPos = getPos(evt);
+          var hoverHit = findAnnotationAt(canvas, pageNum, hoverPos);
+          canvas.style.cursor = (hoverHit && hoverHit.item.videoTime != null) ? 'pointer' : 'crosshair';
+        }
+        return;
+      }
       if (pdfMode !== 'highlight' || !drawing) return;
       evt.preventDefault();
       var pos = getPos(evt);
@@ -929,7 +938,10 @@
     canvas.addEventListener('mousedown', down);
     canvas.addEventListener('mousemove', move);
     canvas.addEventListener('mouseup', up);
-    canvas.addEventListener('mouseleave', function () { drawing = false; });
+    canvas.addEventListener('mouseleave', function () {
+      drawing = false;
+      if (pdfMode === 'highlight') canvas.style.cursor = 'crosshair';
+    });
     canvas.addEventListener('touchstart', down, { passive: false });
     canvas.addEventListener('touchmove', move, { passive: false });
     canvas.addEventListener('touchend', up, { passive: false });
