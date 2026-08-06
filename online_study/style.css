@@ -137,8 +137,75 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
 .pdf-link-row input { flex:1; min-width:200px; background:#0b1220; border:1px solid #334155; color:var(--text); padding:5px 10px; border-radius:6px; font-size:13px; }
 .pdf-link-row button { background:#2196F3; color:#fff; border:none; padding:5px 14px; border-radius:6px; cursor:pointer; font-size:13px; }
 #pdf-open-bar { padding:0 20px; }
-.pdf-open-link { display:inline-block; margin:8px 0; font-size:13px; color:var(--green); text-decoration:none; border:1px solid var(--green); padding:4px 10px; border-radius:6px; }
+.pdf-open-link { display:inline-block; margin:8px 6px 8px 0; font-size:13px; color:var(--green); text-decoration:none; border:1px solid var(--green); padding:4px 10px; border-radius:6px; }
 .pdf-open-link:hover { background:var(--green); color:#0f172a; }
+.pdf-inline-btn { background:transparent; font-family:inherit; cursor:pointer; }
+
+/* ===== 內嵌 PDF 檢視器(含黃色重點畫線) ===== */
+.pdf-viewer-panel {
+  margin:0 20px 16px;
+  border:1px solid #334155;
+  border-radius:10px;
+  background:var(--card);
+  overflow:hidden;
+}
+.pdf-toolbar {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:8px 10px;
+  background:#0b1220;
+  border-bottom:1px solid #334155;
+  flex-wrap:wrap;
+}
+.pdf-tool-btn {
+  background:#1e293b;
+  color:var(--text);
+  border:1px solid #334155;
+  border-radius:6px;
+  padding:5px 10px;
+  font-size:13px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.pdf-tool-btn.active {
+  background:#f2c94c;
+  color:#1a1a1a;
+  border-color:#f2c94c;
+  font-weight:600;
+}
+.pdf-tool-btn.pdf-tool-danger:hover { border-color:var(--red); color:var(--red); }
+.pdf-page-input {
+  width:48px;
+  text-align:center;
+  background:#0b1220;
+  border:1px solid #334155;
+  color:var(--text);
+  border-radius:6px;
+  padding:5px;
+  font-size:13px;
+}
+.pdf-page-info, .pdf-zoom-label, .pdf-status { font-size:12px; color:var(--muted); }
+.pdf-toolbar-sep { width:1px; height:20px; background:#334155; margin:0 4px; }
+.pdf-toolbar-spacer { flex:1; }
+.pdf-viewer-wrap {
+  max-height:75vh;
+  overflow:auto;
+  display:flex;
+  justify-content:center;
+  padding:16px 0;
+  background:#0b1220;
+}
+.pdf-loading { color:var(--muted); padding:40px; text-align:center; }
+.pdf-stage {
+  position:relative;
+  box-shadow:0 4px 18px rgba(0,0,0,0.5);
+  background:#fff;
+  touch-action:none;
+}
+.pdf-stage canvas { position:absolute; top:0; left:0; display:block; }
+.pdf-highlight-canvas { cursor:crosshair; }
+.pdf-highlight-canvas.pan-mode { cursor:cell; }
 
 /* 複習清單頁 */
 .list-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px; }
