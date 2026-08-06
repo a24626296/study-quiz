@@ -125,6 +125,7 @@
     document.title = (data.subject || '線上複習') + ' - 線上複習';
     document.getElementById('subject').textContent = data.subject || '';
     initPdfLink();
+    initPdfViewerToolbar();
 
     if (data.has_transcript) {
       var link = document.createElement('a');
@@ -488,10 +489,15 @@
     bar = bar || document.getElementById('pdf-open-bar');
     if (!bar) return;
     if (url) {
-      bar.innerHTML = '<a class="pdf-open-link" href="' + url.replace(/"/g, '&quot;') +
-        '" target="_blank" rel="noopener">📖 開啟手冊 PDF</a>';
+      bar.innerHTML =
+        '<a class="pdf-open-link" href="' + url.replace(/"/g, '&quot;') +
+        '" target="_blank" rel="noopener">📖 開啟手冊 PDF(新分頁)</a>' +
+        '<button class="pdf-open-link pdf-inline-btn" id="pdf-inline-open-btn">📑 內嵌檢視(可畫重點)</button>';
+      var inlineBtn = document.getElementById('pdf-inline-open-btn');
+      if (inlineBtn) inlineBtn.onclick = function () { openPdfViewer(url); };
     } else {
       bar.innerHTML = '';
+      closePdfViewer();
     }
   }
 
@@ -507,6 +513,257 @@
     } catch (e) {}
     renderPdfOpenBar(url);
   };
+
+  // ===== 內嵌 PDF 檢視器 + 黃色重點畫線 =====
+  // 重點座標存成 0~1 的相對比例,換頁/縮放/重新整理都不會跑掉。
+  // 每支影片各自一組重點(用 videoId 當 key),理由跟 pdfLink 一樣。
+  var pdfDoc = null;
+  var pdfCurrentPage = 1;
+  var pdfScale = 1.2;
+  var pdfMode = 'highlight'; // 'highlight' | 'erase'
+  var pdfStatusTimer = null;
+
+  function pdfHighlightKey() {
+    return 'pdfHighlights_' + videoId;
+  }
+
+  function loadPdfHighlights() {
+    try {
+      var raw = localStorage.getItem(pdfHighlightKey());
+      return raw ? JSON.parse(raw) : {};
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function savePdfHighlights() {
+    try { localStorage.setItem(pdfHighlightKey(), JSON.stringify(pdfHighlights)); } catch (e) {}
+  }
+
+  var pdfHighlights = loadPdfHighlights();
+
+  function flashPdfStatus(msg) {
+    var el = document.getElementById('pdfStatus');
+    if (!el) return;
+    el.textContent = msg;
+    clearTimeout(pdfStatusTimer);
+    pdfStatusTimer = setTimeout(function () { el.textContent = ''; }, 1500);
+  }
+
+  function getPageFromUrl(url) {
+    var m = /#page=(\d+)/.exec(url || '');
+    return m ? parseInt(m[1], 10) : 1;
+  }
+
+  function openPdfViewer(url) {
+    var panel = document.getElementById('pdf-viewer-panel');
+    if (!panel) return;
+    if (typeof pdfjsLib === 'undefined') {
+      alert('PDF 檢視元件載入失敗,請確認網路連線後重新整理頁面。');
+      return;
+    }
+    if (pdfjsLib.GlobalWorkerOptions.workerSrc === '' || !pdfjsLib.GlobalWorkerOptions.workerSrc) {
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+
+    panel.style.display = 'block';
+    pdfMode = 'highlight';
+    setPdfToolbarMode();
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    var wrap = document.getElementById('pdf-viewer-wrap');
+    wrap.innerHTML = '<div class="pdf-loading">PDF 載入中…</div>';
+
+    var cleanUrl = url.split('#')[0];
+    var initialPage = getPageFromUrl(url);
+
+    pdfjsLib.getDocument(cleanUrl).promise.then(function (doc) {
+      pdfDoc = doc;
+      pdfCurrentPage = Math.min(Math.max(initialPage, 1), doc.numPages);
+      document.getElementById('pdfPageNum').value = pdfCurrentPage;
+      document.getElementById('pdfPageNum').max = doc.numPages;
+      document.getElementById('pdfPageInfo').textContent = '/ ' + doc.numPages;
+      renderPdfPage(pdfCurrentPage);
+    }).catch(function (err) {
+      console.error('PDF 載入失敗:', err);
+      wrap.innerHTML = '<div class="pdf-loading">PDF 載入失敗,請確認網址是否正確,或該檔案是否允許跨網域讀取。</div>';
+    });
+  }
+
+  function closePdfViewer() {
+    var panel = document.getElementById('pdf-viewer-panel');
+    if (panel) panel.style.display = 'none';
+    pdfDoc = null;
+  }
+
+  function setPdfToolbarMode() {
+    var hBtn = document.getElementById('pdfHighlightModeBtn');
+    var eBtn = document.getElementById('pdfEraseModeBtn');
+    if (!hBtn || !eBtn) return;
+    hBtn.classList.toggle('active', pdfMode === 'highlight');
+    eBtn.classList.toggle('active', pdfMode === 'erase');
+    var canvas = document.getElementById('pdfHighlightCanvas');
+    if (canvas) canvas.classList.toggle('pan-mode', pdfMode === 'erase');
+  }
+
+  function renderPdfPage(num) {
+    pdfDoc.getPage(num).then(function (page) {
+      var viewport = page.getViewport({ scale: pdfScale });
+      var wrap = document.getElementById('pdf-viewer-wrap');
+      wrap.innerHTML = '';
+
+      var stage = document.createElement('div');
+      stage.className = 'pdf-stage';
+      stage.style.width = viewport.width + 'px';
+      stage.style.height = viewport.height + 'px';
+
+      var pdfCanvas = document.createElement('canvas');
+      pdfCanvas.width = viewport.width;
+      pdfCanvas.height = viewport.height;
+
+      var hlCanvas = document.createElement('canvas');
+      hlCanvas.id = 'pdfHighlightCanvas';
+      hlCanvas.className = 'pdf-highlight-canvas';
+      hlCanvas.width = viewport.width;
+      hlCanvas.height = viewport.height;
+
+      stage.appendChild(pdfCanvas);
+      stage.appendChild(hlCanvas);
+      wrap.appendChild(stage);
+
+      var ctx = pdfCanvas.getContext('2d');
+      page.render({ canvasContext: ctx, viewport: viewport }).promise.then(function () {
+        setupPdfHighlightLayer(hlCanvas, num);
+        drawPdfHighlights(hlCanvas, num);
+        setPdfToolbarMode();
+        document.getElementById('pdfZoomLabel').textContent = Math.round(pdfScale / 1.2 * 100) + '%';
+      });
+    });
+  }
+
+  function drawPdfHighlights(canvas, pageNum) {
+    var ctx = canvas.getContext('2d');
+    var list = pdfHighlights[pageNum] || [];
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    list.forEach(function (h) { drawPdfHighlightRect(ctx, h, canvas.width, canvas.height); });
+  }
+
+  function drawPdfHighlightRect(ctx, h, w, hgt) {
+    ctx.fillStyle = 'rgba(242, 201, 76, 0.45)';
+    ctx.fillRect(h.x * w, h.y * hgt, h.w * w, h.h * hgt);
+  }
+
+  function setupPdfHighlightLayer(canvas, pageNum) {
+    var drawing = false, startX = 0, startY = 0;
+
+    function getPos(evt) {
+      var rect = canvas.getBoundingClientRect();
+      var cx = evt.touches ? evt.touches[0].clientX : evt.clientX;
+      var cy = evt.touches ? evt.touches[0].clientY : evt.clientY;
+      return {
+        x: (cx - rect.left) * (canvas.width / rect.width),
+        y: (cy - rect.top) * (canvas.height / rect.height)
+      };
+    }
+
+    function eraseAt(pos) {
+      var list = pdfHighlights[pageNum] || [];
+      var px = pos.x / canvas.width, py = pos.y / canvas.height;
+      var idx = -1;
+      for (var i = 0; i < list.length; i++) {
+        var h = list[i];
+        if (px >= h.x && px <= h.x + h.w && py >= h.y && py <= h.y + h.h) { idx = i; break; }
+      }
+      if (idx !== -1) {
+        list.splice(idx, 1);
+        savePdfHighlights();
+        flashPdfStatus('已刪除重點');
+        drawPdfHighlights(canvas, pageNum);
+      }
+    }
+
+    function down(evt) {
+      evt.preventDefault();
+      var pos = getPos(evt);
+      if (pdfMode === 'erase') { eraseAt(pos); return; }
+      drawing = true;
+      startX = pos.x;
+      startY = pos.y;
+    }
+
+    function move(evt) {
+      if (!drawing) return;
+      evt.preventDefault();
+      var pos = getPos(evt);
+      var ctx = canvas.getContext('2d');
+      drawPdfHighlights(canvas, pageNum);
+      ctx.fillStyle = 'rgba(242, 201, 76, 0.45)';
+      var rx = Math.min(startX, pos.x), ry = Math.min(startY, pos.y);
+      ctx.fillRect(rx, ry, Math.abs(pos.x - startX), Math.abs(pos.y - startY));
+    }
+
+    function up(evt) {
+      if (!drawing) return;
+      drawing = false;
+      var pos = getPos(evt.changedTouches ? { touches: evt.changedTouches } : evt);
+      var rx = Math.min(startX, pos.x), ry = Math.min(startY, pos.y);
+      var rw = Math.abs(pos.x - startX), rh = Math.abs(pos.y - startY);
+      if (rw < 4 || rh < 4) { drawPdfHighlights(canvas, pageNum); return; }
+      var rec = { x: rx / canvas.width, y: ry / canvas.height, w: rw / canvas.width, h: rh / canvas.height };
+      if (!pdfHighlights[pageNum]) pdfHighlights[pageNum] = [];
+      pdfHighlights[pageNum].push(rec);
+      savePdfHighlights();
+      flashPdfStatus('已儲存重點');
+      drawPdfHighlights(canvas, pageNum);
+    }
+
+    canvas.addEventListener('mousedown', down);
+    canvas.addEventListener('mousemove', move);
+    canvas.addEventListener('mouseup', up);
+    canvas.addEventListener('mouseleave', function () { drawing = false; });
+    canvas.addEventListener('touchstart', down, { passive: false });
+    canvas.addEventListener('touchmove', move, { passive: false });
+    canvas.addEventListener('touchend', up, { passive: false });
+  }
+
+  function goToPdfPage(num) {
+    if (!pdfDoc) return;
+    num = Math.min(Math.max(num, 1), pdfDoc.numPages);
+    pdfCurrentPage = num;
+    document.getElementById('pdfPageNum').value = num;
+    renderPdfPage(num);
+  }
+
+  function initPdfViewerToolbar() {
+    var hBtn = document.getElementById('pdfHighlightModeBtn');
+    var eBtn = document.getElementById('pdfEraseModeBtn');
+    var clearBtn = document.getElementById('pdfClearPageBtn');
+    var prevBtn = document.getElementById('pdfPrevBtn');
+    var nextBtn = document.getElementById('pdfNextBtn');
+    var pageInput = document.getElementById('pdfPageNum');
+    var zoomInBtn = document.getElementById('pdfZoomInBtn');
+    var zoomOutBtn = document.getElementById('pdfZoomOutBtn');
+    var closeBtn = document.getElementById('pdfCloseBtn');
+    if (!hBtn) return;
+
+    hBtn.onclick = function () { pdfMode = 'highlight'; setPdfToolbarMode(); };
+    eBtn.onclick = function () { pdfMode = 'erase'; setPdfToolbarMode(); };
+    clearBtn.onclick = function () {
+      if (!pdfDoc) return;
+      if (!confirm('確定要清空這一頁的所有重點嗎?')) return;
+      pdfHighlights[pdfCurrentPage] = [];
+      savePdfHighlights();
+      var canvas = document.getElementById('pdfHighlightCanvas');
+      if (canvas) drawPdfHighlights(canvas, pdfCurrentPage);
+    };
+    prevBtn.onclick = function () { goToPdfPage(pdfCurrentPage - 1); };
+    nextBtn.onclick = function () { goToPdfPage(pdfCurrentPage + 1); };
+    pageInput.onchange = function () { goToPdfPage(parseInt(pageInput.value, 10)); };
+    zoomInBtn.onclick = function () { pdfScale = Math.min(pdfScale + 0.2, 3.0); renderPdfPage(pdfCurrentPage); };
+    zoomOutBtn.onclick = function () { pdfScale = Math.max(pdfScale - 0.2, 0.6); renderPdfPage(pdfCurrentPage); };
+    closeBtn.onclick = closePdfViewer;
+  }
 
   function initChat() {
     var notice = document.getElementById('chat-notice');
