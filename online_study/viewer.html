@@ -23,6 +23,9 @@
       <button onclick="savePdfLink()">儲存</button>
       <button onclick="setupPrivatePdfLink()" class="pdf-private-setup-btn">🔒 設定私人文件</button>
       <button onclick="resetPrivateToken()" class="pdf-private-setup-btn">🔑 清除已存權杖</button>
+      <select id="pdf-link-history" class="pdf-link-history-select" onchange="loadPdfLinkFromHistory(this.value)">
+        <option value="">📋 從歷史連結套用...</option>
+      </select>
     </div>
   </div>
 </div>
