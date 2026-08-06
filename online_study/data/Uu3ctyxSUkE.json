@@ -1,0 +1,194 @@
+{
+  "subject": "穿音速空氣動力學 - 高速飛機控制與系統特性",
+  "mc_questions": [
+    {
+      "zh_question": "當飛機在高馬赫數下接近臨界馬赫數(Mcc)時，產生「噴射機俯衝」(Mach Tuck)現象的主要物理原因為何？",
+      "zh_options": [
+        "(A) 壓力中心(Center of Pressure)往前移動",
+        "(B) 機翼產生的下洗流(Downwash)增強，導致機尾產生額外升力",
+        "(C) 壓力中心(Center of Pressure)向後移動，且機翼後的流場分離導致到達水平尾翼的下洗流減少",
+        "(D) 飛機重心(CG)隨速度增加而向後移動"
+      ],
+      "en_question": "What are the primary physical causes of 'Mach Tuck' as an aircraft approaches the Critical Mach Number (Mcc)?",
+      "en_options": [
+        "(A) Forward movement of the Center of Pressure (CP).",
+        "(B) Enhanced downwash from the wing causing additional lift on the tail.",
+        "(C) Rearward movement of the Center of Pressure (CP) and reduced downwash reaching the tailplane due to flow separation behind the shockwave.",
+        "(D) Rearward movement of the Center of Gravity (CG) as speed increases."
+      ],
+      "answer": "C",
+      "explanation": "Mach Tuck 主要是由於 Shockwave 形成後，Center of Pressure 往後移動產生 Nose-down moment，同時機翼上方的 Flow separation 導致 Downwash 減少，使水平尾翼原本產生的 Downward force 減弱，進一步加劇俯衝趨勢。",
+      "timestamp": "01:30"
+    },
+    {
+      "zh_question": "關於「副翼反向」(Aileron Reversal)現象，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 這是因為副翼操縱鋼繩在高速下受熱膨脹所致",
+        "(B) 在高速飛行時，副翼偏轉產生的氣動力使機翼發生扭轉(Twisting)，其扭轉效果抵消甚至反轉了原本預期的滾轉力矩",
+        "(C) 只要增加副翼的面積即可完全解決此問題",
+        "(D) 這只會發生在配備超臨界機翼(Supercritical Wing)的飛機上"
+      ],
+      "en_question": "Which of the following statements regarding 'Aileron Reversal' is correct?",
+      "en_options": [
+        "(A) It is caused by the thermal expansion of aileron control cables at high speeds.",
+        "(B) At high speeds, the aerodynamic force from aileron deflection causes wing twisting, which offsets or reverses the intended rolling moment.",
+        "(C) Increasing the aileron surface area can completely solve this issue.",
+        "(D) It only occurs on aircraft equipped with Supercritical Wings."
+      ],
+      "answer": "B",
+      "explanation": "Aileron Reversal 屬於氣動彈性(Aeroelastic)問題。在高速下，副翼偏轉產生的力矩會使結構剛性不足的機翼產生 Twist，改變整片機翼的 Angle of Attack，導致滾轉方向與飛行員輸入相反。",
+      "timestamp": "07:30"
+    },
+    {
+      "zh_question": "超臨界機翼(Supercritical Wing)的主要設計特點與目的是什麼？",
+      "zh_options": [
+        "(A) 機翼上方極度彎曲以增加低速升力",
+        "(B) 藉由平坦的機翼上表面(Flattened top)來減緩氣流加速，延後震波(Shockwave)產生並提高臨界馬赫數(Mcc)",
+        "(C) 增加機翼厚度以容納更多燃料，不考慮阻力",
+        "(D) 專門為了在低速飛行時減少感應阻力(Induced Drag)"
+      ],
+      "en_question": "What is the primary design feature and purpose of a Supercritical Wing?",
+      "en_options": [
+        "(A) Highly curved upper surface to increase low-speed lift.",
+        "(B) Utilizing a flattened top surface to reduce airflow acceleration, delaying shockwave formation and increasing the Critical Mach Number (Mcc).",
+        "(C) Increasing wing thickness for more fuel capacity without considering drag.",
+        "(D) Specifically designed to reduce induced drag during low-speed flight."
+      ],
+      "answer": "B",
+      "explanation": "Supercritical Wing 透過 Flattened upper surface 減少氣流在機翼上方的加速幅度，使 Shockwave 較晚形成且強度較弱，有效延後 Drag Divergence Mach Number，提高飛機的巡航速度與效率。",
+      "timestamp": "12:15"
+    },
+    {
+      "zh_question": "關於 Supercritical Wing (超臨界機翼) 的設計邏輯，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 透過增加機翼上表面的彎曲度來增加升力",
+        "(B) 主要是為了降低低速飛行時的誘導阻力",
+        "(C) 藉由平坦化機翼上表面來延遲震波 (Shockwave) 的產生，進而提升 Mcrit",
+        "(D) 僅用於 Boeing 系列飛機，Airbus 飛機較少採用"
+      ],
+      "en_question": "Regarding the design logic of a Supercritical Wing, which of the following statements is correct?",
+      "en_options": [
+        "(A) It increases lift by increasing the curvature of the wing's upper surface.",
+        "(B) It is primarily designed to reduce induced drag during low-speed flight.",
+        "(C) It flattens the upper surface to delay the onset of shockwaves, thereby increasing Mcrit.",
+        "(D) It is only used on Boeing aircraft; Airbus aircraft rarely adopt this design."
+      ],
+      "answer": "C",
+      "explanation": "Supercritical Wing 的設計特點是機翼上表面較為平坦 (Flattened top surface)，目的是為了使氣流流速增加較慢，延遲局部氣流達到音速的時間，從而提高 Critical Mach Number (Mcrit)。音訊中特別提到 Airbus (如 A330, A350, A380) 廣泛採用此設計。",
+      "timestamp": "16:35"
+    },
+    {
+      "zh_question": "在不同的速度區間 (Speed Divisions) 定義中，音訊提到的 Transonic (穿音速) 範圍為何？",
+      "zh_options": [
+        "(A) Mach 0.75 以下",
+        "(B) Mach 0.75 到 1.20",
+        "(C) Mach 1.20 到 5.00",
+        "(0) Mach 5.00 以上"
+      ],
+      "en_question": "According to the speed division definitions mentioned in the audio, what is the range for Transonic speed?",
+      "en_options": [
+        "(A) Below Mach 0.75",
+        "(B) Mach 0.75 to 1.20",
+        "(C) Mach 1.20 to 5.00",
+        "(D) Above Mach 5.00"
+      ],
+      "answer": "B",
+      "explanation": "音訊中明確指出：Subsonic 為 0.75 以下，Transonic 為 0.75 到 1.20，Supersonic 為 1.20 到 5.00，而 5.00 以上則定義為 Hypersonic。",
+      "timestamp": "19:10"
+    },
+    {
+      "zh_question": "關於 Vmo 與 Mmo 的限制邏輯，下列教官的分析何者正確？",
+      "zh_options": [
+        "(A) Vmo 主要受限於高高度的壓縮性效應 (Compressibility)",
+        "(B) Mmo 主要在低高度時考慮結構負載 (Structural Loads)",
+        "(C) Vmo 通常在低高度時作為限制，主要與結構負載及 Flutter (顫振) 有關",
+        "(D) 在高高度飛行時，機師僅需注意 Vmo，不需理會 Mmo"
+      ],
+      "en_question": "Regarding the limiting logic of Vmo and Mmo, which of the instructor's analyses is correct?",
+      "en_options": [
+        "(A) Vmo is primarily limited by compressibility effects at high altitudes.",
+        "(B) Mmo primarily considers structural loads at low altitudes.",
+        "(C) Vmo is usually the limit at lower altitudes, primarily related to structural loads and flutter.",
+        "(D) When flying at high altitudes, pilots only need to pay attention to Vmo and can ignore Mmo."
+      ],
+      "answer": "C",
+      "explanation": "音訊解釋 Vmo (Maximum Operating Limit Speed) 在低高度受限於 Structural loads (結構負載) 與 Flutter；而 Mmo (Maximum Operating Limit Mach) 則在高高度時受限於 Compressibility effects (壓縮性效應)。",
+      "timestamp": "21:05"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The value of MMO is normally the basis for establishing an aircraft's {{c1::stability}} limit.",
+      "zh_translation": "最大操作馬赫數(MMO)的數值通常是建立飛機穩定性極限的基礎。",
+      "explanation": "MMO 通常是考慮到 Mach Tuck 及高速 Buffet 等穩定性與操縱性因素後所定的安全上限。",
+      "tags": "Limitations / Aerodynamics",
+      "timestamp": "03:45"
+    },
+    {
+      "cloze_text": "To counteract the nose-down pitching moment at high speeds, some aircraft are fitted with a {{c1::Mach trimmer}}.",
+      "zh_translation": "為了抵消高速下的俯衝力矩，某些飛機會安裝馬赫配平器(Mach trimmer)。",
+      "explanation": "Mach trimmer 是一個自動裝置，隨馬赫數增加自動調整水平尾翼或升降舵以維持俯仰平衡。",
+      "tags": "System / Flight Control",
+      "timestamp": "05:15"
+    },
+    {
+      "cloze_text": "High-speed buffet is caused by airflow {{c1::separation}} behind the shockwave hitting the aircraft structure.",
+      "zh_translation": "高速震動(High-speed buffet)是由震波後方的氣流分離撞擊飛機結構所引起的。",
+      "explanation": "這與低速失速震動不同，主要是穿音速流場不穩定導致的亂流衝擊。",
+      "tags": "Aerodynamics / High Speed",
+      "timestamp": "02:55"
+    },
+    {
+      "cloze_text": "Many high-speed aircraft use {{c1::spoilers}} for lateral control to avoid the problems associated with aileron effectiveness at high Mach numbers.",
+      "zh_translation": "許多高速飛機使用擾流板(spoilers)進行橫向控制，以避免高馬赫數下副翼效能下降的問題。",
+      "explanation": "Spoilers 透過破壞升力來達成滾轉，較不受高速下機翼扭轉或震波干擾副翼的影響。",
+      "tags": "System / Flight Control",
+      "timestamp": "06:40"
+    },
+    {
+      "cloze_text": "The design of a supercritical wing involves a {{c1::reflex}} camber at the trailing edge to compensate for lift loss from the flattened top.",
+      "zh_translation": "超臨界機翼的設計在後緣使用了反曲(reflex)弧度，以補償平坦上表面所損失的升力。",
+      "explanation": "這種特殊形狀(後緣向下彎曲)可以在延後震波的同時，在機翼後部產生額外升力。",
+      "tags": "Design / Aerodynamics",
+      "timestamp": "13:20"
+    },
+    {
+      "cloze_text": "The speed of an aircraft in which airflow over any part of the structure first reaches Mach 1.0 is termed {{c1::Critical Mach Number}}.",
+      "zh_translation": "飛機氣流在結構任何部分首次達到 1.0 馬赫的速度被稱為「臨界馬赫數」。",
+      "explanation": "這是高速飛行中最重要的觀念，代號為 Mcrit，代表局部氣流開始進入穿音速狀態的臨界點。",
+      "tags": "Definitions / Aerodynamics",
+      "timestamp": "19:47"
+    },
+    {
+      "cloze_text": "Vmo is expressed in knots {{c1::calibrated}} airspeed (KCAS).",
+      "zh_translation": "Vmo 是以「校正」海節 (KCAS) 來表示。",
+      "explanation": "Vmo 是結構速度限制，使用 KCAS 作為參考基準。",
+      "tags": "Limitations / Airspeed",
+      "timestamp": "20:45"
+    },
+    {
+      "cloze_text": "The Mmo limit is associated with operations at higher altitudes and is usually more concerned with {{c1::compressibility}} effects and flutter.",
+      "zh_translation": "Mmo 限制與高高度作業相關，通常更關注「壓縮性」效應與顫振。",
+      "explanation": "隨高度增加，音速下降，馬赫數限制（Mmo）會比指示空速限制（Vmo）更早達到。",
+      "tags": "Limitations / High Altitude",
+      "timestamp": "21:15"
+    },
+    {
+      "cloze_text": "The drag incurred in the transonic region due to shock wave formation and airflow separation is known as {{c1::wave drag}}.",
+      "zh_translation": "在穿音速區域由於震波形成與氣流分離所產生的阻力被稱為「波阻」。",
+      "explanation": "當飛機接近音速時，波阻會急劇增加，這也是 Drag Divergence 的主要原因。",
+      "tags": "Aerodynamics / Drag",
+      "timestamp": "33:45"
+    },
+    {
+      "cloze_text": "Sweepback theory is based upon the concept that it is only the component of the airflow {{c1::perpendicular}} to the leading edge that affects pressure distribution.",
+      "zh_translation": "後掠翼理論是基於只有「垂直」於前緣的氣流分量會影響壓力分佈的觀念。",
+      "explanation": "透過機翼後掠，可以有效降低垂直於前緣的實際流速分量，進而延遲震波產生並提高 Mcrit。",
+      "tags": "Design / Sweepback",
+      "timestamp": "23:58"
+    }
+  ],
+  "video_id": "Uu3ctyxSUkE",
+  "url": "https://www.youtube.com/watch?v=Uu3ctyxSUkE",
+  "has_transcript": false
+}

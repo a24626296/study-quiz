@@ -1,0 +1,385 @@
+{
+  "subject": "高級空氣動力學 - 高速飛航與馬赫數邏輯",
+  "mc_questions": [
+    {
+      "zh_question": "關於臨界馬赫數 (Critical Mach Number, M_crit) 的定義與特性，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 指飛機的前進速度（Freestream Speed）達到音速的狀態",
+        "(B) 當飛機表面任一點的局部流速（Local Mach Number）達到 Mach 1.0 時的飛機馬赫數",
+        "(C) 臨界馬赫數通常大於阻力上升馬赫數 (Drag Rise Mach Number)",
+        "(D) 飛機進行大動作動作（Maneuvering）增加攻角時，會提高臨界馬赫數"
+      ],
+      "en_question": "Which of the following statements regarding the Critical Mach Number (M_crit) is correct?",
+      "en_options": [
+        "(A) It refers to the state when the aircraft's freestream speed reaches the speed of sound.",
+        "(B) It is the freestream Mach number at which the local Mach number at any point on the aircraft first reaches Mach 1.0.",
+        "(C) M_crit is typically greater than the Drag Rise Mach Number.",
+        "(D) Increasing the Angle of Attack during maneuvering will increase the M_crit."
+      ],
+      "answer": "B",
+      "explanation": "臨界馬赫數 (M_crit) 的定義是飛機在加速過程中，當機身表面任一點的局部流速 (Local Mach Number) 首次達到音速 (Mach 1.0) 時，該飛機當時的馬赫數。此外，增加攻角會增加局部流速的加速效果，反而會導致 M_crit 降低 (Lowering M_crit)。",
+      "timestamp": "01:10"
+    },
+    {
+      "zh_question": "當飛機在高高度且接近最高營運馬赫數 (M_mo) 時，若為了減速而大幅帶桿增加攻角，可能會面臨什麼空氣動力學風險？",
+      "zh_options": [
+        "(A) 攻角增加會提高臨界馬赫數，讓飛機更安全地減速",
+        "(B) 局部流速會因為帶桿而變慢，提早進入次音速區",
+        "(C) 增加攻角會使臨界馬赫數降低，導致在相同速度下提早產生震波，可能引發超音速流場特性（如 Mach Tuck）",
+        "(D) 攻角的改變與馬赫數特性完全無關"
+      ],
+      "en_question": "When flying at high altitude near M_mo, what aerodynamic risk might occur if the pilot pulls back on the stick significantly to increase the Angle of Attack for deceleration?",
+      "en_options": [
+        "(A) Increasing the AoA will raise the M_crit, allowing the aircraft to decelerate safely.",
+        "(B) Local flow velocity will decrease due to the stick input, entering the subsonic region earlier.",
+        "(C) Increasing the AoA lowers the M_crit, causing shock waves to form earlier at the same speed, potentially leading to supersonic flow characteristics like Mach Tuck.",
+        "(D) Changes in AoA have no relation to Mach number characteristics."
+      ],
+      "answer": "C",
+      "explanation": "在高速飛行時，帶桿增加攻角 (Angle of Attack) 會強化機翼上方的空氣加速效應，這會降低臨界馬赫數 (M_crit)。如果飛機原本就接近 M_mo，這可能導致局部流場立即超過 Mach 1.0 產生震波 (Shock Wave)，進而改變飛機的重心平衡與控制特性。",
+      "timestamp": "03:15"
+    },
+    {
+      "zh_question": "關於速度區域的劃分與空氣壓縮性 (Compressibility) 的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) 只要飛機移動，空氣的壓縮性就必須被精確計算，不能忽略",
+        "(B) 慣例上，當速度低於 0.4 Mach (約 280 Knots at sea level) 時，空氣壓縮性產生的 Ram Rise 影響極小，可視為不可壓縮流",
+        "(C) 只有在達到超音速 (Supersonic) 時，才需要考慮壓縮性",
+        "(D) 同等效空速 (EAS) 是指指示空速 (IAS) 修正位置誤差後的數值"
+      ],
+      "en_question": "Regarding the division of speed regions and air compressibility, which of the following is correct?",
+      "en_options": [
+        "(A) Air compressibility must be precisely calculated as long as the aircraft is moving.",
+        "(B) By convention, when the speed is below 0.4 Mach (approx. 280 kts at SL), the effects of Ram Rise are negligible and air is considered incompressible.",
+        "(C) Compressibility only needs to be considered in supersonic flight.",
+        "(D) Equivalent Airspeed (EAS) is Indicated Airspeed (IAS) corrected for position error."
+      ],
+      "answer": "B",
+      "explanation": "在低速（約 0.4 Mach 以下）時，空氣被擠壓產生的溫升現象 (Ram Rise) 尚不明顯，通常視為不可壓縮流。當速度超過 0.4 Mach 或 280 節時，壓縮性誤差不可忽略，此時須將校正空速 (CAS) 修正壓縮性誤差後得到等效空速 (EAS)。",
+      "timestamp": "07:45"
+    },
+    {
+      "zh_question": "根據影片內容，在計算空速時，True Airspeed (TAS) 達到多少數值以上才需要開始考慮壓縮性誤差 (Compression Error)？",
+      "zh_options": [
+        "(A) 200 knots",
+        "(B) 250 knots",
+        "(C) 280 knots",
+        "(D) 300 knots"
+      ],
+      "en_question": "According to the video, at what True Airspeed (TAS) threshold should pilots begin to consider the Compression Error?",
+      "en_options": [
+        "(A) 200 knots",
+        "(B) 250 knots",
+        "(C) 280 knots",
+        "(D) 300 knots"
+      ],
+      "answer": "C",
+      "explanation": "教官在影片中糾正課本提到的 Flight Level 200，指出關鍵點在於 True Airspeed 達到 280 knots 時才需要開始考慮和記錄 Compression Error (壓縮性誤差)。",
+      "timestamp": "15:45"
+    },
+    {
+      "zh_question": "在 FAA Part 23 的飛機性能分類中，定義「高空速 (High Speed)」飛機的門檻為何？",
+      "zh_options": [
+        "(A) VMO/MMO 大於 250 KCAS 或 Mach 0.6",
+        "(B) VMO/MMO 大於 250 KCAS 或 Mach 0.7",
+        "(C) VMO/MMO 小於等於 250 KCAS 或 Mach 0.6",
+        "(D) 飛機總重超過 5700 公斤"
+      ],
+      "en_question": "In the FAA Part 23 aircraft performance certification, what is the threshold for defining a 'High Speed' airplane?",
+      "en_options": [
+        "(A) VMO/MMO greater than 250 KCAS or Mach 0.6",
+        "(B) VMO/MMO greater than 250 KCAS or Mach 0.7",
+        "(C) VMO/MMO less than or equal to 250 KCAS or Mach 0.6",
+        "(D) Aircraft maximum takeoff weight exceeding 5700 kg"
+      ],
+      "answer": "A",
+      "explanation": "根據影片中查詢 FAA Title 14 Part 23 的內容，High speed 指的是 VMO 或 MMO 大於 250 KCAS 或 Mach 0.6 的飛機。低於此數值則定義為 Low speed。",
+      "timestamp": "19:40"
+    },
+    {
+      "zh_question": "當飛機進入穿音速 (Transonic) 區域並產生震波 (Shockwave) 後，升力係數 (Coefficient of Lift) 的變化趨勢為何？",
+      "zh_options": [
+        "(A) 持續增加，直到進入超音速 (Supersonic)",
+        "(B) 稍微增加後保持穩定",
+        "(C) 顯著下降，直到空氣重新附著於翼面 (Reattached)",
+        "(D) 不受震波影響，僅受攻角影響"
+      ],
+      "en_question": "What is the trend of the Coefficient of Lift when an aircraft enters the Transonic region and forms shockwaves?",
+      "en_options": [
+        "(A) Increases continuously until reaching Supersonic speeds",
+        "(B) Increases slightly and then remains stable",
+        "(C) Decreases significantly until the airflow reattaches to the wing surface",
+        "(D) Unaffected by shockwaves, only influenced by angle of attack"
+      ],
+      "answer": "C",
+      "explanation": "影片中提到進入穿音速時，震波會導致氣流分離 (Flow Separation)，升力係數會急遽下降 (如圖中 B 點到 C 點)，直到速度增加到一定程度，氣流重新附著 (Reattached) 升力才會回升。",
+      "timestamp": "29:50"
+    },
+    {
+      "zh_question": "根據教官說明，關於「Normal Shock Wave」（法向震波）的定義，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 震波與機翼弦線成 45 度角",
+        "(B) 震波與氣流方向完全平行",
+        "(C) 震波與機翼表面垂直（呈 90 度）",
+        "(D) 震波只會出現在機翼的前緣（Leading Edge）"
+      ],
+      "en_question": "According to the instructor, which of the following best describes the definition of a 'Normal Shock Wave'?",
+      "en_options": [
+        "(A) The shock wave is at a 45-degree angle to the chord line",
+        "(B) The shock wave is perfectly parallel to the airflow",
+        "(C) The shock wave is perpendicular (90 degrees) to the airfoil surface",
+        "(D) The shock wave only appears at the leading edge of the wing"
+      ],
+      "answer": "C",
+      "explanation": "教官在影片中明確指出「Normal」在物理意義上指的是 90 度，即震波與機翼表面 (Surface) 呈現垂直狀態時，稱為 Well-developed Normal Shock Wave。",
+      "timestamp": "34:30"
+    },
+    {
+      "zh_question": "當飛機速度持續增加（例如從 Mach 0.77 增加到更高速度），機翼上方的震波位置通常會如何移動？",
+      "zh_options": [
+        "(A) 向前緣 (Leading Edge) 移動",
+        "(B) 向後緣 (Trailing Edge) 移動",
+        "(C) 保持在最大厚度處 (Maximum Thickness) 固定不動",
+        "(D) 直接消失並轉化為熱能"
+      ],
+      "en_question": "As the Mach number increases (e.g., from Mach 0.77 to higher speeds), how does the position of the shock wave on the upper surface typically change?",
+      "en_options": [
+        "(A) It moves forward toward the leading edge",
+        "(B) It moves rearward toward the trailing edge",
+        "(C) It remains fixed at the point of maximum thickness",
+        "(D) It disappears and converts directly into heat energy"
+      ],
+      "answer": "B",
+      "explanation": "隨着馬赫數增加，機翼表面的超音速區域擴大，震波會逐漸向機翼後緣 (Rearward / Trailing Edge) 移動。",
+      "timestamp": "38:15"
+    },
+    {
+      "zh_question": "影片中提到，為什麼跨音速機翼 (Transonic Wing) 的設計通常需要較小的 Leading Edge Radius（前緣半徑）？",
+      "zh_options": [
+        "(A) 為了增加低速時的升力",
+        "(B) 為了讓機翼結構更輕",
+        "(C) 為了延後 Critical Mach Number (Mcrit) 的發生",
+        "(D) 為了防止機翼結冰"
+      ],
+      "en_question": "Why are transonic wings typically designed with a smaller leading edge radius according to the lecture?",
+      "en_options": [
+        "(A) To increase lift at low speeds",
+        "(B) To make the wing structure lighter",
+        "(C) To delay the occurrence of the Critical Mach Number (Mcrit)",
+        "(D) To prevent wing icing"
+      ],
+      "answer": "C",
+      "explanation": "較薄的機翼與較小的前緣半徑可以降低空氣在機翼表面的加速程度 (Aerodynamic Acceleration)，進而延後達到音速的時間，即提高 Critical Mach Number (Mcrit)。",
+      "timestamp": "31:20"
+    },
+    {
+      "zh_question": "關於「臨界馬赫數」(Critical Mach Number) 的定義，下列何者正確？",
+      "zh_options": [
+        "(A) 飛機整體的飛行速度達到音速 Mach 1.0 的時刻",
+        "(B) 飛機表面任何一點的局部氣流速度首度達到 Mach 1.0 的飛行速度",
+        "(C) 飛機產生音爆 (Sonic Boom) 瞬間的飛行速度",
+        "(D) 飛機發動機進氣道內部氣流達到音速的馬赫數"
+      ],
+      "en_question": "Which of the following is the correct definition of 'Critical Mach Number'?",
+      "en_options": [
+        "(A) The moment when the entire aircraft's flight speed reaches Mach 1.0",
+        "(B) The flight speed at which the local airflow velocity over any part of the aircraft structure first reaches Mach 1.0",
+        "(C) The flight speed at the moment a sonic boom is generated",
+        "(D) The Mach number at which the airflow inside the engine intake reaches the speed of sound"
+      ],
+      "answer": "B",
+      "explanation": "根據教官說明，Critical Mach Number 是指當飛機在次音速飛行時，其表面任一部分(如機翼上方)的氣流速度首度達到 Mach 1.0。一旦超過此速度，就會開始產生震波(Shock Wave)。",
+      "timestamp": "46:28"
+    },
+    {
+      "zh_question": "在穿音速區域 (Transonic Region)，波阻 (Wave Drag) 劇烈增加的主要原因為何？",
+      "zh_options": [
+        "(A) 空氣黏滯性隨溫度升高而大幅增加",
+        "(B) 震波的形成導致能量損耗與後方的氣流分離 (Airflow Separation)",
+        "(C) 誘導阻力 (Induced Drag) 隨速度增加而變大",
+        "(D) 機身表面摩擦力在音速附近會突然倍增"
+      ],
+      "en_question": "What is the primary reason for the sharp increase in Wave Drag within the transonic region?",
+      "en_options": [
+        "(A) Air viscosity increases significantly with rising temperature",
+        "(B) The formation of shock waves leads to energy loss and subsequent airflow separation",
+        "(C) Induced drag increases with speed",
+        "(D) Skin friction on the aircraft surface suddenly doubles near the speed of sound"
+      ],
+      "answer": "B",
+      "explanation": "當飛行速度超過 Mcrit，震波(Shock Wave)產生會造成壓力驟增，並導致邊界層氣流分離(Boundary layer separation)，動能轉化為熱能耗散，使得 Wave Drag 隨馬赫數增加而急遽上升。",
+      "timestamp": "48:45"
+    },
+    {
+      "zh_question": "「馬赫俯衝」(Mach Tuck) 現象主要是由哪些因素共同造成的？",
+      "zh_options": [
+        "(A) 飛機重心在前移，導致安定性增加",
+        "(B) 發動機推力隨高度增加而減少",
+        "(C) 壓力中心 (Center of Pressure) 後移以及水平尾翼效能下降",
+        "(D) 副翼失效導致飛機失去滾轉控制"
+      ],
+      "en_question": "What factors primarily contribute to the phenomenon known as 'Mach Tuck'?",
+      "en_options": [
+        "(A) The aircraft's center of gravity moves forward, increasing stability",
+        "(B) Engine thrust decreases with increasing altitude",
+        "(C) The aft movement of the Center of Pressure and a decrease in horizontal tail effectiveness",
+        "(D) Aileron reversal causing loss of roll control"
+      ],
+      "answer": "C",
+      "explanation": "Mach Tuck 是指超音速或接近音速時，壓力中心(CP)向後移動產生下俯力矩，且機翼產生的下洗流(Downwash)改變影響水平尾翼效能，使飛機產生非預期的低頭傾向。",
+      "timestamp": "50:40"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Critical Mach Number (M_crit) is the freestream Mach number when the {{c1::local}} Mach number at any point reaches 1.0.",
+      "zh_translation": "臨界馬赫數是指當機身任一點的「局部」馬赫數達到 1.0 時的飛機馬赫數。",
+      "explanation": "這是區分次音速與穿音速流場的關鍵臨界點。",
+      "tags": "Aerodynamics / Definitions",
+      "timestamp": "01:10"
+    },
+    {
+      "cloze_text": "Drag Rise Mach Number (M_dr) will always be {{c1::greater}} than the Critical Mach Number (M_crit).",
+      "zh_translation": "阻力上升馬赫數 (M_dr) 一定會「大於」臨界馬赫數 (M_crit)。",
+      "explanation": "當速度超過 M_crit 後，震波產生的阻力會開始急劇增加，達到 M_dr 時阻力會呈現發散式增長。",
+      "tags": "Aerodynamics / Performance",
+      "timestamp": "04:35"
+    },
+    {
+      "cloze_text": "By convention, air is considered incompressible below {{c1::0.4}} Mach, and Ram Rise effects can be ignored.",
+      "zh_translation": "依照慣例，在馬赫數「0.4」以下，空氣被視為不可壓縮，且衝壓溫升效應可以忽略。",
+      "explanation": "超過此速度後，壓縮性效應會導致空速表產生顯著誤差。",
+      "tags": "Aerodynamics / Speed-Divisions",
+      "timestamp": "07:45"
+    },
+    {
+      "cloze_text": "Equivalent Airspeed (EAS) is Calibrated Airspeed (CAS) corrected for {{c1::compressibility}} error.",
+      "zh_translation": "等效空速 (EAS) 是校正空速 (CAS) 修正「壓縮性」誤差後的結果。",
+      "explanation": "在高空高速下，CAS 必須修正壓縮性才能正確反映飛機受到的氣動力壓。",
+      "tags": "Airspeed-Logic / Definitions",
+      "timestamp": "08:45"
+    },
+    {
+      "cloze_text": "An increase in the Angle of Attack during maneuvering will result in a {{c1::decrease}} of the Critical Mach Number.",
+      "zh_translation": "在動作過程中增加攻角，會導致臨界馬赫數「降低」。",
+      "explanation": "增加攻角會加速機翼上方的氣流，使得局部流速在較低的飛機速度下就達到音速。",
+      "tags": "Aerodynamics / Limitations",
+      "timestamp": "03:20"
+    },
+    {
+      "cloze_text": "Instrument Error in airspeed indicators can be caused by {{c1::thermal expansion}} of mechanical gears within the unit.",
+      "zh_translation": "空速表中的儀表誤差可能是由單元內機械齒輪的「熱脹冷縮」所引起的。",
+      "explanation": "這是儀表誤差 (Instrument Error) 的物理成因之一，與安裝位置誤差 (Installation Error) 不同。",
+      "tags": "Systems / Instruments",
+      "timestamp": "10:25"
+    },
+    {
+      "cloze_text": "在 FAA Part 23 認證中，Level 4 的飛機是指最大乘客載位介於 {{c1::10 至 19}} 人的飛機。",
+      "zh_translation": "In FAA Part 23 certification, Level 4 aircraft refers to airplanes with a maximum passenger seating configuration of 10 to 19 passengers.",
+      "explanation": "這是 FAA 23.2005 針對正常類別飛機的分級定義，Level 4 是該分類中載客量最高的一級。",
+      "tags": "Certification / Limitations",
+      "timestamp": "18:40"
+    },
+    {
+      "cloze_text": "臨界馬赫數 (M_crit) 是指飛機表面上任一點首次達到 {{c1::Mach 1.0}} 時的自由氣流馬赫數。",
+      "zh_translation": "Critical Mach Number (M_crit) is the free-stream Mach number at which the flow over any point of the aircraft first reaches Mach 1.0.",
+      "explanation": "這標誌著飛機正式進入穿音速區域 (Transonic Region) 的起始點。",
+      "tags": "Aerodynamics / Definition",
+      "timestamp": "27:30"
+    },
+    {
+      "cloze_text": "翼型的厚度 (Thickness) 或是 {{c1::弧度 (Camber)}} 愈大，會導致臨界馬赫數 (M_crit) 愈低。",
+      "zh_translation": "Larger airfoil thickness or camber will result in a lower Critical Mach Number (M_crit).",
+      "explanation": "較厚或較彎曲的機翼會導致翼面上方流速加快，使其在較低的飛行速度下就達到音速。",
+      "tags": "Aerodynamics / Performance",
+      "timestamp": "28:30"
+    },
+    {
+      "cloze_text": "設計上為了延後臨界馬赫數的發生，可以採用 {{c1::後掠翼 (Sweepback)}} 或是三角翼的構造。",
+      "zh_translation": "To delay the onset of the Critical Mach Number, aircraft design can utilize sweepback or delta wing configurations.",
+      "explanation": "後掠翼能減少垂直於機翼前緣的分速，進而容許較高的巡航速度而不產生震波。",
+      "tags": "Design / Aerodynamics",
+      "timestamp": "29:50"
+    },
+    {
+      "cloze_text": "Critical Mach Number (Mcrit) 的定義是：當飛機飛行的馬赫數達到某一數值時，機翼表面局部氣流速度首次達到 {{C1::Mach 1.0}}。",
+      "zh_translation": "臨界馬赫數 (Mcrit) 的定義是：當飛機飛行的馬赫數達到某一數值時，機翼表面局部氣流速度首次達到 Mach 1.0。",
+      "explanation": "這是跨音速飛行的基礎定義，一旦超過此速度，機翼上就會開始出現局部超音速區與震波。",
+      "tags": "Aerodynamics",
+      "timestamp": "30:45"
+    },
+    {
+      "cloze_text": "在震波之後產生的氣流剝離 (Flow Separation)，會導致飛機的總升力 (Total Lift) {{C1::減少}}。",
+      "zh_translation": "在震波之後產生的氣流剝離 (Flow Separation)，會導致飛機的總升力 (Total Lift) 減少。",
+      "explanation": "震波誘導的氣流剝離 (Shock-induced separation) 會破壞壓力分佈，導致升力損失並產生劇烈抖動。",
+      "tags": "Performance",
+      "timestamp": "36:05"
+    },
+    {
+      "cloze_text": "當飛機速度達到 Mach 1.0 以上時，震波會脫離機翼前緣並在前方形成 {{C1::Bow Wave}}（弓形震波）。",
+      "zh_translation": "當飛機速度達到 Mach 1.0 以上時，震波會脫離機翼前緣並在前方形成 Bow Wave（弓形震波）。",
+      "explanation": "當進入完全超音速流場時，震波不再附着於表面，而是形成一個在飛機前方的弓形震波結構。",
+      "tags": "Supersonic",
+      "timestamp": "43:45"
+    },
+    {
+      "cloze_text": "教官提到，在超音速飛行中，由於 Ram Rise 效應會導致空氣 {{C1::溫度}} 上升，進而影響局部音速。",
+      "zh_translation": "教官提到，在超音速飛行中，由於 Ram Rise 效應會導致空氣溫度上升，進而影響局部音速。",
+      "explanation": "Ram Rise 是空氣受擠壓後動能轉為熱能的現象，這會改變局部的音速計算 (Speed of Sound = 38.945 * sqrt(T))。",
+      "tags": "Atmospheric-Physics",
+      "timestamp": "40:10"
+    },
+    {
+      "cloze_text": "Well-developed Normal Shock Wave 的特性是其震波面與機翼表面呈 {{C1::垂直}} 狀態。",
+      "zh_translation": "成熟的法向震波特性是其震波面與機翼表面呈垂直狀態。",
+      "explanation": "這是 Normal Shock Wave 最核心的幾何定義。",
+      "tags": "Definitions",
+      "timestamp": "34:55"
+    },
+    {
+      "cloze_text": "Under the standard temperature condition (15 degrees C), the speed of sound at sea level is about {{c1::661}} knots.",
+      "zh_translation": "在標準溫度條件(15度C)下，海平面的音速約為 661 結。",
+      "explanation": "音速隨溫度變化，海平面標準大氣壓力下之數據為飛行原理的基本常數。",
+      "tags": "Limitations, Aerodynamics",
+      "timestamp": "45:25"
+    },
+    {
+      "cloze_text": "At 40,000 feet, where the temperature is about -55 degrees C, the speed of sound decreases to about {{c1::574}} knots.",
+      "zh_translation": "在四萬英呎、氣溫約零下55度C時，音速會下降至約 574 結。",
+      "explanation": "高高度氣溫低，局部音速(LSS)隨之降低，因此噴射機在高空需參考馬赫數而非僅看指示 airspeed。",
+      "tags": "Limitations, Environment",
+      "timestamp": "45:35"
+    },
+    {
+      "cloze_text": "Mach number is the ratio of {{c1::True Airspeed}} (TAS) to the speed of sound in the same atmosphere condition.",
+      "zh_translation": "馬赫數是指飛機的真空速(TAS)與相同大氣條件下的音速之比值。",
+      "explanation": "馬赫數的計算基準是 TAS，而非指示空速 IAS。",
+      "tags": "Definition",
+      "timestamp": "46:19"
+    },
+    {
+      "cloze_text": "When the speed exceeds the Critical Mach Number by about {{c1::10}}%, the wave drag increases sharply.",
+      "zh_translation": "當速度超過臨界馬赫數約 10% 時，波阻會劇烈增加。",
+      "explanation": "這稱為阻力發散馬赫數 (Drag Divergence Mach Number)，是設計巡航速度的重要參考點。",
+      "tags": "Aerodynamics, Performance",
+      "timestamp": "48:58"
+    },
+    {
+      "cloze_text": "The boundary layer between the undisturbed air and the region of compressed air is called the {{c1::shock wave}}.",
+      "zh_translation": "未受干擾的空氣與壓縮空氣區域之間的邊界層稱為震波。",
+      "explanation": "震波前後空氣的壓力、密度與溫度會發生劇烈且不連續的變化。",
+      "tags": "Definition, Aerodynamics",
+      "timestamp": "47:25"
+    },
+    {
+      "cloze_text": "Many turbine-powered aircraft utilize a {{c1::T-tail}} configuration to minimize the effects of wing downwash on the horizontal stabilizer.",
+      "zh_translation": "許多渦輪動力飛機使用 T型尾翼配置，以減少機翼下洗流對水平安定面的影響。",
+      "explanation": "將水平尾翼移出機翼後方的紊流區，可改善高馬赫數下的操縱效能。",
+      "tags": "System Logic, Design",
+      "timestamp": "51:15"
+    }
+  ],
+  "video_id": "4Gv9b5VbY_Q",
+  "url": "https://www.youtube.com/watch?v=4Gv9b5VbY_Q",
+  "has_transcript": false
+}

@@ -1,0 +1,109 @@
+{
+  "subject": "飛行動力學 - 馬赫數與跨音速空氣動力學",
+  "mc_questions": [
+    {
+      "zh_question": "為什麼波音 747-400 客機型 (Intercontinental) 的最大操作馬赫數 (MMO) 比貨機型 (Freighter) 還要低？",
+      "zh_options": [
+        "(A) 客機型的發動機推力較小",
+        "(B) 客機型的機身結構強度較低",
+        "(C) 客機型的上層甲板較長，造成機身氣流加速較快，提早產生震波",
+        "(D) 貨機型的機身表面塗料摩擦力較小"
+      ],
+      "en_question": "Why does the Boeing 747-400 passenger version (Intercontinental) have a lower Maximum Operating Mach Number (MMO) than the freighter version?",
+      "en_options": [
+        "(A) The passenger version has less engine thrust",
+        "(B) The passenger version has lower structural strength",
+        "(C) The longer upper deck of the passenger version causes faster aerodynamic acceleration over the fuselage, leading to earlier shockwave formation",
+        "(D) The freighter version has less skin friction due to its paint"
+      ],
+      "answer": "C",
+      "explanation": "根據教官說明，747-400 客機型擁有較長的『駝峰』(upper deck)，這會導致機身上方的氣流產生更明顯的空氣動力加速 (Aerodynamic Acceleration)。當機身表面任一點氣流速度提早達到音速時，該機速對應的自由氣流馬赫數 (Freestream Mach) 即為臨界馬赫數 (M_crit)。由於客機加速效應較強，其 M_crit 較低，因此 MMO 也隨之設定得較低。",
+      "timestamp": "16:55"
+    },
+    {
+      "zh_question": "關於臨界馬赫數 (Critical Mach Number, Mcrit) 的定義，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 飛機 TAS 達到音速時的馬赫數",
+        "(B) 飛機周圍氣流速度最高點首次達到音速時，所對應的飛機馬赫數 (Freestream Mach)",
+        "(C) 飛機產生阻力發散 (Drag Rise) 時的馬赫數",
+        "(D) 震波脫離 (Detachment) 機身時的馬赫數"
+      ],
+      "en_question": "Which of the following descriptions regarding Critical Mach Number (Mcrit) is correct?",
+      "en_options": [
+        "(A) The Mach number when the aircraft TAS reaches the speed of sound",
+        "(B) The freestream Mach number at which the local air velocity at some point on the aircraft first reaches the local speed of sound (Mach 1.0)",
+        "(C) The Mach number when drag rise occurs",
+        "(D) The Mach number when the shockwave detaches from the airframe"
+      ],
+      "answer": "B",
+      "explanation": "Mcrit 是一個『自由氣流馬赫數』(Freestream Mach Number)。當飛機以某個速度飛行時，雖然飛機本身還沒超過音速，但機翼上方或機身特定部位的局部氣流 (Local Flow) 因為加速效應可能已經先達到 Mach 1.0。這個局部氣流剛達到音速的臨界點，對應的飛機馬赫數就稱為 Mcrit。",
+      "timestamp": "12:15"
+    },
+    {
+      "zh_question": "在計算局部馬赫數 (Local Mach Number) 時，除了氣流速度的改變，還必須考慮哪一個物理現象的影響？",
+      "zh_options": [
+        "(A) 沖壓升溫效應 (Ram Rise)",
+        "(B) 機翼升力係數 (CL)",
+        "(C) 地面效應 (Ground Effect)",
+        "(D) 燃油重量變化"
+      ],
+      "en_question": "When calculating the Local Mach Number, besides the change in airflow velocity, which physical phenomenon must also be considered?",
+      "en_options": [
+        "(A) Ram Rise effect",
+        "(B) Wing Lift Coefficient (CL)",
+        "(C) Ground Effect",
+        "(D) Fuel weight change"
+      ],
+      "answer": "A",
+      "explanation": "局部氣流在流經機身時會被擠壓並加速。擠壓過程會產生沖壓升溫 (Ram Rise)，導致該處空氣溫度升高。由於局部音速 (Local Speed of Sound) 會隨溫度升高而增加，因此計算局部馬赫數時，分母的音速數值會因為溫升而改變，不能直接用環境音速計算。",
+      "timestamp": "08:15"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Mach number is a ratio of TAS to the local speed of sound, therefore it has {{c1::no unit}}.",
+      "zh_translation": "馬赫數是真實空速與局部音速的比值，因此它沒有單位。",
+      "explanation": "馬赫數是無因次量 (dimensionless)，不論是用 knots 還是 m/s 計算，比值結果都一樣。",
+      "tags": "Definition",
+      "timestamp": "00:45"
+    },
+    {
+      "cloze_text": "The air that is far ahead of the aircraft and unaffected by the object is called {{c1::Freestream}} air.",
+      "zh_translation": "飛機前方遠處、不受飛機影響的空氣稱為『自由氣流』。",
+      "explanation": "這是定義飛行馬赫數 (Flight Mach Number) 的基準點。",
+      "tags": "Aerodynamics",
+      "timestamp": "03:10"
+    },
+    {
+      "cloze_text": "The temperature increase caused by air being compressed as it encounters the aircraft is known as {{c1::Ram Rise}}.",
+      "zh_translation": "空氣在遇到飛機被擠壓時所產生的溫度升高現象稱為『沖壓升溫』。",
+      "explanation": "這會導致局部音速增加，進而影響局部馬赫數的計算。",
+      "tags": "Physics",
+      "timestamp": "08:25"
+    },
+    {
+      "cloze_text": "The Maximum Operating Mach number is abbreviated as {{c1::MMO}}.",
+      "zh_translation": "最大操作馬赫數的縮寫為 MMO。",
+      "explanation": "這是飛機在結構或操作安全性上的馬赫數上限。",
+      "tags": "Limitations",
+      "timestamp": "15:05"
+    },
+    {
+      "cloze_text": "The local Mach number at the point of maximum thickness on a wing is typically {{c1::higher}} than the freestream Mach number.",
+      "zh_translation": "機翼最大厚度處的局部馬赫數通常比自由氣流馬赫數還要高。",
+      "explanation": "氣流經過凸起物表面時會根據白努利定律或文氏管效應加速。",
+      "tags": "Aerodynamics",
+      "timestamp": "07:55"
+    },
+    {
+      "cloze_text": "A {{c1::Mach Cone}} is formed when an aircraft moves at supersonic speeds, with the shockwave detached and trailing behind.",
+      "zh_translation": "當飛機以超音速移動且震波脫離機身時，會形成一個『馬赫錐』。",
+      "explanation": "這是在超音速區域 (Supersonic region) 震波脫離後的典型物理構造。",
+      "tags": "Supersonic",
+      "timestamp": "20:10"
+    }
+  ],
+  "video_id": "f7m138hIXus",
+  "url": "https://www.youtube.com/watch?v=f7m138hIXus",
+  "has_transcript": false
+}

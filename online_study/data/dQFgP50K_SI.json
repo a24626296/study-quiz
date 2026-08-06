@@ -1,0 +1,300 @@
+{
+  "subject": "航空空氣動力學 - 穿音速與超音速飛行特性",
+  "mc_questions": [
+    {
+      "zh_question": "關於 Lambda Shock (人字型激波) 的形成邏輯，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 僅由機翼表面的粗糙度引起",
+        "(B) 激波後的壓力經由邊界層 (Boundary Layer) 向前洩漏，導致邊界層增厚並產生斜激波 (Oblique Shock)",
+        "(C) 當飛行速度完全超過 1.2 馬赫後才會形成",
+        "(D) 主要是因為機翼前緣半徑 (Leading Edge Radius) 過大所導致"
+      ],
+      "en_question": "Which of the following statements regarding the formation logic of a Lambda Shock is correct?",
+      "en_options": [
+        "(A) It is solely caused by the surface roughness of the wing.",
+        "(B) High pressure from behind the shock wave leaks forward through the boundary layer, causing it to thicken and form an oblique shock.",
+        "(C) It only forms when the flight speed completely exceeds Mach 1.2.",
+        "(D) It is primarily caused by an excessively large Leading Edge Radius."
+      ],
+      "answer": "B",
+      "explanation": "Lambda Shock 的形成是因為激波後方的高壓經由邊界層內的次音速區域 (Subsonic portion of boundary layer) 向前傳導，導致氣流提早分離或邊界層增厚，形成一道 Oblique shock，並與主激波合併成 Lambda 形狀。",
+      "timestamp": "04:30"
+    },
+    {
+      "zh_question": "機翼前緣半徑 (Leading Edge Radius) 的設計如何影響激波的特性？",
+      "zh_options": [
+        "(A) 前緣半徑越大，激波產生的阻力越小",
+        "(B) 前緣半徑越小 (越尖銳)，越能延緩 Bow Wave (首波) 的附著並有利於突破音障",
+        "(C) 前緣半徑的大小與激波形成完全無關",
+        "(D) 只有在次音速飛行時，前緣半徑的大小才具有影響力"
+      ],
+      "en_question": "How does the design of the Leading Edge Radius affect shock wave characteristics?",
+      "en_options": [
+        "(A) A larger leading edge radius results in lower shock wave drag.",
+        "(B) A smaller (sharper) leading edge radius helps delay bow wave attachment and facilitates breaking the sound barrier.",
+        "(C) The size of the leading edge radius is completely unrelated to shock formation.",
+        "(D) The leading edge radius only has an impact during subsonic flight."
+      ],
+      "answer": "B",
+      "explanation": "教官以 F-104 為例，說明其極小且尖銳的 Leading Edge Radius 是為了延遲激波附著並減少超音速時的阻力。前緣越尖，Bow wave 越難附著 (Struggle 越久)。",
+      "timestamp": "12:15"
+    },
+    {
+      "zh_question": "根據影片中對 F-16 戰機系統的描述，其機翼彎度 (Camber) 是如何控制的？",
+      "zh_options": [
+        "(A) 由飛行員手動調整 Flap 控制桿",
+        "(B) 僅在起飛與降落階段由機械連桿固定",
+        "(C) 系統根據速度與 G 力自動調整領先緣與隨後緣襟翼 (LEF/TEF)",
+        "(D) 透過調整發動機推力來間接改變機翼形狀"
+      ],
+      "en_question": "According to the description of the F-16 fighter system in the video, how is its wing camber controlled?",
+      "en_options": [
+        "(A) Manually adjusted by the pilot using the flap control lever.",
+        "(B) Fixed by mechanical linkages only during takeoff and landing phases.",
+        "(C) Automatically adjusted by the system's Leading Edge Flaps (LEF) and Trailing Edge Flaps (TEF) based on speed and G-load.",
+        "(D) Indirectly changed by adjusting engine thrust to alter wing shape."
+      ],
+      "answer": "C",
+      "explanation": "F-16 採用 Variable Camber 設計，領先緣與隨後緣襟翼 (LEF/TEF) 是自動控制的，系統會感測速度與 G 值來即時調整翼型以優化升力與阻力。",
+      "timestamp": "13:20"
+    },
+    {
+      "zh_question": "根據影片中的說明,超音速流(Supersonic Flow)通過擴散管道(Divergent Duct)時,其流體性質會發生何種變化?",
+      "zh_options": [
+        "(A) 壓力增加,流速減小",
+        "(B) 壓力減小,流速增加",
+        "(C) 壓力增加,流速增加",
+        "(D) 壓力與流速均保持不變"
+      ],
+      "en_question": "According to the video, what happens to the fluid properties when supersonic flow passes through a divergent duct?",
+      "en_options": [
+        "(A) Pressure increases, velocity decreases",
+        "(B) Pressure decreases, velocity increases",
+        "(C) Pressure increases, velocity increases",
+        "(D) Both pressure and velocity remain constant"
+      ],
+      "answer": "B",
+      "explanation": "在超音速流場中,由於空氣的可壓縮性(Compressibility)變得很顯著,密度(Rho)的變化主導了流場。在擴散管(Divergent Duct)中,超音速流的流速會增加(Acceleration),而靜壓(Static Pressure)則會下降,這與次音速流(Subsonic Flow)的行為剛好相反。",
+      "timestamp": "17:34"
+    },
+    {
+      "zh_question": "關於航空器速度限制 Mmo 與 Vmo 的差別,下列敘述何者正確?",
+      "zh_options": [
+        "(A) Mmo 主要是受限於結構強度(Structural Damage)",
+        "(B) Vmo 主要是受限於震波產生的阻力增加(Drag Rise)",
+        "(C) Mmo 主要是受限於臨界馬赫數產生的阻力急升(Drag Rise speed)",
+        "(D) 兩者皆是為了防止飛機進入超音速"
+      ],
+      "en_question": "Regarding the difference between Mmo and Vmo speed limits, which of the following statements is correct?",
+      "en_options": [
+        "(A) Mmo is primarily limited by structural damage",
+        "(B) Vmo is primarily limited by the drag rise caused by shockwaves",
+        "(C) Mmo is primarily limited by the drag rise speed associated with critical Mach numbers",
+        "(D) Both are designed to prevent the aircraft from going supersonic"
+      ],
+      "answer": "C",
+      "explanation": "Mmo (Maximum Operating Mach Number) 通常不是因為結構損壞限制,而是因為接近 Drag Rise Speed,即震波(Shockwave)產生導致阻力急劇增加。而 Vmo (Maximum Operating Velocity) 則通常與結構載荷(Structural Strength)有關。",
+      "timestamp": "23:12"
+    },
+    {
+      "zh_question": "當氣流通過震波(Shockwave)時,會產生所謂的「能量阻力」(Energy Drag),下列哪項不是其主要原因?",
+      "zh_options": [
+        "(A) 氣流通過震波後溫度上升(Increase in temperature)",
+        "(B) 產生反向壓力梯度(Reverse pressure gradient)",
+        "(C) 擾亂層流(Disturbance of laminar flow)",
+        "(D) 氣流動能轉換為位能"
+      ],
+      "en_question": "When air flows through a shockwave, 'Energy Drag' (Wave Drag) is produced. Which of the following is NOT a primary reason for this?",
+      "en_options": [
+        "(A) Rise in temperature after passing through the shockwave",
+        "(B) Creation of a reverse pressure gradient",
+        "(C) Disturbance of the laminar flow",
+        "(D) Conversion of kinetic energy into potential energy"
+      ],
+      "answer": "D",
+      "explanation": "能量阻力(Energy Drag/Wave Drag)來自於動能的損失,轉化成了熱能(溫度上升)以及克服震波前後的反向壓力梯度,並導致邊界層(Boundary Layer)受擾動從層流轉變為紊流(Turbulent Flow),這是一個不可逆的能量損耗過程。",
+      "timestamp": "26:45"
+    },
+    {
+      "zh_question": "關於邊界層(Boundary Layer)從層流(Laminar)轉變為紊流(Turbulent)的過程,下列敘述何者正確?",
+      "zh_options": [
+        "(A) 一旦進入紊流狀態,氣流便會立即產生剝離(Separation)",
+        "(B) 紊流雖然產生擾動,但其流動方向基本上仍然是往後的(Aft)",
+        "(C) 紊流的能量較低,比層流更容易產生氣流剝離",
+        "(D) 紊流與層流的轉換點即為分離點(Separation Point)"
+      ],
+      "en_question": "Regarding the transition of the boundary layer from laminar to turbulent flow, which of the following statements is correct?",
+      "en_options": [
+        "(A) Once the flow becomes turbulent, flow separation occurs immediately.",
+        "(B) Although turbulent flow involves disturbance, the flow direction is still generally aft.",
+        "(C) Turbulent flow has lower energy and is more prone to separation than laminar flow.",
+        "(D) The transition point between laminar and turbulent flow is the separation point."
+      ],
+      "answer": "B",
+      "explanation": "根據影片解說,Boundary Layer 的擾動(Disturbance)是指從 Laminar 變成 Turbulent,但此時氣流方向仍然是向後的,尚未產生完全的氣流剝離(Separation)。紊流實際上比層流擁有更高能量,更能抵抗分離。",
+      "timestamp": "30:18"
+    },
+    {
+      "zh_question": "當馬赫數增加超過臨界馬赫數(M_crit)後,阻力係數(C_D)急劇增加的轉折點稱為什麼?",
+      "zh_options": [
+        "(A) 臨界馬赫數 (Critical Mach Number)",
+        "(B) 最大馬赫數 (Maximum Mach Number)",
+        "(C) 阻力發散馬赫數 (Drag Divergence Mach Number)",
+        "(D) 超音速過渡馬赫數 (Supersonic Transition Mach Number)"
+      ],
+      "en_question": "What is the point called where the drag coefficient (C_D) increases sharply after the Mach number exceeds the Critical Mach Number (M_crit)?",
+      "en_options": [
+        "(A) Critical Mach Number",
+        "(B) Maximum Mach Number",
+        "(C) Drag Divergence Mach Number",
+        "(D) Supersonic Transition Mach Number"
+      ],
+      "answer": "C",
+      "explanation": "影片中提到,當速度超過 M_crit 之後,阻力係數(Coefficient of Drag, C_D)會發生急劇且明顯的增加,這個速度點稱為 Drag Divergence Mach Number (M_dd),也稱為 Drag Rise Mach Number。",
+      "timestamp": "31:50"
+    },
+    {
+      "zh_question": "根據影片中的阻力曲線圖(Figure 2-17),在接近音速時,總阻力的劇烈增加主要是由哪兩種阻力構成的?",
+      "zh_options": [
+        "(A) 誘導阻力(Induced Drag)與摩擦阻力",
+        "(B) 能量阻力(Energy Drag)與邊界層分離阻力",
+        "(C) 寄生阻力(Parasite Drag)與干擾阻力",
+        "(D) 壓差阻力與誘導阻力"
+      ],
+      "en_question": "According to the drag graph (Figure 2-17) in the video, the sharp increase in total drag near the speed of sound is primarily composed of which two types of drag?",
+      "en_options": [
+        "(A) Induced Drag and Friction Drag",
+        "(B) Energy Drag and Boundary Layer Separation Drag",
+        "(C) Parasite Drag and Interference Drag",
+        "(D) Pressure Drag and Induced Drag"
+      ],
+      "answer": "B",
+      "explanation": "在高速階段,阻力的增加主要來自 Energy Drag (或稱 Wave Drag,波阻) 以及因為激波產生的 Boundary Layer Separation (邊界層分離) 所造成的阻力增加。",
+      "timestamp": "31:31"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Supersonic flow shockwave is caused by the {{c1::pressure differential}} which compresses the air in front.",
+      "zh_translation": "超音速氣流激波是由於壓力差造成的，這會壓縮前方的空氣。",
+      "explanation": "激波本質上是壓力不連續的界面。",
+      "tags": "Aerodynamics",
+      "timestamp": "00:35"
+    },
+    {
+      "cloze_text": "The boundary layer part which remains {{c1::subsonic}} enables the effect of the shockwave to be transmitted forward.",
+      "zh_translation": "保持次音速狀態的邊界層部分，使得激波的影響能夠向前傳遞。",
+      "explanation": "這是 Lambda shock 形成的物理基礎，因為壓力無法在超音速流中向前傳播，但可以在次音速邊界層內前傳。",
+      "tags": "Aerodynamics",
+      "timestamp": "04:35"
+    },
+    {
+      "cloze_text": "Compression of air in front of the aircraft causes a rise in {{c1::temperature}}, which increases the local speed of sound.",
+      "zh_translation": "飛機前方的空氣壓縮會導致溫度升高，進而增加當地的音速。",
+      "explanation": "音速與溫度的平方根成正比。",
+      "tags": "Aerodynamics",
+      "timestamp": "07:15"
+    },
+    {
+      "cloze_text": "As the aircraft speed approaches Mach 1.0, the waves ahead of the object tend to {{c1::bunch up}}.",
+      "zh_translation": "當飛機速度接近 1.0 馬赫時，物體前方的波會趨向於堆積起來。",
+      "explanation": "這是音障 (Sound Barrier) 阻力驟增的原因。",
+      "tags": "Aerodynamics",
+      "timestamp": "07:45"
+    },
+    {
+      "cloze_text": "The F-104 Starfighter is designed with a very small {{c1::Leading Edge Radius}} to optimize supersonic performance.",
+      "zh_translation": "F-104 星式戰鬥機設計有非常小的前緣半徑，以優化其超音速性能。",
+      "explanation": "尖銳的前緣有利於超音速飛行，但會犧牲低速升力特性。",
+      "tags": "Aviation-History / Design",
+      "timestamp": "09:35"
+    },
+    {
+      "cloze_text": "The F-16 wing camber is varied using {{c1::automatic}} control of the leading edge and trailing edge flaps.",
+      "zh_translation": "F-16 的機翼彎度是透過領先緣與隨後緣襟翼的自動控制來改變的。",
+      "explanation": "這稱為主動氣動彈性或變彎度翼型技術。",
+      "tags": "F-16 Systems",
+      "timestamp": "13:30"
+    },
+    {
+      "cloze_text": "F-16 等戰鬥機在落地減速時必須使用 {{c1::Speed Brakes}},是因為其發動機即便在 Idle 狀態仍具有極大的推力。",
+      "zh_translation": "F-16 and other fighters must use speed brakes during landing deceleration because their engines still produce significant thrust even at idle.",
+      "explanation": "由於軍用發動機強大的推重比,降落時需額外阻力來抵消 Idle Thrust 並達成精確減速。",
+      "tags": "Operation / Systems",
+      "timestamp": "15:25"
+    },
+    {
+      "cloze_text": "在次音速流中,通過收縮管道(Convergent Duct)會導致壓力下降且 {{c1::速度增加}}。",
+      "zh_translation": "In subsonic flow, passing through a convergent duct causes pressure to decrease and velocity to increase.",
+      "explanation": "這是基礎白努利定律在不可壓縮流(或低馬赫數)中的表現。",
+      "tags": "Aerodynamics",
+      "timestamp": "16:45"
+    },
+    {
+      "cloze_text": "普朗特-梅耶擴張(Prandtl-Meyer Expansion)發生在氣流遇到凸角(Divergent Corner)時,會使 {{c1::馬赫數}} 增加。",
+      "zh_translation": "Prandtl-Meyer Expansion occurs when flow hits a divergent corner, causing the Mach number to increase.",
+      "explanation": "超音速流在膨脹波中加速,壓力下降而馬赫數提升。",
+      "tags": "Aerodynamics / Supersonic",
+      "timestamp": "18:40"
+    },
+    {
+      "cloze_text": "當航空器速度超過 Mcrit (臨界馬赫數)並接近 Mdr 時,總阻力會因震波形成而產生 {{c1::阻力急升}} (Drag Rise)。",
+      "zh_translation": "When the aircraft speed exceeds Mcrit and approaches Mdr, the total drag undergoes a 'Drag Rise' due to shockwave formation.",
+      "explanation": "這是穿音速飛行中最顯著的特性,限制了巡航馬赫數。",
+      "tags": "Performance / Limitations",
+      "timestamp": "28:48"
+    },
+    {
+      "cloze_text": "氣流通過震波後,會產生 {{c1::反向壓力梯度}} (Reverse Pressure Gradient),這容易導致邊界層分離。",
+      "zh_translation": "After air flows through a shockwave, a reverse pressure gradient is created, which easily causes boundary layer separation.",
+      "explanation": "震波後壓力驟升,與氣流方向相反的壓力梯度會阻礙氣流貼附。",
+      "tags": "Aerodynamics / Drag",
+      "timestamp": "27:15"
+    },
+    {
+      "cloze_text": "Vmo 通常與飛機的 {{c1::結構強度}} (Structural Strength) 限制有關,而 Mmo 與氣動力特性有關。",
+      "zh_translation": "Vmo is usually related to the aircraft's structural strength limits, while Mmo is related to aerodynamic characteristics.",
+      "explanation": "高動壓(High Dynamic Pressure)對結構造成的負荷是 Vmo 的主考量。",
+      "tags": "Limitations",
+      "timestamp": "32:35"
+    },
+    {
+      "cloze_text": "Boundary layer {{c1::Separation}} occurs at the separation point, where the boundary layer is blown away from the surface.",
+      "zh_translation": "邊界層分離發生在分離點,此時邊界層會從表面被吹離。",
+      "explanation": "區分擾動(Turbulence)與分離(Separation)是高空動力學的重要觀念。",
+      "tags": "Aerodynamics",
+      "timestamp": "30:40"
+    },
+    {
+      "cloze_text": "Energy Drag, also known as {{c1::Wave Drag}}, is associated with the formation of shockwaves.",
+      "zh_translation": "能量阻力(Energy Drag),也稱為波阻(Wave Drag),與激波的形成有關。",
+      "explanation": "波阻是跨音速與超音速飛行時最主要的阻力來源之一。",
+      "tags": "Aerodynamics",
+      "timestamp": "31:29"
+    },
+    {
+      "cloze_text": "The speed at which a sharp increase in the coefficient of drag (C_D) occurs is the {{c1::Drag Divergence}} Mach Number.",
+      "zh_translation": "阻力係數(C_D)發生劇烈增加的速度點是阻力發散馬赫數(Drag Divergence Mach Number)。",
+      "explanation": "這是設計民航機巡航速度時最重要的限制指標之一。",
+      "tags": "Limitations",
+      "timestamp": "31:52"
+    },
+    {
+      "cloze_text": "At the {{c1::Critical Mach Number}}, the local velocity on some part of the airfoil first reaches Mach 1.0.",
+      "zh_translation": "在臨界馬赫數(Critical Mach Number),翼型某部分的局部流速首次達到1.0馬赫。",
+      "explanation": "臨界馬赫數標誌著跨音速階段的開始。",
+      "tags": "Definitions",
+      "timestamp": "31:40"
+    },
+    {
+      "cloze_text": "In the transition from laminar to turbulent flow, the flow direction remains {{c1::backward}} until separation occurs.",
+      "zh_translation": "在從層流轉變為紊流的過程中,流動方向在發生分離前保持向後。",
+      "explanation": "紊流並不代表氣流立即反向或剝離,只是流態變得混亂。",
+      "tags": "Aerodynamics",
+      "timestamp": "30:19"
+    }
+  ],
+  "video_id": "dQFgP50K_SI",
+  "url": "https://www.youtube.com/watch?v=dQFgP50K_SI",
+  "has_transcript": false
+}
