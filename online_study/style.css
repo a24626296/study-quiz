@@ -140,6 +140,17 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
 .pdf-open-link { display:inline-block; margin:8px 6px 8px 0; font-size:13px; color:var(--green); text-decoration:none; border:1px solid var(--green); padding:4px 10px; border-radius:6px; }
 .pdf-open-link:hover { background:var(--green); color:#0f172a; }
 .pdf-inline-btn { background:transparent; font-family:inherit; cursor:pointer; }
+.pdf-private-badge { color:#f2c94c; border-color:#f2c94c; cursor:default; }
+.pdf-private-setup-btn {
+  background:#1e293b;
+  color:var(--muted);
+  border:1px solid #334155;
+  border-radius:6px;
+  padding:5px 10px;
+  font-size:12px;
+  cursor:pointer;
+}
+.pdf-private-setup-btn:hover { color:var(--text); border-color:#f2c94c; }
 
 /* ===== 內嵌 PDF 檢視器(含黃色重點畫線) ===== */
 .pdf-viewer-panel {
