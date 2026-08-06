@@ -499,17 +499,26 @@
   function renderPdfOpenBar(url, bar) {
     bar = bar || document.getElementById('pdf-open-bar');
     if (!bar) return;
-    if (url) {
+    if (!url) {
+      bar.innerHTML = '';
+      closePdfViewer();
+      return;
+    }
+
+    if (isPrivateDocLink(url)) {
+      // 私人文件:不能給「新分頁開啟」的連結(那個網址沒有帶驗證,打開會失敗),
+      // 只能透過內嵌檢視器用 GitHub API + 權杖去讀取。
+      bar.innerHTML =
+        '<span class="pdf-open-link pdf-private-badge">🔒 私人文件</span>' +
+        '<button class="pdf-open-link pdf-inline-btn" id="pdf-inline-open-btn">📑 內嵌檢視(可畫重點)</button>';
+    } else {
       bar.innerHTML =
         '<a class="pdf-open-link" href="' + url.replace(/"/g, '&quot;') +
         '" target="_blank" rel="noopener">📖 開啟手冊 PDF(新分頁)</a>' +
         '<button class="pdf-open-link pdf-inline-btn" id="pdf-inline-open-btn">📑 內嵌檢視(可畫重點)</button>';
-      var inlineBtn = document.getElementById('pdf-inline-open-btn');
-      if (inlineBtn) inlineBtn.onclick = function () { openPdfViewer(url); };
-    } else {
-      bar.innerHTML = '';
-      closePdfViewer();
     }
+    var inlineBtn = document.getElementById('pdf-inline-open-btn');
+    if (inlineBtn) inlineBtn.onclick = function () { openPdfViewer(url); };
   }
 
   window.savePdfLink = function () {
@@ -524,6 +533,86 @@
     } catch (e) {}
     renderPdfOpenBar(url);
   };
+
+  // ===== 私人文件(放在 private repo,透過 GitHub API + 個人權杖讀取) =====
+  // 連結格式:private:owner/repo/path/to/file.pdf#page=12
+  var GH_TOKEN_STORAGE_KEY = 'ghPrivateDocsToken';
+
+  function isPrivateDocLink(url) {
+    return /^private:/.test((url || '').trim());
+  }
+
+  function parsePrivateLink(url) {
+    var withoutPrefix = url.replace(/^private:/, '');
+    var page = getPageFromUrl(withoutPrefix);
+    var pathPart = withoutPrefix.split('#')[0];
+    var segments = pathPart.split('/').filter(Boolean);
+    var owner = segments.shift() || '';
+    var repo = segments.shift() || '';
+    var path = segments.join('/');
+    return { owner: owner, repo: repo, path: path, page: page };
+  }
+
+  function getGithubToken() {
+    try { return localStorage.getItem(GH_TOKEN_STORAGE_KEY) || ''; } catch (e) { return ''; }
+  }
+  function setGithubToken(t) {
+    try { localStorage.setItem(GH_TOKEN_STORAGE_KEY, t); } catch (e) {}
+  }
+  function clearGithubToken() {
+    try { localStorage.removeItem(GH_TOKEN_STORAGE_KEY); } catch (e) {}
+  }
+
+  function promptForGithubToken() {
+    var t = prompt(
+      '這是私人文件,需要 GitHub 權杖才能讀取。\n' +
+      '(只需要對該私人 repo 的 Contents: Read-only 權限;貼上後會存在這台裝置的瀏覽器裡,之後不用再輸入)',
+      ''
+    );
+    if (t && t.trim()) { setGithubToken(t.trim()); return t.trim(); }
+    return '';
+  }
+
+  // 用「使用者名稱/repo」+ 檔案路徑 這種比較不容易打錯的方式,組出 private: 連結
+  window.setupPrivatePdfLink = function () {
+    var ownerRepo = prompt('請輸入「GitHub帳號/repo名稱」,例如 a24626296/study-private-docs:', '');
+    if (!ownerRepo || ownerRepo.indexOf('/') === -1) return;
+    var path = prompt('請輸入檔案在 repo 裡的路徑,例如 PrinciplesofFlightATPL-CAE.pdf:', '');
+    if (!path) return;
+    var page = prompt('要預設跳到第幾頁?(不填就是第 1 頁):', '');
+    var link = 'private:' + ownerRepo.replace(/^\/+|\/+$/g, '') + '/' + path.replace(/^\/+/, '');
+    if (page && /^\d+$/.test(page.trim())) link += '#page=' + page.trim();
+    var input = document.getElementById('pdf-link-input');
+    if (input) input.value = link;
+    window.savePdfLink();
+  };
+
+  window.resetPrivateToken = function () {
+    if (!confirm('確定要清除這台裝置已儲存的私人文件權杖嗎?下次開啟私人文件時會重新詢問。')) return;
+    clearGithubToken();
+    alert('已清除。');
+  };
+
+  function fetchPrivatePdfBytes(info, token) {
+    var apiUrl = 'https://api.github.com/repos/' + encodeURIComponent(info.owner) + '/' +
+      encodeURIComponent(info.repo) + '/contents/' +
+      info.path.split('/').map(encodeURIComponent).join('/');
+    return fetch(apiUrl, {
+      headers: {
+        'Authorization': 'Bearer ' + token,
+        'Accept': 'application/vnd.github.raw+json'
+      }
+    }).then(function (res) {
+      if (res.status === 401 || res.status === 403 || res.status === 404) {
+        clearGithubToken();
+        var err = new Error('AUTH_FAILED');
+        err.status = res.status;
+        throw err;
+      }
+      if (!res.ok) throw new Error('HTTP_' + res.status);
+      return res.arrayBuffer();
+    });
+  }
 
   // ===== 內嵌 PDF 檢視器 + 黃色重點畫線 + 文字框 =====
   // 重點座標存成 0~1 的相對比例,換頁/縮放/重新整理都不會跑掉。
@@ -612,22 +701,58 @@
     var wrap = document.getElementById('pdf-viewer-wrap');
     wrap.innerHTML = '<div class="pdf-loading">PDF 載入中…</div>';
 
-    var cleanUrl = url.split('#')[0];
-    var initialPage = getPageFromUrl(url);
-
     pdfCurrentDocKey = pdfHighlightKey(url);
     pdfHighlights = loadPdfHighlights(pdfCurrentDocKey);
 
-    pdfjsLib.getDocument(cleanUrl).promise.then(function (doc) {
-      pdfDoc = doc;
-      pdfCurrentPage = Math.min(Math.max(initialPage, 1), doc.numPages);
-      document.getElementById('pdfPageNum').value = pdfCurrentPage;
-      document.getElementById('pdfPageNum').max = doc.numPages;
-      document.getElementById('pdfPageInfo').textContent = '/ ' + doc.numPages;
-      renderPdfPage(pdfCurrentPage);
+    if (isPrivateDocLink(url)) {
+      openPrivatePdf(url, wrap, false);
+    } else {
+      var cleanUrl = url.split('#')[0];
+      var initialPage = getPageFromUrl(url);
+      pdfjsLib.getDocument(cleanUrl).promise.then(function (doc) {
+        onPdfDocLoaded(doc, initialPage);
+      }).catch(function (err) {
+        console.error('PDF 載入失敗:', err);
+        wrap.innerHTML = '<div class="pdf-loading">PDF 載入失敗,請確認網址是否正確,或該檔案是否允許跨網域讀取。</div>';
+      });
+    }
+  }
+
+  function onPdfDocLoaded(doc, initialPage) {
+    pdfDoc = doc;
+    pdfCurrentPage = Math.min(Math.max(initialPage, 1), doc.numPages);
+    document.getElementById('pdfPageNum').value = pdfCurrentPage;
+    document.getElementById('pdfPageNum').max = doc.numPages;
+    document.getElementById('pdfPageInfo').textContent = '/ ' + doc.numPages;
+    renderPdfPage(pdfCurrentPage);
+  }
+
+  function openPrivatePdf(url, wrap, isRetry) {
+    var info = parsePrivateLink(url);
+    if (!info.owner || !info.repo || !info.path) {
+      wrap.innerHTML = '<div class="pdf-loading">私人文件網址格式不正確,應該是「private:帳號/repo/檔案路徑」。建議用「🔒 設定私人文件」按鈕產生,比較不會打錯。</div>';
+      return;
+    }
+    var token = getGithubToken();
+    if (!token) {
+      token = promptForGithubToken();
+      if (!token) {
+        wrap.innerHTML = '<div class="pdf-loading">沒有輸入權杖,無法讀取私人文件。</div>';
+        return;
+      }
+    }
+    fetchPrivatePdfBytes(info, token).then(function (buf) {
+      return pdfjsLib.getDocument({ data: buf }).promise;
+    }).then(function (doc) {
+      onPdfDocLoaded(doc, info.page);
     }).catch(function (err) {
-      console.error('PDF 載入失敗:', err);
-      wrap.innerHTML = '<div class="pdf-loading">PDF 載入失敗,請確認網址是否正確,或該檔案是否允許跨網域讀取。</div>';
+      console.error('私人 PDF 載入失敗:', err);
+      if (err && err.message === 'AUTH_FAILED' && !isRetry) {
+        wrap.innerHTML = '<div class="pdf-loading">權杖無效或已過期,請重新輸入…</div>';
+        var newToken = promptForGithubToken();
+        if (newToken) { openPrivatePdf(url, wrap, true); return; }
+      }
+      wrap.innerHTML = '<div class="pdf-loading">私人文件載入失敗,請確認 repo 名稱、檔案路徑、以及權杖權限是否正確。</div>';
     });
   }
 
