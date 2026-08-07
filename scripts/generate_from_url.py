@@ -690,101 +690,14 @@ def build_index_html():
     <button class="archive-toggle-btn" id="archive-toggle-btn" onclick="toggleShowArchived()">📦 顯示已封存 (0)</button>
     <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
     <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
+    <button class="add-folder-btn" onclick="addFolder()">➕ 新增資料夾</button>
   </div>
 </div>
 <div id="item-list" class="item-list">
 {items_html if items_html else '<p class="empty">目前還沒有產生任何複習頁面。</p>'}
 </div>
 
-<script>
-var allCollapsed = false;
-var ARCHIVE_KEY = 'archivedVideos';
-var showArchived = false;
-
-function loadArchivedSet() {{
-  try {{
-    return new Set(JSON.parse(localStorage.getItem(ARCHIVE_KEY) || '[]'));
-  }} catch (e) {{
-    return new Set();
-  }}
-}}
-
-function saveArchivedSet(setObj) {{
-  try {{ localStorage.setItem(ARCHIVE_KEY, JSON.stringify(Array.from(setObj))); }} catch (e) {{}}
-}}
-
-function updateArchiveButtonLabel(count) {{
-  var btn = document.getElementById('archive-toggle-btn');
-  btn.textContent = (showArchived ? '📂 隱藏已封存' : '📦 顯示已封存') + ' (' + count + ')';
-}}
-
-function applyArchivedState() {{
-  var archived = loadArchivedSet();
-  document.querySelectorAll('.item').forEach(function(el) {{
-    var id = el.dataset.id;
-    var isArchived = archived.has(id);
-    el.classList.toggle('archived', isArchived);
-    var cb = el.querySelector('.archive-checkbox');
-    if (cb) cb.checked = isArchived;
-  }});
-  document.getElementById('item-list').classList.toggle('show-archived', showArchived);
-  updateArchiveButtonLabel(archived.size);
-}}
-
-function toggleArchive(id, checked) {{
-  var archived = loadArchivedSet();
-  if (checked) {{ archived.add(id); }} else {{ archived.delete(id); }}
-  saveArchivedSet(archived);
-  applyArchivedState();
-}}
-
-function toggleShowArchived() {{
-  showArchived = !showArchived;
-  applyArchivedState();
-}}
-
-applyArchivedState();
-
-function toggleCollapseAll() {{
-  allCollapsed = !allCollapsed;
-  document.querySelectorAll('.item').forEach(function(el) {{
-    el.classList.toggle('collapsed', allCollapsed);
-  }});
-  document.getElementById('collapse-toggle-btn').textContent = allCollapsed ? '📂 全部展開' : '📁 全部收合';
-}}
-
-function toggleViewMode() {{
-  var container = document.getElementById('item-list');
-  var isGrid = container.classList.toggle('view-grid');
-  try {{ localStorage.setItem('viewMode', isGrid ? 'grid' : 'list'); }} catch (e) {{}}
-  document.getElementById('view-mode-btn').textContent = isGrid ? '📃 清單檢視' : '🔲 格狀檢視';
-}}
-
-try {{
-  if (localStorage.getItem('viewMode') === 'grid') {{
-    document.getElementById('item-list').classList.add('view-grid');
-    document.getElementById('view-mode-btn').textContent = '📃 清單檢視';
-  }}
-}} catch (e) {{}}
-
-function deleteVideo(id) {{
-  var pathParts = window.location.pathname.split('/').filter(Boolean);
-  var repoName = pathParts[0] || '';
-  var username = window.location.hostname.split('.')[0];
-  var actionsUrl = 'https://github.com/' + username + '/' + repoName + '/actions/workflows/delete_video.yml';
-
-  var doOpen = function() {{
-    alert('已複製影片 ID:' + id + '\\n\\n即將開啟「刪除線上複習頁面」的 Action 頁面,\\n貼上這個 ID 到 video_id 欄位,按 Run workflow 即可刪除。');
-    window.open(actionsUrl, '_blank');
-  }};
-
-  if (navigator.clipboard && navigator.clipboard.writeText) {{
-    navigator.clipboard.writeText(id).then(doOpen).catch(doOpen);
-  }} else {{
-    doOpen();
-  }}
-}}
-</script>
+<script src="./index.js"></script>
 </body>
 </html>"""
 
