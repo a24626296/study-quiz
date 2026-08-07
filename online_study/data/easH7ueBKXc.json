@@ -1,0 +1,109 @@
+{
+  "subject": "高高度飛行空氣動力學 - Coffin Corner 與失速回收系統邏輯",
+  "mc_questions": [
+    {
+      "zh_question": "為什麼噴射客機在高高度飛行時，使用相同的燃油量卻能達到更快的速度？",
+      "zh_options": [
+        "(A) 因為高空氧氣充足，發動機燃燒效率更高",
+        "(B) 因為空氣密度降低，相同的指示空速 (IAS) 會對應更高的真空速 (TAS)",
+        "(C) 因為高空噴射氣流 (Jet Stream) 永遠提供順風",
+        "(D) 因為飛機在高空受到的地球引力較小"
+      ],
+      "en_question": "Why do jet aircraft fly faster at high altitudes for the same amount of fuel?",
+      "en_options": [
+        "(A) Higher oxygen levels at altitude improve engine combustion efficiency.",
+        "(B) As air density decreases, a given Indicated Airspeed (IAS) results in a much higher True Airspeed (TAS).",
+        "(C) Jet streams at high altitudes always provide a tailwind component.",
+        "(D) The Earth's gravitational pull is significantly weaker at cruising altitudes."
+      ],
+      "answer": "B",
+      "explanation": "在高高度由於空氣密度 (Air Density) 降低，為了讓皮托儀 (Pitot Tube) 接收到相同數量的空氣分子（即維持相同的 IAS），飛機必須在空間中移動得更快，因此 True Airspeed 會隨高度增加而提升，達成更好的經濟效益。",
+      "timestamp": "02:40"
+    },
+    {
+      "zh_question": "關於「棺材角」(Coffin Corner / Q Corner) 的定義，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 低速失速空速與高速音速限制（音障）相遇的高度點",
+        "(B) 發動機因含氧量不足而發生滅火 (Flame out) 的極限高度",
+        "(C) 飛機進入超音速飛行時，結構產生損壞的臨界點",
+        "(D) 飛機因高度太高導致液壓系統凍結的區域"
+      ],
+      "en_question": "What is the correct definition of 'Coffin Corner' (Q Corner)?",
+      "en_options": [
+        "(A) The altitude where low-speed stall speed and high-speed Mach limit meet.",
+        "(B) The maximum altitude where an engine flame-out occurs due to low oxygen levels.",
+        "(C) The critical point where an aircraft structure fails during supersonic flight.",
+        "(D) The region where hydraulic systems freeze due to extreme high-altitude temperatures."
+      ],
+      "answer": "A",
+      "explanation": "在高高度，低速失速的 True Airspeed 會隨高度上升，而音速 (Speed of Sound) 則隨溫度下降而降低。當兩者（Low speed stall 與 High speed Mach limit）接近到只有幾浬差距時，即為 Coffin Corner，此時增減速都可能導致失速。",
+      "timestamp": "08:11"
+    },
+    {
+      "zh_question": "在波音 737 等發動機掛載於機翼下方的客機，進行高高度失速回收 (Stall Escape Maneuver) 時，為何強調增加推力必須「緩慢且謹慎」？",
+      "zh_options": [
+        "(A) 為了防止高空發動機進氣過量導致壓縮機失速 (Compressor Stall)",
+        "(B) 為了避免機身震動導致結構受損",
+        "(C) 高空空氣稀薄，發動機需要很長時間才能到達加速馬力",
+        "(D) 翼下發動機增加推力會產生抬頭力矩 (Pitch-up moment)，可能導致攻角進一步增加"
+      ],
+      "en_question": "For aircraft like the Boeing 737 with wing-mounted engines, why must thrust be added 'gently and cautiously' during a high-altitude stall recovery?",
+      "en_options": [
+        "(A) To prevent high-altitude compressor stalls caused by excessive air intake.",
+        "(B) To avoid structural damage caused by intense buffeting.",
+        "(C) At high altitudes, engines require a very long time to spool up to maximum power.",
+        "(D) Wing-mounted engines create a pitch-up moment when thrust is increased, which could further increase the Angle of Attack."
+      ],
+      "answer": "D",
+      "explanation": "發動機位於機翼下方，增加推力會產生強大的 Pitch-up moment。在失速狀態下，首要任務是減小攻角 (Reduce AOA)，如果突然加滿推力導致機頭上揚，會抵消推桿 (Nose down) 的效果，使失速惡化。",
+      "timestamp": "13:30"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Modern jet aircraft like the 737 are excellent gliders with a ratio of about {{c1::1:15 to 1:20}}.",
+      "zh_translation": "現代噴射客機如 737 是優秀的滑翔機，滑翔比大約為 1:15 至 1:20。",
+      "explanation": "這意味著飛機每下降 1 公尺，可以向前滑翔 15 到 20 公尺，提供機組員充足的空間應對發動機失效。",
+      "tags": "Limitations",
+      "timestamp": "05:03"
+    },
+    {
+      "cloze_text": "The speed of sound will constantly {{c1::decrease}} as the outside temperature drops with increasing altitude.",
+      "zh_translation": "音速會隨著高度增加、外部氣溫下降而持續降低。",
+      "explanation": "音速主要受溫度影響，高空低溫使得音速限制（臨界馬赫數）與失速空速的界限變窄。",
+      "tags": "Aerodynamics",
+      "timestamp": "07:43"
+    },
+    {
+      "cloze_text": "The primary action to recover from a stall at any altitude is to {{c1::decrease the angle of attack}} (AOA).",
+      "zh_translation": "從任何高度的失速中回收的首要動作是降低攻角 (AOA)。",
+      "explanation": "無論推力如何，如果不減小攻角使氣流重新附著於翼面，飛機就無法脫離失速狀態。",
+      "tags": "Memory-Item",
+      "timestamp": "12:15"
+    },
+    {
+      "cloze_text": "The characteristic audio warning for an overspeed condition in the cockpit is known as the {{c1::clacker}}.",
+      "zh_translation": "駕駛艙內針對超速情況的特徵音訊警告被稱為 Clacker（噠噠聲）。",
+      "explanation": "這是一種非常急促且吵雜的警告音，提醒飛行員已接近 Mach Limit 或 VMO。",
+      "tags": "Systems",
+      "timestamp": "15:24"
+    },
+    {
+      "cloze_text": "The {{c1::Critical Mach Number}} is the speed at which the airflow over some parts of the wing reaches supersonic speed.",
+      "zh_translation": "臨界馬赫數是指機翼某些部位上方的氣流達到超音速的速度點。",
+      "explanation": "當局部達到音速會產生震波 (Shock waves)，造成阻力急劇增加並引發抖振 (Buffet)。",
+      "tags": "Aerodynamics",
+      "timestamp": "08:25"
+    },
+    {
+      "cloze_text": "At 38,000 feet, an indicated airspeed of 250 knots might correspond to a True Airspeed of approximately {{c1::450}} knots.",
+      "zh_translation": "在 38,000 呎高度，250 浬的指示空速 (IAS) 可能對應約 450 浬的真空速 (TAS)。",
+      "explanation": "說明高高度空域稀薄空气對航行速度顯示與實際速度之間巨大差距的具體數據。",
+      "tags": "Aerodynamics",
+      "timestamp": "02:50"
+    }
+  ],
+  "video_id": "easH7ueBKXc",
+  "url": "https://www.youtube.com/watch?v=easH7ueBKXc",
+  "has_transcript": false
+}
