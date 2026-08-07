@@ -230,7 +230,62 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
 /* 複習清單頁 */
 .list-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px; }
 .header-actions { display:flex; gap:8px; flex-wrap:wrap; }
-.collapse-all-btn, .view-mode-btn, .archive-toggle-btn { background:var(--card); color:#cbd5e1; border:1px solid #334155; padding:6px 14px; border-radius:6px; cursor:pointer; font-size:13px; }
+.collapse-all-btn, .view-mode-btn, .archive-toggle-btn, .add-folder-btn { background:var(--card); color:#cbd5e1; border:1px solid #334155; padding:6px 14px; border-radius:6px; cursor:pointer; font-size:13px; }
+
+/* ===== 資料夾(拖拉整理影片) ===== */
+.folder-section { margin-bottom:14px; }
+.folder-header {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  background:#1e293b;
+  border:1px solid #334155;
+  border-radius:8px;
+  cursor:pointer;
+  user-select:none;
+}
+.folder-toggle { font-size:12px; color:var(--muted); transition:transform 0.15s; }
+.folder-section.folder-collapsed .folder-toggle { transform:rotate(-90deg); }
+.folder-name { font-weight:600; flex:1; }
+.folder-count { color:var(--muted); font-size:12px; }
+.folder-actions { display:flex; gap:2px; }
+.folder-actions button {
+  background:transparent;
+  border:none;
+  color:var(--muted);
+  cursor:pointer;
+  font-size:13px;
+  padding:4px 6px;
+  border-radius:4px;
+}
+.folder-actions button:hover { background:#334155; color:var(--text); }
+.folder-body {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:10px 4px 2px;
+  min-height:36px;
+  border-radius:0 0 8px 8px;
+}
+.item-list.view-grid .folder-body {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  gap:14px;
+}
+.folder-section.folder-collapsed .folder-body { display:none; }
+.folder-body.drag-over { background:rgba(100,181,246,0.08); outline:2px dashed var(--accent); outline-offset:-4px; }
+.folder-body:empty::before {
+  content:'拖曳影片到這裡';
+  display:block;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  padding:10px;
+  opacity:0.6;
+}
+.item.dragging { opacity:0.4; }
+.folder-unsorted .folder-header { background:transparent; border-style:dashed; }
 .item { display:flex; justify-content:space-between; align-items:center; gap:12px; background:var(--card);
         border-radius:8px; padding:10px; margin-bottom:10px; }
 .archive-checkbox { width:18px; height:18px; flex-shrink:0; cursor:pointer; accent-color: var(--green); }
