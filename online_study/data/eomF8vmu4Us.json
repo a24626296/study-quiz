@@ -1,0 +1,109 @@
+{
+  "subject": "儀器飛行程序 - 標準儀器離場 (SID) 與法規限制",
+  "mc_questions": [
+    {
+      "zh_question": "根據影片中的 AKI 2B 離場程序，若飛機的地面速度 (Ground Speed) 為 100 kts，要求的最低爬升梯度為 3.6%，則飛行員應維持多少爬升率 (Rate of Climb) 以符合程序要求？",
+      "zh_options": [
+        "(A) 219 fpm",
+        "(B) 365 fpm",
+        "(C) 400 fpm",
+        "(D) 608 fpm"
+      ],
+      "en_question": "According to the AKI 2B departure procedure, if the aircraft ground speed is 100 kts and the minimum climb gradient required is 3.6%, what is the required Rate of Climb to comply with the procedure?",
+      "en_options": [
+        "(A) 219 fpm",
+        "(B) 365 fpm",
+        "(C) 400 fpm",
+        "(D) 608 fpm"
+      ],
+      "answer": "B",
+      "explanation": "影片中提到在 100 kts Ground Speed 下，3.6% 的梯度對應約 365 fpm。飛行員為求保險通常會無條件進位至 400 fpm。計算邏輯為：(Ground Speed / 60) * Gradient * 6076 / 100 或直接查表得到 365 fpm (Minimum rate of climb)。",
+      "timestamp": "02:18"
+    },
+    {
+      "zh_question": "在進行威脅與錯誤管理 (TEM) 時，針對 Akureyri 機場高地地形的特點，若離場時發生發動機失效導致爬升梯度不足，飛行員應採取何種緊急應變邏輯？",
+      "zh_options": [
+        "(A) 立即左右轉向以避開正前方山脈",
+        "(B) 強制維持 3.6% 梯度直到達到過場高度",
+        "(C) 沿著山谷與河流方向往西北方飛行以爭取空間",
+        "(D) 立即在離場跑道進行 180 度迴轉落地"
+      ],
+      "en_question": "During Threat and Error Management (TEM), considering the high terrain around Akureyri airport, what emergency logic should a pilot follow if an engine failure occurs and the climb gradient cannot be met?",
+      "en_options": [
+        "(A) Immediately turn left or right to avoid mountains directly ahead",
+        "(B) Force a 3.6% gradient until reaching MSA",
+        "(C) Continue toward the North-Northwest through the valley and over the river",
+        "(D) Immediately perform a 180-degree turn to land on the same runway"
+      ],
+      "answer": "C",
+      "explanation": "教官強調由於該機場地形險峻，最低安全高度 (MSA) 高達 6600ft。若爬升性能受損，應利用地形邏輯，順著山谷與河流方向飛行，維持在較低地勢區域，直到解決問題或爬升至安全高度。",
+      "timestamp": "03:55"
+    },
+    {
+      "zh_question": "根據 EASA/UK 法規，對於單一飛行員操作的儀器飛行 (Single-pilot IR)，離場的最低天氣標準 (Takeoff Minima) 主要取決於哪一項指標？",
+      "zh_options": [
+        "(A) 雲底高度 (Cloud Base)",
+        "(B) 跑道視程 (RVR)",
+        "(C) 垂直能見度 (Vertical Visibility)",
+        "(D) 測報能見度 (MET VIS)"
+      ],
+      "en_question": "According to EASA/UK regulations for Single-pilot IR, what is the primary metric used to determine takeoff minima?",
+      "en_options": [
+        "(A) Cloud Base",
+        "(B) Runway Visual Range (RVR)",
+        "(C) Vertical Visibility",
+        "(D) Meteorological Visibility (MET VIS)"
+      ],
+      "answer": "B",
+      "explanation": "法規規定離場最低標準通常僅考慮 RVR (Runway Visual Range)，單一飛行員 IR 的最低要求通常為 400m RVR。雲底高度 (Cloud base) 在計算離場最低標準時並不被納入考慮 (Cloud base is not considered for departure minima)。",
+      "timestamp": "11:03"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The worst weather you can depart in with an EASA or UK single-pilot instrument rating is {{c1::400m}} RVR.",
+      "zh_translation": "持 EASA 或英國單一飛行員儀器等級所能起飛的最惡劣天氣為跑道視程 400 公尺。",
+      "explanation": "這是法規規定的最低離場能見度限制，需有跑道燈光支援。",
+      "tags": "Limitations / Regulations",
+      "timestamp": "11:03"
+    },
+    {
+      "cloze_text": "It is worth noting that {{c1::cloud base}} is not considered for departure minima.",
+      "zh_translation": "值得注意的是，離場最低天氣標準並不考慮雲底高度。",
+      "explanation": "離場主要看跑道能見度(RVR)，雲高不影響起飛決策，但可能影響返場高度。",
+      "tags": "Regulations",
+      "timestamp": "11:06"
+    },
+    {
+      "cloze_text": "You need a departure alternate when you can't {{c1::land back}} at your departure airport due to weather or performance.",
+      "zh_translation": "當你因為天氣或性能限制無法在原出發機場降落時，你就需要指定一個離場備降場。",
+      "explanation": "如果 RVR 低於起飛後的降落標準(Approach Minima)，必須指定備降場。",
+      "tags": "Regulations",
+      "timestamp": "11:41"
+    },
+    {
+      "cloze_text": "A departure alternate aerodrome must be within {{c1::1 hour}} at one engine inoperative (OEI) cruise speed.",
+      "zh_translation": "離場備降機場必須位於單發動機失效(OEI)巡航速度一小時航程內。",
+      "explanation": "這是選取離場備降場的距離/時間限制準則。",
+      "tags": "Limitations / Alternate",
+      "timestamp": "11:55"
+    },
+    {
+      "cloze_text": "The TAF at your departure alternate must be above approach minima at your ETA {{c1::+/- 1 hour}}.",
+      "zh_translation": "離場備降場的天氣預報(TAF)必須在預計抵達時間的前後一小時內均高於降落最低標準。",
+      "explanation": "確保備降場在可能使用的時間範圍內天氣是可靠的。",
+      "tags": "Alternate / Weather",
+      "timestamp": "12:05"
+    },
+    {
+      "cloze_text": "Minimum safe altitude (MSA) to the West of Akureyri airport is {{c1::6600}} feet.",
+      "zh_translation": "Akureyri 機場西側的最低安全高度為 6600 英呎。",
+      "explanation": "MSA 在該區域極高，顯示地形風險嚴重，必須嚴格執行爬升梯度。",
+      "tags": "Limitations / Terrain",
+      "timestamp": "01:58"
+    }
+  ],
+  "video_id": "eomF8vmu4Us",
+  "url": "https://www.youtube.com/watch?v=eomF8vmu4Us&list=PLduRBBQmH7RTkdoTx20CxmhyEGlQuA9D3",
+  "has_transcript": false
+}
