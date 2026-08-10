@@ -8,7 +8,7 @@
 </head>
 <body style="padding:20px;">
 <div class="list-header">
-  <h1 style="margin:0;">📚 複習清單(21)</h1>
+  <h1 style="margin:0;">📚 複習清單(22)</h1>
   <div class="header-actions">
     <button class="archive-toggle-btn" id="archive-toggle-btn" onclick="toggleShowArchived()">📦 顯示已封存 (0)</button>
     <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
@@ -18,6 +18,22 @@
 </div>
 <div id="item-list" class="item-list">
 
+        <div class="item" data-id="StWw4FCmwpM">
+          <input type="checkbox" class="archive-checkbox" title="標記為已學完(暫時隱藏,不會刪除)"
+                 onchange="toggleArchive('StWw4FCmwpM', this.checked)">
+          <a class="item-link" href="./viewer.html?id=StWw4FCmwpM">
+            <img src="https://i.ytimg.com/vi/StWw4FCmwpM/mqdefault.jpg" loading="lazy">
+            <div class="meta">
+              <div class="subject">PHAK 第 1 章 - 航空史與法規演進</div>
+              <div class="date">2026-08-10 05:22</div>
+              <div class="vid">ID: StWw4FCmwpM</div>
+            </div>
+          </a>
+          <div class="item-actions">
+            <a class="yt-link" href="https://www.youtube.com/watch?v=StWw4FCmwpM" target="_blank" rel="noopener">▶ 原始影片</a>
+            <button class="del-btn" onclick="deleteVideo('StWw4FCmwpM')">🗑 刪除</button>
+          </div>
+        </div>
         <div class="item" data-id="eomF8vmu4Us">
           <input type="checkbox" class="archive-checkbox" title="標記為已學完(暫時隱藏,不會刪除)"
                  onchange="toggleArchive('eomF8vmu4Us', this.checked)">

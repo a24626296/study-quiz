@@ -1,0 +1,590 @@
+{
+  "subject": "PHAK 第 1 章 - 航空史與法規演進",
+  "mc_questions": [
+    {
+      "zh_question": "誰被譽為「航空航行之父」(Father of Aerial Navigation)，並發現了現代航空科學的基本原理？",
+      "zh_options": [
+        "(A) 萊特兄弟 (Wilbur and Orville Wright)",
+        "(B) 奧托·李林塔爾 (Otto Lilienthal)",
+        "(C) 喬治·凱利爵士 (Sir George Cayley)",
+        "(D) 達文西 (Leonardo da Vinci)"
+      ],
+      "en_question": "Who is recognized as the 'Father of Aerial Navigation' and discovered the basic principles on which the modern science of aeronautics is founded?",
+      "en_options": [
+        "(A) The Wright brothers",
+        "(B) Otto Lilienthal",
+        "(C) Sir George Cayley",
+        "(D) Leonardo da Vinci"
+      ],
+      "answer": "C",
+      "explanation": "Sir George Cayley 發現了現代航空科學的基本原理，並製造了第一架成功的飛行模型及全尺寸載人飛機。他將 Lift (升力)、Weight (重力)、Thrust (推力) 與 Drag (阻力) 的觀念帶入航空領域。",
+      "timestamp": "03:25"
+    },
+    {
+      "zh_question": "1926 年的《航空商業法》(Air Commerce Act) 對美國航空業的發展有何指標性意義？",
+      "zh_options": [
+        "(A) 規定所有飛機必須安裝噴射引擎",
+        "(B) 促成郵件飛行完全私有化",
+        "(C) 授權商務部長負責輔導航空商業、發放執照並執行交通規則",
+        "(D) 正式成立了聯邦航空總署 (FAA)"
+      ],
+      "en_question": "What was the significance of the Air Commerce Act of 1926 for the development of aviation in the United States?",
+      "en_options": [
+        "(A) It mandated all aircraft be equipped with jet engines",
+        "(B) It led to the full privatization of airmail services",
+        "(C) It charged the Secretary of Commerce with fostering air commerce, licensing pilots, and enforcing air traffic rules",
+        "(D) It formally established the Federal Aviation Administration (FAA)"
+      ],
+      "answer": "C",
+      "explanation": "1926 年的 Air Commerce Act 是美國航空業的基石，它賦予政府權力來改善安全性、建立航路 (Airways) 並對飛行員及飛機進行 Certificating (認證)。",
+      "timestamp": "08:11"
+    },
+    {
+      "zh_question": "促使國會通過 1958 年《聯邦航空法》(Federal Aviation Act) 的主要原因為何？",
+      "zh_options": [
+        "(A) 為了應對一系列的空中相撞事故以及噴射機時代的來臨",
+        "(B) 為了統一全球的航空通訊標準",
+        "(C) 為了將航空公司全面收歸國有",
+        "(D) 為了推廣飛機在農業植保的應用"
+      ],
+      "en_question": "What was the primary reason that led Congress to pass the Federal Aviation Act of 1958?",
+      "en_options": [
+        "(A) A series of mid-air collisions and the introduction of jet aircraft",
+        "(B) To unify global aviation communication standards",
+        "(C) To fully nationalize airlines",
+        "(D) To promote the use of aircraft in agricultural operations"
+      ],
+      "answer": "A",
+      "explanation": "隨著 Jet Aircraft (噴射機) 的出現與空中交通流量增加，一系列的 Mid-air Collisions (空中相撞) 顯示出需要一個更集中的監管機構。這部法律促成了 Federal Aviation Agency (即後來的 FAA) 的誕生。",
+      "timestamp": "12:25"
+    },
+    {
+      "zh_question": "根據音訊內容,FAA 導入半自動化航管系統(ATC)的主要邏輯為何?",
+      "zh_options": [
+        "(A) 為了完全取代人工操作以減少人為失誤",
+        "(B) 透過自動化例行任務,使管制員能專注於飛機隔離(Aircraft Separation)的核心任務",
+        "(C) 僅為了顯示飛機的識別碼與地速,不涉及高度資訊",
+        "(D) 為了在罷工期間能夠維持航管系統的運作"
+      ],
+      "en_question": "According to the audio, what was the primary logic behind the FAA's implementation of a semi-automated ATC system?",
+      "en_options": [
+        "(A) To fully replace manual operations to eliminate human error",
+        "(B) To automate routine tasks, allowing controllers to focus on the vital task of aircraft separation",
+        "(C) To only display aircraft identity and ground speed, excluding altitude",
+        "(D) To maintain system operations during labor strikes"
+      ],
+      "answer": "B",
+      "explanation": "系統導入 Semi-automated ATC 是結合雷達與電腦技術,將 routine tasks 自動化,讓管制員(Controllers)能將精力集中在最關鍵的「飛機隔離」(Aircraft Separation)。數據顯示包含 Identity、Altitude 與 Ground Speed。",
+      "timestamp": "15:15"
+    },
+    {
+      "zh_question": "1978 年的《航空公司放鬆管制法案》(Airline Deregulation Act)對民航市場產生的最直接影響是什麼?",
+      "zh_options": [
+        "(A) 強化了民航委員會(CAB)對航線與票價的行政管制",
+        "(B) 導致 FAA 被併入運輸部(DOT)",
+        "(C) 開啟了無限制競爭的新時代,航空公司可自由設定航線與票價",
+        "(D) 規定所有主要航空公司必須合併以維持競爭力"
+      ],
+      "en_question": "What was the most direct impact of the Airline Deregulation Act of 1978 on the civil aviation market?",
+      "en_options": [
+        "(A) It strengthened the CAB's administrative control over routes and fares",
+        "(B) It led to the FAA being merged into the Department of Transportation",
+        "(C) It ushered in a new era of unfettered competition, allowing airlines to set routes and fares freely",
+        "(D) It mandated that all major airlines must merge to remain competitive"
+      ],
+      "answer": "C",
+      "explanation": "該法案(Deregulation Act)逐步取消了民航委員會(CAB)對航線(Routes)與票價(Fares)的經濟管制,使市場進入自由競爭時期(Unfettered competition)。",
+      "timestamp": "17:05"
+    },
+    {
+      "zh_question": "關於 FAA 諮詢通報(Advisory Circulars, ACs)的性質,下列敘述何者正確?",
+      "zh_options": [
+        "(A) 它們是具有法律強制性的聯邦法規",
+        "(B) 它們僅供飛機製造商參考,飛行員無需理會",
+        "(C) 它們是非強制性的指導文件,提供符合法規的可行方法",
+        "(D) 它們每週更新一次,且必須付費訂閱才能獲取"
+      ],
+      "en_question": "Regarding the nature of FAA Advisory Circulars (ACs), which of the following statements is correct?",
+      "en_options": [
+        "(A) They are legally mandatory federal regulations",
+        "(B) They are for aircraft manufacturers' reference only; pilots can ignore them",
+        "(C) They are non-regulatory documents providing acceptable methods for complying with regulations",
+        "(D) They are updated weekly and require a paid subscription for access"
+      ],
+      "answer": "C",
+      "explanation": "諮詢通報(ACs)是非強制性(Non-regulatory)的指導文件,目的是向航空界分發資訊,提供符合法規(Regulations)的可接受方法,並不具有法規本身的強制力。",
+      "timestamp": "29:15"
+    },
+    {
+      "zh_question": "根據 Advisory Circular (AC) 的編號系統，編號第一個部分的數字（例如 AC 25-42C 中的 25）代表什麼意義？",
+      "zh_options": [
+        "(A) 該通報的發佈年份",
+        "(B) 該通報所對應的 14 CFR 內容章節",
+        "(C) 該通報在該主題領域中的先後順序",
+        "(D) 負責簽發該通報的 FAA 分區辦公室代碼"
+      ],
+      "en_question": "According to the Advisory Circular (AC) numbering system, what does the first part of the number (e.g., the '25' in AC 25-42C) represent?",
+      "en_options": [
+        "(A) The year the AC was issued",
+        "(B) The corresponding 14 CFR Part",
+        "(C) The sequence number within a specific subject area",
+        "(D) The FAA regional office code responsible for the issuance"
+      ],
+      "answer": "B",
+      "explanation": "AC 編號的第一部分標識了 AC 的主題內容，並與對應的 14 CFR (Federal Aviation Regulations) 章節編號一致。例如，AC 61 代表有關 Pilots 的章節，AC 25 則對應 Transport Category 的適航標準。",
+      "timestamp": "30:35"
+    },
+    {
+      "zh_question": "關於 FDC NOTAM 與 NOTAM(D) 的區分，下列敘述何者正確？",
+      "zh_options": [
+        "(A) NOTAM(D) 主要涉及法規性質的變動，如航圖修正",
+        "(B) FDC NOTAM 僅處理機場地面設施的臨時維護",
+        "(C) FDC NOTAM 包含具有法規性質的資訊，如儀器進場程序的修訂",
+        "(D) 只有 NOTAM(D) 會由 National Flight Data Center 簽發"
+      ],
+      "en_question": "Regarding the distinction between FDC NOTAMs and NOTAM(D)s, which statement is correct?",
+      "en_options": [
+        "(A) NOTAM(D) primarily deals with regulatory changes like chart revisions",
+        "(B) FDC NOTAM only handles temporary maintenance of airport ground facilities",
+        "(C) FDC NOTAMs contain information that is regulatory in nature, such as amendments to IAPs",
+        "(D) Only NOTAM(D) is issued by the National Flight Data Center"
+      ],
+      "answer": "C",
+      "explanation": "FDC NOTAM (Flight Data Center NOTAM) 具有法規性質 (Regulatory in nature)，通常涉及航圖 (Charts)、導航程序 (Procedures) 及空域使用。而 NOTAM(D) 則主要處理機場設施、障礙物等 Distant 分發的資訊。",
+      "timestamp": "33:55"
+    },
+    {
+      "zh_question": "在 NOTAM 的 UTC 時間格式中，系統使用幾位數來表示年、月、日、時、分？",
+      "zh_options": [
+        "(A) 6 位數",
+        "(B) 8 位數",
+        "(C) 10 位數",
+        "(D) 12 位數"
+      ],
+      "en_question": "In the NOTAM system's UTC time format, how many digits are used to represent the Year, Month, Day, Hour, and Minute?",
+      "en_options": [
+        "(A) 6 digits",
+        "(B) 8 digits",
+        "(C) 10 digits",
+        "(D) 12 digits"
+      ],
+      "answer": "C",
+      "explanation": "NOTAM 系統中的時間採用 10 位數格式 (YYMMDDHHMM)，順序為年 (Year)、月 (Month)、日 (Day)、時 (Hour)、分 (Minute)，且一律使用 UTC 時間。",
+      "timestamp": "36:28"
+    },
+    {
+      "zh_question": "根據影片內容，關於運動飛行員 (Sport Pilot) 執照的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) 必須年滿 18 歲才能參加執照檢定考試",
+        "(B) 飛行時必須攜帶現行有效的駕駛執照作為醫療資格證明",
+        "(C) 可以在任何級別的空域 (Airspace) 自由飛行",
+        "(D) 飛機飛行時數要求至少為 40 小時"
+      ],
+      "en_question": "According to the video, which of the following statements regarding the Sport Pilot certificate is correct?",
+      "en_options": [
+        "(A) Must be at least 18 years old to test for the certificate",
+        "(B) Must hold a current and valid driver's license as evidence of medical eligibility",
+        "(C) May fly freely in any class of airspace",
+        "(D) Requires a minimum of 40 flight hours for airplanes"
+      ],
+      "answer": "B",
+      "explanation": "運動飛行員可以使用有效的駕駛執照 (driver's license) 作為醫療資格證明。其他選項錯誤：檢定考試年齡為 17 歲 (gliders/balloons 為 16)；在 A、B、C、D 類空域飛行需額外訓練與簽署 (endorsement)；飛機時數要求為 20 小時。",
+      "timestamp": "46:50"
+    },
+    {
+      "zh_question": "在商業飛行員 (Commercial Pilot) 的術科考試中，「複雜飛機」(Complex Airplane) 必須具備哪些系統？",
+      "zh_options": [
+        "(A) 渦輪發動機、增壓艙與自動駕駛系統",
+        "(B) 固定式起落架、襟翼與定距螺旋槳",
+        "(C) 可收放式起落架、可動襟翼與可變距螺旋槳",
+        "(D) 雙發動機、防冰系統與氣象雷達"
+      ],
+      "en_question": "In the Commercial Pilot practical exam, a \"Complex Airplane\" must be equipped with which systems?",
+      "en_options": [
+        "(A) Turbine engine, pressurized cabin, and autopilot",
+        "(B) Fixed landing gear, flaps, and fixed-pitch propeller",
+        "(C) Retractable landing gear, movable flaps, and a controllable pitch propeller",
+        "(D) Dual engines, anti-icing system, and weather radar"
+      ],
+      "answer": "C",
+      "explanation": "根據 14 CFR Part 61 規定，Complex Airplane 的定義包含三要素：可收放式起落架 (retractable landing gear)、可動襟翼 (movable flaps) 以及可變距螺旋槳 (controllable pitch propeller)。",
+      "timestamp": "51:12"
+    },
+    {
+      "zh_question": "關於 Part 141 飛行學校與 Part 61 訓練規範的差異，下列敘述何者正確？",
+      "zh_options": [
+        "(A) Part 61 學校必須使用 FAA 核准的訓練大綱 (TCO)",
+        "(B) Part 141 學校通常能以較少的總飛行時數完成執照申請",
+        "(C) Part 61 的訓練時數要求絕對比 Part 141 少",
+        "(D) Part 141 提供較高的教學靈活性，可隨意調整課表"
+      ],
+      "en_question": "Regarding the difference between Part 141 flight schools and Part 61 training regulations, which statement is correct?",
+      "en_options": [
+        "(A) Part 61 schools must use an FAA-approved Training Course Outline (TCO)",
+        "(B) Part 141 schools can typically complete certificates with fewer total flight hours",
+        "(C) Part 61 minimum hour requirements are always lower than Part 141",
+        "(D) Part 141 provides higher instructional flexibility for individual tailoring"
+      ],
+      "answer": "B",
+      "explanation": "Part 141 學校因為受 FAA 嚴格監管且有核准的教學大綱，通常允許以較低時數 (如 Private Pilot 要求 35 小時，而非 Part 61 的 40 小時) 申請執照。Part 61 則具備更高的靈活性 (flexibility)，適合個別學生調整。",
+      "timestamp": "54:30"
+    },
+    {
+      "zh_question": "根據音訊內容,關於學生飛行員執照(Student Pilot Certificate)申請手續的重大變更為何?",
+      "zh_options": [
+        "(A) 學生執照現在由航空公司直接核發",
+        "(B) 飛航教官(CFI)現在直接在學生執照背面簽署單飛授權",
+        "(C) 飛航教官(CFI)現在改在學生飛行員的飛行紀錄簿(Logbook)中進行單飛背書,而非在執照上背書",
+        "(D) 學生執照現在改為紙本形式以方便教官隨時修改"
+      ],
+      "en_question": "According to the audio, what is a significant change in the process for Student Pilot Certificates?",
+      "en_options": [
+        "(A) Certificates are now issued directly by airlines.",
+        "(B) CFIs now sign solo authorizations on the back of the student certificate.",
+        "(C) Flight instructors now make endorsements for solo privileges in the student's logbook instead of on the certificate.",
+        "(D) Certificates are now issued in paper format for easy modification by instructors."
+      ],
+      "answer": "C",
+      "explanation": "新的作業程序規定,單飛授權(solo privileges)改在飛行紀錄簿(Logbook)中簽署,不再簽署於學生執照上。此外,新的執照已改為塑膠卡片形式且無到期日(no expiration date)。",
+      "timestamp": "01:01:38"
+    },
+    {
+      "zh_question": "對於想要申請運動飛行員(Sport Pilot)類別的人員,其醫療能力的證明方式為何?",
+      "zh_options": [
+        "(A) 必須持有第一類醫療體檢證",
+        "(B) 可以使用有效的駕駛執照(Driver's License)作為醫療能力證明",
+        "(C) 必須通過 FAA 指定醫師的物理心理測驗",
+        "(D) 運動飛行員不需要任何形式的醫療證明"
+      ],
+      "en_question": "For those seeking a Sport Pilot category, how can medical competence be proven?",
+      "en_options": [
+        "(A) A First-Class medical certificate is mandatory.",
+        "(B) A valid driver's license can be used as proof of medical competence.",
+        "(C) A physical and psychological test by an FAA-designated physician is required.",
+        "(D) Sport pilots do not require any form of medical evidence."
+      ],
+      "answer": "B",
+      "explanation": "運動飛行員類別不要求傳統的航空醫療體檢(medical examination),可以使用駕照(driver's license)作為醫療適格性的證明。",
+      "timestamp": "01:02:32"
+    },
+    {
+      "zh_question": "FAA 建議學生飛行員在什麼階段參加學科知識測驗(Knowledge Test)最能發揮其優勢?",
+      "zh_options": [
+        "(A) 在開始任何飛行訓練之前",
+        "(B) 在完成第一次本場起降之後",
+        "(C) 在完成單飛越野飛行(Solo Cross-country Flight)之後",
+        "(D) 在取得醫療體檢證之前"
+      ],
+      "en_question": "When does the FAA recommend a student pilot take the Knowledge Test to best utilize their experience?",
+      "en_options": [
+        "(A) Before starting any flight training.",
+        "(B) After completing the first touch-and-go landing.",
+        "(C) After the student pilot has completed a solo cross-country flight.",
+        "(D) Before obtaining a medical certificate."
+      ],
+      "answer": "C",
+      "explanation": "音訊提到,在完成單飛越野飛行(solo cross-country flight)後,學生已具備實際的操作知識,這對於理解學科測驗內容非常有幫助,因此是建議的報考時機。",
+      "timestamp": "01:08:22"
+    },
+    {
+      "zh_question": "根據音訊內容，飛行教官 (Flight Instructor) 對於學員而言最主要的非正式角色為何？",
+      "zh_options": [
+        "(A) 嚴格的考官 (Examiner)",
+        "(B) 飛行能力與習慣的榜樣 (Role Model)",
+        "(C) 飛機維修的監督者",
+        "(D) 僅作為理論知識的傳授者"
+      ],
+      "en_question": "According to the audio, what is the primary informal role of a flight instructor to the student pilot?",
+      "en_options": [
+        "(A) A strict examiner",
+        "(B) A role model for flying habits and proficiency",
+        "(C) A supervisor for aircraft maintenance",
+        "(D) Merely a source of theoretical knowledge"
+      ],
+      "answer": "B",
+      "explanation": "音訊提到教官是學員的榜樣 (Role Model)，學員會自覺或不自覺地模仿教官的飛行習慣與專業能力 (Flying proficiency)。",
+      "timestamp": "01:15:10"
+    },
+    {
+      "zh_question": "關於「總體飛行員 (Total Pilot)」的訓練目標，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 目標僅在於讓學員通過 FAA 的術科檢定 (Practical Test)",
+        "(B) 術科檢定即代表了飛行員所有能力的完整展現",
+        "(C) 術科檢定僅是在短時間內對飛行員能力的一種抽樣 (Sampling)",
+        "(D) 教官不應強調術科檢定以外的技能"
+      ],
+      "en_question": "Which of the following statements is correct regarding the training goal of a 'Total Pilot'?",
+      "en_options": [
+        "(A) The goal is solely to get the student to pass the FAA Practical Test",
+        "(B) The practical test represents the full extent of a pilot's abilities",
+        "(C) Practical tests are a sampling of pilot ability compressed into a short period",
+        "(D) Instructors should not emphasize skills beyond those required for the practical test"
+      ],
+      "answer": "C",
+      "explanation": "適任的飛行教官應向學員強調，FAA 的 Practical Test 只是在短時間內對飛行能力的一種抽樣檢測，教官的最終目標是訓練出具備全面能力的「Total Pilot」。",
+      "timestamp": "01:16:45"
+    },
+    {
+      "zh_question": "根據 14 CFR Part 183，委任飛行檢定官 (DPE) 的權力範圍通常限制在何處？",
+      "zh_options": [
+        "(A) 修改 FAA 的飛行法規",
+        "(B) 負責飛機的適航認證與檢查",
+        "(C) 接受申請並執行術科檢定以核發飛行執照或等級",
+        "(D) 代替 FAA 決定所有航空政策"
+      ],
+      "en_question": "According to 14 CFR Part 183, where is a Designated Pilot Examiner's (DPE) authority generally limited?",
+      "en_options": [
+        "(A) Modifying FAA aviation regulations",
+        "(B) Aircraft airworthiness certification and inspection",
+        "(C) Accepting applications and conducting practical tests for pilot certificates or ratings",
+        "(D) Deciding all aviation policies on behalf of the FAA"
+      ],
+      "answer": "C",
+      "explanation": "DPE 的權力通常僅限於接受申請並執行導致核發特定飛行員執照或等級的術科檢定 (Practical Tests)。",
+      "timestamp": "01:18:15"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The Wright brothers achieved the first powered flight at Kitty Hawk on {{c1::December 17, 1903}}.",
+      "zh_translation": "萊特兄弟於 1903 年 12 月 17 日在 Kitty Hawk 完成了第一次動力飛行。",
+      "explanation": "這是航空史最重要的日期，標誌著動力飛行時代的開始。",
+      "tags": "History",
+      "timestamp": "04:04"
+    },
+    {
+      "cloze_text": "The St. Petersburg-Tampa Airboat Line is recognized as the first {{c1::scheduled airline}} in the United States.",
+      "zh_translation": "St. Petersburg-Tampa Airboat Line 被公認為美國第一家「定期航空公司」。",
+      "explanation": "雖然只營運了四個月，但它證明了商業客運航空的可行性。",
+      "tags": "History",
+      "timestamp": "05:30"
+    },
+    {
+      "cloze_text": "The first airmail flight was conducted on May 15, 1918, between {{c1::New York and Washington, D.C.}}",
+      "zh_translation": "第一班航空郵件飛行於 1918 年 5 月 15 日在「紐約和華盛頓特區」之間進行。",
+      "explanation": "早期的航空郵件服務是透過陸軍飛行員協助訓練跨大陸航線飛行。",
+      "tags": "History",
+      "timestamp": "07:31"
+    },
+    {
+      "cloze_text": "The first administrator of the FAA (Federal Aviation Agency) was former Air Force General {{c1::Elwood Richard Quesada}}.",
+      "zh_translation": "聯邦航空局 (FAA) 的第一任署長是前空軍將軍 Elwood Richard Quesada。",
+      "explanation": "他在 1959 年被任命，負責管理共同的民軍導航與空中交通管制系統。",
+      "tags": "Regulation",
+      "timestamp": "13:06"
+    },
+    {
+      "cloze_text": "The NTSB was created in 1966 and charged with the investigation of all {{c1::transportation accidents}} within the United States.",
+      "zh_translation": "NTSB 於 1966 年成立，負責調查美國境內所有的「交通運輸意外」。",
+      "explanation": "NTSB 是獨立機構，不僅調查航空事故，也調查鐵路、公路等其他運輸意外。",
+      "tags": "Regulation",
+      "timestamp": "14:02"
+    },
+    {
+      "cloze_text": "FAA 的法規主要收錄在聯邦規則彙編(CFR)第 {{c1::14}} 標題(Title)下,標題名稱為「航空與太空」(Aeronautics and Space)。",
+      "zh_translation": "FAA regulations are listed under Title 14 of the Code of Federal Regulations (CFR), titled 'Aeronautics and Space'.",
+      "explanation": "CFR 共分為 50 個標題,民航相關規定統一歸類在第 14 標題。",
+      "tags": "Regulations",
+      "timestamp": "20:05"
+    },
+    {
+      "cloze_text": "CFR 第 {{c1::61}} 部分(Part)詳細規定了飛行員、飛行教官與地面教官的檢定證核發要求。",
+      "zh_translation": "14 CFR Part 61 pertains to the certification of pilots, flight instructors, and ground instructors.",
+      "explanation": "Part 61 是飛行學員與飛行員必須背誦的核心法規基礎,涉及考照資格與權限。",
+      "tags": "Certification",
+      "timestamp": "21:01"
+    },
+    {
+      "cloze_text": "CFR 第 {{c1::91}} 部分(Part)提供了關於通用飛行規則(General Flight Rules)的指引,包含 VFR 與 IFR 的運作規定。",
+      "zh_translation": "14 CFR Part 91 provides guidance in the areas of General Flight Rules, including VFR and IFR.",
+      "explanation": "Part 91 規定了飛行中必須遵守的一般規則,是飛行安全與法規遵從的基石。",
+      "tags": "Flight-Rules",
+      "timestamp": "21:15"
+    },
+    {
+      "cloze_text": "CFR 第 {{c1::43}} 部分(Part)涵蓋了飛機維修、預防性維修、重建與改裝的相關規定。",
+      "zh_translation": "14 CFR Part 43 covers aircraft maintenance, preventive maintenance, rebuilding, and alterations.",
+      "explanation": "這部分法規定義了誰可以進行維修以及維修紀錄的標準,對飛航安全(Airworthiness)至關重要。",
+      "tags": "Maintenance",
+      "timestamp": "21:25"
+    },
+    {
+      "cloze_text": "{{c1::AIM}} (飛航資訊手冊)是 FAA 官方發布的基礎飛行資訊與航管程序指引。",
+      "zh_translation": "The Aeronautical Information Manual (AIM) is the official guide to basic flight information and ATC procedures.",
+      "explanation": "AIM 包含了飛行員感興趣的健康/醫療事實、飛行安全、航管術語對照表及危害通報機制。",
+      "tags": "Reference",
+      "timestamp": "27:15"
+    },
+    {
+      "cloze_text": "FAA 與航空界/一般大眾互動的核心窗口是{{c1::飛行標準地區辦事處(FSDO)}}。",
+      "zh_translation": "The focus of interaction between Flight Standards Service and the aviation community is the Flight Standards District Office (FSDO).",
+      "explanation": "舉凡檢定證換發、事故調查或諮詢,FSDO 都是飛行員在地方上最直接的聯繫單位。",
+      "tags": "Organization",
+      "timestamp": "23:05"
+    },
+    {
+      "cloze_text": "The first part of an Advisory Circular (AC) number identifies the subject matter area and corresponds to the appropriate {{c1::14 CFR}} part.",
+      "zh_translation": "諮詢通報 (AC) 編號的第一部分標識了主題領域，並與對應的 14 CFR 章節一致。",
+      "explanation": "這建立了 AC 與聯邦航空法規之間的邏輯連結。",
+      "tags": "Regulations, AC",
+      "timestamp": "30:35"
+    },
+    {
+      "cloze_text": "In the AC numbering system, a revision letter such as 'E' designates that this is the {{c1::fifth}} revision of the document.",
+      "zh_translation": "在 AC 編號系統中，修訂字母如 'E' 表示這是該文件的第五次修訂。",
+      "explanation": "字母順序 A=1, B=2, C=3, D=4, E=5，第一個版本則沒有字母。",
+      "tags": "Regulations, AC",
+      "timestamp": "31:05"
+    },
+    {
+      "cloze_text": "FDC NOTAMs refer to information that is {{c1::regulatory}} in nature, such as changes to instrument approach procedures.",
+      "zh_translation": "FDC NOTAM 指的是具有法規性質的資訊，例如儀器進場程序的變更。",
+      "explanation": "FDC 代表 Flight Data Center，其發佈的內容具有法律效力。",
+      "tags": "NOTAM",
+      "timestamp": "33:55"
+    },
+    {
+      "cloze_text": "A powered ultralight vehicle must weigh less than {{c1::254}} pounds empty weight according to 14 CFR Part 103.",
+      "zh_translation": "根據 14 CFR Part 103，有動力的超輕型載具空重必須低於 254 磅。",
+      "explanation": "這是區分 Ultralight 與需要認證之 Aircraft 的重要重量限制。",
+      "tags": "Classification, Limitations",
+      "timestamp": "39:30"
+    },
+    {
+      "cloze_text": "For the purpose of airman certification, 'Category' refers to a broad classification of aircraft, such as {{c1::Airplane}}, Rotorcraft, or Glider.",
+      "zh_translation": "就人員執照認證而言，「類別 (Category)」是指飛機的廣泛分類，例如飛機、旋翼機或滑翔機。",
+      "explanation": "在 Airman Certification 中，Category 是最高層級的分類，與 Aircraft Certification 的定義不同。",
+      "tags": "Certification, Category",
+      "timestamp": "40:35"
+    },
+    {
+      "cloze_text": "Under pilot certification, 'Class' refers to a classification within a category having similar operating characteristics, such as {{c1::Single-engine Land}}.",
+      "zh_translation": "在機師執照體系下，「等級 (Class)」是指類別內具有相似操作特性的分類，例如單引擎陸地。",
+      "explanation": "Class 通常進一步細分 Category，如 Multi-engine Land 或 Single-engine Sea。",
+      "tags": "Certification, Class",
+      "timestamp": "40:45"
+    },
+    {
+      "cloze_text": "To earn a sport pilot certificate, an applicant must be at least {{c1::17}} years old to test for airplanes.",
+      "zh_translation": "要獲得運動飛行員執照，申請飛機類別的人員必須年滿 17 歲才能參加考試。",
+      "explanation": "若是滑翔機或熱氣球類別，則年滿 16 歲即可參加檢定考試。",
+      "tags": "Limitations, Sport Pilot",
+      "timestamp": "46:45"
+    },
+    {
+      "cloze_text": "The minimum pilot experience required for an Airline Transport Pilot (ATP) certificate is {{c1::1,500}} hours of flight time.",
+      "zh_translation": "申請民航運輸飛行員 (ATP) 執照所需的最低飛行經驗為 1,500 小時飛行時間。",
+      "explanation": "這是擔任定期航線機長 (PIC) 的必要條件，但副駕駛 (SIC) 的時數要求可能因學歷背景而有不同限制 (Restricted ATP)。",
+      "tags": "Experience, ATP",
+      "timestamp": "52:45"
+    },
+    {
+      "cloze_text": "A private pilot may not be {{c1::compensated}} in any way for services as a pilot.",
+      "zh_translation": "自用飛行員不得以任何方式因其提供的飛行服務而獲得報酬。",
+      "explanation": "自用飛行員僅能分攤與飛行直接相關的比例費用 (pro rata share)，例如燃油、機油、機場規費等。",
+      "tags": "Privileges, Private Pilot",
+      "timestamp": "50:15"
+    },
+    {
+      "cloze_text": "The minimum age to be eligible for an unrestricted ATP certificate is {{c1::23}} years.",
+      "zh_translation": "具備申請無限制 ATP 執照資格的最低年齡為 23 歲。",
+      "explanation": "若是限制性 ATP (Restricted ATP)，則最低年齡要求為 21 歲。",
+      "tags": "Eligibility, ATP",
+      "timestamp": "53:15"
+    },
+    {
+      "cloze_text": "The {{c1::CFI}} assumes total responsibility for training an individual to meet the standards required for certification.",
+      "zh_translation": "認證飛行教官 (CFI) 承擔了訓練個人達到執照核發標準的全部責任。",
+      "explanation": "教官必須具備對學習過程 (Learning Process) 的理解，並熟悉教學基礎知識 (Fundamentals of Instructing)。",
+      "tags": "Responsibilities, CFI",
+      "timestamp": "58:15"
+    },
+    {
+      "cloze_text": "A student pilot must be at least {{c1::16}} years of age to solo a powered aircraft.",
+      "zh_translation": "學生飛行員必須年滿 16 歲才能對動力飛機進行單飛。",
+      "explanation": "單飛 (Solo) 前必須獲得教官在紀錄簿上的簽署 (Endorsement)。如果是滑翔機或氣球，單飛年齡為 14 歲。",
+      "tags": "Eligibility, Student Pilot",
+      "timestamp": "59:40"
+    },
+    {
+      "cloze_text": "To be eligible for a student pilot certificate for powered aircraft, the applicant must be at least {{c1::16}} years of age.",
+      "zh_translation": "欲申請動力航空器的學生飛行員執照,申請人必須年滿 16 歲。",
+      "explanation": "滑翔機或熱氣球的申請年齡則為 14 歲。",
+      "tags": "Regulation, Age",
+      "timestamp": "01:01:50"
+    },
+    {
+      "cloze_text": "Student pilots must be able to read, speak, write, and understand the {{c1::English}} language.",
+      "zh_translation": "學生飛行員必須具備聽、說、讀、寫英文的能力。",
+      "explanation": "這是國際民航組織(ICAO)與 FAA 的通用語言要求標準。",
+      "tags": "Requirement, Language",
+      "timestamp": "01:01:58"
+    },
+    {
+      "cloze_text": "The FAA places full responsibility for student flight training on the {{c1::CFI}}, who is the cornerstone of aviation safety.",
+      "zh_translation": "FAA 將學生飛行訓練的所有責任交給飛航教官(CFI),他是飛航安全的基石。",
+      "explanation": "強調教官在塑造飛行員習慣與判斷力上的核心角色。",
+      "tags": "Responsibility, CFI",
+      "timestamp": "01:13:37"
+    },
+    {
+      "cloze_text": "The {{c1::ACS}} approach adds task-specific knowledge and risk management elements to each PTS area of operation.",
+      "zh_translation": "ACS 方法在每個 PTS 操作領域中加入了特定任務的知識與風險管理元素。",
+      "explanation": "ACS (Airman Certification Standards) 是目前發證測驗的主要標準,比舊的 PTS 更全面。",
+      "tags": "Testing, ACS",
+      "timestamp": "01:08:52"
+    },
+    {
+      "cloze_text": "Balloon or glider pilots do not need a medical certificate but must certify they have no {{c1::medical defect}} that would prevent safe operation.",
+      "zh_translation": "熱氣球或滑翔機飛行員不需要體檢證,但必須書面證明自己沒有任何會阻礙安全操作的醫療缺陷。",
+      "explanation": "這稱為自我醫療認證(Self-certification)。",
+      "tags": "Medical, Certification",
+      "timestamp": "01:02:22"
+    },
+    {
+      "cloze_text": "A student pilot may not carry {{c1::passengers}} or fly in furtherance of a business.",
+      "zh_translation": "學生飛行員不得搭載乘客,也不得為了商業目的進行飛行。",
+      "explanation": "這是學生飛行員執照最基本的權限限制(limitations)。",
+      "tags": "Limitations, Privileges",
+      "timestamp": "01:04:43"
+    },
+    {
+      "cloze_text": "A flight instructor serves as a {{c1::role model}} for the student pilot who observes the flying habits of his or her instructor.",
+      "zh_translation": "飛行教官扮演學員榜樣的角色，學員會觀察教官的飛行習慣。",
+      "explanation": "教官的行為舉止直接影響學員安全文化與技術習慣的養成。",
+      "tags": "Instructional, Role",
+      "timestamp": "01:15:11"
+    },
+    {
+      "cloze_text": "The goal of a flight instructor is to train the {{c1::total pilot}}.",
+      "zh_translation": "飛行教官的目標是訓練出「總體飛行員」。",
+      "explanation": "不僅是為了通過考試，而是具備全方位判斷與操作能力的飛行員。",
+      "tags": "Goal, Training",
+      "timestamp": "01:16:52"
+    },
+    {
+      "cloze_text": "A DPE must maintain at least a {{c1::third-class}} medical certificate, if required.",
+      "zh_translation": "如果需要，委任檢定官 (DPE) 必須至少持有三級體格檢查證明。",
+      "explanation": "這是擔任 DPE 執行檢定任務的基本體檢限制要求之一。",
+      "tags": "Qualification, Medical",
+      "timestamp": "01:18:08"
+    },
+    {
+      "cloze_text": "A DPE may charge a {{c1::reasonable fee}} for performing specific pilot certification tasks on behalf of the FAA.",
+      "zh_translation": "代表 FAA 執行特定飛行檢定任務時，DPE 可以收取合理的費用。",
+      "explanation": "DPE 並非 FAA 員工，因此獲准收取服務費用。",
+      "tags": "DPE, Fee",
+      "timestamp": "01:18:25"
+    },
+    {
+      "cloze_text": "The FAA believes that safety is a {{c1::learned behavior}}.",
+      "zh_translation": "FAA 認為安全是一種「學習而來的行為」。",
+      "explanation": "這強調了安全意識不是天生的，而是透過持續教育與正確榜樣訓練出來的。",
+      "tags": "Safety, Definition",
+      "timestamp": "01:19:05"
+    }
+  ],
+  "video_id": "StWw4FCmwpM",
+  "url": "https://www.youtube.com/watch?v=StWw4FCmwpM&list=PLcw703S2LGnj-VKgKHF2fZc_2mcoDRYcd",
+  "has_transcript": false
+}
