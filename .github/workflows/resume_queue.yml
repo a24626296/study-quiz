@@ -1,0 +1,61 @@
+name: 排隊繼續處理(額度重置後自動接著跑)
+on:
+  schedule:
+    # Gemini API 每日額度在美國太平洋時間午夜重置(換算成 UTC 大約是 07:00~08:00,
+    # 會因為美國有沒有實施日光節約時間而差 1 小時,這裡抓 08:30 UTC 留一點緩衝,
+    # 確保額度一定已經重置。換算成台灣時間大約是下午 4 點半,不是三更半夜。
+    # 如果那天沒有排隊中的項目,這個 workflow 幾秒內就會結束,幾乎不花資源。
+    - cron: '30 8 * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  resume:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 取得 repo
+        uses: actions/checkout@v4
+      - name: 安裝 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: 安裝套件
+        run: |
+          python -m pip install --upgrade pip
+          pip install google-genai
+      - name: 接著處理排隊清單
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          MY_CHANNEL_ID: ${{ secrets.MY_CHANNEL_ID }}
+        run: python scripts/generate_from_url.py --resume-queue
+      - name: 提交並推送產生的頁面
+        run: |
+          git config user.name "quiz-bot"
+          git config user.email "quiz-bot@users.noreply.github.com"
+          git add online_study/
+          if [ -f pending_queue.json ]; then git add pending_queue.json; fi
+          if [ -f gemini_quota_state.json ]; then git add gemini_quota_state.json; fi
+          git diff --cached --quiet && echo "沒有變動,略過 commit" || git commit -m "自動接著處理排隊清單"
+
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "✅ push 成功"
+              break
+            fi
+            if [ "$i" -eq 5 ]; then
+              echo "❌ 重試 5 次後仍然推送失敗"
+              exit 1
+            fi
+            echo "⚠️ push 被拒絕,嘗試 git pull --rebase 後重推(第 $i 次)..."
+            git pull --rebase origin main
+          done
+      - name: 上傳 Pages 檔案
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'online_study'
+      - name: 部署至 GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
