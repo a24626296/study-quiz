@@ -853,6 +853,9 @@ def process_video_batch(video_ids, with_transcript, source_note, max_new_videos=
 
     save_queue([], with_transcript, source_note)  # 這一批全部做完了,清掉排隊清單(如果有的話)
     return success_count, False
+
+
+def main():
     if len(sys.argv) < 2 or not sys.argv[1].strip():
         print("❌ 沒有收到參數。用法:\n"
               "  產生考題(單支影片):python generate_from_url.py \"https://www.youtube.com/watch?v=xxxxxxxxxxx\"\n"
