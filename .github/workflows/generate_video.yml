@@ -53,6 +53,7 @@ jobs:
           git config user.email "quiz-bot@users.noreply.github.com"
           git add online_study/
           if [ -f pending_queue.json ]; then git add pending_queue.json; fi
+          if [ -f gemini_quota_state.json ]; then git add gemini_quota_state.json; fi
           git diff --cached --quiet && echo "沒有變動,略過 commit" || git commit -m "自動產生複習頁面: ${{ inputs.youtube_url }}"
 
           # 這個 job 常常要跑很久(長播放清單可能處理好幾小時),
