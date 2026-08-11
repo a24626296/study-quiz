@@ -56,6 +56,15 @@ client = genai.Client(api_key=API_KEY or "missing-key-placeholder")
 MODEL_NAME = "gemini-3-flash-preview"
 MAX_RETRIES_ON_TRANSIENT = 3  # 429限流 / 503過載 共用的重試次數上限
 
+QUEUE_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "pending_queue.json")
+
+
+class DailyQuotaExhaustedError(Exception):
+    """Gemini API 當日免費額度用完(RPD 每日上限)。跟其他錯誤分開處理:
+    這種情況重試沒有意義,而且一旦發生,同一批次剩下的影片也一定會失敗,
+    應該整批停下來、把還沒處理的存進排隊清單,而不是每支都各自重試一輪浪費時間。"""
+    pass
+
 # 出題 prompt 裡的「每次出 3~5 題 / 4~8 則」是針對「一次送給 Gemini 的素材」講的,
 # 不是針對整支影片。所以短影片(單次送出)沒問題,但長影片如果整支一次丟給 Gemini,
 # 題數還是卡在同一個範圍,等於長影片吃虧。
@@ -326,6 +335,16 @@ def generate_quiz_from_youtube_url(video_id, with_transcript=False, chunk_range=
             err_str = str(e)
             is_rate_limit = "429" in err_str or "RESOURCE_EXHAUSTED" in err_str
             is_overloaded = "503" in err_str or "UNAVAILABLE" in err_str
+            # 「每日」額度用完是 PerDay 這種 quotaId,等幾十秒重試完全沒用(額度是按天重置的),
+            # 直接放棄比較快,不要浪費時間在注定會再次失敗的重試上。
+            is_daily_quota_exhausted = is_rate_limit and (
+                "PerDay" in err_str or "generate_content_free_tier_requests" in err_str
+            )
+            if is_daily_quota_exhausted:
+                print("❌ Gemini API 每日免費額度已經用完(Free tier 一天只有 20 次請求),"
+                      "重試也沒用,直接跳過。要處理更多影片請升級成付費方案:"
+                      "https://ai.google.dev/gemini-api/docs/rate-limits")
+                raise DailyQuotaExhaustedError(err_str)
             if (is_rate_limit or is_overloaded) and attempt < MAX_RETRIES_ON_TRANSIENT:
                 wait_s = 20 * (attempt + 1)
                 reason = "429 限流" if is_rate_limit else "503 模型過載"
@@ -480,6 +499,8 @@ def generate_quiz_for_video(video_id, with_transcript=False):
                 chunk_range=(start_sec, end_sec),
                 chunk_info=(idx, len(chunks)),
             )
+        except DailyQuotaExhaustedError:
+            raise  # 額度用完,再試下一段也一定失敗,直接往上拋讓整批處理停下來
         except Exception as e:
             print(f"  ⚠️ 這一段處理失敗,略過繼續下一段:{type(e).__name__}: {e}")
             continue
@@ -741,6 +762,8 @@ def process_one_video(video_id, source_url, with_transcript=False):
     print(f"🌐 分析中:{clean_url}" + ("(含逐字稿,會比較慢)" if effective_with_transcript else ""))
     try:
         quiz_data = generate_quiz_for_video(video_id, with_transcript=effective_with_transcript)
+    except DailyQuotaExhaustedError:
+        raise  # 額度用完,往上拋,由呼叫端(播放清單迴圈)決定要整批暫停排隊
     except Exception as e:
         print(f"❌ 這支影片處理失敗,略過繼續下一支:{type(e).__name__}: {e}")
         return False
@@ -752,11 +775,90 @@ def process_one_video(video_id, source_url, with_transcript=False):
     return True
 
 
-def main():
+def load_queue():
+    """讀取排隊清單。檔案不存在或壞掉就當作沒有排隊中的項目。"""
+    if not os.path.exists(QUEUE_FILE):
+        return None
+    try:
+        with open(QUEUE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception as e:
+        print(f"⚠️ 排隊清單檔案讀取失敗,當作沒有排隊中的項目:{e}")
+        return None
+
+
+def save_queue(video_ids, with_transcript, source_note):
+    """存排隊清單。如果 video_ids 是空的,直接把檔案刪掉,不留一個空檔案在 repo 裡。"""
+    if not video_ids:
+        if os.path.exists(QUEUE_FILE):
+            os.remove(QUEUE_FILE)
+        return
+    with open(QUEUE_FILE, "w", encoding="utf-8") as f:
+        json.dump({
+            "video_ids": video_ids,
+            "with_transcript": with_transcript,
+            "source_note": source_note,
+            "updated_at": datetime.datetime.utcnow().isoformat() + "Z",
+        }, f, ensure_ascii=False, indent=2)
+
+
+def process_video_batch(video_ids, with_transcript, source_note, max_new_videos=None):
+    """
+    依序處理一批影片;遇到「每日額度用完」就整批停下來,
+    把「這支正在處理但沒做完的影片」+「後面還沒開始的影片」一起存進排隊清單,
+    下次(隔天額度重置後)自動接著跑,不用手動重貼網址、也不用自己算哪些做過了。
+
+    max_new_videos:這次最多「新處理」幾支影片(已經處理過、被跳過的不算在內)。
+    留空 = 不限制,額度內能做多少算多少。用途:使用者想先拿到少數幾支的結果,
+    不想整批一次全部跑完等好幾天;達到這個上限一樣會把剩下的存進排隊清單,
+    之後排程或手動重跑都會接著處理。
+
+    回傳 (success_count, paused: bool)。
+    """
+    success_count = 0
+    attempted_count = 0
+    for idx, vid in enumerate(video_ids, 1):
+        data_path = os.path.join(DATA_DIR, f"{vid}.json")
+        if os.path.exists(data_path):
+            # 已經有資料檔了,代表這支之前處理成功過(不管是同一次跑到一半重貼網址,
+            # 還是排隊清單重跑),直接跳過,不要又浪費一次額度重新問 Gemini。
+            print(f"---- [{idx}/{len(video_ids)}] ---- ⏭️ {vid} 已經處理過,跳過(不佔用當日額度)")
+            success_count += 1
+            continue
+
+        if max_new_videos is not None and attempted_count >= max_new_videos:
+            remaining = video_ids[idx - 1:]
+            save_queue(remaining, with_transcript, source_note)
+            print(f"\n⏸️ 已達這次手動指定的處理上限({max_new_videos} 支新影片),先在這裡停下來。")
+            print(f"   本次新完成 {attempted_count} 支(加上原本已完成的,共 {success_count} 支),"
+                  f"剩下 {len(remaining)} 支已經存進排隊清單({os.path.basename(QUEUE_FILE)})。"
+                  f"之後排程會自動接著處理,或是你隨時可以再貼一次同一個播放清單網址繼續。")
+            return success_count, True
+
+        print(f"---- [{idx}/{len(video_ids)}] ----")
+        attempted_count += 1
+        try:
+            if process_one_video(vid, f"https://www.youtube.com/watch?v={vid}", with_transcript=with_transcript):
+                success_count += 1
+        except DailyQuotaExhaustedError:
+            remaining = video_ids[idx - 1:]  # 含這支沒做完的,加上後面全部還沒開始的
+            save_queue(remaining, with_transcript, source_note)
+            print(f"\n⏸️ 已達 Gemini API 每日免費額度上限,先在這裡停下來。")
+            print(f"   本次已完成 {success_count} 支,剩下 {len(remaining)} 支已經存進排隊清單"
+                  f"({os.path.basename(QUEUE_FILE)})。")
+            print(f"   額度會在每天美國太平洋時間午夜重置(換算台灣時間大約是下午 3~4 點,"
+                  f"不是三更半夜),排程會在那之後自動接著處理剩下的,不用手動重跑。")
+            return success_count, True
+        time.sleep(5)  # 稍微錯開,避免瞬間對 Gemini API 打太多請求
+
+    save_queue([], with_transcript, source_note)  # 這一批全部做完了,清掉排隊清單(如果有的話)
+    return success_count, False
     if len(sys.argv) < 2 or not sys.argv[1].strip():
         print("❌ 沒有收到參數。用法:\n"
               "  產生考題(單支影片):python generate_from_url.py \"https://www.youtube.com/watch?v=xxxxxxxxxxx\"\n"
               "  產生考題(播放清單):python generate_from_url.py \"https://www.youtube.com/playlist?list=xxxxxxxxxxx\"\n"
+              "  播放清單限定這次只新處理幾支:加上 --max-videos N(其餘留在排隊清單之後繼續)\n"
+              "  接著處理排隊清單(額度重置後續跑):python generate_from_url.py --resume-queue\n"
               "  刪除頁面:python generate_from_url.py --delete xxxxxxxxxxx\n"
               "  只重建清單頁(不呼叫Gemini):python generate_from_url.py --rebuild-index\n"
               "  加上 --with-transcript 或環境變數 WITH_TRANSCRIPT=1 可額外產生修正逐字稿(較慢)")
@@ -770,6 +872,26 @@ def main():
         check_required_assets()
         build_index_html()
         print("✅ 已重建 index.html 清單頁(未呼叫 Gemini)")
+        return
+
+    # --resume-queue 模式:接著處理上次因為「每日額度用完」而暫停、存進排隊清單的影片。
+    # 給排程(cron)用的,每天固定時間跑一次,沒有排隊中的項目就直接結束,不用另外判斷。
+    if sys.argv[1] == "--resume-queue":
+        queue = load_queue()
+        if not queue or not queue.get("video_ids"):
+            print("ℹ️ 沒有排隊中的影片,結束。")
+            return
+        check_required_assets()
+        video_ids = queue["video_ids"]
+        with_transcript = queue.get("with_transcript", False)
+        source_note = queue.get("source_note", "")
+        print(f"📋 排隊清單裡還有 {len(video_ids)} 支影片,接著處理(來源:{source_note})...")
+        success_count, paused = process_video_batch(video_ids, with_transcript, source_note)
+        build_index_html()
+        if paused:
+            print(f"✅ 這次額度內完成 {success_count} 支,已更新 index.html,剩下的繼續留在排隊清單。")
+        else:
+            print(f"✅ 排隊清單已經全部處理完成,本次共完成 {success_count} 支,已更新 index.html。")
         return
 
     # --delete 模式:刪除指定影片,不需要呼叫 Gemini
@@ -788,6 +910,30 @@ def main():
         args = [a for a in args if a != "--with-transcript"]
     if os.environ.get("WITH_TRANSCRIPT", "").strip().lower() in ("1", "true", "yes"):
         with_transcript = True
+
+    # 播放清單模式限定:這次最多「新處理」幾支影片,可以用 --max-videos N,
+    # 或環境變數 MAX_VIDEOS=N 指定。用途:不想整份清單一次全部跑完等好幾天,
+    # 先拿到少數幾支的結果就好,剩下的自動留在排隊清單之後再繼續。
+    max_videos = None
+    if "--max-videos" in args:
+        i = args.index("--max-videos")
+        if i + 1 >= len(args):
+            print("❌ --max-videos 後面要接一個數字。")
+            sys.exit(1)
+        try:
+            max_videos = int(args[i + 1])
+        except ValueError:
+            print(f"❌ --max-videos 後面要接數字,收到的是:{args[i + 1]}")
+            sys.exit(1)
+        args = args[:i] + args[i + 2:]
+    elif os.environ.get("MAX_VIDEOS", "").strip():
+        try:
+            max_videos = int(os.environ["MAX_VIDEOS"].strip())
+        except ValueError:
+            print(f"❌ 環境變數 MAX_VIDEOS 要是數字,收到的是:{os.environ['MAX_VIDEOS']}")
+            sys.exit(1)
+    if max_videos is not None and max_videos <= 0:
+        max_videos = None  # 0 或負數當作沒有限制,不要卡住不處理
 
     if not args or not args[0].strip():
         print("❌ 沒有收到網址參數。")
@@ -826,17 +972,18 @@ def main():
             print(f"   ⚠️ 這份清單影片數量超過單次上限({MAX_PLAYLIST_VIDEOS} 支),"
                   f"只處理前 {MAX_PLAYLIST_VIDEOS} 支,其餘的可以之後再貼一次網址繼續處理"
                   f"(已處理過的影片會自動跳過)。")
+        if max_videos is not None:
+            print(f"   ℹ️ 這次手動指定最多新處理 {max_videos} 支,其餘的會留在排隊清單之後繼續。")
 
-        success_count = 0
-        for idx, vid in enumerate(video_ids, 1):
-            print(f"---- [{idx}/{len(video_ids)}] ----")
-            if process_one_video(vid, f"https://www.youtube.com/watch?v={vid}", with_transcript=with_transcript):
-                success_count += 1
-            time.sleep(5)  # 稍微錯開,避免瞬間對 Gemini API 打太多請求
+        success_count, paused = process_video_batch(video_ids, with_transcript, url, max_new_videos=max_videos)
 
         build_index_html()
-        print(f"✅ 播放清單處理完成:{success_count}/{len(video_ids)} 支成功,已更新 index.html 清單頁")
-        if success_count == 0:
+        if paused:
+            print(f"✅ 這次額度內完成 {success_count}/{len(video_ids)} 支,已更新 index.html 清單頁,"
+                  f"剩下的已經排隊,額度重置後會自動繼續。")
+        else:
+            print(f"✅ 播放清單處理完成:{success_count}/{len(video_ids)} 支成功,已更新 index.html 清單頁")
+        if success_count == 0 and not paused:
             sys.exit(1)
         return
 
