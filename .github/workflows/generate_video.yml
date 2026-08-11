@@ -11,6 +11,11 @@ on:
         required: false
         type: boolean
         default: false
+      max_videos:
+        description: '播放清單限定:這次最多新處理幾支影片(留空 = 不限制,額度內能做多少算多少;已經處理過的不算在這個數字裡,單支影片網址時這欄無效)'
+        required: false
+        type: string
+        default: ''
 # 給予發布 Pages 與寫入倉庫的權限
 permissions:
   contents: write
@@ -36,14 +41,36 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           MY_CHANNEL_ID: ${{ secrets.MY_CHANNEL_ID }}
           WITH_TRANSCRIPT: ${{ inputs.with_transcript }}
-        run: python scripts/generate_from_url.py "${{ inputs.youtube_url }}"
+        run: |
+          if [ -n "${{ inputs.max_videos }}" ]; then
+            python scripts/generate_from_url.py "${{ inputs.youtube_url }}" --max-videos "${{ inputs.max_videos }}"
+          else
+            python scripts/generate_from_url.py "${{ inputs.youtube_url }}"
+          fi
       - name: 提交並推送產生的頁面
         run: |
           git config user.name "quiz-bot"
           git config user.email "quiz-bot@users.noreply.github.com"
           git add online_study/
+          if [ -f pending_queue.json ]; then git add pending_queue.json; fi
           git diff --cached --quiet && echo "沒有變動,略過 commit" || git commit -m "自動產生複習頁面: ${{ inputs.youtube_url }}"
-          git push
+
+          # 這個 job 常常要跑很久(長播放清單可能處理好幾小時),
+          # 這段期間如果 main 被別的地方 push 過,直接 git push 會被拒絕(fetch first),
+          # 導致這次好不容易處理完的結果整批推不上去、白跑。
+          # 用 pull --rebase 把 commit 疊到最新的 main 上面再重推,最多重試 5 次。
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "✅ push 成功"
+              break
+            fi
+            if [ "$i" -eq 5 ]; then
+              echo "❌ 重試 5 次後仍然推送失敗"
+              exit 1
+            fi
+            echo "⚠️ push 被拒絕,嘗試 git pull --rebase 後重推(第 $i 次)..."
+            git pull --rebase origin main
+          done
       - name: 上傳 Pages 檔案
         uses: actions/upload-pages-artifact@v3
         with:
