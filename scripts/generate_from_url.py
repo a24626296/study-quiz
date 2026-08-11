@@ -57,6 +57,59 @@ MODEL_NAME = "gemini-3-flash-preview"
 MAX_RETRIES_ON_TRANSIENT = 3  # 429限流 / 503過載 共用的重試次數上限
 
 QUEUE_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "pending_queue.json")
+QUOTA_STATE_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "gemini_quota_state.json")
+DAILY_QUOTA_ESTIMATE = int(os.environ.get("GEMINI_DAILY_QUOTA_ESTIMATE", "20"))
+
+
+def _pacific_today_str():
+    """算出「現在」對應到美國太平洋時間的日期字串,額度是照這個時區重置的。"""
+    try:
+        from zoneinfo import ZoneInfo
+        return datetime.datetime.now(ZoneInfo("America/Los_Angeles")).strftime("%Y-%m-%d")
+    except Exception:
+        # 萬一執行環境沒有 tzdata(zoneinfo 抓不到時區資料庫),
+        # 退而求其次假設太平洋時間是 UTC-8,頂多在日光節約時間(約 3~11 月)
+        # 邊界附近誤差一小時,不影響其他邏輯。
+        return (datetime.datetime.utcnow() - datetime.timedelta(hours=8)).strftime("%Y-%m-%d")
+
+
+def load_quota_state():
+    today = _pacific_today_str()
+    if os.path.exists(QUOTA_STATE_FILE):
+        try:
+            with open(QUOTA_STATE_FILE, "r", encoding="utf-8") as f:
+                state = json.load(f)
+            if state.get("date") == today:
+                return state
+        except Exception:
+            pass
+    return {"date": today, "count": 0}  # 換日了(或檔案不存在/壞掉),歸零重算
+
+
+def save_quota_state(state):
+    with open(QUOTA_STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(state, f, ensure_ascii=False, indent=2)
+
+
+def note_quota_usage_and_check():
+    """
+    每次真的要打 Gemini API 前呼叫一次:計數 +1、存檔、印出目前估算狀態,
+    回傳「本地估算看起來還有沒有額度」。
+
+    這是我們自己土砲記的估計值,不是跟 Google 官方即時同步(免費版
+    generativelanguage.googleapis.com 沒有開放查詢剩餘額度的 API,這是
+    Google 那邊的限制)。如果你在別的地方也用同一把 API key,或是已經升級
+    成付費方案(額度遠不只 20 次),這個數字會不準,可以用環境變數
+    GEMINI_DAILY_QUOTA_ESTIMATE 調整估算的每日上限。真正準不準,還是以
+    Google 實際回傳的 429 為準,這個機制只是幫忙提早喊停、少浪費一次網路請求。
+    """
+    state = load_quota_state()
+    state["count"] += 1
+    save_quota_state(state)
+    remaining = DAILY_QUOTA_ESTIMATE - state["count"]
+    print(f"📊 Gemini API 本地估算用量:{state['count']}/{DAILY_QUOTA_ESTIMATE}"
+          f"(估計還剩 {max(remaining, 0)} 次;本地估算,非 Google 官方即時數字)")
+    return remaining > 0
 
 
 class DailyQuotaExhaustedError(Exception):
@@ -325,6 +378,12 @@ def generate_quiz_from_youtube_url(video_id, with_transcript=False, chunk_range=
 
     attempt = 0
     while True:
+        if not note_quota_usage_and_check():
+            raise DailyQuotaExhaustedError(
+                f"本地估算的每日額度({DAILY_QUOTA_ESTIMATE} 次)已經用完,直接跳過,不再實際呼叫 API。"
+                f"如果你已經升級付費方案、額度不只這麼多,可以設定環境變數 "
+                f"GEMINI_DAILY_QUOTA_ESTIMATE 調高這個估算值。"
+            )
         try:
             response = client.models.generate_content(
                 model=MODEL_NAME,
@@ -815,6 +874,10 @@ def process_video_batch(video_ids, with_transcript, source_note, max_new_videos=
 
     回傳 (success_count, paused: bool)。
     """
+    quota_now = load_quota_state()
+    print(f"📊 開始前,Gemini API 本地估算用量:{quota_now['count']}/{DAILY_QUOTA_ESTIMATE}"
+          f"(估計還可以打 {max(DAILY_QUOTA_ESTIMATE - quota_now['count'], 0)} 次;本地估算,非 Google 官方數字)")
+
     success_count = 0
     attempted_count = 0
     for idx, vid in enumerate(video_ids, 1):
