@@ -376,8 +376,9 @@
   }
 
   // 根據這一題對錯,更新卡片的樣式 class 跟「展開/收合」按鈕的顯示狀態。
-  // 答對:套用 qcard-correct,並依照目前的總開關狀態決定要不要收合。
-  // 答錯:清掉收合狀態,展開/收合按鈕隱藏(答錯的題目不提供收合,要留著複習)。
+  // 答對:套用 qcard-correct,並依照「展開已學會的題目」總開關決定要不要收合。
+  // 答錯:套用 qcard-wrong,一樣給收合按鈕,但剛作答完成「不會」自動收合,
+  //       完全由使用者自己點按鈕決定要不要收合(而且不受總開關影響)。
   function markCardResult(card, isCorrect) {
     if (!card) return;
     card.classList.remove('qcard-correct', 'qcard-wrong');
@@ -390,8 +391,15 @@
         toggle.textContent = allCorrectCollapsed ? '展開' : '收合';
       }
     } else {
-      card.classList.remove('collapsed-correct');
-      if (toggle) toggle.style.display = 'none';
+      // 只有「第一次」被判定答錯(按鈕原本是隱藏的)才強制展開;
+      // 如果使用者已經自己按過收合,重新作答完成後要保留他選的狀態。
+      if (toggle && toggle.style.display === 'none') {
+        card.classList.remove('collapsed-correct');
+      }
+      if (toggle) {
+        toggle.style.display = 'inline-block';
+        toggle.textContent = card.classList.contains('collapsed-correct') ? '展開' : '收合';
+      }
     }
   }
 
