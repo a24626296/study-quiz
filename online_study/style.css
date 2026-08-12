@@ -367,3 +367,43 @@ a.back { display:inline-block; margin:0 0 10px; color:var(--accent); font-size:1
   .list-col { min-width: 0; width: 100%; }
   .chat-box { max-height: 280px; }
 }
+
+/* ===== 雙擊修改文字 (edit-mode.js) ===== */
+[data-editkey] {
+  cursor: text;
+  border-radius: 3px;
+  transition: background 0.15s, outline 0.15s;
+}
+[data-editkey]:hover {
+  outline: 1px dashed var(--accent);
+  outline-offset: 2px;
+  background: rgba(100, 181, 246, 0.08);
+}
+.qe-editing {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px;
+  background: rgba(100, 181, 246, 0.16) !important;
+  cursor: text;
+}
+.qe-edited {
+  box-shadow: inset 3px 0 0 0 var(--accent);
+  padding-left: 6px;
+}
+.edit-hint {
+  font-size: 12px;
+  color: var(--muted);
+  opacity: 0.85;
+}
+.edit-reset-btn {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.edit-reset-btn:hover {
+  background: #334155;
+  color: var(--text);
+}
