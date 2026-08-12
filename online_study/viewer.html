@@ -17,6 +17,9 @@
       <button id="btn-en" class="lang-btn" onclick="setLang('en')">English 為主</button>
       <span style="opacity:0.7;">(滑鼠移到題目/選項上可看另一種語言)</span>
     </div>
+    <div class="edit-hint">💡 雙擊題目、選項、翻譯或解析文字可以直接修改內容
+      <button class="edit-reset-btn" onclick="clearTextEdits()" title="還原這一頁所有手動修改過的文字">↺ 還原文字修改</button>
+    </div>
     <div class="pdf-link-row">
       📖 手冊 PDF 連結(可含頁碼錨點,例如 .../manual.pdf#page=42):
       <input type="text" id="pdf-link-input" placeholder="貼上 PDF 網址...">
@@ -55,7 +58,7 @@
 </div>
 <div id="app" class="layout">
   <div class="player-col">
-    <div class="subject" id="subject"></div>
+    <div class="subject" id="subject" data-editkey="subject"></div>
     <div id="player-resizable" class="player-resizable">
       <div id="player"></div>
       <div id="resize-handle" class="resize-handle" title="拖曳調整影片大小"></div>
@@ -85,6 +88,7 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="./chat-config.js"></script>
+<script src="./edit-mode.js"></script>
 <script src="./viewer.js"></script>
 </body>
 </html>
