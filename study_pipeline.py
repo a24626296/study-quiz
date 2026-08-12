@@ -1084,7 +1084,7 @@ def delete_online_study_entry(video_id):
 def esc_html(text):
     return html_lib.escape(str(text or ""), quote=True)
 
-REQUIRED_ASSETS = ["viewer.html", "viewer.js", "style.css", "chat-config.js"]
+REQUIRED_ASSETS = ["viewer.html", "viewer.js", "style.css", "chat-config.js", "edit-mode.js"]
 
 def check_required_assets():
     """
@@ -1132,8 +1132,8 @@ def build_index_html():
           <a class="item-link" href="./viewer.html?id={esc_html(e['video_id'])}">
             <img src="https://i.ytimg.com/vi/{e['video_id']}/mqdefault.jpg" loading="lazy">
             <div class="meta">
-              <div class="subject">{esc_html(e['subject'])}</div>
-              <div class="date">{esc_html(display_time)}</div>
+              <div class="subject" data-editkey="idx::{esc_html(e['video_id'])}::subject">{esc_html(e['subject'])}</div>
+              <div class="date" data-editkey="idx::{esc_html(e['video_id'])}::date">{esc_html(display_time)}</div>
               <div class="vid">ID: {esc_html(e['video_id'])}</div>
             </div>
           </a>
@@ -1158,8 +1158,10 @@ def build_index_html():
     <button class="archive-toggle-btn" id="archive-toggle-btn" onclick="toggleShowArchived()">📦 顯示已封存 (0)</button>
     <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
     <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
+    <button class="edit-reset-btn" onclick="clearTextEdits()" title="還原這頁所有手動修改過的文字">↺ 還原文字修改</button>
   </div>
 </div>
+<div class="edit-hint" style="margin:4px 0 12px;">💡 提示:雙擊科目名稱或日期文字可以直接修改內容。</div>
 <div id="item-list" class="item-list">
 {items_html if items_html else '<p class="empty">目前還沒有產生任何複習頁面。</p>'}
 </div>
@@ -1249,6 +1251,7 @@ async function deleteVideo(id) {{
   }}
 }}
 </script>
+<script src="./edit-mode.js"></script>
 </body>
 </html>"""
 
