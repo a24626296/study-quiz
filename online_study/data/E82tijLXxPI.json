@@ -1,0 +1,1246 @@
+{
+  "subject": "基礎空氣動力學 - 飛行四力與攻角觀念",
+  "mc_questions": [
+    {
+      "zh_question": "在穩定、平飛且不加速（Straight and level, unaccelerated flight）的飛行狀態下，關於作用在飛機上的四力關係，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 升力（Lift）必須大於重量（Weight）才能維持高度",
+        "(B) 四個力的數值必須完全相等",
+        "(C) 升力等於重量，且推力（Thrust）等於阻力（Drag）",
+        "(D) 推力必須大於阻力飛機才能維持巡航速度"
+      ],
+      "en_question": "In straight and level, unaccelerated flight, which of the following statements regarding the four forces acting on the aircraft is correct?",
+      "en_options": [
+        "(A) Lift must be greater than Weight to maintain altitude",
+        "(B) All four forces must be equal in magnitude",
+        "(C) Lift equals Weight and Thrust equals Drag",
+        "(D) Thrust must be greater than Drag to maintain cruise airspeed"
+      ],
+      "answer": "C",
+      "explanation": "根據牛頓第三運動定律與合力為零的邏輯，在穩定且不加速的平飛中，相對方向的力必須相互抵消，即 Lift = Weight 且 Thrust = Drag。這並不代表四個力都相等，通常 Lift/Weight 的量級遠大於 Thrust/Drag。",
+      "timestamp": "01:40"
+    },
+    {
+      "zh_question": "根據升力公式（Lift Equation），如果飛機的空速從 100 節增加到 200 節，且其他條件（如攻角、空氣密度）保持不變，升力會發生什麼變化？",
+      "zh_options": [
+        "(A) 升力增加為原來的 2 倍",
+        "(B) 升力增加為原來的 4 倍",
+        "(C) 升力保持不變",
+        "(D) 升力增加為原來的 1.41 倍"
+      ],
+      "en_question": "According to the lift equation, if the airspeed of an aircraft increases from 100 knots to 200 knots while other factors (AOA, air density) remain constant, how does the lift change?",
+      "en_options": [
+        "(A) Lift increases by a factor of 2",
+        "(B) Lift increases by a factor of 4",
+        "(C) Lift remains constant",
+        "(D) Lift increases by a factor of 1.41"
+      ],
+      "answer": "B",
+      "explanation": "升力與速度的平方（Square of velocity）成正比。當速度加倍（2倍）時，升力會增加為 2 的平方，即 4 倍。",
+      "timestamp": "09:05"
+    },
+    {
+      "zh_question": "當飛機在「高溫」或「高濕度」的環境下飛行時，為了在相同的攻角下產生足以維持平飛的升力，飛行員必須如何調整？",
+      "zh_options": [
+        "(A) 減少真實空速（TAS）",
+        "(B) 增加真實空速（TAS）",
+        "(C) 無須調整空速，僅調整高度即可",
+        "(D) 降低推力設定"
+      ],
+      "en_question": "When flying in high temperature or high humidity conditions, what must a pilot do to produce sufficient lift to maintain level flight at the same AOA?",
+      "en_options": [
+        "(A) Decrease True Airspeed (TAS)",
+        "(B) Increase True Airspeed (TAS)",
+        "(C) No airspeed adjustment is needed, only altitude adjustment",
+        "(D) Decrease thrust setting"
+      ],
+      "answer": "B",
+      "explanation": "暖空氣與濕空氣的密度較低（Less dense）。根據升力公式，當空氣密度（Rho）下降時，必須增加真實空速（TAS）才能補償密度損失，以維持相同的升力輸出。",
+      "timestamp": "11:25"
+    },
+    {
+      "zh_question": "當飛機以最大升阻比 (L/D Max) 對應的速度進行平飛時，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 寄生阻力 (Parasite Drag) 達到最大值",
+        "(B) 誘導阻力 (Induced Drag) 為零",
+        "(C) 總阻力 (Total Drag) 處於最小值",
+        "(D) 升力達到最大值"
+      ],
+      "en_question": "When an aircraft is operated at the speed for L/D Max in steady flight, which of the following statements is correct?",
+      "en_options": [
+        "(A) Parasite drag is at its maximum.",
+        "(B) Induced drag is zero.",
+        "(C) Total drag is at its minimum.",
+        "(D) Lift is at its maximum."
+      ],
+      "answer": "C",
+      "explanation": "L/D Max 代表飛機在該攻角 (AOA) 下具有最高的效率。在平飛狀態下，L/D Max 對應的速度即為總阻力 (Total Drag) 最低點，此時 Parasite Drag 與 Induced Drag 達到平衡點。",
+      "timestamp": "15:20"
+    },
+    {
+      "zh_question": "關於「干擾阻力」(Interference Drag) 的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) 它是由於空氣分子與飛機表面的摩擦產生的",
+        "(B) 它發生在兩個氣流交匯處，例如機翼與機身的連接處",
+        "(C) 透過增加表面的粗糙度可以減少此類阻力",
+        "(D) 它與飛機產生的升力成正比"
+      ],
+      "en_question": "Which statement regarding Interference Drag is correct?",
+      "en_options": [
+        "(A) It is caused by the friction between air molecules and the aircraft surface.",
+        "(B) It occurs at the intersection of airflows, such as where the wing and fuselage meet.",
+        "(C) It can be reduced by increasing surface roughness.",
+        "(D) It is directly proportional to the lift produced by the aircraft."
+      ],
+      "answer": "B",
+      "explanation": "Interference Drag 是 Parasite Drag 的一種，源於不同部件（如 wing root 與 fuselage）交接處的氣流互相干擾、產生渦流。通常使用 Fairings (整流罩) 來使轉角平滑以減少此阻力。",
+      "timestamp": "16:56"
+    },
+    {
+      "zh_question": "誘導阻力 (Induced Drag) 與空速 (Airspeed) 的關係為何？",
+      "zh_options": [
+        "(A) 隨空速增加而線性增加",
+        "(B) 與空速的平方成正比",
+        "(C) 與空速的平方成反比",
+        "(D) 隨空速增加而保持不變"
+      ],
+      "en_question": "What is the relationship between Induced Drag and Airspeed?",
+      "en_options": [
+        "(A) It increases linearly with airspeed.",
+        "(B) It is directly proportional to the square of the airspeed.",
+        "(C) It varies inversely as the square of the airspeed.",
+        "(D) It remains constant regardless of airspeed."
+      ],
+      "answer": "C",
+      "explanation": "Induced Drag 是產生升力的副產品。在低速飛行時需要較大的 AOA 以產生足夠升力，因此 Induced Drag 較大；隨著速度增加，所需的 AOA 減小，Induced Drag 隨之下降，其變化量與空速平方成反比 (Inversely proportional to the square of airspeed)。",
+      "timestamp": "22:42"
+    },
+    {
+      "zh_question": "在降落過程中，若要避開前方大型飛機產生的尾流湍流 (Wake Turbulence)，後機應採取什麼策略？",
+      "zh_options": [
+        "(A) 在前機的觸地標誌前降落",
+        "(B) 保持低於前機的下滑路徑",
+        "(C) 保持高於前機的下滑路徑，並在前機觸地點之後觸地",
+        "(D) 增加空速以穿過渦流區"
+      ],
+      "en_question": "When landing behind a large aircraft, what strategy should a pilot use to avoid Wake Turbulence?",
+      "en_options": [
+        "(A) Land before the preceding aircraft's touchdown point.",
+        "(B) Stay below the preceding aircraft's flight path.",
+        "(C) Stay above the preceding aircraft's flight path and touch down beyond its touchdown point.",
+        "(D) Increase airspeed to penetrate the vortex area."
+      ],
+      "answer": "C",
+      "explanation": "翼尖渦流 (Wingtip Vortices) 會向下沉降 (Sink)。因此，後機應保持在前機路徑之上 (Stay above)，並確保在大型飛機觸地點（渦流停止產生處）之後降落，以確保飛行安全。",
+      "timestamp": "25:50"
+    },
+    {
+      "zh_question": "當飛機進入地面效應（Ground Effect）時，下列關於誘導阻力（Induced Drag）的敘述何者正確？",
+      "zh_options": [
+        "(A) 誘導阻力增加，因為翼尖渦流增強",
+        "(B) 誘導阻力減少，因為上揚氣流與下沉氣流減少",
+        "(C) 誘導阻力保持不變，地面效應僅影響寄生阻力",
+        "(D) 誘導阻力減少，因為飛機攻角 AOA 被迫增加"
+      ],
+      "en_question": "What happens to induced drag as an aircraft enters ground effect?",
+      "en_options": [
+        "(A) Induced drag increases because wingtip vortices are strengthened",
+        "(B) Induced drag decreases because of a reduction in upwash and downwash",
+        "(C) Induced drag remains constant; ground effect only affects parasite drag",
+        "(D) Induced drag decreases because the aircraft's AOA is forced to increase"
+      ],
+      "answer": "B",
+      "explanation": "當機翼接近地面（通常小於一個翼展高度）時，地面會干擾機翼周圍的流場，導致 Upwash 和 Downwash 減少，同時削弱了翼尖渦流（Wingtip Vortices），這直接導致了 Induced Drag 的降低。如果維持恆定的 AOA，則升力係數 CL 會增加。",
+      "timestamp": "30:25"
+    },
+    {
+      "zh_question": "關於穩定性（Stability）的定義，若飛機受擾動後，其初始趨勢是偏離原平衡狀態，這被稱為什麼？",
+      "zh_options": [
+        "(A) 負靜態穩定性 (Negative Static Stability)",
+        "(B) 負動態穩定性 (Negative Dynamic Stability)",
+        "(C) 中性靜態穩定性 (Neutral Static Stability)",
+        "(D) 正靜態穩定性 (Positive Static Stability)"
+      ],
+      "en_question": "Regarding stability, if the initial tendency of an aircraft is to move away from the original state of equilibrium after a disturbance, what is this called?",
+      "en_options": [
+        "(A) Negative Static Stability",
+        "(B) Negative Dynamic Stability",
+        "(C) Neutral Static Stability",
+        "(D) Positive Static Stability"
+      ],
+      "answer": "A",
+      "explanation": "靜態穩定性 (Static Stability) 是指飛機在受力後回歸平衡的「初始趨勢」。若趨勢是偏離平衡，則稱為 Negative Static Stability。這類飛機在沒有人為介入的情況下會持續偏離，操作難度極高。",
+      "timestamp": "41:10"
+    },
+    {
+      "zh_question": "飛機在起飛後離開地面效應（Leaving Ground Effect）時，飛行員會觀察到什麼現象？",
+      "zh_options": [
+        "(A) 誘導阻力減少，爬升性能提升",
+        "(B) 靜壓源壓力增加，指示空速減少",
+        "(C) 需要增加攻角 AOA 以維持相同的升力係數 CL",
+        "(D) 穩定性增加且產生低頭力矩 (Nose-down moment)"
+      ],
+      "en_question": "What will a pilot observe when an aircraft leaves ground effect after takeoff?",
+      "en_options": [
+        "(A) Induced drag decreases, improving climb performance",
+        "(B) Static source pressure increases, leading to a decrease in indicated airspeed",
+        "(C) An increase in AOA is required to maintain the same CL",
+        "(D) Stability increases and a nose-down moment is generated"
+      ],
+      "answer": "C",
+      "explanation": "離開地面效應時，原本被抑制的 Downwash 和翼尖渦流會恢復，導致 Induced Drag 增加且升力效率下降。因此，為了維持相同的升力係數，飛行員必須增加 AOA。此外，這通常會伴隨著低頭力矩轉向抬頭力矩（Nose-up moment）的趨勢，且因 Induced Drag 增加，需要更多的推力。",
+      "timestamp": "44:55"
+    },
+    {
+      "zh_question": "為什麼大多數非對稱翼型在攻角 (AOA) 增加時，其升力中心 (CL) 的移動會導致先天縱向不穩定？",
+      "zh_options": [
+        "(A) 攻角增加時 CL 向後移動，產生低頭力矩",
+        "(B) 攻角增加時 CL 向前移動，進一步增加抬頭力矩",
+        "(C) 攻角增加時 CL 固定不動，但升力大幅增加",
+        "(D) 攻角增加時 CL 隨之消失，導致失速"
+      ],
+      "en_question": "Why is the movement of the Center of Lift (CL) in most asymmetrical airfoils inherently unstable when the Angle of Attack (AOA) increases?",
+      "en_options": [
+        "(A) CL moves aft when AOA increases, creating a nose-down moment",
+        "(B) CL moves forward when AOA increases, further increasing the nose-up moment",
+        "(C) CL remains fixed, but lift increases significantly",
+        "(D) CL disappears as AOA increases, leading to a stall"
+      ],
+      "answer": "B",
+      "explanation": "在非對稱翼型中，升力中心 (CL/CP) 隨攻角增加而向前移動。若 AOA 增加導致 CL 前移，會產生更大的抬頭力矩 (nose-up moment)，使 AOA 進一步增加，這是一種正回饋的不穩定現象。",
+      "timestamp": "45:28"
+    },
+    {
+      "zh_question": "大多數飛機將翼型 CL 設計在重心 (CG) 之後，並配合水平穩定器產生何種力量來維持平衡？",
+      "zh_options": [
+        "(A) 產生向上的升力來抬高機尾",
+        "(B) 產生向下的空氣動力 (Downwash) 來壓低機尾",
+        "(C) 產生側向力以防止偏航",
+        "(D) 產生阻力以平衡推力"
+      ],
+      "en_question": "Most aircraft are designed with the wing CL behind the CG, requiring the horizontal stabilizer to produce what kind of force for balance?",
+      "en_options": [
+        "(A) Upward lift to raise the tail",
+        "(B) Downward aerodynamic force (tail-down force) to depress the tail",
+        "(C) Lateral force to prevent yaw",
+        "(D) Drag to balance thrust"
+      ],
+      "answer": "B",
+      "explanation": "當 CL 在 CG 之後時，飛機會呈現「頭重」(nose-heavy) 特性。為了平衡此低頭力矩，水平穩定器通常設置為負攻角，利用 Downwash 產生向下的力量 (tail-down force) 來維持平飛。 ",
+      "timestamp": "46:25"
+    },
+    {
+      "zh_question": "螺旋不穩定性 (Spiral Instability) 是由於飛機設計中哪兩項特性的強度比例失衡所導致的？",
+      "zh_options": [
+        "(A) 縱向穩定性過強，方向穩定性過弱",
+        "(B) 方向穩定性過強，橫向穩定性 (Dihedral Effect) 相對較弱",
+        "(C) 橫向穩定性過強，方向穩定性相對較弱",
+        "(D) 靜態穩定性與動態穩定性皆過弱"
+      ],
+      "en_question": "Spiral instability is caused by an imbalance between which two design characteristics?",
+      "en_options": [
+        "(A) Excessive longitudinal stability and weak directional stability",
+        "(B) Strong directional stability relative to weak lateral stability (dihedral effect)",
+        "(C) Strong lateral stability relative to weak directional stability",
+        "(D) Weakness in both static and dynamic stability"
+      ],
+      "answer": "B",
+      "explanation": "當方向穩定性 (directional stability) 強於橫向穩定性 (lateral stability) 時，飛機在側滑時會迅速轉向相對風，導致外側機翼速度與升力增加產生過度傾斜 (overbanking)，若無人工修正則會進入螺旋下墜 (diving spiral)。",
+      "timestamp": "58:16"
+    },
+    {
+      "zh_question": "當飛機處於螺旋不穩定性（Spiral Instability）且進入螺旋下放（Spiral Dive）時，下列哪項敘述是正確的？",
+      "zh_options": [
+        "(A) 坡度會自動減小，機頭抬高",
+        "(B) 坡度會持續增加，機頭下沉，速度迅速增加",
+        "(C) 飛機會保持穩定的轉彎狀態",
+        "(D) 飛機會發生震顫（Buffet）隨後進入失速"
+      ],
+      "en_question": "When an aircraft exhibits spiral instability and enters a spiral dive, which of the following is correct?",
+      "en_options": [
+        "(A) Bank angle decreases and the nose pitches up",
+        "(B) Bank angle increases, the nose pitches down, and airspeed increases rapidly",
+        "(C) The aircraft maintains a stable turning condition",
+        "(D) The aircraft buffets and subsequently enters a stall"
+      ],
+      "answer": "B",
+      "explanation": "螺旋不穩定性發生時，飛機的恢復力矩（Static Directional Stability）強於橫向穩定性（Dihedral Effect）。一旦發生側滑，外側機翼產生的升力增加導致坡度加劇（Overbanking Tendency），機頭隨之下沉並導致 airspeed 快速增加。若不介入，可能導致 structural failure。",
+      "timestamp": "01:00:45"
+    },
+    {
+      "zh_question": "在轉彎飛行中，總升力（Total Lift）被分解為垂直分力與水平分力，下列關於水平升力（Horizontal Component of Lift）的敘述何者正確？",
+      "zh_options": [
+        "(A) 它抵消了重力的影響",
+        "(B) 它是使飛機產生轉彎路徑的向心力（Centripetal Force）",
+        "(C) 當坡度（Bank Angle）減小時，水平升力會增加",
+        "(D) 它是由方向舵直接產生的力"
+      ],
+      "en_question": "During a turn, total lift is divided into vertical and horizontal components. Which of the following is correct regarding the horizontal component of lift?",
+      "en_options": [
+        "(A) It counteracts the effects of gravity",
+        "(B) It is the centripetal force that causes the aircraft to turn",
+        "(C) It increases as the bank angle decreases",
+        "(D) It is a force directly produced by the rudder"
+      ],
+      "answer": "B",
+      "explanation": "在轉彎中，Horizontal Component of Lift 是唯一的轉彎動力來源，也就是所謂的 centripetal force，負責克服慣性並改變飛機的飛行路徑。方向舵（Rudder）僅用於保持協調性（Coordination），而非直接產生轉彎力。",
+      "timestamp": "01:05:10"
+    },
+    {
+      "zh_question": "為什麼矩形翼（Rectangular Wing）常被用於初級訓練機，而非效率更高的橢圓翼（Elliptical Wing）？",
+      "zh_options": [
+        "(A) 因為矩形翼產生的誘導阻力（Induced Drag）最小",
+        "(B) 因為矩形翼失速時會從翼尖（Wing Tip）開始，提供更好的副翼控制",
+        "(C) 因為矩形翼失速時會從翼根（Wing Root）開始，提供明顯的失速預警",
+        "(D) 因為矩形翼在高速下具有更佳的氣動效率"
+      ],
+      "en_question": "Why are rectangular wings commonly used for primary trainers instead of the more efficient elliptical wings?",
+      "en_options": [
+        "(A) Because rectangular wings produce the minimum induced drag",
+        "(B) Because rectangular wings stall at the wing tip first, providing better aileron control",
+        "(C) Because rectangular wings stall at the wing root first, providing adequate stall warning",
+        "(D) Because rectangular wings have better aerodynamic efficiency at high speeds"
+      ],
+      "answer": "C",
+      "explanation": "矩形翼的設計使得失速（Stall）從翼根（Wing Root）開始發展，這不僅能讓飛行員透過機身震顫感受到預警，且失速初期翼尖的 aileron 仍保有控制效能。相較之下，橢圓翼雖然誘導阻力最小，但失速時整片機翼幾乎同時發生，缺乏預警。",
+      "timestamp": "01:03:50"
+    },
+    {
+      "zh_question": "為什麼大多數直翼飛機被設計成由翼根（Wing Root）先開始失速，而不是翼尖（Wing Tip）？",
+      "zh_options": [
+        "(A) 為了增加升力係數 (CL)",
+        "(B) 為了讓機首自動下沉以利恢復",
+        "(C) 為了在失速時維持副翼 (Aileron) 的有效性以保持滾轉控制",
+        "(D) 為了減少失速時的結構震動"
+      ],
+      "en_question": "Why are most straight-wing aircraft designed to stall at the wing root first rather than the wing tip?",
+      "en_options": [
+        "(A) To increase the coefficient of lift (CL)",
+        "(B) To cause an automatic nose-down pitch for recovery",
+        "(C) To maintain aileron effectiveness for roll control during a stall",
+        "(D) To reduce structural buffeting during a stall"
+      ],
+      "answer": "C",
+      "explanation": "當翼根先失速時，位於翼尖附近的副翼（Ailerons）仍能處於順暢氣流中，讓飛行員在失速初期仍保有橫向操縱能力（Controlability）。",
+      "timestamp": "01:16:15"
+    },
+    {
+      "zh_question": "當飛機重心（CG）超過後限（Aft Limit）時，對失速恢復的主要影響為何？",
+      "zh_options": [
+        "(A) 飛機將變得過於穩定，難以進入失速",
+        "(B) 升降舵（Elevator）可能無法產生足夠的下壓力來使機首下沉，導致難以恢復",
+        "(C) 飛機失速速度會大幅下降",
+        "(D) 飛機會自動產生強大的機首下沉傾向"
+      ],
+      "en_question": "When an aircraft's Center of Gravity (CG) exceeds the aft limit, what is the primary effect on stall recovery?",
+      "en_options": [
+        "(A) The aircraft becomes too stable to enter a stall",
+        "(B) The elevator may not generate sufficient force to pitch the nose down, making recovery difficult",
+        "(C) The stall speed will decrease significantly",
+        "(D) The aircraft will automatically produce a strong nose-down tendency"
+      ],
+      "answer": "B",
+      "explanation": "重心過於靠後會縮短升降舵的力臂或抵消其效能，使其難以克服失速時的機首上仰力矩，導致飛機持續處於失速狀態（Stalled Condition）。",
+      "timestamp": "01:20:40"
+    },
+    {
+      "zh_question": "關於失速速度（Stall Speed）與臨界攻角（Critical AOA）的關係，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 臨界攻角會隨著飛機重量增加而變大",
+        "(B) 飛機只會在低速時失速",
+        "(C) 失速速度是固定的，不隨坡度（Bank Angle）變化",
+        "(D) 飛機在任何速度下，只要超過臨界攻角就會失速"
+      ],
+      "en_question": "Regarding the relationship between Stall Speed and Critical AOA, which statement is correct?",
+      "en_options": [
+        "(A) The critical AOA increases as the aircraft weight increases",
+        "(B) An aircraft only stalls at low airspeeds",
+        "(C) Stall speed is fixed and does not change with bank angle",
+        "(D) An aircraft can stall at any airspeed if the critical AOA is exceeded"
+      ],
+      "answer": "D",
+      "explanation": "失速（Stall）本質上是攻角（AOA）現象。不論空速高低（如高速的 Accelerated Stall），只要攻角超過該機型的臨界值（Critical AOA），氣流就會從翼面分離導致失速。",
+      "timestamp": "01:22:15"
+    },
+    {
+      "zh_question": "根據音訊內容，機翼上僅 0.8 毫米（mm）的冰、雪或霜，會對飛行性能造成什麼影響？",
+      "zh_options": [
+        "(A) 增加升力 25% 並減少阻力",
+        "(B) 減少升力 25% 並增加阻力",
+        "(C) 對失速速度沒有顯著影響",
+        "(D) 僅增加飛機總重，不影響氣流"
+      ],
+      "en_question": "According to the audio, what effect does as little as 0.8 millimeters (mm) of ice, snow, or frost have on flight performance?",
+      "en_options": [
+        "(A) Increases lift by 25% and decreases drag",
+        "(B) Decreases lift by 25% and increases drag",
+        "(C) Has no significant effect on stall speed",
+        "(D) Only increases aircraft weight and does not affect airflow"
+      ],
+      "answer": "B",
+      "explanation": "極薄的冰層（0.8mm）會破壞翼面的平滑度，干擾邊界層氣流，導致升力大幅減少（約25%）並增加阻力（Drag）。",
+      "timestamp": "01:23:35"
+    },
+    {
+      "zh_question": "在螺旋槳原理中，「螺距」（Pitch）的定義為何？",
+      "zh_options": [
+        "(A) 螺旋槳葉片的物理長度",
+        "(B) 螺旋槳旋轉一圈後，理論上在空氣中前進的距離",
+        "(C) 螺旋槳葉片與旋轉平面之間的角度",
+        "(D) 引擎帶動螺旋槳轉動的轉速 (RPM)"
+      ],
+      "en_question": "In propeller principles, what is the definition of 'Pitch'?",
+      "en_options": [
+        "(A) The physical length of the propeller blade",
+        "(B) The theoretical distance the propeller moves forward through the air in one revolution",
+        "(C) The angle between the propeller blade and the plane of rotation",
+        "(D) The rotational speed (RPM) of the propeller driven by the engine"
+      ],
+      "answer": "B",
+      "explanation": "螺距（Pitch）是指螺旋槳旋轉一週後，假設無滑落（Slippage）情況下，在空氣中推進的理論距離（Theoretical distance）。",
+      "timestamp": "01:27:45"
+    },
+    {
+      "zh_question": "關於螺旋槳滑流（Propeller Slip）的定義，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 是有效螺距（Effective Pitch）與幾何螺距（Geometric Pitch）之間的差值",
+        "(B) 是螺旋槳在液體中運作時產生的現象",
+        "(C) 是螺旋槳旋轉一圈後實際前進的距離",
+        "(D) 是螺旋槳葉片角度與相對風之間的夾角"
+      ],
+      "en_question": "Regarding the definition of Propeller Slip, which of the following statements is correct?",
+      "en_options": [
+        "(A) It is the difference between geometric pitch and effective pitch.",
+        "(B) It is a phenomenon that occurs when the propeller operates in liquid.",
+        "(C) It is the actual distance the propeller advances in one revolution.",
+        "(D) It is the angle between the propeller blade angle and the relative wind."
+      ],
+      "answer": "A",
+      "explanation": "螺旋槳滑流（Propeller Slip）定義為幾何螺距（Geometric Pitch，理論上螺旋槳旋轉一圈應前進的距離）與有效螺距（Effective Pitch，實際上螺旋槳在空氣中旋轉一圈所前進的距離）之差。",
+      "timestamp": "01:31:05"
+    },
+    {
+      "zh_question": "定速螺旋槳（Constant Speed Propeller）在起飛階段（Takeoff），其葉片角度（Blade Angle）與引擎負載的關係為何？",
+      "zh_options": [
+        "(A) 保持高葉片角度以獲得最大巡航速度",
+        "(B) 保持低葉片角度，使引擎能達到高 RPM 並輸出最大馬力",
+        "(C) 葉片角度會隨高度增加而自動減小",
+        "(D) 為了防止引擎超速，必須手動將螺距調大"
+      ],
+      "en_question": "For a Constant Speed Propeller during the takeoff phase, what is the relationship between the blade angle and engine load?",
+      "en_options": [
+        "(A) It maintains a high blade angle to achieve maximum cruise speed.",
+        "(B) It maintains a low blade angle, allowing the engine to reach high RPM and output maximum horsepower.",
+        "(C) The blade angle automatically decreases as altitude increases.",
+        "(D) To prevent engine overspeed, the pitch must be manually increased."
+      ],
+      "answer": "B",
+      "explanation": "在起飛時需要最大推力，定速螺旋槳會調整至低葉片角度（Low Pitch），這會減小引擎負載，允許引擎在最大燃料轉化效率下達到高轉速（High RPM），進而產生最大推力。",
+      "timestamp": "01:33:50"
+    },
+    {
+      "zh_question": "關於非對稱負載（P-Factor），為何在飛機以高攻角（High AOA）飛行時會產生向左偏航（Left Yaw）的趨勢？",
+      "zh_options": [
+        "(A) 螺旋槳左側上升葉片產生的推力大於右側下降葉片",
+        "(B) 螺旋槳旋轉產生的扭矩反應（Torque Reaction）直接導致機頭偏轉",
+        "(C) 螺旋槳右側下降葉片相對於空氣的合速度較大，產生的推力較強",
+        "(D) 機身後方的螺旋狀滑流（Spiraling Slipstream）抵消了右側推力"
+      ],
+      "en_question": "Regarding Asymmetric Loading (P-Factor), why does the aircraft tend to yaw left when flying at a high angle of attack (AOA)?",
+      "en_options": [
+        "(A) The upward-moving blade on the left produces more thrust than the downward-moving blade on the right.",
+        "(B) Torque reaction from the propeller rotation directly causes the nose to deflect.",
+        "(C) The downward-moving blade on the right has a higher resultant velocity and produces more thrust.",
+        "(D) The spiraling slipstream behind the fuselage offsets the thrust on the right side."
+      ],
+      "answer": "C",
+      "explanation": "當飛機處於高攻角時，螺旋槳盤面不垂直於飛行路徑。右側下降葉片（Downward-moving blade）相對於空氣的合速度（Resultant Velocity）比左側上升葉片大，因此右側推力較大，導致飛機向左偏航（Yaw to the left）。",
+      "timestamp": "01:42:55"
+    },
+    {
+      "zh_question": "在結構設計中，飛機結構必須能承受『極限載重因素』（Limit Load Factor）多少倍的負荷而不發生失效？",
+      "zh_options": [
+        "(A) 1.0 倍",
+        "(B) 1.5 倍",
+        "(C) 2.0 倍",
+        "(D) 3.8 倍"
+      ],
+      "en_question": "In structural design, the aircraft structure must be able to withstand how many times the 'limit load factor' without failure?",
+      "en_options": [
+        "(A) 1.0 times",
+        "(B) 1.5 times",
+        "(C) 2.0 times",
+        "(D) 3.8 times"
+      ],
+      "answer": "B",
+      "explanation": "根據聯邦法規（CFR），飛機結構必須具備 1.5 倍的安全係數（Factor of Safety），即能承受 1.5 倍的極限載重因素（Limit Load Factor）而不發生結構失效（Failure）。",
+      "timestamp": "01:44:18"
+    },
+    {
+      "zh_question": "根據設計標準，當飛機承受的壓力超過「限度負荷係數」(Limit Load Factor) 但未達到「極限負荷」(Ultimate Load) 時，結構會發生什麼情況？",
+      "zh_options": [
+        "(A) 飛機結構會立即發生災難性的斷裂或失效",
+        "(B) 飛機結構會產生永久性的變形，但不會斷裂",
+        "(C) 飛機結構會完全恢復原狀，不留任何痕跡",
+        "(D) 飛機的自動駕駛系統會自動斷開以保護結構"
+      ],
+      "en_question": "According to design standards, what occurs when the aircraft structure is subjected to loads exceeding the Limit Load Factor but remaining below the Ultimate Load?",
+      "en_options": [
+        "(A) The aircraft structure will immediately suffer catastrophic failure or breakage",
+        "(B) The aircraft structure will experience permanent deformation but not failure",
+        "(C) The aircraft structure will return completely to its original shape without any effect",
+        "(D) The autopilot system will automatically disconnect to protect the structure"
+      ],
+      "answer": "B",
+      "explanation": "Limit Load Factor 是設計上允許的最大負荷。超過此值後，結構會產生永久性變形 (Permanent Deformation)，雖然不至於立即斷裂，但已損傷結構完整性。Ultimate Load 則是 Limit Load 加上安全係數（通常為 1.5 倍），超過此值結構就會發生 Failure 或 Breakage。",
+      "timestamp": "01:58:52"
+    },
+    {
+      "zh_question": "關於「設計機動速度」(Va, Design Maneuvering Speed) 的結構保護邏輯，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 在 Va 以下，同時操作多個軸向的全舵量是不會損壞飛機的",
+        "(B) Va 是在粗暴氣流 (Rough Air) 中可以維持最大巡航速度的依據",
+        "(C) Va 僅保證在單一軸向下一次性的全舵量位移不會造成結構損壞",
+        "(D) 隨著飛行高度增加，Va 的數值通常會隨之增加"
+      ],
+      "en_question": "Regarding the structural protection logic of Design Maneuvering Speed (Va), which of the following statements is correct?",
+      "en_options": [
+        "(A) Below Va, simultaneous full control deflections in multiple axes will not damage the aircraft",
+        "(B) Va is the basis for maintaining maximum cruise speed in rough air",
+        "(C) Va only guarantees that a single full control deflection in one axis will not cause structural damage",
+        "(D) As altitude increases, the value of Va typically increases"
+      ],
+      "answer": "C",
+      "explanation": "Va 的定義是針對單一飛行控制面 (Single flight control)、單一軸向 (One axis) 的一次性全舵量位移。它不保證在「多個軸向同時全舵操作」或「連續交替全舵操作」下的安全性，因為這可能產生超出結構負荷的複合應力。",
+      "timestamp": "01:50:43"
+    },
+    {
+      "zh_question": "若飛機在 60 度的坡度進行座標轉彎 (Coordinated Level Turn)，其失速速度 (Stalling Speed) 會如何變化？",
+      "zh_options": [
+        "(A) 失速速度會增加約 20%",
+        "(B) 失速速度會增加約 41%",
+        "(C) 失速速度會保持不變",
+        "(D) 失速速度會增加一倍"
+      ],
+      "en_question": "If an aircraft performs a coordinated level turn at a 60-degree bank angle, how will the stalling speed change?",
+      "en_options": [
+        "(A) The stalling speed will increase by approximately 20%",
+        "(B) The stalling speed will increase by approximately 41%",
+        "(C) The stalling speed will remain unchanged",
+        "(D) The stalling speed will double"
+      ],
+      "answer": "B",
+      "explanation": "在 60 度坡度轉彎時，Load Factor (n) 為 2G。根據公式，加速失速速度與負荷係數的平方根成正比 (square root of the load factor)。根號 2 約等於 1.41，因此失速速度會增加 41%。",
+      "timestamp": "01:49:08"
+    },
+    {
+      "zh_question": "在 Vg 圖（Vg Diagram）中，飛機無法在「最大升力能力線」（Line of maximum lift capability）左上方飛行的原因為何？",
+      "zh_options": [
+        "(A) 結構強度不足會導致解體",
+        "(B) 飛機會先發生失速（Stall）",
+        "(C) 發動機推力無法克服阻力",
+        "(D) 飛控系統會自動限制動作"
+      ],
+      "en_question": "On a Vg diagram, why is it impossible for an aircraft to fly above and to the left of the 'Line of maximum lift capability'?",
+      "en_options": [
+        "(A) Insufficient structural strength leading to disintegration",
+        "(B) The aircraft will stall first",
+        "(C) Engine thrust cannot overcome drag",
+        "(D) Flight control systems will automatically limit movement"
+      ],
+      "answer": "B",
+      "explanation": "最大升力能力線即為失速線（Stall Line）。在該線左上方，由於空氣動力學限制（Aerodynamically limited），機翼無法產生足夠的升力來支持對應的負載因數（Load Factor），因此飛機會在達到該負載前先進入失速狀態。",
+      "timestamp": "02:01:40"
+    },
+    {
+      "zh_question": "關於「機動速度」（Maneuvering Speed, Va）的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) 在此速度以上，全舵量操作不會造成結構損壞",
+        "(B) 在此速度以下，飛機會在達到極限負載因數前失速，進而保護結構",
+        "(C) Va 速度在任何載重與高度下皆保持不變",
+        "(D) Va 速度等同於紅線速度（Vne）"
+      ],
+      "en_question": "Regarding Maneuvering Speed (Va), which of the following statements is correct?",
+      "en_options": [
+        "(A) Above this speed, full control deflection will not cause structural damage",
+        "(B) Below this speed, the aircraft will stall before reaching the limit load factor, thus protecting the structure",
+        "(C) Va remains constant regardless of weight or altitude",
+        "(D) Va is the same as the redline speed (Vne)"
+      ],
+      "answer": "B",
+      "explanation": "Va 的核心觀念是：當飛機低於 Va 飛行時，若遭遇劇烈操作或強風，機翼會先發生失速（Stall），這會釋放負載，使結構負載不會超過極限負載因數（Limit Load Factor），形成一種空氣動力學上的保護機制。",
+      "timestamp": "02:01:54"
+    },
+    {
+      "zh_question": "若飛機的真速（TAS）增加為原來的兩倍，且保持相同的坡度（Bank Angle），其轉彎半徑（Radius of Turn）會如何變化？",
+      "zh_options": [
+        "(A) 增加為 2 倍",
+        "(B) 增加為 4 倍",
+        "(C) 減少為 1/2",
+        "(D) 保持不變"
+      ],
+      "en_question": "If an aircraft's True Airspeed (TAS) is doubled while maintaining the same bank angle, how will the radius of turn change?",
+      "en_options": [
+        "(A) It doubles",
+        "(B) It quadruples",
+        "(C) It decreases to 1/2",
+        "(D) It remains the same"
+      ],
+      "answer": "B",
+      "explanation": "根據轉彎半徑公式，半徑與速度的平方（V2）成正比。當速度加倍時，2 的平方等於 4，因此轉彎半徑會增加為原本的 4 倍。這解釋了為什麼在狹窄空間（如山谷）中，降低速度比增加坡度更能有效縮小轉彎半徑。",
+      "timestamp": "02:12:26"
+    },
+    {
+      "zh_question": "當飛機重心(CG)位於較前方位(Forward CG)時，對失速速度(Stalling Speed)與安定性(Stability)有何影響？",
+      "zh_options": [
+        "(A) 失速速度降低，安定性降低",
+        "(B) 失速速度增加，安定性降低",
+        "(C) 失速速度增加，安定性增加",
+        "(D) 失速速度降低，安定性增加"
+      ],
+      "en_question": "What are the effects on stalling speed and stability when the aircraft center of gravity (CG) is located at a forward position?",
+      "en_options": [
+        "(A) Lower stalling speed and decreased stability",
+        "(B) Higher stalling speed and decreased stability",
+        "(C) Higher stalling speed and increased stability",
+        "(D) Lower stalling speed and increased stability"
+      ],
+      "answer": "C",
+      "explanation": "重心前移(Forward CG)會增加尾翼所需的下壓力(Down-force)以維持平衡，這導致主翼必須產生更多的升力，相當於增加了主翼負荷(Wing Loading)，因此失速速度(Stalling Speed)會上升。同時，較大的力臂增加了縱向穩定性(Longitudinal Stability)。",
+      "timestamp": "02:17:21"
+    },
+    {
+      "zh_question": "關於臨界馬赫數(Critical Mach Number, Mcr)的定義，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 飛機飛行的真實速度達到音速之時",
+        "(B) 飛機表面任一部分之局部氣流速度首次達到音速(Mach 1.0)之飛行馬赫數",
+        "(C) 飛機產生震波(Shock wave)導致失速之馬赫數",
+        "(D) 飛機進入超音速巡航的最佳馬赫數"
+      ],
+      "en_question": "Which of the following correctly defines the Critical Mach Number (Mcr)?",
+      "en_options": [
+        "(A) When the aircraft's true airspeed reaches the speed of sound",
+        "(B) The flight Mach number at which local airflow velocity first reaches Mach 1.0 on any part of the aircraft structure",
+        "(C) The Mach number at which shock waves cause a stall",
+        "(D) The optimum Mach number for entering supersonic cruise"
+      ],
+      "answer": "B",
+      "explanation": "臨界馬赫數(Mcr)是指當飛機以低於音速飛行時，機身表面流速最快處(通常是機翼上表面)局部氣流達到 Mach 1.0 的那一刻。這是亞音速(Subsonic)與穿音速(Transonic)區域的分界點。",
+      "timestamp": "02:26:30"
+    },
+    {
+      "zh_question": "在低高度飛行時，飛機的最大操作速度通常受限於 Vmo 而非 Mmo，其主要考量為何？",
+      "zh_options": [
+        "(A) 引擎推力限制",
+        "(B) 燃油消耗率過高",
+        "(C) 壓縮性效應(Compressibility)",
+        "(D) 結構負荷與顫振(Structural loads and flutter)"
+      ],
+      "en_question": "At lower altitudes, the maximum operating speed is typically limited by Vmo rather than Mmo. What is the primary concern?",
+      "en_options": [
+        "(A) Engine thrust limitations",
+        "(B) Excessive fuel consumption",
+        "(C) Compressibility effects",
+        "(D) Structural loads and flutter"
+      ],
+      "answer": "D",
+      "explanation": "Vmo 以校正空速(CAS)表示，主要針對低高度的大氣密度，防止過大的動壓(Dynamic Pressure)造成結構損傷或顫振(Flutter)；而 Mmo 則是在高高度針對空氣壓縮性效應(Compressibility)制定的限制。",
+      "timestamp": "02:27:45"
+    },
+    {
+      "zh_question": "當氣流通過「法向震波」(Normal Shock Wave) 後，下列哪項物理性質的變化描述是正確的？",
+      "zh_options": [
+        "(A) 氣流速度會加速至超音速",
+        "(B) 氣流方向會發生劇烈偏轉",
+        "(C) 靜壓 (Static Pressure) 與密度會大幅增加",
+        "(D) 總壓 (Total Pressure) 會保持不變，代表能量守恆"
+      ],
+      "en_question": "When airflow passes through a Normal Shock Wave, which of the following physical property changes is correct?",
+      "en_options": [
+        "(A) The airflow accelerates to supersonic speed",
+        "(B) The flow direction undergoes a sharp deflection",
+        "(C) Static pressure and density increase greatly",
+        "(D) Total pressure remains constant, representing energy conservation"
+      ],
+      "answer": "C",
+      "explanation": "氣流通過 Normal Shock Wave 後，速度會降至次音速 (Subsonic)，且氣流方向不變。在此過程中，靜壓與密度會大幅上升，但由於一部分動能轉化為熱能，導致總壓 (Total Pressure/Total Energy) 降低，產生震波阻力 (Wave Drag)。",
+      "timestamp": "02:36:15"
+    },
+    {
+      "zh_question": "渦流產生器 (Vortex Generators) 在跨音速飛行中的主要功用為何？",
+      "zh_options": [
+        "(A) 減少機翼表面的皮膚摩擦阻力 (Skin Friction Drag)",
+        "(B) 延遲或防止因震波誘發的邊界層分離 (Shock-induced Separation)",
+        "(C) 在起飛階段提供額外的升力",
+        "(D) 降低飛機在高空時的臨界馬赫數 (Critical Mach Number)"
+      ],
+      "en_question": "What is the primary function of Vortex Generators in transonic flight?",
+      "en_options": [
+        "(A) To reduce skin friction drag on the wing surface",
+        "(B) To delay or prevent shock-induced boundary layer separation",
+        "(C) To provide additional lift during the takeoff phase",
+        "(D) To decrease the aircraft's critical Mach number at high altitudes"
+      ],
+      "answer": "B",
+      "explanation": "Vortex Generators 是小型低展弦比機翼部件，能產生渦流將外部的高能量空氣與邊界層空氣混合，增加邊界層能量，使氣流更能抵抗震波後的逆壓梯度，延遲分離現象。",
+      "timestamp": "02:34:15"
+    },
+    {
+      "zh_question": "為什麼 T 型尾翼 (T-tail) 的飛機在遭遇失速時，容易發生極端危險的「深失速」(Deep Stall/Super Stall)？",
+      "zh_options": [
+        "(A) 因為機翼產生的震波會直接擊中水平尾翼",
+        "(B) 因為發動機推力在失速時會產生過大的抬頭力矩",
+        "(C) 主翼失速後的湍流尾跡 (Wake) 會遮蔽水平尾翼，導致升降舵失去低頭控制效能",
+        "(D) T 型尾翼的結構強度不足以支撐高速下的低頭動作"
+      ],
+      "en_question": "Why are T-tail aircraft prone to dangerous Deep Stall (Super Stall) conditions?",
+      "en_options": [
+        "(A) Because shock waves from the wing directly hit the horizontal stabilizer",
+        "(B) Because engine thrust produces excessive pitch-up moment during a stall",
+        "(C) The wing wake during a stall blankets the tail, causing the elevator to lose pitch-down effectiveness",
+        "(D) The T-tail structure is not strong enough to support pitch-down movements at high speeds"
+      ],
+      "answer": "C",
+      "explanation": "當 T-tail 飛機以大仰角失速時，主翼產生的湍流尾跡會向上後方移動並籠罩水平尾翼 (Horizontal Stabilizer)，使得升降舵失去修正俯仰所需的氣動力效能，導致飛機卡在大仰角狀態無法脫離。",
+      "timestamp": "02:41:05"
+    },
+    {
+      "zh_question": "關於「差異式」(Differential) 與「非差異式」(Non-differential) 擾流板 (Spoilers) 在輔助滾轉控制時的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) 差異式擾流板在輔助滾轉時，兩側都會伸長但幅度不同",
+        "(B) 差異式擾流板在一側伸長的同時，另一側會收回 (Retract)",
+        "(C) 非差異式擾流板在當作減速板使用時，無法再提供滾轉輔助",
+        "(D) 兩者在全伸長狀態下，對於升降舵的補償邏輯完全一致"
+      ],
+      "en_question": "Regarding the difference between 'Differential' and 'Non-differential' spoilers for roll control, which statement is correct?",
+      "en_options": [
+        "(A) Differential spoilers extend on both sides but by different amounts for roll control.",
+        "(B) Differential spoilers extend further on one side and retract on the other side.",
+        "(C) Non-differential spoilers cannot provide roll assistance when used as speed brakes.",
+        "(D) Both have identical compensation logic for elevators at full extension."
+      ],
+      "answer": "B",
+      "explanation": "根據音訊內容，差異式擾流板在一側伸長得更多的同時，另一側會收回；而非差異式則只會在伸長側動作，另一側不收回。當擾流板全伸長當作 Speed Brake 使用時，非差異式擾流板不再輔助副翼 (Ailerons)。",
+      "timestamp": "02:46:12"
+    },
+    {
+      "zh_question": "為什麼大型噴氣客機通常配備「可變傾角水平安定面」(Variable Incidence Horizontal Stabilizer)，而不是固定式安定面？",
+      "zh_options": [
+        "(A) 為了增加飛機在超音速飛行時的結構強度",
+        "(B) 為了能在較大的重心 (CG) 範圍與速度範圍內處理巨大的配平 (Trim) 需求",
+        "(C) 主要是為了縮小升降舵 (Elevator) 的尺寸以減輕重量",
+        "(D) 固定式安定面在起飛階段會導致飛機失速風險增加"
+      ],
+      "en_question": "Why do large jet transport aircraft typically use a Variable Incidence Horizontal Stabilizer instead of a fixed stabilizer?",
+      "en_options": [
+        "(A) To increase structural strength during supersonic flight.",
+        "(B) To handle large pitch trim changes across a wide CG and speed range.",
+        "(C) Primarily to reduce the size of the elevator to save weight.",
+        "(D) Fixed stabilizers increase the risk of stalling during takeoff."
+      ],
+      "answer": "B",
+      "explanation": "大型飛機有廣泛的重心範圍與速度範圍，導致巨大的 Pitch Trim 需求。使用可變安定面來承擔大部分配平任務，可以讓升降舵在配平後仍維持在流線位置並保有完整的操作範圍 (Full range of movement)。",
+      "timestamp": "02:47:35"
+    },
+    {
+      "zh_question": "當飛機發生全機液壓與電力失效時，飛行員如何透過「操縱片」(Control Tabs) 來控制主要的飛行操縱面？",
+      "zh_options": [
+        "(A) 透過機械連桿直接拉動操縱面主體",
+        "(B) 利用操縱片改變氣動力平衡 (Aerodynamic Balance)，進而帶動操縱面移動",
+        "(C) 操縱片會釋放備用壓縮空氣來推動致動器",
+        "(D) 操縱片僅能在低速狀態下輔助配平，無法進行大動作操縱"
+      ],
+      "en_question": "In the event of total hydraulic and electrical failure, how can the pilot still control the primary flight surfaces via Control Tabs?",
+      "en_options": [
+        "(A) By directly pulling the main control surface through mechanical linkages.",
+        "(B) By moving the control tab to upset the aerodynamic balance, causing the main surface to move.",
+        "(C) The control tab releases backup compressed air to move actuators.",
+        "(D) Control tabs can only assist in trimming at low speeds and cannot perform large maneuvers."
+      ],
+      "answer": "B",
+      "explanation": "當動力系統失效時，飛行員透過機械連桿操縱小的 Control Tabs，操縱片的位移會打破氣動力平衡，利用氣流的力量去推動巨大的操縱面（如升降舵或副翼）。",
+      "timestamp": "02:48:52"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The {{c1::AOA}} is defined as the acute angle between the chord line of the airfoil and the direction of the relative wind.",
+      "zh_translation": "攻角（AOA）被定義為翼型弦線與相對風方向之間的銳角。",
+      "explanation": "這是空氣動力學中最基礎的定義，AOA 直接決定了壓力分佈與升力係數。",
+      "tags": "Definitions",
+      "timestamp": "03:36"
+    },
+    {
+      "cloze_text": "An airfoil will always stall at the same {{c1::critical AOA}}, regardless of its weight or airspeed.",
+      "zh_translation": "無論重量或空速如何，特定翼型總是在相同的「臨界攻角」下發生失速。",
+      "explanation": "這是一個極其重要的安全觀念：失速只與攻角有關，與空速無絕對直接關係。",
+      "tags": "Safety, Aerodynamics",
+      "timestamp": "08:14"
+    },
+    {
+      "cloze_text": "In slow flight, a portion of {{c1::thrust}} is directed upward and acts as if it were lift to help support the weight of the aircraft.",
+      "zh_translation": "在低速飛行中，推力的一部分會朝向上方，發揮類似升力的作用來協助支撐飛機的重量。",
+      "explanation": "當飛機處於大仰角狀態時，推力向量不再與飛行路徑完全平行，其垂直分量可分擔部分重量。",
+      "tags": "Slow Flight",
+      "timestamp": "02:51"
+    },
+    {
+      "cloze_text": "At very high speeds in level flight, it is even possible to have a slightly {{c1::negative}} AOA.",
+      "zh_translation": "在平飛且極高速的情況下，飛機甚至可能處於微小的「負」攻角狀態。",
+      "explanation": "因為高動壓（Dynamic Pressure）在極小攻角甚至負攻角下，就能產生足以抵銷重量的升力。",
+      "tags": "High Speed Flight",
+      "timestamp": "07:17"
+    },
+    {
+      "cloze_text": "The maximum lift-to-drag ratio (L/D max) occurs at one specific {{c1::AOA}} for a given aircraft configuration.",
+      "zh_translation": "對於特定的飛機構型，最大升阻比（L/D max）發生在一個特定的攻角上。",
+      "explanation": "L/D max 代表飛機最具氣動力效率的狀態，通常對應於最佳滑翔速度或最大航程速度。",
+      "tags": "Efficiency",
+      "timestamp": "14:55"
+    },
+    {
+      "cloze_text": "Moist air is {{c1::less dense}} than dry air, which affects the lift production of an aircraft.",
+      "zh_translation": "濕空氣的密度比乾空氣低，這會影響飛機的升力產生。",
+      "explanation": "水蒸氣分子比氮氣或氧氣分子輕，因此濕度增加會降低空氣總密度（Density Altitude 升高）。",
+      "tags": "Atmospheric Physics",
+      "timestamp": "11:21"
+    },
+    {
+      "cloze_text": "Any AOA lower or higher than that for {{c1::L/D Max}} reduces the L/D and consequently increases the total drag.",
+      "zh_translation": "任何低於或高於最大升阻比 (L/D Max) 的攻角都會降低升阻比，進而增加總阻力。",
+      "explanation": "L/D Max 是效率最高的攻角，偏離此點都會導致阻力效率下降。",
+      "tags": "Aerodynamics",
+      "timestamp": "15:15"
+    },
+    {
+      "cloze_text": "{{c1::Form drag}} is the portion of parasite drag generated by the aircraft due to its shape and airflow around it.",
+      "zh_translation": "形狀阻力 (Form drag) 是寄生阻力的一部分，由飛機的形狀及其周圍的氣流產生。",
+      "explanation": "這是最直觀的阻力，與飛機的迎風截面積和外型設計有關。",
+      "tags": "Drag-Type",
+      "timestamp": "16:14"
+    },
+    {
+      "cloze_text": "The area between the wing and the free stream velocity level is called the {{c1::boundary layer}}.",
+      "zh_translation": "機翼表面與自由流速度水平之間的區域被稱為邊界層 (boundary layer)。",
+      "explanation": "邊界層內的氣流速度受表面摩擦影響，是產生 Skin Friction Drag 的關鍵區域。",
+      "tags": "Aerodynamics",
+      "timestamp": "18:10"
+    },
+    {
+      "cloze_text": "Induced drag is inseparable from the {{c1::production of lift}}.",
+      "zh_translation": "誘導阻力與升力的產生是不可分割的。",
+      "explanation": "只要機翼在產生升力，就必然會產生誘導阻力。",
+      "tags": "Induced-Drag",
+      "timestamp": "20:15"
+    },
+    {
+      "cloze_text": "Wingtip vortices are greatest when the generating aircraft is {{c1::heavy, clean, and slow}}.",
+      "zh_translation": "當產生渦流的飛機處於「重、潔淨、慢速」狀態時，翼尖渦流最強。",
+      "explanation": "這是 Wake Turbulence 最危險的組合情況，通常發生在起飛初期或著陸前。",
+      "tags": "Wake-Turbulence",
+      "timestamp": "21:55"
+    },
+    {
+      "cloze_text": "Ground effect is the result of air being {{c1::trapped}} between the wing and the landing surface.",
+      "zh_translation": "地面效應是空氣被「困」在機翼與降落表面之間所產生的結果。",
+      "explanation": "這會導致誘導阻力顯著減少，使飛機在接近地面時感覺像在氣墊上漂浮。",
+      "tags": "Ground-Effect",
+      "timestamp": "29:40"
+    },
+    {
+      "cloze_text": "Ground effect is most recognized when the wing is at a height less than its {{c1::wingspan}}.",
+      "zh_translation": "地面效應最明顯的範圍是在機翼高度低於其一個翼展長度時。",
+      "explanation": "雖然地面效應在較高處就開始產生，但直到高度降至一個 wingspan 以下時，對性能的影響才具有顯著的量級。",
+      "tags": "Aerodynamics, Ground-Effect",
+      "timestamp": "32:40"
+    },
+    {
+      "cloze_text": "When the wing is at a height equal to one-tenth its span, the reduction in induced drag is {{c1::47.6}} percent.",
+      "zh_translation": "當機翼高度等於翼展的十分之一時，誘導阻力的減少量達 47.6%。",
+      "explanation": "這說明了高度越低，地面效應對阻力的減輕效果越劇烈。這是著陸時發生「飄浮」（Floating）現象的主要原因。",
+      "tags": "Performance, Data",
+      "timestamp": "42:30"
+    },
+    {
+      "cloze_text": "The aircraft's motion about its lateral axis is {{c1::pitch}}.",
+      "zh_translation": "飛機繞著橫軸（Lateral Axis）的運動稱為俯仰（Pitch）。",
+      "explanation": "橫軸是從翼尖延伸至翼尖的軸，繞此軸運動控制的是飛機的低頭與抬頭。",
+      "tags": "Flight-Controls, Axes",
+      "timestamp": "36:05"
+    },
+    {
+      "cloze_text": "Static longitudinal stability depends on the location of the {{c1::wing}} with respect to the CG.",
+      "zh_translation": "靜態縱向穩定性取決於機翼相對於重心（CG）的位置。",
+      "explanation": "縱向穩定性（Longitudinal Stability）涉及俯仰軸。機翼升力中心（Center of Lift）與重心（Center of Gravity）的相對位置是決定該穩定性的關鍵。",
+      "tags": "Stability, CG",
+      "timestamp": "43:40"
+    },
+    {
+      "cloze_text": "The most usual recognition of ground effect is the {{c1::floating}} during the flare just prior to touchdown.",
+      "zh_translation": "對地面效應最常見的察覺是在觸地前平飛（Flare）階段的「飄浮」現象。",
+      "explanation": "由於阻力突然減少且升力增加，飛機如果不減速或推力不當，會拒絕降落而持續在跑道上方飄行。",
+      "tags": "Landing, Ground-Effect",
+      "timestamp": "32:40"
+    },
+    {
+      "cloze_text": "Dynamic stability refers to the aircraft response {{c1::over time}} when disturbed.",
+      "zh_translation": "動態穩定性是指飛機受擾動後「隨時間推移」的反應。",
+      "explanation": "靜態穩定性只看初始趨勢，而動態穩定性關注的是隨後的振盪是否會隨時間衰減、維持或擴大。",
+      "tags": "Stability, Definition",
+      "timestamp": "42:35"
+    },
+    {
+      "cloze_text": "在大多數非對稱翼型中，升力中心 (CL) 傾向於隨攻角增加而向 {{c1::前}} 移動。",
+      "zh_translation": "In most asymmetrical airfoils, the center of lift (CL) tends to move forward with an increase in AOA.",
+      "explanation": "CL 向前移動會增加抬頭力矩，這是飛機先天縱向不穩定性的主因。",
+      "tags": "Aerodynamics, Stability",
+      "timestamp": "45:28"
+    },
+    {
+      "cloze_text": "大多數飛機被設計為 CL 位在 CG 的 {{c1::後方}}，使飛機具有「頭重」特性。",
+      "zh_translation": "Most aircraft are designed so that the wing's CL is to the rear of the CG, making the aircraft nose-heavy.",
+      "explanation": "這樣的設計是為了在失去控制力時，飛機傾向於自動低頭以增加空速。",
+      "tags": "Design, Stability",
+      "timestamp": "46:02"
+    },
+    {
+      "cloze_text": "上反角 (Dihedral) 透過 {{c1::側滑}} (sideslip) 產生的相對風變化，對機翼橫向穩定性做出貢獻。",
+      "zh_translation": "Dihedral contributes to a stable roll due to sideslip.",
+      "explanation": "當飛機側滑時，下方的機翼會獲得更大的有效攻角與升力，進而產生回正力矩。",
+      "tags": "Aerodynamics, Lateral Stability",
+      "timestamp": "51:31"
+    },
+    {
+      "cloze_text": "大約每 10 度的後掠角 (Sweepback) 可以提供約 {{c1::1度}} 的有效上反角效果。",
+      "zh_translation": "10 degrees of sweepback on a wing provides about 1 degree of effective dihedral.",
+      "explanation": "後掠角除了延遲壓縮效應外，也能增加飛機的橫向穩定性。",
+      "tags": "Design, Aerodynamics",
+      "timestamp": "51:48"
+    },
+    {
+      "cloze_text": "飛機的方向穩定性主要是透過 {{c1::垂直尾翼}} (vertical fin) 的面積與位置來實現。",
+      "zh_translation": "Directional stability is most easily achieved by the area of the vertical fin and fuselage aft of the CG.",
+      "explanation": "垂直尾翼就像風向標的尾端，能引導飛機機頭指向相對風方向。",
+      "tags": "Design, Directional Stability",
+      "timestamp": "53:21"
+    },
+    {
+      "cloze_text": "{{c1::荷蘭滾}} (Dutch Roll) 是一種橫向與方向震盪耦合的動態現象。",
+      "zh_translation": "Dutch Roll is a coupled lateral/directional oscillation.",
+      "explanation": "當側向穩定性強於方向穩定性時容易發生，表現為機頭左右偏擺與機翼翻滾的結合。",
+      "tags": "Flight Dynamics, Instability",
+      "timestamp": "57:08"
+    },
+    {
+      "cloze_text": "Aspect ratio is the ratio of {{c1::wing span}} to wing chord.",
+      "zh_translation": "展弦比（Aspect Ratio）是機翼翼展與翼弦的比率。",
+      "explanation": "展弦比是決定誘導阻力（Induced Drag）的重要參數，高展弦比機翼通常有較低的誘導阻力。",
+      "tags": "Aerodynamics,Definitions",
+      "timestamp": "01:01:43"
+    },
+    {
+      "cloze_text": "In its simplest term, {{c1::tapering}} is a decrease from wing root to wing tip in wing chord or wing thickness.",
+      "zh_translation": "簡單來說，機翼漸縮（Tapering）是指翼弦或機翼厚度從翼根向翼尖遞減的設計。",
+      "explanation": "漸縮設計可以優化機翼重量分布並改善升力分布，使其更接近理想狀態。",
+      "tags": "Design,Wing-Planform",
+      "timestamp": "01:02:08"
+    },
+    {
+      "cloze_text": "To maintain a constant altitude in a turn, the {{c1::Angle of Attack}} must be increased to compensate for the loss of vertical lift.",
+      "zh_translation": "為了在轉彎中保持高度不變，必須增加攻角（AOA）以補償垂直升力的損失。",
+      "explanation": "當飛機傾斜時，總升力的一部分轉向水平方向，導致垂直升力不足以支撐重量，因此需要拉桿增加 AOA。",
+      "tags": "Flight-Dynamics,Turns",
+      "timestamp": "01:06:45"
+    },
+    {
+      "cloze_text": "Aircraft are able to sustain a climb due to {{c1::excess thrust}} available.",
+      "zh_translation": "飛機能夠維持爬升是由於具備剩餘推力（Excess Thrust）。",
+      "explanation": "當剩餘推力為零時，飛機達到絕對升限（Absolute Ceiling），無法再繼續爬升。",
+      "tags": "Performance,Climb",
+      "timestamp": "01:12:55"
+    },
+    {
+      "cloze_text": "A stall results from a rapid decrease in lift caused by the separation of airflow from the wing's surface brought on by exceeding the {{c1::critical AOA}}.",
+      "zh_translation": "失速是由於超過臨界攻角（Critical AOA）導致氣流自機翼表面分離，進而使升力迅速下降。",
+      "explanation": "失速與空速或飛行姿態無關，唯一的直接原因是超過了特定的臨界攻角。",
+      "tags": "Stalls,Safety",
+      "timestamp": "01:14:24"
+    },
+    {
+      "cloze_text": "在大多數直翼飛機上，機翼被設計為由翼根先失速，以確保在失速過程中 {{c1::副翼 (Aileron)}} 的效能得以維持。",
+      "zh_translation": "In most straight-wing aircraft, the wing is designed to stall the wing root first to ensure that aileron effectiveness is maintained during a stall.",
+      "explanation": "這是為了防止飛機在失速時發生無法控制的滾轉。",
+      "tags": "Aerodynamics, Control",
+      "timestamp": "01:16:10"
+    },
+    {
+      "cloze_text": "多數訓練機在失速時會有機首下沉傾向，這是因為其升力中心 (CL) 位於重心 (CG) 之 {{c1::後}} 方。",
+      "zh_translation": "Most training aircraft exhibit a nose-down tendency during a stall because the Center of Lift (CL) is located aft of the Center of Gravity (CG).",
+      "explanation": "CL 在 CG 後方會產生一個天然的低頭力矩，有助於減小攻角並退出失速。",
+      "tags": "Stability, Stall",
+      "timestamp": "01:20:52"
+    },
+    {
+      "cloze_text": "機翼上表面僅 {{c1::0.8}} 毫米的積冰就可能導致升力減少 25% 並增加阻力。",
+      "zh_translation": "As little as 0.8 millimeter of ice on the upper wing surface can reduce lift by 25% and increase drag.",
+      "explanation": "強調了即使是少量的表面污染（Contamination）也會嚴重破壞氣動力性能。",
+      "tags": "Icing, Limitations",
+      "timestamp": "01:23:33"
+    },
+    {
+      "cloze_text": "不論飛機重量或坡度如何變化，飛機失速時的 {{c1::臨界攻角 (Critical AOA)}} 始終保持固定。",
+      "zh_translation": "An aircraft always stalls at the same critical AOA, regardless of changes in weight or bank angle.",
+      "explanation": "失速空速會變，但導致失速的攻角是機翼設計決定的固定值。",
+      "tags": "Aerodynamics, Stall",
+      "timestamp": "01:22:00"
+    },
+    {
+      "cloze_text": "螺旋槳的 {{c1::螺距 (Pitch)}} 是指螺旋槳旋轉一圈後在空氣中「擰」進去的距離。",
+      "zh_translation": "The pitch of a propeller is the distance in inches the propeller would screw through the air in one revolution.",
+      "explanation": "這是一個理論數值，實際前進距離會因滑落而略小。",
+      "tags": "Propeller, Definition",
+      "timestamp": "01:27:22"
+    },
+    {
+      "cloze_text": "攻角指示器 (AOA Indicator) 能提供飛行員關於 {{c1::失速餘裕 (Stall Margin)}} 的警覺性。",
+      "zh_translation": "An AOA indicator provides the pilot with situational awareness regarding the stall margin.",
+      "explanation": "AOA 指示器能直觀顯示當前攻角與臨界攻角的距離，提高安全性。",
+      "tags": "Systems, Safety",
+      "timestamp": "01:28:30"
+    },
+    {
+      "cloze_text": "Propeller efficiency is the ratio of {{c1::thrust horsepower}} to brake horsepower.",
+      "zh_translation": "螺旋槳效率是推力馬力（thrust horsepower）與煞車馬力（brake horsepower）的比值。",
+      "explanation": "這代表了引擎輸出的動力中有多少比例成功轉化為飛機前進的推力。",
+      "tags": "Propeller, Efficiency",
+      "timestamp": "01:30:35"
+    },
+    {
+      "cloze_text": "Torque reaction involves Newton's {{c1::Third Law}} of Physics: For every action, there is an equal and opposite reaction.",
+      "zh_translation": "扭矩反應涉及牛頓第三運動定律：對於每一個作用力，都有一個大小相等、方向相反的反作用力。",
+      "explanation": "當引擎驅動螺旋槳順時針轉動時，會產生一個使機身向左滾動的反作用力。",
+      "tags": "Principles of Flight, Torque",
+      "timestamp": "01:36:25"
+    },
+    {
+      "cloze_text": "In a spinning rotor, the resultant force from gyroscopic precession takes effect {{c1::90 degrees}} ahead in the direction of rotation.",
+      "zh_translation": "在旋轉的轉子中，陀螺進動產生的合力會在旋轉方向前方 90 度處發生作用。",
+      "explanation": "這是陀螺儀原理的核心，解釋了為何對旋轉中的螺旋槳施力會導致非預期的偏航或俯仰。",
+      "tags": "Gyroscopic Precession",
+      "timestamp": "01:41:45"
+    },
+    {
+      "cloze_text": "The load factor is the ratio of the {{c1::total air load}} acting on the airplane to the gross weight of the airplane.",
+      "zh_translation": "載重因素（Load Factor）是作用於飛機的總空氣負荷與飛機總重之比。",
+      "explanation": "這通常以 G 值表示，反映了飛機結構所承受的壓力程度。",
+      "tags": "Load Factor, Aerodynamics",
+      "timestamp": "01:43:55"
+    },
+    {
+      "cloze_text": "The reason a propeller is twisted is that the outer parts of the blades travel {{c1::faster}} than the portions near the hub.",
+      "zh_translation": "螺旋槳葉片之所以被扭轉，是因為葉片尖端的移動速度比靠近槳轂的部分快。",
+      "explanation": "扭轉是為了補償不同位置的切向速度差異，使整個葉片長度上的攻角與推力分佈更加均勻。",
+      "tags": "Propeller, Design",
+      "timestamp": "01:32:10"
+    },
+    {
+      "cloze_text": "To the limit loads given, a safety factor of {{c1::50}} percent is added to determine the ultimate load.",
+      "zh_translation": "在給定的限度負荷基礎上，增加 50% 的安全係數來決定極限負荷。",
+      "explanation": "這是航空器結構設計的基本準則，Ultimate Load = Limit Load × 1.5。",
+      "tags": "Limitations, Structural",
+      "timestamp": "01:46:11"
+    },
+    {
+      "cloze_text": "The maximum safe load factor for an aircraft in the aerobatic category is {{c1::6.0}} Gs.",
+      "zh_translation": "特技類飛機的最大安全負荷係數為 6.0 G。",
+      "explanation": "不同類別飛機有不同的 Limit Load Factors，Aerobatic 為 6.0，Utility 為 4.4，Normal 為 3.8。",
+      "tags": "Limitations, Certification",
+      "timestamp": "01:46:01"
+    },
+    {
+      "cloze_text": "An aircraft's stalling speed increases in proportion to the {{c1::square root}} of the load factor.",
+      "zh_translation": "飛機的失速速度與負荷係數的平方根成正比。",
+      "explanation": "這是計算加速失速 (Accelerated Stall) 的核心公式邏輯。",
+      "tags": "Aerodynamics",
+      "timestamp": "01:49:08"
+    },
+    {
+      "cloze_text": "For older general aviation airplanes, the Va is approximately {{c1::1.7}} times the normal stalling speed.",
+      "zh_translation": "對於舊款通用航空飛機，機動速度 Va 約為正常失速速度的 1.7 倍。",
+      "explanation": "這是一個常用的經驗法則，用於估計未明確標註 Va 的老舊飛機限制。",
+      "tags": "Limitations, Speed",
+      "timestamp": "01:51:04"
+    },
+    {
+      "cloze_text": "The load factor in a proper spin recovery usually is found to be about {{c1::2.5}} Gs.",
+      "zh_translation": "正確的尾旋改出過程中，產生的負荷係數通常約為 2.5 G。",
+      "explanation": "雖然尾旋中 G 力不高，但改出時的俯衝拉升會產生顯著 Load Factor。",
+      "tags": "Maneuvers, Recovery",
+      "timestamp": "01:55:38"
+    },
+    {
+      "cloze_text": "The load factor in an 80-degree bank constant altitude turn is {{c1::5.76}} Gs.",
+      "zh_translation": "在 80 度坡度維持高度轉彎時，負荷係數為 5.76 G。",
+      "explanation": "轉彎 G 力隨坡度急遽上升，80 度已接近特技飛機的 6G 極限。",
+      "tags": "Aerodynamics, Maneuvers",
+      "timestamp": "01:47:44"
+    },
+    {
+      "cloze_text": "An aircraft operating below {{c1::maneuvering speed}} cannot produce a damaging positive flight load because it stalls first.",
+      "zh_translation": "在機動速度以下運行的飛機不會產生具破壞性的正向飛行負載，因為它會先失速。",
+      "explanation": "這是 Va 的定義與主要保護機制，利用失速來防止結構超載。",
+      "tags": "Limitations, Maneuvering Speed",
+      "timestamp": "02:11:58"
+    },
+    {
+      "cloze_text": "If the airspeed is doubled, the radius of turn is {{c1::quadrupled}}.",
+      "zh_translation": "如果空速增加一倍，轉彎半徑會增加為四倍。",
+      "explanation": "轉彎半徑與速度的平方成正比關係。",
+      "tags": "Performance, Turn Radius",
+      "timestamp": "02:12:26"
+    },
+    {
+      "cloze_text": "An aircraft certified in the normal category must be strong enough to withstand a load factor of {{c1::3.8}} Gs.",
+      "zh_translation": "獲認證為普通類（Normal Category）的飛機必須足夠堅固，以承受 3.8 G 的負載因數。",
+      "explanation": "這是法規對普通類飛機結構強度的基本要求數據。",
+      "tags": "Limitations, Structural",
+      "timestamp": "02:13:55"
+    },
+    {
+      "cloze_text": "Habitual overloading tends to cause {{c1::cumulative stress}} and damage that may not be detected during pre-flight inspections.",
+      "zh_translation": "習慣性的超載容易導致累積壓力和損壞，且在飛行前檢查中可能無法被發現。",
+      "explanation": "超載不僅影響當次性能，還會加速金屬疲勞並造成難以偵測的結構損傷。",
+      "tags": "Weight and Balance, Maintenance",
+      "timestamp": "02:14:42"
+    },
+    {
+      "cloze_text": "Airspeed significantly affects an aircraft's {{c1::rate of turn}}; if airspeed is increased, it is reduced if using the same bank angle.",
+      "zh_translation": "空速顯著影響飛機的轉彎速率；如果空速增加且保持相同坡度，轉彎速率會降低。",
+      "explanation": "轉彎速率（ROT）與空速成反比，速度越快，轉彎越慢。",
+      "tags": "Performance, ROT",
+      "timestamp": "02:14:05"
+    },
+    {
+      "cloze_text": "在承受 3G 負載因子(Load Factor)的情況下，飛機每增加 100 磅重量，結構實際上需額外承載 {{c1::300}} 磅的負荷。",
+      "zh_translation": "In a 3G load factor condition, for every 100 lbs of added weight, the structure must support an additional 300 lbs of load.",
+      "explanation": "總負載等於重量乘以負載因子，這強調了超重對結構強度的加成危害。",
+      "tags": "Limitations, Performance",
+      "timestamp": "02:15:15"
+    },
+    {
+      "cloze_text": "飛機重心(CG)越往後移，飛機的{{c1::縱向安定性}}越差，且可能導致無法從失速中復原。",
+      "zh_translation": "As the CG moves rearward, the longitudinal stability of the aircraft decreases, and it may lead to inability to recover from a stall.",
+      "explanation": "重心後移縮短了尾翼力臂，降低了飛機恢復姿態的能力，嚴重時會發生平轉(Flat Spin)。",
+      "tags": "Stability",
+      "timestamp": "02:18:45"
+    },
+    {
+      "cloze_text": "音速在空中的變化主要受大氣{{c1::溫度}}影響，而非壓力的影響。",
+      "zh_translation": "The speed of sound in the air is primarily affected by temperature rather than pressure.",
+      "explanation": "隨著高度上升溫度下降，音速也會跟著下降，因此 Mmo 在高高度會比低高度更早達到。",
+      "tags": "Aerodynamics",
+      "timestamp": "02:25:20"
+    },
+    {
+      "cloze_text": "飛機重心位於較後方位(Aft CG)時，因為所需的平尾下壓力較小，誘導阻力減少，所以{{c1::巡航速度}}較快。",
+      "zh_translation": "With an aft CG location, the cruise speed is higher because less tail down-force is required, reducing induced drag.",
+      "explanation": "較小的下壓力代表主翼負擔減輕，總阻力下降，有利於航程與速度。",
+      "tags": "Performance",
+      "timestamp": "02:22:25"
+    },
+    {
+      "cloze_text": "穿音速區(Transonic)通常定義為馬赫數自 {{c1::0.75}} 到 1.20 之間的飛行範圍。",
+      "zh_translation": "The transonic regime is typically defined as the flight range between Mach 0.75 and 1.20.",
+      "explanation": "此區域內飛機表面同時存在亞音速與超音速氣流，會產生強烈的震波效應。",
+      "tags": "Definitions",
+      "timestamp": "02:26:05"
+    },
+    {
+      "cloze_text": "當飛機速度超過臨界馬赫數時，氣流分離可能導致{{c1::馬赫抖振}} (Mach Buffet)，這是震波干擾流場的結果。",
+      "zh_translation": "When the aircraft speed exceeds the critical Mach number, airflow separation may cause Mach Buffet, a result of shock waves interfering with the flow field.",
+      "explanation": "這是穿音速飛行時常見的警告徵候，提醒飛行員已接近壓縮性效應的極限。",
+      "tags": "Aerodynamics",
+      "timestamp": "02:29:40"
+    },
+    {
+      "cloze_text": "Laminar boundary layer flow creates less skin friction drag than turbulent flow but is {{c1::less stable}}.",
+      "zh_translation": "層流邊界層氣流產生的皮膚摩擦阻力比亂流少，但其穩定性較差。",
+      "explanation": "層流雖然阻力小，但動能低，極易受表面粗糙或壓力變化影響而轉變為亂流或發生分離。",
+      "tags": "Aerodynamics",
+      "timestamp": "02:32:58"
+    },
+    {
+      "cloze_text": "When flight speed exceeds the critical Mach number by about {{c1::10%}}, wave drag increases sharply.",
+      "zh_translation": "當飛行速度超過臨界馬赫數約 10% 時，震波阻力會劇烈增加。",
+      "explanation": "這代表飛機進入阻力發散馬赫數 (Drag Divergence Mach Number) 區域，需要大幅增加推力才能克服。",
+      "tags": "Performance",
+      "timestamp": "02:37:12"
+    },
+    {
+      "cloze_text": "Vortex generators are small low-aspect-ratio airfoils placed at a {{c1::12 to 15 degree}} AOA to the airstream.",
+      "zh_translation": "渦流產生器是小型低展弦比翼面，以相對於氣流 12 到 15 度的仰角安置。",
+      "explanation": "此角度能有效誘發強大的氣流渦漩，混合高能氣流以延遲邊界層分離。",
+      "tags": "System-Logic",
+      "timestamp": "02:34:12"
+    },
+    {
+      "cloze_text": "The stick pusher is designed to automatically move the stick forward at approximately {{c1::one knot}} above stall speed.",
+      "zh_translation": "推桿器 (Stick Pusher) 設計用於在失速速度上方約 1 浬時自動將控制桿向前推。",
+      "explanation": "這是為了防止 T-tail 飛機進入無法恢復的深失速狀態，屬於強制性的失速防止裝置。",
+      "tags": "Flight-Control",
+      "timestamp": "02:44:15"
+    },
+    {
+      "cloze_text": "High-speed buffet is a function of the speed of the airflow over the {{c1::wing}}, not necessarily the speed of the aircraft.",
+      "zh_translation": "高速抖振是機翼上方氣流速度的函數，而不一定是飛機本身的飛行速度。",
+      "explanation": "即使飛機馬赫數未達臨界值，在大仰角或 G 負荷下，機翼上方局部氣流可能已達超音速並產生震波導致抖振。",
+      "tags": "Aerodynamics",
+      "timestamp": "02:42:18"
+    },
+    {
+      "cloze_text": "A stick shaker provides stall warning when the airspeed is {{c1::5 to 7 percent}} above stall speed.",
+      "zh_translation": "抖桿器 (Stick Shaker) 在空速高於失速速度 5% 到 7% 時提供失速警告。",
+      "explanation": "抖桿器是第一道人工警告，隨後才是推桿器的動作。",
+      "tags": "Stall-Warning",
+      "timestamp": "02:42:12"
+    },
+    {
+      "cloze_text": "A {{c1::50-knot}} reduction in stall speed is not uncommon with the help of sophisticated high-lift devices.",
+      "zh_translation": "在使用精密的地面高升力裝置輔助下，失速速度降低 50 節並非少見。",
+      "explanation": "高升力裝置如 Slats 和 Flaps 能顯著改善低速性能並降低失速速度。",
+      "tags": "Performance, Stall",
+      "timestamp": "02:47:30"
+    },
+    {
+      "cloze_text": "With a well-rounded blunt leading edge, airflow separation starts at the {{c1::trailing edge}} and progresses forward gradually.",
+      "zh_translation": "具有圓鈍前緣的機翼，氣流分離會從後緣開始並逐漸向前發展。",
+      "explanation": "這種設計能提供較溫和的失速特性，讓飛行員有較多預警時間。",
+      "tags": "Aerodynamics, Wing-Design",
+      "timestamp": "02:46:41"
+    },
+    {
+      "cloze_text": "The operational requirements of a large jet transport aircraft necessitate large {{c1::pitch trim}} changes.",
+      "zh_translation": "大型噴氣客機的運作需求使得它必須具備大幅度的俯仰配平變化能力。",
+      "explanation": "這是因為載重重心 (CG) 和速度範圍極廣所導致的系統設計需求。",
+      "tags": "Flight-Controls, Systems",
+      "timestamp": "02:47:38"
+    },
+    {
+      "cloze_text": "Spoilers increase drag and {{c1::reduce lift}} on one side, causing the wing to drop for roll control.",
+      "zh_translation": "擾流板會增加阻力並減少那一側的升力，導致該側機翼下墜以進行滾轉控制。",
+      "explanation": "擾流板的核心作用在於破壞升力，在噴氣機上常與副翼協同工作。",
+      "tags": "Flight-Controls, Spoilers",
+      "timestamp": "02:46:02"
+    },
+    {
+      "cloze_text": "Large control surfaces are typically actuated by {{c1::hydraulic}} or electrical power units due to the immense forces required.",
+      "zh_translation": "由於所需力量巨大，大型操縱面通常由液壓或電力動力單元來驅動。",
+      "explanation": "在高速大型飛機上，單靠人力物理力量已無法克服氣動力負荷。",
+      "tags": "Systems, Hydraulics",
+      "timestamp": "02:48:36"
+    }
+  ],
+  "video_id": "E82tijLXxPI",
+  "url": "https://www.youtube.com/watch?v=E82tijLXxPI",
+  "has_transcript": false
+}

@@ -1,0 +1,286 @@
+{
+  "subject": "飛行原理與飛控系統 - 基本飛控系統 (Primary Flight Controls)",
+  "mc_questions": [
+    {
+      "zh_question": "關於「逆偏航」(Adverse Yaw) 的成因與特性，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 主要是由於向上偏轉的副翼產生了額外的寄生阻力 (Parasitic Drag)",
+        "(B) 主要是由於向下偏轉的副翼在產生升力的同時，也產生了較大的誘導阻力 (Induced Drag)",
+        "(C) 飛機的機頭會朝向轉彎的方向偏轉",
+        "(D) 這種現象在高速飛行時比低速飛行時更為明顯"
+      ],
+      "en_question": "Regarding the cause and characteristics of 'Adverse Yaw', which of the following statements is correct?",
+      "en_options": [
+        "(A) It is primarily caused by extra parasitic drag from the upward-deflected aileron",
+        "(B) It is primarily caused by the downward-deflected aileron creating more induced drag while generating lift",
+        "(C) The nose of the aircraft yaws toward the direction of the turn",
+        "(D) This phenomenon is more pronounced at high airspeeds than at low airspeeds"
+      ],
+      "answer": "B",
+      "explanation": "逆偏航 (Adverse Yaw) 是因為轉彎時，向下偏轉的副翼 (downward-deflected aileron) 增加了翼型彎度進而增加升力，但同時也產生了較大的誘導阻力 (Induced Drag)，導致機頭偏向轉彎的反方向。此現象在低速、高攻角或大副翼偏轉時最為明顯。",
+      "timestamp": "05:25"
+    },
+    {
+      "zh_question": "差動式副翼 (Differential Ailerons) 是如何修正逆偏航 (Adverse Yaw) 現象的？",
+      "zh_options": [
+        "(A) 透過彈簧機構將副翼與方向舵 (Rudder) 進行物理連動",
+        "(B) 使向上偏轉的副翼角度大於向下偏轉的副翼角度",
+        "(C) 在向下偏轉的副翼前端突出一塊構造以產生阻力",
+        "(D) 增加副翼的總面積以提高操縱效率"
+      ],
+      "en_question": "How do differential ailerons correct the phenomenon of adverse yaw?",
+      "en_options": [
+        "(A) By physically linking the ailerons and rudder through a spring mechanism",
+        "(B) By making the upward-deflected aileron move a greater distance than the downward-deflected aileron",
+        "(C) By having a protrusion on the downward-deflected aileron to create drag",
+        "(D) By increasing the total area of the ailerons to improve control effectiveness"
+      ],
+      "answer": "B",
+      "explanation": "差動式副翼 (Differential Ailerons) 的設計邏輯是讓「向上偏轉」的副翼行程大於「向下偏轉」的角度。這樣可以在下降翼 (descending wing) 產生更多的阻力，用以抵消上升翼 (rising wing) 因產生升力而產生的誘導阻力，進而減少逆偏航。",
+      "timestamp": "07:50"
+    },
+    {
+      "zh_question": "關於 T 型尾翼 (T-tail) 飛機發生「深 stall」(Deep Stall，又稱 Super Stall) 的邏輯，下列何者錯誤？",
+      "zh_options": [
+        "(A) 常發生在高攻角 (High AOA) 且空速極低的狀況下",
+        "(B) 主翼產生的亂流 (Wake) 會遮蔽水平安定面，導致升降舵失效",
+        "(C) 後重心 (Aft CG) 通常是導致無法從深 stall 中恢復的促進因素",
+        "(D) 由於 T 型尾翼位置較高，完全不會受到主翼下洗流 (Downwash) 的影響"
+      ],
+      "en_question": "Regarding the logic of 'Deep Stall' (or Super Stall) in T-tail aircraft, which of the following is incorrect?",
+      "en_options": [
+        "(A) It often occurs at a high angle of attack (AOA) with very low airspeed",
+        "(B) The wake from the main wing blankets the horizontal stabilizer, making the elevator ineffective",
+        "(C) An aft center of gravity (Aft CG) is often a contributing factor in the inability to recover",
+        "(D) Because of its high position, a T-tail is completely unaffected by the main wing's downwash"
+      ],
+      "answer": "D",
+      "explanation": "雖然 T 型尾翼在正常飛行時能避開主翼亂流，但在極高攻角時，主翼產生的紊亂氣流 (Wake) 會向上後方遮蔽高處的水平尾翼，導致飛行員無法透過推桿 (nose down) 來恢復。選項 D 說「完全不會受到影響」是錯誤的，且後重心 (Aft CG) 會惡化此狀況。",
+      "timestamp": "14:15"
+    },
+    {
+      "zh_question": "在 T 型尾翼 (T-tail) 飛機中，安裝「升降舵下偏彈簧 (Elevator Down Spring)」的主要目的是什麼？",
+      "zh_options": [
+        "(A) 在著陸拉平 (Flare) 時提供額外的升力",
+        "(B) 當配平片 (Trim tab) 效能不足時，確保升降舵能移向低頭位置以防止失速",
+        "(C) 增加升降舵在高空飛行時的靈敏度",
+        "(D) 抵銷 V 型尾翼常見的荷蘭滾 (Dutch Roll) 傾向"
+      ],
+      "en_question": "What is the primary purpose of an elevator down spring on a T-tail aircraft?",
+      "en_options": [
+        "(A) To provide additional lift during the landing flare",
+        "(B) To drive the elevator to a nose-down position if the trim tab becomes ineffective, preventing a stall",
+        "(C) To increase the sensitivity of the elevator during high-altitude flight",
+        "(D) To counteract the Dutch Roll tendency common in V-tail designs"
+      ],
+      "answer": "B",
+      "explanation": "在低速或高攻角 (High AOA) 情況下，若配平片失效，下偏彈簧能機械性地驅動升降舵向 nose-down 方向偏轉，強制降低機頭以維持速度並避免 deep stall。",
+      "timestamp": "15:15"
+    },
+    {
+      "zh_question": "關於全動式平尾 (Stabilator) 上的反伺服片 (Anti-servo Tab)，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 其移動方向與全動式平尾的後緣相反",
+        "(B) 其移動方向與全動式平尾的後緣相同，用以增加操縱感與穩定性",
+        "(C) 僅在飛機失速時由自動駕駛系統觸發",
+        "(D) 其主要功能是減少操縱面阻力以節省燃油"
+      ],
+      "en_question": "Regarding the anti-servo tab on a stabilator, which of the following statements is correct?",
+      "en_options": [
+        "(A) It moves in the opposite direction of the stabilator trailing edge",
+        "(B) It moves in the same direction as the trailing edge to increase control feel and stability",
+        "(C) It is only triggered by the autopilot during a stall",
+        "(D) Its primary function is to reduce control surface drag to save fuel"
+      ],
+      "answer": "B",
+      "explanation": "Anti-servo tab 隨操縱面同向偏轉，會產生反向力矩，增加飛行員操作時的 feel 並使 Stabilator 更容易回到中立位置，增加穩定性。",
+      "timestamp": "29:21"
+    },
+    {
+      "zh_question": "富勒襟翼 (Fowler Flaps) 與一般襟翼 (Plain Flaps) 最主要的差別為何？",
+      "zh_options": [
+        "(A) 富勒襟翼只會改變機翼弧度 (Camber)",
+        "(B) 富勒襟翼在伸放時會沿軌道後滑，同時增加機翼弧度與機翼面積 (Wing Area)",
+        "(C) 富勒襟翼僅用於高速戰鬥機，民航機並不使用",
+        "(D) 富勒襟翼透過噴射發動機引氣來增加升力"
+      ],
+      "en_question": "What is the primary difference between Fowler flaps and plain flaps?",
+      "en_options": [
+        "(A) Fowler flaps only change the wing camber",
+        "(B) Fowler flaps slide backwards on tracks, increasing both wing camber and wing area",
+        "(C) Fowler flaps are only used on high-speed fighters, not on civil aircraft",
+        "(D) Fowler flaps use engine bleed air to increase lift"
+      ],
+      "answer": "B",
+      "explanation": "Fowler flaps 獨特之處在於它會向後方滑動，這不僅改變了機翼的 Camber，還實質增加了 Wing area，提供更強的增升效果。",
+      "timestamp": "22:11"
+    },
+    {
+      "zh_question": "關於「地面可調式配平片」(Ground Adjustable Tabs) 的調整與確認過程，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 飛行員可在座艙內透過配平輪即時調整",
+        "(B) 調整量是透過「試誤法」(trial and error) 並在飛行中觀察是否仍有側滑現象來確定的",
+        "(C) 該配平片由馬達驅動，根據空速自動彎曲",
+        "(D) 僅安裝於方向舵上，且調整後不影響座艙內的指示"
+      ],
+      "en_question": "Regarding Ground Adjustable Tabs, which of the following statements is correct?",
+      "en_options": [
+        "(A) The pilot can adjust it in real-time via a trim wheel in the cockpit",
+        "(B) The correct displacement is determined by trial and error and confirmed when the aircraft no longer skids during flight",
+        "(C) The tab is motor-driven and bends automatically based on airspeed",
+        "(D) It is only installed on the rudder and its adjustment does not affect cockpit indications"
+      ],
+      "answer": "B",
+      "explanation": "地面可調式配平片 (Ground Adjustable Tabs) 是固定式的金屬片，必須在地面手動彎曲。其正確的偏轉量需透過試誤法 (trial and error) 判定，直到飛機在正常巡航時不再向左或向右側滑 (skid) 為止。",
+      "timestamp": "30:11"
+    },
+    {
+      "zh_question": "在「可調式水平安定面」(Adjustable Stabilizer) 系統中，安定面是如何改變角度以達成配平的？",
+      "zh_options": [
+        "(A) 繞著其前樑 (Front Spar) 進行旋轉",
+        "(B) 透過安裝在後樑 (Rear Spar) 的千斤頂螺桿 (Jackscrew) 調整",
+        "(C) 繞著其後樑 (Rear Spar) 樞轉，並由前緣的千斤頂螺桿驅動",
+        "(D) 僅透過改變安定面上的配平片位置來達成"
+      ],
+      "en_question": "In an Adjustable Stabilizer system, how is the stabilizer's angle changed for trimming?",
+      "en_options": [
+        "(A) It rotates around its front spar",
+        "(B) It is adjusted via a jackscrew mounted on the rear spar",
+        "(C) It pivots about its rear spar and is actuated by a jackscrew on the leading edge",
+        "(D) It is only achieved by changing the position of the trim tab on the stabilizer"
+      ],
+      "answer": "C",
+      "explanation": "可調式水平安定面 (Adjustable Stabilizer) 是繞著後樑 (rear spar) 轉動，並利用安裝在安定面前緣 (leading edge) 的千斤頂螺桿 (jackscrew) 來改變攻角，進而達成配平目的。",
+      "timestamp": "30:33"
+    },
+    {
+      "zh_question": "根據音訊內容，單軸自動駕駛系統 (Single-axis Autopilot) 主要控制飛機的哪一個軸向？",
+      "zh_options": [
+        "(A) 垂直軸 (Vertical Axis)，控制方向舵 (Rudder)",
+        "(B) 橫軸 (Lateral Axis)，控制升降舵 (Elevator)",
+        "(C) 縱軸 (Longitudinal Axis)，控制副翼 (Ailerons)",
+        "(D) 所有三軸方向的平衡"
+      ],
+      "en_question": "According to the audio, what axis does a single-axis autopilot primarily control?",
+      "en_options": [
+        "(A) Vertical Axis, controlling the rudder",
+        "(B) Lateral Axis, controlling the elevator",
+        "(C) Longitudinal Axis, controlling the ailerons",
+        "(D) All three axes of balance"
+      ],
+      "answer": "C",
+      "explanation": "單軸自動駕駛儀 (Single-axis autopilot) 控制飛機繞縱軸 (Longitudinal axis) 的運動，即滾轉控制，並透過驅動副翼 (ailerons) 來達成。",
+      "timestamp": "31:32"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The primary flight control system consists of the {{c1::ailerons, elevator, and rudder}}, which are required to control the aircraft safely during flight.",
+      "zh_translation": "主要飛行控制系統由副翼、升降舵和方向舵組成，這些是飛行中安全控制飛機所必需的。",
+      "explanation": "這是基礎定義，副翼控制滾轉，升降舵控制俯仰，方向舵控制偏航。",
+      "tags": "Definitions",
+      "timestamp": "02:58"
+    },
+    {
+      "cloze_text": "Ailerons control roll about the {{c1::longitudinal}} axis.",
+      "zh_translation": "副翼控制繞著縱軸的滾轉運動。",
+      "explanation": "縱軸 (Longitudinal axis) 是指從機頭穿過機尾的假想軸。",
+      "tags": "Aero-Dynamics",
+      "timestamp": "04:43"
+    },
+    {
+      "cloze_text": "At {{c1::low airspeeds}}, the controls usually feel soft and sluggish, and the aircraft responds slowly to control applications.",
+      "zh_translation": "在低空速下，控制通常感覺柔軟且遲鈍，飛機對控制輸入的反應較慢。",
+      "explanation": "因為流經控制面的氣流壓力較小，導致操縱感 (Control feel) 變得鬆散。",
+      "tags": "Control-Feel",
+      "timestamp": "03:32"
+    },
+    {
+      "cloze_text": "The {{c1::Frise-type}} aileron projects its leading edge into the airflow to create drag on the ascending wing, helping to equalize drag.",
+      "zh_translation": "Frise 型副翼會將其前緣伸入氣流中，在上升翼一側產生阻力，有助於平衡阻力。",
+      "explanation": "這是另一種減輕逆偏航 (Adverse Yaw) 的機械設計方法。",
+      "tags": "Design-Logic",
+      "timestamp": "08:15"
+    },
+    {
+      "cloze_text": "In a T-tail aircraft, the elevator is above most of the effects of {{c1::downwash}} from the propeller and airflow around the fuselage.",
+      "zh_translation": "在 T 型尾翼飛機中，升降舵位於螺旋槳下洗流及機身周圍氣流的大部分影響之外。",
+      "explanation": "這使得 T 型尾翼在一般飛行狀態下具有較佳的控制穩定性與平順感。",
+      "tags": "T-Tail",
+      "timestamp": "11:32"
+    },
+    {
+      "cloze_text": "A canard design functions as a horizontal stabilizer located in {{c1::front}} of the main wings.",
+      "zh_translation": "前置翼 (Canard) 設計的功能類似於水平安定面，但位於主翼的前方。",
+      "explanation": "前置翼能產生向上升力，與傳統後置式水平尾翼產生的向下力量邏輯不同。",
+      "tags": "Aerodynamics",
+      "timestamp": "17:15"
+    },
+    {
+      "cloze_text": "The movable surfaces on a V-tail are connected through a special linkage called {{c1::ruddervators}}.",
+      "zh_translation": "V 型尾翼上的可動操縱面透過特殊的連桿連接，稱為「升降舵方向舵 (ruddervators)」。",
+      "explanation": "它是 Elevator 與 Rudder 的結合體，同時提供俯仰與偏航控制。",
+      "tags": "Flight-Controls",
+      "timestamp": "19:25"
+    },
+    {
+      "cloze_text": "Slotted flaps allow high energy air from the lower surface to be ducted to the upper surface, delaying {{c1::airflow separation}}.",
+      "zh_translation": "縫隙襟翼允許來自下表面的高能空氣引導至上表面，從而延緩氣流分離。",
+      "explanation": "這能讓飛機在更高的攻角下仍能維持升力，提供更好的低速操縱性。",
+      "tags": "Secondary-Controls",
+      "timestamp": "21:35"
+    },
+    {
+      "cloze_text": "A servo tab is a dynamic device that moves in response to pilot input to help {{c1::decrease}} the pilot's work load.",
+      "zh_translation": "伺服片 (Servo tab) 是一種動態裝置，隨飛行員輸入移動以幫助減輕操作負荷。",
+      "explanation": "常見於大型飛機，利用空氣動力輔助偏轉主操縱面。",
+      "tags": "Flight-Controls",
+      "timestamp": "28:55"
+    },
+    {
+      "cloze_text": "Ground adjustable tabs are adjusted until the aircraft no longer {{c1::skids}} left or right during normal cruise flight.",
+      "zh_translation": "地面可調式配平片需持續調整，直到飛機在正常巡航飛行中不再向左或向右側滑為止。",
+      "explanation": "側滑 (skid) 指的是飛機在飛行中機頭指向與飛行路徑不一致的側向運動。",
+      "tags": "Flight Controls",
+      "timestamp": "30:19"
+    },
+    {
+      "cloze_text": "On large aircraft, the adjustable stabilizer is usually {{c1::motor driven}} rather than cable operated.",
+      "zh_translation": "在大型飛機上，可調式水平安定面通常是由馬達驅動，而非鋼繩操作。",
+      "explanation": "小型飛機常使用鋼繩、配平輪或曲柄操作，大型飛機則需馬達提供更大動力。",
+      "tags": "System Components",
+      "timestamp": "30:49"
+    },
+    {
+      "cloze_text": "Autopilot reduces the physical and {{c1::mental demands}} on a pilot and increases safety.",
+      "zh_translation": "自動駕駛系統能減輕飛行員的體力與精神負擔，並提升安全性。",
+      "explanation": "這是自動駕駛系統在長途飛行或複雜操作環境下的核心效益。",
+      "tags": "Autopilot",
+      "timestamp": "31:09"
+    },
+    {
+      "cloze_text": "A three-axis autopilot actuates ailerons, {{c1::elevator}}, and rudder.",
+      "zh_translation": "三軸自動駕駛系統會驅動副翼、升降舵以及方向舵。",
+      "explanation": "三軸系統涵蓋了縱軸 (Roll)、橫軸 (Pitch) 以及垂直軸 (Yaw) 的完整控制。",
+      "tags": "Flight Controls",
+      "timestamp": "31:46"
+    },
+    {
+      "cloze_text": "Autopilot systems incorporate a {{c1::disconnect}} safety feature to disengage the system automatically or manually.",
+      "zh_translation": "自動駕駛系統具備脫離 (disconnect) 安全功能，可自動或手動解除系統連動。",
+      "explanation": "這是一項關鍵的安全機制，確保在異常情況下飛行員能立即取回控制權。",
+      "tags": "Safety",
+      "timestamp": "32:04"
+    },
+    {
+      "cloze_text": "The primary source of information for flight control systems is the {{c1::AFM}} or the POH.",
+      "zh_translation": "關於飛行控制系統的主要資訊來源是飛機飛行手冊 (AFM) 或飛行員操作手冊 (POH)。",
+      "explanation": "飛行員必須熟悉特定機型的操作手冊，因為不同飛機的控制邏輯差異極大。",
+      "tags": "Regulation",
+      "timestamp": "32:49"
+    }
+  ],
+  "video_id": "hvvfoHquc_w",
+  "url": "https://www.youtube.com/watch?v=hvvfoHquc_w",
+  "has_transcript": false
+}
