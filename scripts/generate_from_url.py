@@ -24,6 +24,7 @@ import sys
 import json
 import glob
 import time
+import signal
 import datetime
 import html as html_lib
 import urllib.request
@@ -59,6 +60,40 @@ MAX_RETRIES_ON_TRANSIENT = 3  # 429限流 / 503過載 共用的重試次數上�
 QUEUE_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "pending_queue.json")
 QUOTA_STATE_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "gemini_quota_state.json")
 DAILY_QUOTA_ESTIMATE = int(os.environ.get("GEMINI_DAILY_QUOTA_ESTIMATE", "20"))
+REQUEST_TIMEOUT_SECONDS = int(os.environ.get("GEMINI_REQUEST_TIMEOUT_SECONDS", "300"))
+
+
+class _RequestTimedOut(Exception):
+    pass
+
+
+def _alarm_handler(signum, frame):
+    raise _RequestTimedOut()
+
+
+def call_generate_content_with_timeout(video_part, prompt):
+    """
+    包一層真正擋得住的逾時機制。
+
+    google-genai 這個 SDK 有已知 bug:不管你在 HttpOptions 裡設定多少 timeout,
+    它呼叫底層 httpx 時都會直接寫死傳 timeout=None,等於完全沒有逾時保護,
+    請求可能真的卡死不回應(GitHub 上有多個開放中的 issue 在講這件事)。
+
+    這裡改用 Unix 的 SIGALRM 訊號,時間到了就強制在目前執行位置拋出例外,
+    連對方完全沒回應的情況都攔得住(不像 SDK 自己的機制形同虛設)。
+    只在 Linux/Mac(GitHub Actions 用的環境)有效;Windows 沒有 SIGALRM,
+    那種環境下就沒有這層保護,退回成跟以前一樣直接呼叫。
+    """
+    if not hasattr(signal, "SIGALRM"):
+        return client.models.generate_content(model=MODEL_NAME, contents=[video_part, prompt])
+
+    old_handler = signal.signal(signal.SIGALRM, _alarm_handler)
+    signal.alarm(REQUEST_TIMEOUT_SECONDS)
+    try:
+        return client.models.generate_content(model=MODEL_NAME, contents=[video_part, prompt])
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old_handler)
 
 
 def _pacific_today_str():
@@ -385,11 +420,21 @@ def generate_quiz_from_youtube_url(video_id, with_transcript=False, chunk_range=
                 f"GEMINI_DAILY_QUOTA_ESTIMATE 調高這個估算值。"
             )
         try:
-            response = client.models.generate_content(
-                model=MODEL_NAME,
-                contents=[video_part, prompt],
-            )
+            response = call_generate_content_with_timeout(video_part, prompt)
             break
+        except _RequestTimedOut:
+            print(f"⚠️ 請求超過 {REQUEST_TIMEOUT_SECONDS} 秒沒有回應(可能是網路或 API 那邊卡住,"
+                  f"這是 google-genai SDK 已知的逾時失效問題,不是正常的錯誤訊息),當作暫時性問題處理")
+            if attempt < MAX_RETRIES_ON_TRANSIENT:
+                wait_s = 20 * (attempt + 1)
+                print(f"⚠️ 等待 {wait_s} 秒後重試(第 {attempt + 1} 次)...")
+                time.sleep(wait_s)
+                attempt += 1
+                continue
+            raise TimeoutError(
+                f"連續 {MAX_RETRIES_ON_TRANSIENT + 1} 次都逾時(每次都等超過 {REQUEST_TIMEOUT_SECONDS} 秒沒回應),"
+                f"放棄這一段,略過繼續下一段。"
+            )
         except Exception as e:
             err_str = str(e)
             is_rate_limit = "429" in err_str or "RESOURCE_EXHAUSTED" in err_str
