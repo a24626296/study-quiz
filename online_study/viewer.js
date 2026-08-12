@@ -11,6 +11,10 @@
   var systemContext = '';
   var CHAT_MODEL = 'gemini-3-flash-preview';
 
+  // 固定放私人 PDF 手冊的 repo(owner/repo),設定私人文件的時候不用每次重打,
+  // 之後如果換了 repo,改這裡一個地方就好。
+  var PRIVATE_DOCS_REPO = 'a24626296/study-private-docs';
+
   // 答對題目是否收合的總開關(每次按「作答完成」都會重設為 true,
   // 也就是預設先把這次答對的題目收起來)
   var allCorrectCollapsed = true;
@@ -635,14 +639,18 @@
     return '';
   }
 
-  // 用「使用者名稱/repo」+ 檔案路徑 這種比較不容易打錯的方式,組出 private: 連結
+  // 固定用 PRIVATE_DOCS_REPO 這個 repo,只要貼「檔案路徑」就好——
+  // 在 GitHub 上打開該檔案,點右上角「...」選單裡的「Copy path」複製,
+  // 貼過來就會自動組成完整的 private: 連結,不用每次重打帳號/repo。
   window.setupPrivatePdfLink = function () {
-    var ownerRepo = prompt('請輸入「GitHub帳號/repo名稱」,例如 a24626296/study-private-docs:', '');
-    if (!ownerRepo || ownerRepo.indexOf('/') === -1) return;
-    var path = prompt('請輸入檔案在 repo 裡的路徑,「一定要含副檔名」,例如 PrinciplesofFlightATPL-CAE.pdf:', '');
-    if (!path) return;
+    var path = prompt(
+      '請貼上檔案在「' + PRIVATE_DOCS_REPO + '」這個 repo 裡的路徑。\n' +
+      '(在 GitHub 打開檔案 → 右上角「...」→ Copy path,複製後貼這裡即可,例如 ATPL/PrinciplesOfFlight.pdf)',
+      ''
+    );
+    if (!path || !path.trim()) return;
     var page = prompt('要預設跳到第幾頁?(不填就是第 1 頁):', '');
-    var link = 'private:' + ownerRepo.replace(/^\/+|\/+$/g, '') + '/' + path.replace(/^\/+/, '');
+    var link = 'private:' + PRIVATE_DOCS_REPO + '/' + path.trim().replace(/^\/+/, '');
     if (page && /^\d+$/.test(page.trim())) link += '#page=' + page.trim();
     var input = document.getElementById('pdf-link-input');
     if (input) input.value = link;
@@ -797,7 +805,7 @@
   function openPrivatePdf(url, wrap, isRetry) {
     var info = parsePrivateLink(url);
     if (!info.owner || !info.repo || !info.path) {
-      wrap.innerHTML = '<div class="pdf-loading">私人文件網址格式不正確,應該是「private:帳號/repo/檔案路徑」。建議用「🔒 設定私人文件」按鈕產生,比較不會打錯。</div>';
+      wrap.innerHTML = '<div class="pdf-loading">私人文件網址格式不正確,應該是「private:帳號/repo/檔案路徑」。建議用「🔒 貼上私人文件路徑」按鈕產生,比較不會打錯。</div>';
       return;
     }
     var token = getGithubToken();
