@@ -729,7 +729,7 @@ def record_manifest(video_id, subject, url):
     save_manifest(manifest)
 
 
-REQUIRED_ASSETS = ["viewer.html", "viewer.js", "style.css", "chat-config.js"]
+REQUIRED_ASSETS = ["viewer.html", "viewer.js", "style.css", "chat-config.js", "edit-mode.js"]
 
 
 def check_required_assets():
@@ -789,8 +789,8 @@ def build_index_html():
           <a class="item-link" href="./viewer.html?id={html_lib.escape(e['video_id'])}">
             <img src="https://i.ytimg.com/vi/{e['video_id']}/mqdefault.jpg" loading="lazy">
             <div class="meta">
-              <div class="subject">{html_lib.escape(e['subject'])}</div>
-              <div class="date">{html_lib.escape(display_time)}</div>
+              <div class="subject" data-editkey="idx::{html_lib.escape(e['video_id'])}::subject">{html_lib.escape(e['subject'])}</div>
+              <div class="date" data-editkey="idx::{html_lib.escape(e['video_id'])}::date">{html_lib.escape(display_time)}</div>
               <div class="vid">ID: {html_lib.escape(e['video_id'])}</div>
             </div>
           </a>
@@ -816,13 +816,16 @@ def build_index_html():
     <button class="view-mode-btn" id="view-mode-btn" onclick="toggleViewMode()">🔲 格狀檢視</button>
     <button class="collapse-all-btn" id="collapse-toggle-btn" onclick="toggleCollapseAll()">📁 全部收合</button>
     <button class="add-folder-btn" onclick="addFolder()">➕ 新增資料夾</button>
+    <button class="edit-reset-btn" onclick="clearTextEdits()" title="還原這頁所有手動修改過的文字">↺ 還原文字修改</button>
   </div>
 </div>
+<div class="edit-hint" style="margin:4px 0 12px;">💡 提示:雙擊科目名稱或日期文字可以直接修改內容。</div>
 <div id="item-list" class="item-list">
 {items_html if items_html else '<p class="empty">目前還沒有產生任何複習頁面。</p>'}
 </div>
 
 <script src="./index.js"></script>
+<script src="./edit-mode.js"></script>
 </body>
 </html>"""
 
