@@ -1,0 +1,708 @@
+{
+  "subject": "航空心理學與飛行管理 - 航空決策 (ADM) 與風險管理 (RM)",
+  "mc_questions": [
+    {
+      "zh_question": "根據音訊內容,關於人為因素 (Human Factors) 對航空安全的影響,下列敘述何者正確?",
+      "zh_options": [
+        "(A) 僅約 20% 的航空事故與人為因素有關",
+        "(B) 絕大多數的人為因素事故發生在巡航階段",
+        "(C) 約 80% 的航空事故與人為因素有關,且多發生在起飛與降落階段",
+        "(D) 隨著科技進步,人為因素導致的事故已完全被消除"
+      ],
+      "en_question": "According to the audio, which of the following statements regarding the impact of Human Factors on aviation safety is correct?",
+      "en_options": [
+        "(A) Only about 20% of aviation accidents are related to human factors",
+        "(B) The vast majority of human factor accidents occur during the cruise phase",
+        "(C) Approximately 80% of aviation accidents are related to human factors, mostly occurring during takeoff and landing",
+        "(D) With technological advancement, accidents caused by human factors have been completely eliminated"
+      ],
+      "answer": "C",
+      "explanation": "音訊明確提到約 80% 的事故與 Human Factors 有關,其中 Landing 佔 24.1%,Takeoff 佔 23.4%,顯示起降階段是高風險期。",
+      "timestamp": "00:48"
+    },
+    {
+      "zh_question": "在航空決策理論中,「危險」(Hazard) 與「風險」(Risk) 的主要區別為何?",
+      "zh_options": [
+        "(A) Hazard 是對未來的預測,Risk 是目前的現況",
+        "(B) Hazard 是客觀存在的潛在威脅(如螺旋槳刻痕),Risk 是對該威脅影響程度的評估",
+        "(C) 兩者在航空專業術語中意義完全相同,可互換使用",
+        "(D) Risk 是可以避免的,而 Hazard 是不可避免的環境因素"
+      ],
+      "en_question": "In the theory of ADM, what is the primary difference between a 'Hazard' and a 'Risk'?",
+      "en_options": [
+        "(A) Hazard is a prediction of the future, while Risk is the current situation",
+        "(B) Hazard is a real or perceived condition (e.g., a prop nick), while Risk is the assessment of that hazard's potential impact",
+        "(C) Both terms have identical meanings in aviation and can be used interchangeably",
+        "(D) Risk can be avoided, while Hazard is an unavoidable environmental factor"
+      ],
+      "answer": "B",
+      "explanation": "Hazard 指的是具體存在的危險條件(如音訊中提到的螺旋槳刻痕),而 Risk 則是對該 Hazard 進行評估後所賦予的風險價值與可能性。",
+      "timestamp": "07:15"
+    },
+    {
+      "zh_question": "單一駕駛員資源管理 (SRM) 包含多個核心組成部分,下列何者不屬於 SRM 的範疇?",
+      "zh_options": [
+        "(A) 自動化管理 (Automation Management)",
+        "(B) 任務管理 (Task Management)",
+        "(C) 地面代理人調度 (Ground Agent Dispatching)",
+        "(D) 狀況警覺 (Situational Awareness)"
+      ],
+      "en_question": "Single-Pilot Resource Management (SRM) includes several core components. Which of the following is NOT a part of SRM?",
+      "en_options": [
+        "(A) Automation Management",
+        "(B) Task Management",
+        "(C) Ground Agent Dispatching",
+        "(D) Situational Awareness"
+      ],
+      "answer": "C",
+      "explanation": "SRM 的組成包含 ADM、Risk Management (RM)、Task Management (TM)、Automation Management (AM)、CFIT Awareness 以及 Situational Awareness (SA)。",
+      "timestamp": "06:26"
+    },
+    {
+      "zh_question": "根據 NTSB 的事故研究數據,飛行員在取得多少小時的飛行經驗後,其夜間視覺飛行規則 (Night VFR) 的事故率會降低近 50%?",
+      "zh_options": [
+        "(A) 50 小時",
+        "(B) 100 小時",
+        "(C) 500 小時",
+        "(D) 1000 小時"
+      ],
+      "en_question": "According to NTSB accident research data, after how many hours of flight experience does a pilot's Night VFR accident rate decrease by nearly 50%?",
+      "en_options": [
+        "(A) 50 hours",
+        "(B) 100 hours",
+        "(C) 500 hours",
+        "(D) 1000 hours"
+      ],
+      "answer": "B",
+      "explanation": "數據顯示飛行員在獲得 100 小時經驗後 Night VFR 事故率顯著下降,且該比率會持續下降直到 1000 小時水平。這強調了經驗在評估 Night VFR 風險中的重要性 (Experience in Risk Assessment).",
+      "timestamp": "15:23"
+    },
+    {
+      "zh_question": "在風險矩陣 (Risk Matrix) 的「可能性 (Likelihood)」分類中,「偶發 (Occasional)」的定義為何?",
+      "zh_options": [
+        "(A) 事件將發生數次",
+        "(B) 事件可能在某個時間點發生",
+        "(C) 事件不太可能發生,但仍有可能",
+        "(D) 事件極不可能發生"
+      ],
+      "en_question": "In the 'Likelihood' category of the Risk Matrix, what is the definition of 'Occasional'?",
+      "en_options": [
+        "(A) An event will occur several times",
+        "(B) An event will probably occur sometime",
+        "(C) An event is unlikely to occur, but is possible",
+        "(D) An event is highly unlikely to occur"
+      ],
+      "answer": "B",
+      "explanation": "風險評估模型中,Occasional 定義為事件「可能在某個時間點發生 (Probably occur sometime)」。這是評估特定危害 (Hazard) 發生機率的標準定義之一。",
+      "timestamp": "17:01"
+    },
+    {
+      "zh_question": "教材中提到,管理哪一項因素是風險管理中「單一最重要」的關鍵,因為它可能導致飛行員無視所有其他風險因素?",
+      "zh_options": [
+        "(A) 燃油剩餘量 (Fuel reserve)",
+        "(B) 飛機維護紀錄 (Aircraft maintenance)",
+        "(C) 外部壓力 (External pressures)",
+        "(D) 天氣預報精度 (Weather forecast accuracy)"
+      ],
+      "en_question": "According to the material, management of which factor is the single most important key to risk management, as it can cause a pilot to ignore all other risk factors?",
+      "en_options": [
+        "(A) Fuel reserve",
+        "(B) Aircraft maintenance",
+        "(C) External pressures",
+        "(D) Weather forecast accuracy"
+      ],
+      "answer": "C",
+      "explanation": "管理 External Pressures (如趕回家心態 Get-home-itis) 是風險管理的關鍵,因為外部壓力會產生時間相關的壓力,促使飛行員忽視疲勞、天氣或飛機限制等其他風險因素。",
+      "timestamp": "27:07"
+    },
+    {
+      "zh_question": "在單一飛行員資源管理 (SRM) 中，為了減少飛行員的自我誘發壓力 (Self-induced pressure)，下列哪項做法最為適當？",
+      "zh_options": [
+        "(A) 避免讓乘客知道天氣變壞，以免他們擔心",
+        "(B) 讓乘客參與決策過程並分配簡單任務，如協助觀察空域",
+        "(C) 嚴格禁止乘客在駕駛艙內說話，以維持最高程度的寂靜駕駛艙制度",
+        "(D) 飛行員應獨立承擔所有決策責任，不應受乘客意願影響"
+      ],
+      "en_question": "In Single-Pilot Resource Management (SRM), which of the following is most appropriate to reduce the pilot's self-induced pressure?",
+      "en_options": [
+        "(A) Avoid letting passengers know about deteriorating weather to prevent worry",
+        "(B) Involve passengers in the decision-making process and assign simple tasks, such as clearing for traffic",
+        "(C) Strictly prohibit passengers from talking to maintain a sterile cockpit",
+        "(D) The pilot should make all decisions independently and not be influenced by passenger desires"
+      ],
+      "answer": "B",
+      "explanation": "透過向乘客描述風險並讓他們參與決策，飛行員可以解除必須「按計畫抵達」的心理壓力。分配任務給乘客(如 Looking for traffic)也能讓他們感到參與其中，有助於降低飛行員的單人負擔 (Single-pilot workload)。",
+      "timestamp": "48:42"
+    },
+    {
+      "zh_question": "關於先進航電設備的程式設定 (Programming) 管理，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 為了提高效率，應在進場繁忙階段進行大幅度的航路修改",
+        "(B) 如果發現操作不順手，應立即切換到自動駕駛全權負責",
+        "(C) 應在工作負荷較低時(如起飛前或巡航)預先完成進場與航路設定",
+        "(D) 先進航電系統會降低處境覺知 (Situational Awareness)，應盡量少用"
+      ],
+      "en_question": "Which of the following is correct regarding the management of advanced avionics programming?",
+      "en_options": [
+        "(A) For efficiency, large route modifications should be made during the busy approach phase",
+        "(B) If the operation is not smooth, immediately switch to full autopilot control",
+        "(C) Approach and route programming should be completed in advance during low workload periods, such as pre-flight or cruise",
+        "(D) Advanced avionics reduce situational awareness and should be avoided if possible"
+      ],
+      "answer": "C",
+      "explanation": "先進航電(GPS, MFD)若在關鍵飛行階段操作，會造成「低頭時間」(Head-down time)過長。良好的 SRM 要求在工作負荷低時進行 Programming，避免在進場等繁忙階段分散注意力。",
+      "timestamp": "49:45"
+    },
+    {
+      "zh_question": "在 3P 模型的執行 (Perform) 階段，若飛行員決定因為目的地天氣不佳而改降其他機場，這屬於 TEAM 檢核表中的哪一項行動？",
+      "zh_options": [
+        "(A) Transfer (轉移)",
+        "(B) Eliminate (消除)",
+        "(C) Accept (接受)",
+        "(D) Mitigate (減輕)"
+      ],
+      "en_question": "In the Perform phase of the 3P model, if a pilot decides to divert to another airport due to poor weather at the destination, which part of the TEAM checklist does this represent?",
+      "en_options": [
+        "(A) Transfer",
+        "(B) Eliminate",
+        "(C) Accept",
+        "(D) Mitigate"
+      ],
+      "answer": "D",
+      "explanation": "改降 (Diversion) 是為了處理(Mitigate)無法直接消除或接受的風險。TEAM 模型中，Transfer 意指尋求外部協助(如教官或航管)，Eliminate 是取消任務，Mitigate 則是透過變更計畫來降低風險損害。",
+      "timestamp": "55:55"
+    },
+    {
+      "zh_question": "在 CARE 風險查核表中，「現實 (Reality)」這一項主要要求駕駛員注意什麼？",
+      "zh_options": [
+        "(A) 航班目的地的天氣預報是否準確",
+        "(B) 駕駛員對飛機機械狀況或自身能力的誠實評估",
+        "(C) 外部壓力對決策的干擾程度",
+        "(D) 備選航線的可行性"
+      ],
+      "en_question": "In the CARE risk checklist, what does 'Reality' primarily require the pilot to focus on?",
+      "en_options": [
+        "(A) The accuracy of the weather forecast at the destination",
+        "(B) An honest assessment of the aircraft's mechanical condition or the pilot's own abilities",
+        "(C) The degree of interference from external pressures on decision-making",
+        "(D) The feasibility of alternative routes"
+      ],
+      "answer": "B",
+      "explanation": "Reality 要求駕駛員承認現狀，例如發現機械差異 (Maintenance discrepancy) 時，不能自欺欺人地認為「飛一下沒關係」，必須正視風險的真實存在。",
+      "timestamp": "01:01:10"
+    },
+    {
+      "zh_question": "根據 TEAM 風險緩解模型，如果 Gail 選擇聘請一名 CFI 陪同飛行以解決自身經驗不足的問題，這屬於哪種策略？",
+      "zh_options": [
+        "(A) 轉移風險 (Transfer)",
+        "(B) 消除風險 (Eliminate)",
+        "(C) 接受風險 (Accept)",
+        "(D) 緩解風險 (Mitigate)"
+      ],
+      "en_question": "According to the TEAM risk mitigation model, if Gail chooses to hire a CFI to accompany her flight to address her lack of experience, which strategy does this represent?",
+      "en_options": [
+        "(A) Transfer",
+        "(B) Eliminate",
+        "(C) Accept",
+        "(D) Mitigate"
+      ],
+      "answer": "D",
+      "explanation": "聘請教官 (CFI) 是為了降低 (Mitigate) 因經驗不足帶來的風險，同時還能獲得教學指導，並非完全消除或將責任轉移給他人。",
+      "timestamp": "01:03:22"
+    },
+    {
+      "zh_question": "在 DECIDE 模型中，當駕駛員感覺到飛機出現偏航 (Yaw) 並意識到可能發生了發動機失效時，這屬於模型中的哪一個階段？",
+      "zh_options": [
+        "(A) 估計 (Estimate)",
+        "(B) 偵測 (Detect)",
+        "(C) 選擇 (Choose)",
+        "(D) 識別 (Identify)"
+      ],
+      "en_question": "In the DECIDE model, when a pilot senses the aircraft yawing and realizes an engine failure might have occurred, which stage of the model is this?",
+      "en_options": [
+        "(A) Estimate",
+        "(B) Detect",
+        "(C) Choose",
+        "(D) Identify"
+      ],
+      "answer": "B",
+      "explanation": "Detect (偵測) 是 DECIDE 模型的第一步，指駕駛員偵測到發生了某種改變或異常狀況，通常透過感官識別。",
+      "timestamp": "01:08:42"
+    },
+    {
+      "zh_question": "在雙發動機飛機 (Light Twins) 的案例中，為什麼識別「失效發動機」後的錯誤處置會導致災難性後果？",
+      "zh_options": [
+        "(A) 因為順槳 (Feather) 動作會增加阻力",
+        "(B) 因為將正常的發動機關車會使飛機失去全部動力進入受控滑翔",
+        "(C) 因為 P-Factor 在右發動機失效時不顯著",
+        "(D) 因為關鍵發動機 (Critical Engine) 永遠是右發動機"
+      ],
+      "en_question": "In the multi-engine (light twins) case study, why does incorrect action after identifying the 'failed engine' lead to catastrophic results?",
+      "en_options": [
+        "(A) Because the feathering action increases drag",
+        "(B) Because shutting down the operative engine causes a total loss of power, forcing a controlled glide",
+        "(C) Because P-Factor is not significant when the right engine fails",
+        "(D) Because the critical engine is always the right engine"
+      ],
+      "answer": "B",
+      "explanation": "案例中飛行員誤將運作正常的左發動機順槳 (Feather)，導致飛機在低空失去所有動力。在 Twin Engine 訓練中，正確識別 (Identify) 失效發動機是關鍵，避免關錯發動機。",
+      "timestamp": "01:10:15"
+    },
+    {
+      "zh_question": "關於專家在壓力與時間緊迫下的「自然化決策 (Naturalistic Decision Making, NDM)」，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 專家會詳細列出所有可能選項並進行優缺點權衡",
+        "(B) 專家通常尋找第一個可行的 (Workable) 選項而非最佳選項",
+        "(C) 專家在決策前會先排除所有不確定因素",
+        "(D) 這種決策模式與飛行員的過往經驗無關"
+      ],
+      "en_question": "Regarding 'Naturalistic Decision Making (NDM)' by experts under time pressure, which of the following is true?",
+      "en_options": [
+        "(A) Experts list all possible options and perform a detailed pros and cons analysis",
+        "(B) Experts typically look for the first workable option rather than the optimal one",
+        "(C) Experts eliminate all uncertainty factors before making a decision",
+        "(D) This decision-making model is unrelated to the pilot's past experience"
+      ],
+      "answer": "B",
+      "explanation": "專家在 NDM 模式下利用模式識別 (Pattern Recognition)，針對熟悉的情況快速想像行動方案的結果，並採取第一個可行的 (Workable Option) 方案，這種行為也被稱為「滿意決策 (Satisficing)」。",
+      "timestamp": "01:15:55"
+    },
+    {
+      "zh_question": "根據壓力與飛行表現的關係曲線，當壓力水平超過個人的因應能力 (Coping Ability) 時，飛行表現會如何變化？",
+      "zh_options": [
+        "(A) 表現會持續穩定提升",
+        "(B) 表現會進入平台期，不再變化",
+        "(C) 表現會迅速下降 (Rapidly fall off)",
+        "(D) 表現會與壓力大小成反比減少"
+      ],
+      "en_question": "According to the relationship between stress and performance, what happens when stress levels exceed a person's coping ability?",
+      "en_options": [
+        "(A) Performance continues to improve steadily",
+        "(B) Performance enters a plateau and stops changing",
+        "(C) Performance rapidly falls off",
+        "(D) Performance decreases inversely with the amount of stress"
+      ],
+      "answer": "C",
+      "explanation": "飛行表現在中等壓力下會達到峰值 (Peak)，但一旦壓力超過個人處理能力，決策與操作效能會快速惡化。這在複雜情況下的緊急處置尤為明顯。",
+      "timestamp": "01:17:18"
+    },
+    {
+      "zh_question": "當飛行員在操作中進入「工作負荷過重 (Workload Overload)」狀態時，最初通常會出現什麼跡象？",
+      "zh_options": [
+        "(A) 飛行員能夠更精確地排序各項任務",
+        "(B) 飛行員工作更努力，但完成的成效更少",
+        "(C) 飛行員會主動向 ATC 要求協助以降低負荷",
+        "(D) 飛行員的情境警覺 (SA) 會自動提升以因應威脅"
+      ],
+      "en_question": "What is typically the first indicator that a pilot has entered a 'Workload Overload' state?",
+      "en_options": [
+        "(A) The pilot can more accurately prioritize various tasks",
+        "(B) The pilot works harder but accomplishes less",
+        "(C) The pilot proactively requests ATC assistance to reduce load",
+        "(D) Situational Awareness (SA) automatically increases to counter threats"
+      ],
+      "answer": "B",
+      "explanation": "高工作負荷的第一個效應是飞行员可能工作得更辛苦 (working harder)，但實際達成的成果卻變少 (accomplishing less)，隨後會出現注意力狹窄 (Channelized Attention)，只專注於單一項目而忽略全局。",
+      "timestamp": "01:29:45"
+    },
+    {
+      "zh_question": "當飛行員遭遇任務飽和（Task Saturation）且工作量過大時，音訊建議採取的正確行動順序為何？",
+      "zh_options": [
+        "(A) 加快執行速度以趕上進度",
+        "(B) 停止、思考、減速並排定優先順序",
+        "(C) 增加對自動駕駛系統的依賴",
+        "(D) 忽略所有外部通訊以專注於儀表"
+      ],
+      "en_question": "When a pilot experiences task saturation and excessive workload, what is the recommended sequence of actions according to the audio?",
+      "en_options": [
+        "(A) Increase speed to catch up with the schedule",
+        "(B) Stop, think, slow down, and prioritize",
+        "(C) Increase reliance on the autopilot system",
+        "(D) Ignore all external communications to focus on instruments"
+      ],
+      "answer": "B",
+      "explanation": "當發生任務飽和時，飛行員對各方資訊的覺察力會消失。因此必須「停止、思考、減速並排定優先順序」(Stop, think, slow down, and prioritize)，避免在資訊不全的情況下做出錯誤決定。",
+      "timestamp": "01:31:10"
+    },
+    {
+      "zh_question": "根據音訊中提到的研究，電子飛行儀表系統 (EFIS) 飛行員在執行手動進場（如 Slam Dunk 限制）時表現較差的主要原因為何？",
+      "zh_options": [
+        "(A) 缺乏對 FMS 系統的基本操作知識",
+        "(B) 傾向於「低頭」操作系統而非進行心算與手動操縱",
+        "(C) 電子顯示器提供的資訊過於繁雜導致分心",
+        "(D) 自動駕駛系統在關鍵時刻發生故障"
+      ],
+      "en_question": "According to the study mentioned, what was the primary reason EFIS pilots performed worse during manual approaches (like slam dunk restrictions)?",
+      "en_options": [
+        "(A) Lack of basic operational knowledge of the FMS system",
+        "(B) Tendency to go 'heads down' programming the system instead of mental math and manual flying",
+        "(C) The electronic displays provided too much information, causing distraction",
+        "(D) The autopilot system failed at a critical moment"
+      ],
+      "answer": "B",
+      "explanation": "研究顯示，EFIS 飛行員在遇到臨時限制時，常會陷入「低頭」(Heads down) 嘗試透過 FMS 解決問題的陷阱，而類比儀表飛行員則較擅長心算並能更平順地手動操縱飛機。",
+      "timestamp": "01:38:15"
+    },
+    {
+      "zh_question": "關於自動化系統（Automation）的風險管理，下列敘述何者最符合音訊觀點？",
+      "zh_options": [
+        "(A) 自動化系統能完全取代手動操縱訓練",
+        "(B) 飛行員應隨時使用最高等級的自動化以降低疲勞",
+        "(C) 自動化系統有時會掩蓋錯誤或甚至創造更大的錯誤",
+        "(D) 只要 PFD 運作正常，飛行員就不需參考備用儀表"
+      ],
+      "en_question": "Regarding the risk management of automation, which statement best aligns with the audio's perspective?",
+      "en_options": [
+        "(A) Automation can completely replace manual flying training",
+        "(B) Pilots should always use the highest level of automation to reduce fatigue",
+        "(C) Automation can sometimes hide errors or even create much larger errors",
+        "(D) As long as the PFD is functioning correctly, pilots do not need to reference standby instruments"
+      ],
+      "answer": "C",
+      "explanation": "自動化雖能讓飛行更安全，但系統有時會掩蓋某些錯誤，或在飛行員過度依賴時產生更大的錯誤。因此強調必須維持手動飛行能力(Stick-and-rudder proficiency)。",
+      "timestamp": "01:34:50"
+    },
+    {
+      "zh_question": "在自動駕駛儀 (Autopilot) 處於導航 (NAV) 追蹤模式時,若飛行員在 EHSI 上切換導航來源 (例如從 GPS 切換到 LOC),系統通常會如何反應?",
+      "zh_options": [
+        "(A) 自動駕駛儀會自動切換至新的導航來源並繼續追蹤",
+        "(B) 自動駕駛儀的導航模式會斷開,橫向控制通常會切換到翼平飛 (Roll/Wing Leveler) 模式",
+        "(C) 系統會發出語音警告並維持原有的 GPS 路徑",
+        "(D) 自動駕駛儀會立即進入航向 (Heading) 模式並追蹤目前的航向"
+      ],
+      "en_question": "When the autopilot is in NAV mode and the pilot changes the navigation source on the EHSI (e.g., from GPS to LOC), how does the system typically respond?",
+      "en_options": [
+        "(A) The autopilot automatically switches to the new source and continues tracking",
+        "(B) The autopilot's NAV mode disengages and lateral control defaults to Roll/Wing Leveler mode",
+        "(C) The system issues a voice warning and maintains the original GPS path",
+        "(D) The autopilot immediately enters Heading mode and tracks the current heading"
+      ],
+      "answer": "B",
+      "explanation": "根據系統邏輯,在 NAV mode 下更改導航來源 (Navigation Source) 會導致導航模式斷開 (Disengage),此時 Lateral Control 會回到預設的 Roll 模式,直到飛行員重新選定並接合新的導航模式。",
+      "timestamp": "01:53:10"
+    },
+    {
+      "zh_question": "關於「自動化悖論」(Paradox of Automation),下列敘述何者正確?",
+      "zh_options": [
+        "(A) 系統越不可靠,飛行員越容易產生依賴",
+        "(B) 系統越可靠,人類作為監視者 (Monitor) 的表現就越出色",
+        "(C) 系統越可靠,人類監視自動化系統發生錯誤的能力反而會下降",
+        "(D) 自動化系統始終能提高飛行員的狀態警覺 (Situational Awareness)"
+      ],
+      "en_question": "Regarding the 'Paradox of Automation', which of the following statements is correct?",
+      "en_options": [
+        "(A) The less reliable the system, the more likely the pilot is to rely on it",
+        "(B) The more reliable the system, the better humans perform as monitors",
+        "(C) The more reliable the system, the poorer the human performance in monitoring for infrequent events",
+        "(D) Automated systems always increase the pilot's situational awareness"
+      ],
+      "answer": "C",
+      "explanation": "人類天生不擅長長時間監視高可靠性的自動化系統。當系統運作極為穩定時,飛行員容易陷入放鬆與警惕性下降的狀態,進而降低對偶發異常情況的偵測能力。",
+      "timestamp": "01:53:58"
+    },
+    {
+      "zh_question": "分析 1999 年哥倫比亞卡利 (Cali) 空難,造成飛機偏離航線 60 海浬並撞山的主要技術原因為何?",
+      "zh_options": [
+        "(A) 雙發動機同時失效導致無法維持高度",
+        "(B) FMS 輸入航點時產生了 1 度的經緯度偏差",
+        "(C) 飛行員完全沒有紙本圖表可以參考",
+        "(D) 自動駕駛儀硬體故障導致飛機自動轉向"
+      ],
+      "en_question": "Analyzing the 1999 Cali, Colombia accident, what was the primary technical reason that caused the aircraft to deviate 60 NM and strike a mountain?",
+      "en_options": [
+        "(A) Dual engine failure preventing altitude maintenance",
+        "(B) An FMS waypoint entry error of one degree",
+        "(C) The pilots had no paper charts for reference",
+        "(D) An autopilot hardware failure causing an uncommanded turn"
+      ],
+      "answer": "B",
+      "explanation": "該空難主因是飛行員在 FMS 輸入時產生 1 度 (one degree) 的誤差,而飛行員過度依賴自動化系統且未落實監控 (Monitoring),導致飛機精確地飛入錯誤的路徑而撞山。",
+      "timestamp": "01:55:15"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Aeronautical Decision-Making (ADM) is a systematic approach to the {{c1::mental process}} used by pilots to consistently determine the best course of action.",
+      "zh_translation": "航空決策 (ADM) 是飛行員所使用的一種系統化「心智程序」方法,用以持續地決定最佳行動方案。",
+      "explanation": "強調 ADM 並非憑直覺,而是一套系統化的思考流程。",
+      "tags": "ADM, Definition",
+      "timestamp": "00:09"
+    },
+    {
+      "cloze_text": "Approximately {{c1::80%}} of all aviation accidents are related to human factors.",
+      "zh_translation": "大約 80% 的航空事故與人為因素有關。",
+      "explanation": "這是航空業界公認的數據,強調了人為因素管理的重要性。",
+      "tags": "Human Factors, Statistics",
+      "timestamp": "00:48"
+    },
+    {
+      "cloze_text": "The antidote for the 'Anti-authority' attitude is: {{c1::Follow the rules}}, they are usually right.",
+      "zh_translation": "「反權威」心態的解藥是:遵守規則,它們通常是正確的。",
+      "explanation": "反權威心態常表現為「別告訴我該怎麼做」,解藥則強調規章的重要性。",
+      "tags": "Hazardous Attitudes, Antidote",
+      "timestamp": "12:16"
+    },
+    {
+      "cloze_text": "The antidote for 'Impulsivity' is: Not so fast, {{c1::think first}}.",
+      "zh_translation": "「衝動」心態的解藥是:別這麼快,先想清楚。",
+      "explanation": "衝動的飛行員常感到需要立即行動,解藥提醒應先思考再執行。",
+      "tags": "Hazardous Attitudes, Antidote",
+      "timestamp": "12:34"
+    },
+    {
+      "cloze_text": "The antidote for 'Invulnerability' is: It {{c1::could happen}} to me.",
+      "zh_translation": "「刀槍不入/僥倖」心態的解藥是:它有可能發生在我身上。",
+      "explanation": "避免飛行員產生「這種倒楣事不會發生在我身上」的錯誤心態。",
+      "tags": "Hazardous Attitudes, Antidote",
+      "timestamp": "13:48"
+    },
+    {
+      "cloze_text": "The risk assessment matrix assesses risk based on two elements: Likelihood and {{c1::Severity}}.",
+      "zh_translation": "風險評估矩陣根據兩個要素來評估風險:可能性與嚴重性。",
+      "explanation": "這是風險管理中最核心的工具維度。",
+      "tags": "Risk Management, Matrix",
+      "timestamp": "14:00"
+    },
+    {
+      "cloze_text": "One fundamental principle of risk management is to make risk decisions at the {{c1::appropriate level}}.",
+      "zh_translation": "風險管理的一個基本原則是在「適當的層級」做出風險決策。",
+      "explanation": "強調決策者必須有能力開發並實施風險控制措施方案。",
+      "tags": "Risk Management, Principles",
+      "timestamp": "08:43"
+    },
+    {
+      "cloze_text": "As little as {{c1::1 ounce}} of liquor, one bottle of beer, or four ounces of wine can impair flying skills.",
+      "zh_translation": "只需 1 盎司的烈酒、一瓶啤酒或 4 盎司的葡萄酒,就足以損害飛行技能。",
+      "explanation": "這說明了極少量的酒精都會影響飛行員的判斷力與協調性,並增加空間迷向與缺氧的風險。",
+      "tags": "Alcohol, Limitations",
+      "timestamp": "19:49"
+    },
+    {
+      "cloze_text": "The PAVE checklist divides the risks of flight into four categories: Pilot in command, Aircraft, enVironment, and {{c1::External pressures}}.",
+      "zh_translation": "PAVE 檢查表將飛行風險分為四大類：機長、飛機、環境以及外部壓力。",
+      "explanation": "PAVE 是飛行前決策 (Preflight Decision Making) 的核心工具,用於全面感知潛在危害。",
+      "tags": "PAVE, Risk Management",
+      "timestamp": "20:25"
+    },
+    {
+      "cloze_text": "In terms of severity, a {{c1::Catastrophic}} event is one that results in fatalities or total loss.",
+      "zh_translation": "就嚴重程度而言,「災難性」事件是指導致人員死亡或飛機全毀的事件。",
+      "explanation": "Severity (嚴重程度) 是風險矩陣的縱軸,與 Likelihood (可能性) 共同決定風險等級。",
+      "tags": "Risk Matrix, Definition",
+      "timestamp": "17:34"
+    },
+    {
+      "cloze_text": "One way a pilot can control risks is to set personal minimums, such as not exceeding a {{c1::10-knot}} crosswind component if that is their current experience level.",
+      "zh_translation": "飛行員控制風險的一種方法是設定個人最低限制,例如若目前的經驗水平有限,則不超過 10 節的側風分量。",
+      "explanation": "個人最低限制 (Personal Minimums) 應基於飛行員的實際經驗和熟練度 (Proficiency),而非僅僅參考飛機手冊 (AFM) 的最大值。",
+      "tags": "Personal Minimums, Crosswind",
+      "timestamp": "21:12"
+    },
+    {
+      "cloze_text": "The use of {{c1::Personal SOPs}} is one way to manage external pressures by providing a pre-planned release for the stresses of a flight.",
+      "zh_translation": "使用「個人標準作業程序」是管理外部壓力的一種方式,它能為飛行的壓力提供預先計劃好的釋放途徑。",
+      "explanation": "透過預設的規則 (如備用行程、燃油停靠計畫) 來抵消迫使飛行員冒險完成任務的壓力。",
+      "tags": "External Pressures, SOPs",
+      "timestamp": "27:22"
+    },
+    {
+      "cloze_text": "SRM is focused on risk management rather than risk {{c1::elimination}}.",
+      "zh_translation": "SRM 專注於風險管理，而非風險消除。",
+      "explanation": "飛航活動中風險永遠存在，SRM 的目標是透過管理將其降至可接受範圍，而非完全排除。",
+      "tags": "SRM, Risk-Management",
+      "timestamp": "49:05"
+    },
+    {
+      "cloze_text": "A pilot should evaluate their own fitness for flight using the {{c1::IMSAFE}} checklist.",
+      "zh_translation": "飛行員應使用 IMSAFE 檢核表來評估自身的飛安適航狀態。",
+      "explanation": "IMSAFE 代表：生病 (Illness)、藥物 (Medication)、壓力 (Stress)、酒精 (Alcohol)、疲勞 (Fatigue)、情緒 (Emotion)。",
+      "tags": "Pilot-Risk, Checklist",
+      "timestamp": "46:58"
+    },
+    {
+      "cloze_text": "PAVE checklist stands for Pilot, Aircraft, enVironment, and {{c1::External pressures}}.",
+      "zh_translation": "PAVE 檢核表代表飛行員、飛機、環境以及外部壓力。",
+      "explanation": "這是 Perceive (察覺) 階段用來識別危害的關鍵分類工具。",
+      "tags": "3P-Model, Perceive",
+      "timestamp": "54:10"
+    },
+    {
+      "cloze_text": "The CARE checklist is used to determine the degree of {{c1::risk}} posed by a hazard.",
+      "zh_translation": "CARE 檢核表用於確定危害所構成的風險程度。",
+      "explanation": "CARE 代表後果 (Consequences)、備選方案 (Alternatives)、現實 (Reality) 與外部因素 (External factors)。",
+      "tags": "3P-Model, Process",
+      "timestamp": "55:50"
+    },
+    {
+      "cloze_text": "The 3P process (Perceive, Process, Perform) is a {{c1::continuous}} loop for every aeronautical decision.",
+      "zh_translation": "3P 流程（察覺、處理、執行）是針對每個航太決策的連續循環。",
+      "explanation": "這不是一次性的，而是隨環境變化在整個飛行過程中不斷重複的動態過程。",
+      "tags": "Decision-Making, 3P-Model",
+      "timestamp": "52:05"
+    },
+    {
+      "cloze_text": "A pilot should review the 5Ps at least {{c1::five}} times during a flight.",
+      "zh_translation": "飛行員在一次飛行中應至少檢視 5P 模型五次。",
+      "explanation": "通常在起飛前、巡航、下降前等關鍵節點進行評估。",
+      "tags": "5P-Model, SRM",
+      "timestamp": "50:52"
+    },
+    {
+      "cloze_text": "The TEAM checklist is used to manage risks and stands for Transfer, Eliminate, Accept, and {{c1::Mitigate}}.",
+      "zh_translation": "TEAM 查核表用於管理風險，代表：轉移、消除、接受與緩解。",
+      "explanation": "TEAM 模型提供了四種處理風險的邏輯選擇。",
+      "tags": "Risk Management",
+      "timestamp": "01:03:00"
+    },
+    {
+      "cloze_text": "The CARE checklist helps pilots process hazards and stands for Consequences, Alternatives, Reality, and {{c1::External factors}}.",
+      "zh_translation": "CARE 查核表幫助飛行員處理危害，代表：後果、備選方案、現實與外部因素。",
+      "explanation": "CARE 模型用於分析 3P 模型中的「處理 (Process)」階段。",
+      "tags": "Decision Making",
+      "timestamp": "01:00:28"
+    },
+    {
+      "cloze_text": "The DECIDE model is a 6-step process that begins with {{c1::Detect}} and ends with Evaluate.",
+      "zh_translation": "DECIDE 模型是一個六步驟流程，從「偵測」開始，以「評估」結束。",
+      "explanation": "DECIDE 模型是航空界公認的連續循環決策模型。",
+      "tags": "Decision Making",
+      "timestamp": "01:07:18"
+    },
+    {
+      "cloze_text": "On most light twins, the {{c1::left}} engine is considered the critical engine due to P-factor and the length of the thrust moment arm.",
+      "zh_translation": "在大多數輕型雙發動機飛機上，由於 P-factor 和推力力矩臂長度的原因，左發動機被認為是關鍵發動機。",
+      "explanation": "關鍵發動機失效會對操縱性產生最不利的影響。",
+      "tags": "Multi-Engine",
+      "timestamp": "01:09:22"
+    },
+    {
+      "cloze_text": "In the 3P model, the sequence is {{c1::Perceive}}, Process, and Perform.",
+      "zh_translation": "在 3P 模型中，其順序為：感知、處理、與執行。",
+      "explanation": "3P 模型是一個持續不斷的決策循環。",
+      "tags": "Decision Making",
+      "timestamp": "01:01:42"
+    },
+    {
+      "cloze_text": "A pilot can bulk up their mental muscles by using {{c1::personal minimums}} to make some decisions in advance of the flight.",
+      "zh_translation": "飛行員可以透過使用「個人最低限度」查核表在飛行前做出一些決策，來強化心智能力。",
+      "explanation": "預先設定標準可避免在壓力下做出錯誤決策。",
+      "tags": "Human Factors",
+      "timestamp": "01:02:10"
+    },
+    {
+      "cloze_text": "Experts take the first {{c1::workable}} option they can find when pressed for time.",
+      "zh_translation": "當時間緊迫時，專家會採取他們能找到的第一個「可行」選項。",
+      "explanation": "這是 Naturalistic Decision Making (NDM) 的核心邏輯，強調在時限內找到解決方案而非最優方案。",
+      "tags": "ADM, Psychology",
+      "timestamp": "01:15:20"
+    },
+    {
+      "cloze_text": "{{c1::Get-there-itis}} impairs pilot judgment through a fixation on the original goal or destination.",
+      "zh_translation": "「歸心似箭 (Get-there-itis)」會因過度專注於原始目標或目的地而損害飛行員的判斷力。",
+      "explanation": "這是一種常見的操作陷阱 (Operational Pitfall)，常導致飛行員忽略天氣惡化或燃油不足的風險。",
+      "tags": "Human-Factors, Pitfalls",
+      "timestamp": "01:19:15"
+    },
+    {
+      "cloze_text": "There are two categories of stress: {{c1::acute and chronic}}.",
+      "zh_translation": "壓力分為兩大類：急性壓力和慢性壓力。",
+      "explanation": "急性壓力來自突發狀況，慢性壓力則來自生活、財務或健康等長期累積的負擔。",
+      "tags": "Physiology, Stress",
+      "timestamp": "01:17:28"
+    },
+    {
+      "cloze_text": "Checklists are used to verify that the aircraft instruments and systems are {{c1::checked, set, and operating properly}}.",
+      "zh_translation": "檢查表用於驗證飛機儀表與系統是否已檢查、設定並正常運作。",
+      "explanation": "Checklist 是最重要的內部資源，可確保程序正確並降低人為失誤。",
+      "tags": "SOP, Resource-Management",
+      "timestamp": "01:23:45"
+    },
+    {
+      "cloze_text": "ATC and flight service specialists are the {{c1::best external resources}} during flight.",
+      "zh_translation": "ATC 與飛行服務專家是飛行期間「最好的外部資源」。",
+      "explanation": "善用外部資源可協助降低飛行員工作負荷，特別是在迷航或緊急狀況時。",
+      "tags": "CRM, External-Resources",
+      "timestamp": "01:22:25"
+    },
+    {
+      "cloze_text": "Situational Awareness is the accurate perception and understanding of the {{c1::5 fundamental risk elements}}.",
+      "zh_translation": "情境警覺 (SA) 是對「五個基本風險要素」的精確感知與理解。",
+      "explanation": "五大風險要素包含：飛行員、飛機、環境、操作類型與外部壓力。",
+      "tags": "Human-Factors, SA",
+      "timestamp": "01:27:05"
+    },
+    {
+      "cloze_text": "The Sterile Flight Deck concept involves no pilot communication with {{c1::passengers}} during critical phases like departure or arrival.",
+      "zh_translation": "「無菌駕駛艙」(Sterile Flight Deck) 概念涉及在起飛或降落等關鍵階段，禁止飛行員與乘客進行任何通訊。",
+      "explanation": "Sterile Flight Deck 是為了確保飛行員能專注於飛行操作與航管溝通，排除非必要的干擾。",
+      "tags": "Procedures",
+      "timestamp": "01:32:10"
+    },
+    {
+      "cloze_text": "Remaining calm and thinking {{c1::rationally}} are key elements in reducing stress and increasing the capacity to fly safely.",
+      "zh_translation": "保持冷靜並「理性」思考是減輕壓力並提高飛行安全能力的關鍵要素。",
+      "explanation": "這反映了飛行心理學中對於壓力管理的核心要求，避免恐慌導致的錯誤決策。",
+      "tags": "Human Factors",
+      "timestamp": "01:33:45"
+    },
+    {
+      "cloze_text": "Maneuvers training remains a vital component of flight training because almost {{c1::40%}} of all General Aviation accidents occur in this phase.",
+      "zh_translation": "動作訓練（Maneuvers training）仍是飛行訓練的重要組成部分，因為幾乎 40% 的通用航空事故發生在此階段。",
+      "explanation": "這強調了手動操縱熟練度（Manual Proficiency）對於預防事故的重要性。",
+      "tags": "Safety Stats",
+      "timestamp": "01:43:05"
+    },
+    {
+      "cloze_text": "One simple rule for using an EFD is that pilots must be able to fly the aircraft to the standards in the {{c1::PTS}} manually.",
+      "zh_translation": "使用電子飛行顯示器 (EFD) 的一個簡單規則是：飛行員必須能夠手動將飛機飛到 PTS（標準測試程序）規定的標準。",
+      "explanation": "PTS (Practical Test Standards) 是飛行員檢定與維持資格的基準，不應因自動化而降低手動要求。",
+      "tags": "Standards",
+      "timestamp": "01:42:35"
+    },
+    {
+      "cloze_text": "The SAFETY list for passenger briefing includes: Seatbelts, Air vents, Fire extinguisher, {{c1::Exit}} doors, Traffic, and Your questions.",
+      "zh_translation": "乘客簡報的 SAFETY 清單包含：安全帶、通風口、滅火器、「出口」門、交通狀況及您的問題。",
+      "explanation": "這是一個標準的乘客安全簡報口訣，確保緊急情況下乘客具備基本的安全知識。",
+      "tags": "Briefing",
+      "timestamp": "01:32:15"
+    },
+    {
+      "cloze_text": "The first critical information management skill is to understand the system at a {{c1::conceptual}} level.",
+      "zh_translation": "第一個關鍵的資訊管理技能是從「概念層級」去理解系統。",
+      "explanation": "僅背誦旋鈕操作是不夠的,飛行員必須理解系統的運作架構與邏輯層次。",
+      "tags": "Information Management",
+      "timestamp": "01:46:50"
+    },
+    {
+      "cloze_text": "A better strategy for managing advanced avionics is to {{c1::Stop, Look, and Read}} before pushing or twisting knobs.",
+      "zh_translation": "管理先進航電的一個較佳策略是在按下或旋轉旋鈕前先「停、看、讀」。",
+      "explanation": "避免直覺式的盲目操作,確認螢幕顯示的內容後再執行動作。",
+      "tags": "SOP",
+      "timestamp": "01:47:35"
+    },
+    {
+      "cloze_text": "Managing the autopilot means knowing at all times which modes are engaged and which modes are {{c1::armed}}.",
+      "zh_translation": "管理自動駕駛意味著隨時清楚哪些模式已接合 (Engaged),哪些模式正處於預備 (Armed) 狀態。",
+      "explanation": "Armed 模式代表條件達成後會自動接合,飛行員必須預期系統的下一步跳變。",
+      "tags": "Automation Management",
+      "timestamp": "01:52:35"
+    },
+    {
+      "cloze_text": "Complacency can lead a pilot to slide into the role of a {{c1::passenger in command}}.",
+      "zh_translation": "自滿可能會讓飛行員淪為「掌握指揮權的乘客」。",
+      "explanation": "這形容飛行員雖然坐在駕駛座,卻對自動化系統的操作失去主動監控與管理。",
+      "tags": "Human Factors",
+      "timestamp": "01:54:50"
+    },
+    {
+      "cloze_text": "Risk increases when the pilot believes the gadgets compensate for lack of {{c1::skill}} and knowledge.",
+      "zh_translation": "當飛行員相信這些設備能彌補其「技術」與知識的不足時,風險便會增加。",
+      "explanation": "先進設備是輔助工具,不能取代飛行員基本的飛行操縱技能與系統知識。",
+      "tags": "Risk Management",
+      "timestamp": "01:54:25"
+    }
+  ],
+  "video_id": "c3j6OMUYFjo",
+  "url": "https://www.youtube.com/watch?v=c3j6OMUYFjo",
+  "has_transcript": false
+}

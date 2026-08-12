@@ -1,0 +1,321 @@
+{
+  "subject": "航空器構造與原理 - 構造、認證與空氣動力學基礎",
+  "mc_questions": [
+    {
+      "zh_question": "關於航空器適航證書（Airworthiness Certificate）的分類與特徵，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 標準適航證書為粉紅色，適用於實驗航空器",
+        "(B) 特種適航證書為白色，適用於運輸類航空器",
+        "(C) 標準適航證書為白色，適用於通用、特技及運輸類航空器",
+        "(D) 輕型運動航空器（LSA）核發的是標準適航證書"
+      ],
+      "en_question": "Regarding the classification and characteristics of Airworthiness Certificates, which of the following statements is correct?",
+      "en_options": [
+        "(A) Standard Airworthiness Certificates are pink and apply to experimental aircraft",
+        "(B) Special Airworthiness Certificates are white and apply to transport category aircraft",
+        "(C) Standard Airworthiness Certificates are white and apply to Normal, Aerobatic, and Transport categories",
+        "(D) Light Sport Aircraft (LSA) are issued Standard Airworthiness Certificates"
+      ],
+      "answer": "C",
+      "explanation": "根據法規，Standard Airworthiness Certificate 為白色，適用於 Normal, Utility, Aerobatic, Commuter, Transport 等類別；而 Special Airworthiness Certificate 為粉紅色（Pink），適用於 LSA、Experimental 或 Restricted 等類別。",
+      "timestamp": "04:16"
+    },
+    {
+      "zh_question": "關於全動式水平尾翼（Stabilator）及其配平裝置的運作邏輯，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 反伺服片（Anti-servo tab）的移動方向與全動式水平尾翼後緣相反",
+        "(B) 反伺服片的主要目的是增加控制靈敏度，使飛行員更容易拉起機頭",
+        "(C) 當飛行員向後拉駕駛桿時，全動式水平尾翼後緣向上移動，反伺服片也向上移動",
+        "(D) 全動式水平尾翼不具備配平（Trim）功能，須完全由飛行員體力維持位置"
+      ],
+      "en_question": "Concerning the operation logic of a Stabilator and its trimming device, which statement is correct?",
+      "en_options": [
+        "(A) The anti-servo tab moves in the opposite direction to the trailing edge of the stabilator",
+        "(B) The primary purpose of the anti-servo tab is to increase control sensitivity",
+        "(C) When the pilot pulls back on the control wheel, the trailing edge of the stabilator moves up, and the anti-servo tab also moves up",
+        "(D) A stabilator does not have a trim function and requires the pilot to maintain position manually"
+      ],
+      "answer": "C",
+      "explanation": "Stabilator 使用 Anti-servo tab，其移動方向與後緣「相同」。當後緣向上時，片子也向上，產生的空氣阻力會試圖將尾翼推回原位，藉此降低過高的靈敏度（Less sensitive）並提供人工感覺，同時它也兼具 Trim tab 的功能。",
+      "timestamp": "12:40"
+    },
+    {
+      "zh_question": "在飛機結構設計中，關於「半懸臂式」（Semi-cantilever）機翼與「全懸臂式」（Full cantilever）機翼的差異，下列何者正確？",
+      "zh_options": [
+        "(A) 半懸臂式機翼完全依靠內部結構支撐，不需外部支柱",
+        "(B) 全懸臂式機翼通常見於高原型飛機，需要張線支撐",
+        "(C) 半懸臂式機翼利用外部支柱（Struts）將飛行酬載傳遞至機身結構",
+        "(D) 現代多數低單翼飛機為了增加強度，皆採用半懸臂式設計"
+      ],
+      "en_question": "In aircraft structural design, what is the correct distinction between semi-cantilever and full cantilever wings?",
+      "en_options": [
+        "(A) Semi-cantilever wings rely entirely on internal structures without external supports",
+        "(B) Full cantilever wings are commonly found on high-wing aircraft and require bracing wires",
+        "(C) Semi-cantilever wings use external struts to transmit flight loads to the fuselage structure",
+        "(D) Most modern low-wing aircraft use semi-cantilever designs to increase strength"
+      ],
+      "answer": "C",
+      "explanation": "Semi-cantilever 意指機翼具備外部支柱（Struts）輔助支撐酬載；而 Full cantilever 則是所有應力皆由機翼內部結構（如 Spars）承擔，外表無支柱。",
+      "timestamp": "09:22"
+    },
+    {
+      "zh_question": "螺旋槳產生推力的主要物理原理為何？",
+      "zh_options": [
+        "(A) 透過增加發動機排氣速度產生反作用力",
+        "(B) 螺旋槳葉片撥動空氣向後，產生機械摩擦力",
+        "(C) 螺旋槳葉片在前方產生低壓區，後方產生高壓區，形成壓力差",
+        "(D) 透過調整螺旋槳螺距（Pitch）直接推動機身"
+      ],
+      "en_question": "What is the primary physical principle by which a propeller generates thrust?",
+      "en_options": [
+        "(A) By increasing engine exhaust velocity to create reaction force",
+        "(B) By mechanical friction created as the blades push air backwards",
+        "(C) By creating a low-pressure area in front and a high-pressure area behind the blades, forming a pressure differential",
+        "(D) By adjusting the propeller pitch to directly push the airframe"
+      ],
+      "answer": "C",
+      "explanation": "螺旋槳本質上是一個旋轉的機翼（airfoil），其旋轉時在葉片前方形成低壓、後方形成高壓。這種壓力差產生的合力即為推力。發動機提供扭矩，而螺旋槳將其轉化為氣動力。",
+      "timestamp": "15:45"
+    },
+    {
+      "zh_question": "關於半硬殼式結構（Semi-monocoque）與硬殼式結構（Monocoque）的主要差異，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 半硬殼式完全依靠蒙皮（Skin）承受所有飛行荷重",
+        "(B) 硬殼式結構內部有密集的縱樑（Longerons）與斜撐",
+        "(C) 半硬殼式結構利用內部骨架（如 Stringers, Formers）加強蒙皮，共同承擔應力",
+        "(D) 硬殼式結構因重量輕、抗損性高，是現代客機的首選"
+      ],
+      "en_question": "What is the main difference between semi-monocoque and monocoque structures?",
+      "en_options": [
+        "(A) Semi-monocoque relies entirely on the skin to support all flight loads",
+        "(B) Monocoque structures have dense internal longerons and struts",
+        "(C) Semi-monocoque structures use an internal framework (such as stringers and formers) to reinforce the skin and share the stress",
+        "(D) Monocoque is the preferred choice for modern airliners due to its light weight and high damage tolerance"
+      ],
+      "answer": "C",
+      "explanation": "Monocoque（硬殼式）主要靠應力蒙皮支撐荷重，類似鋁罐。而 Semi-monocoque（半硬殼式）則在蒙皮內部增加了 Bulkheads（隔框）、Formers（成形框）和 Stringers（縱樑）等次結構，能有效防止蒙皮因受壓而皺縮，是目前飛機結構的主流。",
+      "timestamp": "21:45"
+    },
+    {
+      "zh_question": "飛機煞車系統中，碳纖維（Carbon）煞車盤相較於鋼製（Steel）煞車盤的主要優勢是什麼？",
+      "zh_options": [
+        "(A) 成本較低且易於保養",
+        "(B) 重量更輕且能吸收更多的熱能（Energy）",
+        "(C) 在低溫環境下的磨合性能較好",
+        "(D) 使用壽命是依據行駛里程而非著陸次數計算"
+      ],
+      "en_question": "What is the primary advantage of carbon brakes over steel brakes in aircraft braking systems?",
+      "en_options": [
+        "(A) Lower cost and easier maintenance",
+        "(B) Lighter weight and ability to absorb more energy",
+        "(C) Better friction performance in low-temperature environments",
+        "(D) Service life is measured in miles rather than landings"
+      ],
+      "answer": "B",
+      "explanation": "碳纖維煞車系統重量較輕，且熱容量大，能承受落地時產生的高溫。此外，音訊提到飛機煞車的壽命是以著陸次數（Landings）而非里程數計算。",
+      "timestamp": "17:35"
+    },
+    {
+      "zh_question": "在複合材料飛機上,關於閃電防護(Lightning Strike Protection)的敘述,下列何者正確?",
+      "zh_options": [
+        "(A) 碳纖維(Carbon fiber)本身是完美的絕緣體,不需要額外避雷設施",
+        "(B) 玻纖(Fiberglass)與碳纖維皆必須在表層黏貼金屬網(Mesh)以導電",
+        "(C) 碳纖維結構通常使用鋁網(Aluminum mesh)來進行防護",
+        "(D) 避雷網修復時,只需要更換外層漆面,不需要確保與底層結構的電連續性"
+      ],
+      "en_question": "Regarding lightning strike protection on composite aircraft, which of the following statements is correct?",
+      "en_options": [
+        "(A) Carbon fiber is a perfect insulator and requires no additional protection.",
+        "(B) Both fiberglass and carbon fiber must have metal meshes bonded to the skin surface.",
+        "(C) Carbon fiber structures typically use aluminum mesh for protection.",
+        "(D) During lightning mesh repair, only the topcoat needs replacement without ensuring electrical continuity."
+      ],
+      "answer": "B",
+      "explanation": "由於玻纖是絕緣體而碳纖維導電性不如鋁材,故皆需加裝金屬網(Metal Mesh)來提供路徑導走強大電流。根據系統邏輯,玻纖常用鋁網,碳纖維則常用銅網(Copper Mesh)以防止電化學腐蝕。",
+      "timestamp": "31:10"
+    },
+    {
+      "zh_question": "根據儀表分類邏輯,下列哪一項屬於「控制儀表」(Control Instruments)?",
+      "zh_options": [
+        "(A) 垂直速率表 (VSI)",
+        "(B) 高度計 (Altimeter)",
+        "(C) 姿態儀 (Attitude Indicator)",
+        "(D) 空速表 (Airspeed Indicator)"
+      ],
+      "en_question": "According to the instrument classification logic, which of the following is a 'Control Instrument'?",
+      "en_options": [
+        "(A) Vertical Speed Indicator (VSI)",
+        "(B) Altimeter",
+        "(C) Attitude Indicator",
+        "(D) Airspeed Indicator"
+      ],
+      "answer": "C",
+      "explanation": "控制儀表(Control Instruments)顯示的是即時的姿態(Attitude)或動力(Power)變化;而空速、高度、VSI 等顯示的是這些變化後產生的結果,被歸類為表現儀表(Performance Instruments)。",
+      "timestamp": "34:45"
+    },
+    {
+      "zh_question": "關於全球定位系統(GPS)的運作,若要計算出包含高度的「三維位置」(3D Position),至少需要鎖定幾顆衛星的訊號?",
+      "zh_options": [
+        "(A) 2 顆",
+        "(B) 3 顆",
+        "(C) 4 顆",
+        "(D) 24 顆"
+      ],
+      "en_question": "To calculate a 3D position (including altitude) using GPS, the receiver must be locked onto the signal of at least how many satellites?",
+      "en_options": [
+        "(A) 2 satellites",
+        "(B) 3 satellites",
+        "(C) 4 satellites",
+        "(D) 24 satellites"
+      ],
+      "answer": "C",
+      "explanation": "3 顆衛星可計算緯度與經度(2D),若要精確得知第三維度「高度」(Altitude),則至少需要 4 顆衛星。多出的衛星則可用於抵銷訊號誤差。",
+      "timestamp": "36:30"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "An airplane is defined as an engine-driven, fixed-wing aircraft that is supported in flight by the {{c1::dynamic reaction}} of air against its wings.",
+      "zh_translation": "飛機被定義為一種由引擎驅動、固定翼的航空器，在飛行中依靠空氣對其機翼的「動態反應」來支撐。",
+      "explanation": "這是飛機產升力的基本物理定義，區別於浮力（氣球）或旋轉翼（直升機）。",
+      "tags": "Definition",
+      "timestamp": "00:27"
+    },
+    {
+      "cloze_text": "Standard airworthiness certificates are {{c1::white}} and are issued for normal, utility, aerobatic, commuter, or transport category aircraft.",
+      "zh_translation": "標準適航證書為「白色」，發給正常類、實用類、特技類、通勤類或運輸類航空器。",
+      "explanation": "適航證書的顏色是檢查員判別航空器認證類別的首要依據。",
+      "tags": "Certification",
+      "timestamp": "04:20"
+    },
+    {
+      "cloze_text": "The longitudinal, lateral, and vertical axes of an aircraft all pass through the {{c1::center of gravity}} (CG).",
+      "zh_translation": "航空器的縱軸、橫軸和垂直軸都通過其「重心」（CG）。",
+      "explanation": "飛機的所有姿態旋轉運動（Roll, Pitch, Yaw）在物理上都是圍繞重心發生的。",
+      "tags": "Aerodynamics",
+      "timestamp": "06:38"
+    },
+    {
+      "cloze_text": "When the ailerons move to roll the aircraft, they move in {{c1::opposite}} directions to create asymmetrical lift.",
+      "zh_translation": "當副翼移動以使飛機滾轉時，它們會向「相反」的方向移動以產生不對稱升力。",
+      "explanation": "一側向上減小升力，另一側向下增加升力，產生滾轉力矩。",
+      "tags": "Flight Controls",
+      "timestamp": "10:11"
+    },
+    {
+      "cloze_text": "Unlike ailerons, flaps move {{c1::simultaneously}} downward to increase lift for takeoffs and landings.",
+      "zh_translation": "與副翼不同，襟翼會「同時」向下移動，以增加起飛和降落時的升力。",
+      "explanation": "襟翼是高升力裝置，兩側同步移動以保持橫向平衡。",
+      "tags": "Flight Controls",
+      "timestamp": "10:25"
+    },
+    {
+      "cloze_text": "The principal structural members of the wing are the {{c1::spars}}, ribs, and stringers.",
+      "zh_translation": "機翼主要的結構構件是「翼樑」（Spars）、翼肋和縱樑。",
+      "explanation": "翼樑是承擔主要飛行負荷（特別是彎曲負荷）的最核心部件。",
+      "tags": "Structure",
+      "timestamp": "09:35"
+    },
+    {
+      "cloze_text": "The anti-servo tab moves in the {{c1::same}} direction as the trailing edge of the stabilator.",
+      "zh_translation": "反伺服片的移動方向與全動式水平尾翼的後端緣「相同」。",
+      "explanation": "這種設計提供了控制反饋力，避免全動式尾翼因過於靈敏而導致飛行員過度操作。",
+      "tags": "Systems",
+      "timestamp": "12:40"
+    },
+    {
+      "cloze_text": "Propellers produce thrust by creating a {{c1::low-pressure}} area at the front of the propeller's airfoil.",
+      "zh_translation": "螺旋槳透過在其葉片剖面（翼型）前方產生「低壓」區來製造推力。",
+      "explanation": "螺旋槳本質上是旋轉的機翼，利用伯努利原理產生向前的拉力。",
+      "tags": "Powerplant",
+      "timestamp": "14:38"
+    },
+    {
+      "cloze_text": "The primary function of an aircraft electrical system is to generate, regulate, and distribute electrical power, often using engine-driven {{c1::AC generators}}.",
+      "zh_translation": "飛機電氣系統的主要功能是產生、調節和分配電力，通常使用由發動機帶動的交流發電機。",
+      "explanation": "現代飛機主要電力來源包括交流發電機（AC Generators）、APU 以及外部電源。",
+      "tags": "Electrical System",
+      "timestamp": "16:22"
+    },
+    {
+      "cloze_text": "The Angle of Attack (AOA) is defined as the angle between the relative wind and the {{c1::chord line}} of the propeller blade.",
+      "zh_translation": "攻角（AOA）被定義為相對風與螺旋槳葉片翼弦線之間的夾角。",
+      "explanation": "AOA 是決定螺旋槳效率的關鍵因素，在飛行過程中會隨飛機動態持續變化。",
+      "tags": "Powerplant",
+      "timestamp": "15:18"
+    },
+    {
+      "cloze_text": "In a truss structure, lengths of tubing called {{c1::longerons}} are welded in place to form a well-braced framework.",
+      "zh_translation": "在桁架式結構中，稱為「縱樑」的管材被焊接定位，以形成堅固的支撐框架。",
+      "explanation": "桁架式結構（Truss）主要由 Longerons（縱樑）和 Struts（斜撐）組成，早期飛機多用此結構。",
+      "tags": "Aircraft Construction",
+      "timestamp": "20:42"
+    },
+    {
+      "cloze_text": "A major disadvantage of composite structures is the lack of visual proof of damage, such as hidden {{c1::delamination}} after an impact.",
+      "zh_translation": "複合材料結構的一個主要缺點是缺乏損傷的視覺證據，例如撞擊後產生的隱藏性「層間剝離」。",
+      "explanation": "複合材料受損後表面可能完好，但內部結構可能已產生 delamination（脫層），必須由專業人員檢測。",
+      "tags": "Maintenance / Composites",
+      "timestamp": "26:05"
+    },
+    {
+      "cloze_text": "In composite materials, the {{c1::matrix}} is the glue used to hold the fibers together and gives the part its shape.",
+      "zh_translation": "在複合材料中，「基材（Matrix）」是用來將纖維黏合在一起並賦予零件形狀的膠體。",
+      "explanation": "基材（通常為 Epoxy resin，環氧樹脂）負責固定纖維位置，而纖維則負責承受荷重。",
+      "tags": "Composites",
+      "timestamp": "22:05"
+    },
+    {
+      "cloze_text": "Because airplane brakes must absorb enormous amounts of energy during landing, their life is measured in {{c1::landings}} rather than miles.",
+      "zh_translation": "由於飛機煞車必須在著陸時吸收巨大能量，其壽命是以「著陸次數」而非里程數來衡量的。",
+      "explanation": "這是航空器維修中非常重要的計量觀念，反映了煞車系統承受的熱循環損耗。",
+      "tags": "Brakes",
+      "timestamp": "17:32"
+    },
+    {
+      "cloze_text": "Aluminum and copper mesh are the two most common types, with aluminum used on fiberglass and {{c1::copper}} on carbon fiber.",
+      "zh_translation": "鋁網與銅網是兩種最常見的類型,鋁網用於玻璃纖維,而銅網則用於碳纖維。",
+      "explanation": "碳纖維結構若直接接觸鋁網會產生電化學腐蝕,故在系統設計上優先選用銅網。",
+      "tags": "Composites / Lightning Protection",
+      "timestamp": "30:46"
+    },
+    {
+      "cloze_text": "Any structural repairs on lightning strike protected areas must also include the {{c1::mesh}} as well as the underlying structure.",
+      "zh_translation": "任何在避雷保護區域的結構維修,除了底層結構外,也必須包含金屬避雷網的修復。",
+      "explanation": "若維修忽略了 Mesh 的電連續性,將導致結構在下次雷擊時無法有效排流而受損。",
+      "tags": "Structures / Maintenance",
+      "timestamp": "30:55"
+    },
+    {
+      "cloze_text": "Internal radio antennas require {{c1::windows}} in the lightning strike mesh to allow radio frequencies to pass through.",
+      "zh_translation": "機身內部的無線電天線需要在避雷網上保留「窗口」,以便讓無線電頻率穿透。",
+      "explanation": "金屬避雷網會阻擋電磁波,因此天線安裝位置必須特別設計避雷網的空隙(Windows)。",
+      "tags": "Avionics / Communication",
+      "timestamp": "31:05"
+    },
+    {
+      "cloze_text": "The first screen installed in front of the pilot position is referred to as the {{c1::Primary Flight Display (PFD)}}.",
+      "zh_translation": "安裝在機師正前方的第一個儀表螢幕被稱為主飛行顯示器(PFD)。",
+      "explanation": "PFD 整合了傳統的六大儀表功能,是機師獲取飛行數據的主要來源。",
+      "tags": "EFD / Instrumentation",
+      "timestamp": "33:04"
+    },
+    {
+      "cloze_text": "Performance instruments indicate the aircraft's {{c1::actual performance}}.",
+      "zh_translation": "表現儀表指示的是飛機的實際表現(結果)。",
+      "explanation": "例如空速表、高度計、VSI 等都屬於反映飛機目前運行結果的表現儀表。",
+      "tags": "Instrumentation / Categories",
+      "timestamp": "34:10"
+    },
+    {
+      "cloze_text": "Control instruments display immediate {{c1::attitude}} and power changes.",
+      "zh_translation": "控制儀表顯示的是即時的姿態與動力變化。",
+      "explanation": "這類儀表讓機師知道自己對控制裝置施加影響後,飛機當下的即時反應。",
+      "tags": "Instrumentation / Categories",
+      "timestamp": "34:42"
+    }
+  ],
+  "video_id": "W1viJEqc6XE",
+  "url": "https://www.youtube.com/watch?v=W1viJEqc6XE",
+  "has_transcript": false
+}

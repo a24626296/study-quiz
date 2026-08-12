@@ -1,0 +1,227 @@
+{
+  "subject": "飛行原理 - 大氣構造與性能計算 (Principles of Flight)",
+  "mc_questions": [
+    {
+      "zh_question": "下列哪一組條件會導致「高密度高度」(High Density Altitude)，進而嚴重影響飛機的起飛與爬升性能？",
+      "zh_options": [
+        "(A) 高氣壓、低氣溫、低濕度",
+        "(B) 低海拔、高氣壓、低氣溫",
+        "(C) 高海拔、低氣壓、高氣溫、高濕度",
+        "(D) 低海拔、高氣壓、高濕度"
+      ],
+      "en_question": "Which set of conditions results in 'High Density Altitude', significantly affecting takeoff and climb performance?",
+      "en_options": [
+        "(A) High pressure, low temperature, and low humidity",
+        "(B) Low elevation, high pressure, and low temperature",
+        "(C) High elevation, low atmospheric pressure, high temperature, and high humidity",
+        "(D) Low elevation, high atmospheric pressure, and high humidity"
+      ],
+      "answer": "C",
+      "explanation": "High Density Altitude 代表空氣密度低(Thin Air)。根據音訊內容，高海拔(High Elevation)、低大氣壓力(Low Pressure)、高溫(High Temp)及高濕度(High Humidity)都會使空氣密度下降，增加 Density Altitude，導致發動機馬力、螺旋槳推力及機翼升力同時減弱。",
+      "timestamp": "09:23"
+    },
+    {
+      "zh_question": "在空氣動力學中，阻力 (Drag) 是由哪兩個主要物理現象共同作用而產生的？",
+      "zh_options": [
+        "(A) 升力與重力",
+        "(B) 表面摩擦力 (Friction) 與空氣黏滯性 (Viscosity)",
+        "(C) 大氣壓力與動壓",
+        "(D) 濕度與高度"
+      ],
+      "en_question": "In aerodynamics, what two primary physical phenomena combine to create Drag?",
+      "en_options": [
+        "(A) Lift and Gravity",
+        "(B) Surface Friction and Viscosity",
+        "(C) Atmospheric pressure and dynamic pressure",
+        "(D) Humidity and Altitude"
+      ],
+      "answer": "B",
+      "explanation": "當空氣分子黏附在機翼表面形成邊界層(Boundary Layer)時會產生摩擦力(Friction)，而空氣分子彼此間的吸引力則形成黏滯性(Viscosity)。這兩者共同抵抗機翼在空氣中的移動，即定義為 Drag。",
+      "timestamp": "04:11"
+    },
+    {
+      "zh_question": "關於壓力高度 (Pressure Altitude) 的定義，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 將高度表撥定值設為當地高度表值 (Altimeter Setting) 時所顯示的高度",
+        "(B) 飛機距離地面的實際高度 (AGL)",
+        "(C) 將高度表撥定值設為標準海平面壓力 29.92 英吋汞柱時所顯示的高度",
+        "(D) 修正非標準氣溫後的高度值"
+      ],
+      "en_question": "Which of the following correctly describes Pressure Altitude?",
+      "en_options": [
+        "(A) The altitude indicated when the altimeter is set to the local altimeter setting",
+        "(B) The actual height above ground level (AGL)",
+        "(C) The altitude indicated when the altimeter setting is 29.92 inches of mercury",
+        "(D) The altitude corrected for non-standard temperature"
+      ],
+      "answer": "C",
+      "explanation": "Pressure Altitude 是以標準基準面(Standard Datum Plane, SDP)為基準的高度。在飛行中，將高度表撥定為 29.92 \"Hg 時，讀得的高度即為 Pressure Altitude，這是計算所有性能指標(如 Density Altitude)的基礎。",
+      "timestamp": "07:19"
+    },
+    {
+      "zh_question": "根據 Bernoulli's Principle（白努利原理），當空氣流過翼型（Airfoil）上方受擠壓且流速增加時，其壓力會如何變化？",
+      "zh_options": [
+        "(A) 壓力隨之增加",
+        "(B) 壓力保持不變",
+        "(C) 壓力會隨之減小",
+        "(D) 壓力先減小後增加"
+      ],
+      "en_question": "According to Bernoulli's Principle, as air flows over an airfoil and velocity increases, how does the pressure change?",
+      "en_options": [
+        "(A) Pressure increases accordingly",
+        "(B) Pressure remains constant",
+        "(C) Pressure decreases accordingly",
+        "(D) Pressure decreases first and then increases"
+      ],
+      "answer": "C",
+      "explanation": "根據 Bernoulli's Principle，流體的速度與壓力成反比。當流過翼面上方（Upper surface）的空氣 Velocity 增加時，該區域的 Static Pressure 會下降，與翼面下方形成壓力差產生升力。",
+      "timestamp": "18:04"
+    },
+    {
+      "zh_question": "在噴射發動機中，發動機將熱氣流向後排出，使飛機向前獲得推力，這是應用了哪一項物理定律？",
+      "zh_options": [
+        "(A) 牛頓第一運動定律（慣性定律）",
+        "(B) 牛頓第二運動定律（F=ma）",
+        "(C) 牛頓第三運動定律（作用力與反作用力）",
+        "(D) 能量守恆定律"
+      ],
+      "en_question": "In a jet engine, the engine pushes hot gases backward, causing the airplane to move forward. Which physical law is this an application of?",
+      "en_options": [
+        "(A) Newton's First Law of Motion (Inertia)",
+        "(B) Newton's Second Law of Motion (F=ma)",
+        "(C) Newton's Third Law of Motion (Action and Reaction)",
+        "(D) Law of Conservation of Energy"
+      ],
+      "answer": "C",
+      "explanation": "這是 Newton's Third Law 的典型應用：每一個作用力（Action）都有一個大小相等、方向相反的反作用力（Reaction）。發動機向後排氣（Action），空氣即對發動機產生向前的推力（Reaction）。",
+      "timestamp": "17:45"
+    },
+    {
+      "zh_question": "關於 Center of Pressure（CP, 壓力中心）隨攻角（Angle of Attack, AOA）變化的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) 當 AOA 增加時，CP 會向後移動 (Aft)",
+        "(B) 當 AOA 增加時，CP 會向前移動 (Forward)",
+        "(C) CP 的位置與 AOA 無關，是固定不變的",
+        "(D) CP 僅在對稱翼型（Symmetric Airfoil）上會移動"
+      ],
+      "en_question": "Regarding the change of Center of Pressure (CP) with the Angle of Attack (AOA), which statement is correct?",
+      "en_options": [
+        "(A) When AOA increases, CP moves aft",
+        "(B) When AOA increases, CP moves forward",
+        "(C) The position of CP is independent of AOA and remains constant",
+        "(D) CP only moves on a symmetric airfoil"
+      ],
+      "answer": "B",
+      "explanation": "在一般的 Airfoil 設計中，當攻角（AOA）增加時，升力的合力作用點 Center of Pressure (CP) 會向前移動；反之，當 AOA 減小時，CP 會向後移動。這會直接影響飛機的 Aerodynamic balance 與操控性。",
+      "timestamp": "26:03"
+    },
+    {
+      "zh_question": "關於翼尖渦流（Wingtip Vortices）的成因，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 翼尖上方的高壓空氣流向翼尖下方的低壓區",
+        "(B) 翼尖下方的低壓空氣流向翼尖上方的高壓區",
+        "(C) 翼尖下方的高壓空氣繞過翼尖流向翼尖上方的低壓區",
+        "(D) 空氣摩擦產生的熱能導致氣流旋轉"
+      ],
+      "en_question": "Which of the following describes the cause of Wingtip Vortices?",
+      "en_options": [
+        "(A) High-pressure air from the top flows to the low-pressure area at the bottom",
+        "(B) Low-pressure air from the bottom flows to the high-pressure area at the top",
+        "(C) High-pressure air from the bottom curls around the tip to the low-pressure area on top",
+        "(D) Thermal energy from friction causes the airflow to rotate"
+      ],
+      "answer": "C",
+      "explanation": "在產生升力的翼面上，下表面壓力（High pressure）大於上表面（Low pressure）。在翼尖處，高壓空氣會傾向繞過翼端流向上方的低壓區，形成旋轉的 Tip Vortex，進而產生 Downwash 並減損部分升力。",
+      "timestamp": "28:05"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "大氣中大部分的氧氣都包含在 {{c1::35,000}} 呎高度以下。",
+      "zh_translation": "Most of the atmosphere's oxygen is contained below 35,000 feet altitude.",
+      "explanation": "雖然大氣成分比例相對固定，但隨著高度增加，空氣總體密度下降，人類能維持生理機能的氧氣含量主要分布在對流層下部。",
+      "tags": "Atmosphere",
+      "timestamp": "00:58"
+    },
+    {
+      "cloze_text": "流體抵抗流動的性質被稱為 {{c1::Viscosity}} (黏滯性)。",
+      "zh_translation": "The property of a fluid that causes it to resist flowing is called Viscosity.",
+      "explanation": "空氣被視為流體(Fluid)，具有黏滯性。高黏滯性流體較濃稠且流動慢，空氣雖黏滯性低但仍會影響物體表面流動。",
+      "tags": "Aerodynamics",
+      "timestamp": "01:45"
+    },
+    {
+      "cloze_text": "在標準大氣壓下，海平面的標準壓力為 {{c1::29.92}} 英吋汞柱 (inches of mercury)。",
+      "zh_translation": "Under standard conditions at sea level, the standard pressure is 29.92 inches of mercury.",
+      "explanation": "這是國際標準大氣(ISA)的基本定義值，對應 1013.2 毫巴(mb)。",
+      "tags": "Limitations/Standard",
+      "timestamp": "05:28"
+    },
+    {
+      "cloze_text": "標準溫度遞減率 (Standard temperature lapse rate) 約為每爬升 1,000 呎下降 {{c1::2}} 攝氏度。",
+      "zh_translation": "The standard temperature lapse rate is approximately 2 degrees Celsius per 1,000 feet.",
+      "explanation": "ISA 定義溫度每千呎下降 2°C (3.5°F)，直到 36,000 呎為止。",
+      "tags": "Atmosphere",
+      "timestamp": "06:14"
+    },
+    {
+      "cloze_text": "密度高度 (Density Altitude) 是壓力高度經過 {{c1::Non-standard temperature}} (非標準氣溫) 修正後的高度。",
+      "zh_translation": "Density altitude is pressure altitude corrected for non-standard temperature.",
+      "explanation": "氣溫會顯著改變空氣密度。當氣溫高於標準，空氣會變稀薄，導致密度高度上升，飛行性能下降。",
+      "tags": "Performance",
+      "timestamp": "08:48"
+    },
+    {
+      "cloze_text": "由於水蒸氣比乾空氣輕，因此 {{c1::Moist air}} (潮濕空氣) 的密度比乾空氣低。",
+      "zh_translation": "Since water vapor is lighter than air, moist air is less dense than dry air.",
+      "explanation": "這是一個常見誤區：水氣含量增加實際上會降低空氣密度，進而增加密度高度並損害飛機性能。",
+      "tags": "Performance",
+      "timestamp": "12:16"
+    },
+    {
+      "cloze_text": "An aircraft at rest remains at rest unless a force strong enough to overcome its {{c1::inertia}} is applied.",
+      "zh_translation": "靜止的飛機將保持靜止，除非施加一個足以克服其慣性的力量。",
+      "explanation": "這是牛頓第一定律（Newton's First Law）中關於慣性的定義，說明物體維持現狀的傾向。",
+      "tags": "Aerodynamics",
+      "timestamp": "16:40"
+    },
+    {
+      "cloze_text": "The straight line drawn through the profile connecting the leading and trailing edges is called the {{c1::chord line}}.",
+      "zh_translation": "穿過翼型剖面，連接領先緣與跟隨緣的直線稱為翼弦線。",
+      "explanation": "Chord line 是計算升力面積與定義攻角（AOA）最重要的參考基準線。",
+      "tags": "Definitions",
+      "timestamp": "20:15"
+    },
+    {
+      "cloze_text": "The line that is equidistant at all points from the upper and lower surfaces of an airfoil is the {{c1::mean camber line}}.",
+      "zh_translation": "與翼型上表面和下表面各點等距的線稱為平均弧度線。",
+      "explanation": "Mean camber line 決定了翼型的彎曲程度（Camber），影響其氣動力特性。",
+      "tags": "Definitions",
+      "timestamp": "20:35"
+    },
+    {
+      "cloze_text": "At a point close to the leading edge, the airflow is virtually stopped, which is known as the {{c1::stagnation point}}.",
+      "zh_translation": "在靠近領先緣的一個點上，氣流幾乎完全停止，這被稱為駐點。",
+      "explanation": "在駐點處氣流的速度為零，壓力達到最大值，隨後氣流加速流向翼面。",
+      "tags": "Aerodynamics",
+      "timestamp": "24:47"
+    },
+    {
+      "cloze_text": "To reduce wingtip vortices and improve efficiency, manufacturers may add {{c1::winglets}} to the tip of an airfoil.",
+      "zh_translation": "為了減少翼尖渦流並提高效率，製造商可能會在翼尖添加翼帆（翼端帆）。",
+      "explanation": "Winglets 像水壩一樣阻礙了高低壓氣流在翼端的混合，進而減少 Induced drag。",
+      "tags": "System-Design",
+      "timestamp": "28:30"
+    },
+    {
+      "cloze_text": "For a constant mass, Force equals mass times {{c1::acceleration}}.",
+      "zh_translation": "對於恆定質量，力等於質量乘以加速度。",
+      "explanation": "這是牛頓第二定律（Newton's Second Law）的公式 F=ma，說明力與運動狀態改變的關係。",
+      "tags": "Physics",
+      "timestamp": "17:00"
+    }
+  ],
+  "video_id": "LdSKyQcZT-M",
+  "url": "https://www.youtube.com/watch?v=LdSKyQcZT-M",
+  "has_transcript": false
+}
