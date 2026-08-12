@@ -169,6 +169,7 @@
     renderMC(data.mc_questions || []);
     renderCloze(data.cloze_items || []);
     applyLang();
+    if (window.qeApplyEdits) window.qeApplyEdits();
 
     systemContext = buildSystemContext(data);
     initChat();
@@ -187,13 +188,14 @@
     player.playVideo();
   };
 
-  function hoverableEl(zhText, enText, cssClass) {
+  function hoverableEl(zhText, enText, cssClass, editKey) {
     var div = document.createElement('div');
     div.className = 'hoverable ' + (cssClass || '');
     div.dataset.zh = zhText || '';
     div.dataset.en = enText || '';
     var main = document.createElement('span');
     main.className = 'main-text';
+    if (editKey) main.dataset.editkey = editKey;
     var tip = document.createElement('span');
     tip.className = 'tooltip';
     div.appendChild(main);
@@ -250,7 +252,7 @@
 
       var body = document.createElement('div');
       body.className = 'qcard-body';
-      body.appendChild(hoverableEl(q.zh_question, q.en_question, 'q-text'));
+      body.appendChild(hoverableEl(q.zh_question, q.en_question, 'q-text', 'mc' + i + '_q'));
 
       var optsWrap = document.createElement('div');
       optsWrap.className = 'q-options';
@@ -274,7 +276,7 @@
         letterSpan.textContent = letter;
         label.appendChild(radio);
         label.appendChild(letterSpan);
-        label.appendChild(hoverableEl(zhOpts[oi] || '', enOpts[oi] || '', 'q-option'));
+        label.appendChild(hoverableEl(zhOpts[oi] || '', enOpts[oi] || '', 'q-option', 'mc' + i + '_opt' + oi));
         optsWrap.appendChild(label);
       }
       body.appendChild(optsWrap);
@@ -282,7 +284,7 @@
       var details = document.createElement('details');
       details.innerHTML = '<summary>看答案與解析</summary>' +
         '<div class="answer">正解:(' + esc(q.answer || '') + ')</div>' +
-        '<div class="explain">' + esc(q.explanation || '') + '</div>';
+        '<div class="explain" data-editkey="mc' + i + '_explain">' + esc(q.explanation || '') + '</div>';
       body.appendChild(details);
 
       card.appendChild(body);
@@ -343,12 +345,13 @@
 
       var details = document.createElement('details');
       details.innerHTML = '<summary>看中文對照與解析</summary>' +
-        '<div class="q-zh">' + esc(c.zh_translation || '') + '</div>' +
-        '<div class="explain">' + esc(c.explanation || '') + '</div>';
+        '<div class="q-zh" data-editkey="cz' + i + '_zh">' + esc(c.zh_translation || '') + '</div>' +
+        '<div class="explain" data-editkey="cz' + i + '_explain">' + esc(c.explanation || '') + '</div>';
       body.appendChild(details);
 
       var tag = document.createElement('div');
       tag.className = 'tag';
+      tag.dataset.editkey = 'cz' + i + '_tag';
       tag.textContent = c.tags || '';
       body.appendChild(tag);
 
