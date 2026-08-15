@@ -1,0 +1,378 @@
+{
+  "subject": "飛行手冊與相關文件 - 核心法規與系統標誌",
+  "mc_questions": [
+    {
+      "zh_question": "關於「飛機飛航手冊」(AFM) 與「飛機所有人資訊手冊」(AOM/AIM) 的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) 兩者皆經過 FAA 核准且具有法律效力",
+        "(B) 資訊手冊 (Information Manual) 是針對特定序號飛機所編寫的",
+        "(C) 飛航手冊 (AFM) 必須隨機攜帶，且內容包含特定飛機的重量與平衡數據",
+        "(D) 資訊手冊會隨著法規更新而持續維持在最新狀態"
+      ],
+      "en_question": "Which of the following statements regarding the Airplane Flight Manual (AFM) and the Aircraft Owner's Information Manual (AOM/AIM) is correct?",
+      "en_options": [
+        "(A) Both are FAA-approved and legally binding.",
+        "(B) The Information Manual is specific to an individual aircraft serial number.",
+        "(C) The AFM must be carried on board and contains serial-number-specific weight and balance data.",
+        "(D) The Information Manual is kept current with all regulatory changes."
+      ],
+      "answer": "C",
+      "explanation": "AFM/POH 是經 FAA 核准且針對特定機身序號 (Serial Number) 的文件；而 Information Manual 僅供一般參考 (General Study)，不具法律效力且不隨機更新。",
+      "timestamp": "01:15"
+    },
+    {
+      "zh_question": "在空速表 (ASI) 的標示中，黃弧線 (Yellow Arc) 代表的意義與操作限制為何？",
+      "zh_options": [
+        "(A) 正常操作範圍，上限為 V_NO",
+        "(B) 警告範圍，僅限在平滑空氣 (Smooth Air) 中謹慎操作",
+        "(C) 襟翼操作範圍，上限為 V_FE",
+        "(D) 不准操作範圍，超過此速將導致結構毀損"
+      ],
+      "en_question": "On the Airspeed Indicator (ASI), what is the significance and operational limitation of the Yellow Arc?",
+      "en_options": [
+        "(A) Normal operating range, with the upper limit being V_NO.",
+        "(B) Caution range, to be operated only in smooth air and with caution.",
+        "(C) Flap operating range, with the upper limit being V_FE.",
+        "(D) Prohibited range; exceeding this speed will cause structural damage."
+      ],
+      "answer": "B",
+      "explanation": "黃弧線代表 Caution Range，操作範圍介於最大結構巡航速度 (V_NO) 與絕對限制速度 (V_NE) 之間，僅能在無亂流的平滑空氣 (Smooth Air) 中操作。",
+      "timestamp": "05:25"
+    },
+    {
+      "zh_question": "在小型雙發動機飛機的空速表上，藍色放射狀線條 (Blue Radial Line) 代表什麼速度？",
+      "zh_options": [
+        "(A) 單發動機失效時的最佳爬升率速度 (V_YSE)",
+        "(B) 單發動機失效時的最小操作控制速度 (V_MC)",
+        "(C) 襟翼最大延伸速度 (V_FE)",
+        "(D) 絕對不得超過之速度 (V_NE)"
+      ],
+      "en_question": "On the airspeed indicator of a small multi-engine airplane, what speed does the Blue Radial Line represent?",
+      "en_options": [
+        "(A) Best rate-of-climb speed with one engine inoperative (V_YSE).",
+        "(B) Minimum control speed with the critical engine inoperative (V_MC).",
+        "(C) Maximum flap extended speed (V_FE).",
+        "(D) Never-exceed speed (V_NE)."
+      ],
+      "answer": "A",
+      "explanation": "藍色放射線代表 V_YSE (Best rate-of-climb with one engine inoperative)；而紅色放射線 (Red Radial Line) 則是代表 V_MC (Minimum control speed)。",
+      "timestamp": "06:05"
+    },
+    {
+      "zh_question": "根據音訊內容，標準適航證 (Standard Airworthiness Certificate) 的有效期規則為何？",
+      "zh_options": [
+        "(A) 每年必須更新一次",
+        "(B) 每兩年經過 FAA 檢查後更新",
+        "(C) 只要飛機按規定維修並維持美國註冊，其效力無限期持續",
+        "(D) 效期至飛機出售給另一位美國公民為止"
+      ],
+      "en_question": "According to the audio, what is the rule regarding the duration of a Standard Airworthiness Certificate?",
+      "en_options": [
+        "(A) It must be renewed annually.",
+        "(B) It is renewed every two years following an FAA inspection.",
+        "(C) It remains effective as long as the aircraft is maintained per regulations and remains registered in the U.S.",
+        "(D) It is effective until the aircraft is sold to another U.S. citizen."
+      ],
+      "answer": "C",
+      "explanation": "標準適航證 (FAA Form 8100-2) 只要飛機符合 14 CFR part 21, 43, 91 的維修、預防性維修及改裝規範，並保持美國註冊，證照即持續有效，不需定期換發。",
+      "timestamp": "15:15"
+    },
+    {
+      "zh_question": "關於 100 小時檢查 (100-Hour Inspection) 的規定，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 適用於所有私人飛機，無論用途為何",
+        "(B) 若用於取酬載客或飛行教學，則必須進行此項檢查",
+        "(C) 可以由飛行員自行執行並簽署記錄",
+        "(D) 超過 100 小時後，該飛機絕對禁止飛行，沒有任何例外"
+      ],
+      "en_question": "Which of the following statements regarding the 100-hour inspection is correct?",
+      "en_options": [
+        "(A) It applies to all private aircraft regardless of use.",
+        "(B) It is required if the aircraft is used to carry passengers for hire or for flight instruction.",
+        "(C) It can be performed and signed off by the pilot.",
+        "(D) Once 100 hours are exceeded, the aircraft is strictly prohibited from flying without exception."
+      ],
+      "answer": "B",
+      "explanation": "100 小時檢查主要針對取酬載客 (carry passengers for hire) 或由教官提供的飛行教學 (flight instruction for hire) 之飛機。法規允許在前往維修點的航程中最多超過 10 小時 (10-hour grace period)。",
+      "timestamp": "22:35"
+    },
+    {
+      "zh_question": "如果一架小型飛機的擁有者申請並獲得了 FAA 核准的最低裝備需求表 (MEL)，則該飛機的運作邏輯為何？",
+      "zh_options": [
+        "(A) 飛行員可以選擇使用 MEL 或依照法規 91.213(d) 處理不工作裝備",
+        "(B) 該 MEL 的使用對該飛機而言變成了強制性規範",
+        "(C) MEL 只能在飛機維修廠內使用，飛行中無效",
+        "(D) 獲得 MEL 後，飛機就不再需要進行年度檢查"
+      ],
+      "en_question": "If a small aircraft owner applies for and receives an FAA-approved Minimum Equipment List (MEL), what is the operational logic for that aircraft?",
+      "en_options": [
+        "(A) The pilot can choose between using the MEL or following regulation 91.213(d).",
+        "(B) The use of the MEL becomes mandatory for that specific aircraft.",
+        "(C) The MEL is only used in maintenance shops and is invalid during flight.",
+        "(D) Once an MEL is obtained, the aircraft no longer requires an annual inspection."
+      ],
+      "answer": "B",
+      "explanation": "一旦 FAA 核發了 MEL 及授權書 (LOA)，對該特定註冊號的飛機而言，MEL 就變成了強制性的法律文件。這屬於系統邏輯中的「一旦選擇 MEL 模式，即不可退回 91.213(d) 通用規範」。",
+      "timestamp": "27:55"
+    },
+    {
+      "zh_question": "關於 FAA 對於經核准的最低設備清單 (MEL) 的法律性質認定，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 僅視為飛機操作手冊 (POH) 的補充附件",
+        "(B) 視為對該特定序號與註冊號飛機核發的補充型別檢定證 (STC)",
+        "(C) 是一份通用的設備清單，適用於同機型的所有飛機",
+        "(D) 僅用於商業營運飛機，通用航空飛機無需遵守"
+      ],
+      "en_question": "Regarding the FAA's legal determination of an approved Minimum Equipment List (MEL), which statement is correct?",
+      "en_options": [
+        "(A) It is considered only as a supplemental attachment to the Pilot’s Operating Handbook (POH).",
+        "(B) It is considered a Supplemental Type Certificate (STC) issued to a specific aircraft by serial and registration number.",
+        "(C) It is a generic equipment list applicable to all aircraft of the same type.",
+        "(D) It only applies to commercial aircraft; general aviation aircraft are not required to comply."
+      ],
+      "answer": "B",
+      "explanation": "根據法規，FAA 將核准的 MEL 視為該特定飛機的補充型別檢定證 (STC)。一旦核准，MEL 即成為在非原始型別檢定狀態下操作該飛機的授權依據。",
+      "timestamp": "30:03"
+    },
+    {
+      "zh_question": "當飛機組件故障且該組件未列於 MEL 的可延遲維修清單（例如：轉速表或襟翼）時，飛行員應如何處理？",
+      "zh_options": [
+        "(A) 飛行員可自行判定是否安全並繼續飛行",
+        "(B) 只要是日間飛行且視距良好即可起飛",
+        "(C) 必須在起飛前完成修復",
+        "(D) 僅需在維護記錄中註記，可在回到基地後再修復"
+      ],
+      "en_question": "When a component fails that is not listed as deferrable in the MEL (e.g., tachometer or flaps), how should the pilot proceed?",
+      "en_options": [
+        "(A) The pilot can personally determine if it is safe and continue the flight.",
+        "(B) Takeoff is permitted as long as it is a daytime flight with good visibility.",
+        "(C) Repairs are required to be performed prior to departure.",
+        "(D) Only a maintenance record entry is needed; repairs can be done after returning to base."
+      ],
+      "answer": "C",
+      "explanation": "如果故障組件未列在 MEL 中（不可延遲），則該飛機不符合適航要求。必須在起飛前進行維修，除非獲得特許飛行證 (Special Flight Permit)。",
+      "timestamp": "31:00"
+    },
+    {
+      "zh_question": "關於適航指令 (Airworthiness Directives, ADs) 的法律效力與執行責任，下列敘述何者正確？",
+      "zh_options": [
+        "(A) ADs 僅為製造商建議，不具強制性",
+        "(B) 只有機械師 (Mechanic) 需對 AD 的執行負最終責任",
+        "(C) ADs 具備法律強制性，且確保飛機符合 AD 規範是飛機所有人或營運人的責任",
+        "(D) 如果飛機僅用於私人休閒飞行，可不必遵守 ADs"
+      ],
+      "en_question": "Regarding the legal authority and responsibility for Airworthiness Directives (ADs), which statement is correct?",
+      "en_options": [
+        "(A) ADs are only manufacturer recommendations and are not mandatory.",
+        "(B) Only the mechanic bears the final responsibility for AD compliance.",
+        "(C) ADs are regulatory and mandatory; it is the responsibility of the aircraft owner or operator to ensure compliance.",
+        "(D) If the aircraft is used only for private pleasure flight, AD compliance is optional."
+      ],
+      "answer": "C",
+      "explanation": "ADs 是具備法律約束力的法規 (Regulatory)。根據 14 CFR Part 39，飛機的所有人或營運人 (Owner/Operator) 負有確保飛機符合適航指令的最終責任。",
+      "timestamp": "40:56"
+    },
+    {
+      "zh_question": "根據音訊內容，飛行員瞭解 AFM/POH 以及 ADs (適航指令) 等文件的核心價值為何？",
+      "zh_options": [
+        "(A) 減少飛機燃油消耗與營運成本",
+        "(B) 獲取安全飛行該特定飛機所需的相關資訊",
+        "(C) 縮短飛行前的檢查流程",
+        "(D) 僅為了符合民航法規的最低要求"
+      ],
+      "en_question": "According to the audio, what is the core value for a pilot to understand AFM/POH and documents like ADs?",
+      "en_options": [
+        "(A) To reduce aircraft fuel consumption and operating costs",
+        "(B) To provide ready access to pertinent information needed to safely fly a particular aircraft",
+        "(C) To shorten the pre-flight inspection process",
+        "(D) Merely to meet the minimum requirements of civil aviation regulations"
+      ],
+      "answer": "B",
+      "explanation": "音訊明確提到，知識淵博的飛行員透過這些文件能獲得安全飛行所需的相關資訊 (pertinent information needed to safely fly)，這對於維持飛行安全至關重要。",
+      "timestamp": "45:05"
+    },
+    {
+      "zh_question": "飛行員透過學習「預防性維護」(Preventive Maintenance) 的相關規定，可以達成什麼目標？",
+      "zh_options": [
+        "(A) 延長發動機的翻修時隔 (TBO)",
+        "(B) 增加飛機的巡航速度與性能",
+        "(C) 將飛機維持在適航狀態 (Airworthy Condition)",
+        "(D) 避免進行任何年度或階段性檢查"
+      ],
+      "en_question": "What goal can a pilot achieve by learning the regulations regarding preventive maintenance?",
+      "en_options": [
+        "(A) To extend the Time Between Overhaul (TBO) of the engine",
+        "(B) To increase the cruise speed and performance of the aircraft",
+        "(C) To maintain the aircraft in an airworthy condition",
+        "(D) To avoid any annual or phase inspections"
+      ],
+      "answer": "C",
+      "explanation": "音訊指出，瞭解被允許執行的預防性維護，能幫助飛行員確保飛機處於「適航狀態」(Airworthy Condition)，這是安全飛行的前提。",
+      "timestamp": "45:21"
+    },
+    {
+      "zh_question": "關於飛行決策與飛機限制、性能特性的關係，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 飛行決策應主要依據空中交通管制的指示",
+        "(B) 只要天氣良好，就不需要考慮飛機的性能限制",
+        "(C) 瞭解操作限制與性能特性有助於做出明智的飛行決策 (Educated Flight Decisions)",
+        "(D) 性能特性僅在緊急狀況下才具備參考價值"
+      ],
+      "en_question": "Regarding the relationship between flight decisions and aircraft limitations/performance characteristics, which statement is correct?",
+      "en_options": [
+        "(A) Flight decisions should be primarily based on Air Traffic Control instructions",
+        "(B) As long as the weather is good, there is no need to consider aircraft performance limitations",
+        "(C) Understanding operations limitations and performance characteristics helps make educated flight decisions",
+        "(D) Performance characteristics are only valuable as a reference in emergency situations"
+      ],
+      "answer": "C",
+      "explanation": "飛行員必須通盤瞭解 Operations Limitations 和 Performance Characteristics，才能在各階段做出「受過專業知識引導的」(Educated) 決策。",
+      "timestamp": "45:15"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The {{c1::Never Exceed Speed}} (V_NE) is indicated by a red line on the Airspeed Indicator and represents the speed beyond which structural damage could occur.",
+      "zh_translation": "「絕對不得超過速度」(V_NE) 在空速表上以紅線標示，代表超過此速度可能會發生結構損壞。",
+      "explanation": "這是飛機設計的極限速度，嚴禁在任何情況下超過。",
+      "tags": "Limitations",
+      "timestamp": "05:15"
+    },
+    {
+      "cloze_text": "POH Section 3, titled {{c1::Emergency Procedures}}, contains checklists for coping with malfunctions such as engine failure or fire.",
+      "zh_translation": "POH 第 3 節標題為「緊急程序」，包含處置發動機失效或火警等故障的檢查表。",
+      "explanation": "區分 Section 3 (Emergency) 與 Section 4 (Normal) 是飛行員的基本常識。",
+      "tags": "Manual-Structure",
+      "timestamp": "08:15"
+    },
+    {
+      "cloze_text": "The Certificate of Aircraft Registration is no longer valid if the {{c1::ownership}} of the aircraft is transferred to another person.",
+      "zh_translation": "如果飛機的所有權轉移給他人，該飛機登記證即失效。",
+      "explanation": "所有權轉移時，原登記證失效，必須重新申請新證。",
+      "tags": "Documentation",
+      "timestamp": "13:05"
+    },
+    {
+      "cloze_text": "Standard Airworthiness Certificates remain in effect as long as the aircraft receives required {{c1::maintenance}} and is registered in the U.S.",
+      "zh_translation": "只要飛機按規定進行維修並在美國註冊，標準適航證就持續有效。",
+      "explanation": "適航證本身沒有固定到期日，其效力取決於飛機是否持續符合維護規範。",
+      "tags": "Airworthiness",
+      "timestamp": "15:00"
+    },
+    {
+      "cloze_text": "GAMA Specification No. 1 established a {{c1::standardized format}} for all general aviation airplane and helicopter flight manuals.",
+      "zh_translation": "GAMA 第 1 號規範為所有通用航空飛機與直升機的飛行手冊建立了標準化格式。",
+      "explanation": "這使得 1975 年後生產的飛機手冊皆具備統一的九個章節結構。",
+      "tags": "POH-General",
+      "timestamp": "02:05"
+    },
+    {
+      "cloze_text": "An aircraft overdue for an annual inspection may be operated under a {{c1::Special Flight Permit}} issued by the FAA.",
+      "zh_translation": "超過年度檢查期限的飛機，可以憑 FAA 核發的「特許飛行證」進行飛行。",
+      "explanation": "通常用於將飛機飛往維修基地進行檢查，必須先確保飛機在該次飛行中是安全的 (Safe for flight)。",
+      "tags": "Regulations, Inspections",
+      "timestamp": "22:15"
+    },
+    {
+      "cloze_text": "The 100-hour limitation may be exceeded by no more than {{c1::10}} hours for the purpose of flying to a maintenance base.",
+      "zh_translation": "為了飛往維修基地，100 小時檢查的限制最多可以超過 10 小時。",
+      "explanation": "超出的時間必須計算在下一個 100 小時週期內，不得累積。",
+      "tags": "Limitations, Maintenance",
+      "timestamp": "23:15"
+    },
+    {
+      "cloze_text": "ELT batteries must be replaced or recharged when the transmitter has been in use for more than {{c1::1}} cumulative hour.",
+      "zh_translation": "當緊急定位發射機 (ELT) 累計使用超過 1 小時時，電池必須更換或重新充電。",
+      "explanation": "或是當電池壽命達到其標示效期的一半 (50%) 時也必須更換。",
+      "tags": "Safety Equipment, Maintenance",
+      "timestamp": "24:50"
+    },
+    {
+      "cloze_text": "Altimeter and static system inspections must be performed within the preceding {{c1::24}} calendar months for IFR operations.",
+      "zh_translation": "對於儀器飛行 (IFR) 操作，高度計與靜壓系統檢查必須在過去 24 個日曆月內完成。",
+      "explanation": "這是 14 CFR 91.411 規定的強制性安全檢查週期。",
+      "tags": "IFR, Instruments",
+      "timestamp": "19:55"
+    },
+    {
+      "cloze_text": "Preventive maintenance may be performed by a person holding at least a {{c1::Private Pilot}} certificate.",
+      "zh_translation": "持有至少「私用駕駛員」執照的人員可以執行預防性維修。",
+      "explanation": "前提是該飛機必須是由該飛行員擁有或營運，且非用於商業取酬服務。",
+      "tags": "Maintenance, Privileges",
+      "timestamp": "28:45"
+    },
+    {
+      "cloze_text": "Preventive maintenance is regarded as simple or minor preservation operations and is limited to work that does not involve {{c1::complex assembly operations}}.",
+      "zh_translation": "預防性維護被視為簡單或次要的保養操作，且僅限於不涉及複雜組裝作業的工作。",
+      "explanation": "14 CFR Part 43 定義了預防性維護的範圍，核心原則在於操作的簡易性。",
+      "tags": "Maintenance,Definition",
+      "timestamp": "31:46"
+    },
+    {
+      "cloze_text": "A pilot performing preventive maintenance must make an entry in the aircraft records including a description of work, date, signature, certificate number, and {{c1::type of certificate}} held.",
+      "zh_translation": "執行預防性維護的飛行員必須在飛機記錄中記載：工作說明、日期、簽署、證照號碼以及所持有的證照類別。",
+      "explanation": "維護記錄必須完整，以便追踪維護責任與適航狀態。",
+      "tags": "Logbook,Requirement",
+      "timestamp": "32:08"
+    },
+    {
+      "cloze_text": "A {{c1::Special Flight Permit}} may be obtained from the FSDO to allow an aircraft that does not meet airworthiness requirements, but is capable of safe flight, to be flown to a base for repairs.",
+      "zh_translation": "可以從 FSDO 獲得特許飛行證，以允許不符合適航要求但具備安全飛行能力的飛機飛往基地進行維修。",
+      "explanation": "這通常用於飛機在偏遠地區發生故障，需飛往維修廠的情況。",
+      "tags": "Special-Flight-Permit,FSDO",
+      "timestamp": "39:00"
+    },
+    {
+      "cloze_text": "ADs of an {{c1::emergency nature}} require immediate compliance prior to further flight.",
+      "zh_translation": "具有緊急性質的適航指令要求在下次飛行前立即執行。",
+      "explanation": "AD 分為緊急與非緊急兩類，前者對飛行安全有即時影響。",
+      "tags": "AD,Limitation",
+      "timestamp": "40:41"
+    },
+    {
+      "cloze_text": "Owners and operators are reminded that there is no provision to {{c1::overfly}} the maximum hour requirement of an AD unless specifically written into it.",
+      "zh_translation": "提醒所有人與營運人，除非適航指令中明確記載，否則不得超時飛行超過其規定的最大檢查時數。",
+      "explanation": "AD 的限時是絕對的，不像某些維護檢查（如 100 小時檢查）有 10 小時的寬限期。",
+      "tags": "AD,Compliance",
+      "timestamp": "41:16"
+    },
+    {
+      "cloze_text": "The registered owner or operator is responsible for having a current Airworthiness Certificate and a {{c1::Certificate of Aircraft Registration}} in the aircraft.",
+      "zh_translation": "登記所有人或營運人負責確保飛機上備有現行有效的適航證與飛機註冊證。",
+      "explanation": "這是適航性的基本文書要求（ARROW 口訣的一部分）。",
+      "tags": "Documents,Owner-Responsibility",
+      "timestamp": "42:27"
+    },
+    {
+      "cloze_text": "By understanding the operations limitations and performance characteristics of the aircraft, the pilot can make {{c1::educated}} flight decisions.",
+      "zh_translation": "透過瞭解飛機的操作限制與性能特性，飛行員可以做出明智的飛行決策。",
+      "explanation": "Educated decisions 強調的是基於手冊數據與專業判斷而非憑感覺飛行。",
+      "tags": "Limitations, Performance",
+      "timestamp": "45:14"
+    },
+    {
+      "cloze_text": "By learning what preventive maintenance is allowed on the aircraft, a pilot can maintain his or her aircraft in an {{c1::airworthy}} condition.",
+      "zh_translation": "透過學習飛機上允許的預防性維護，飛行員可以將飛機維持在適航狀態。",
+      "explanation": "Airworthy 指飛機符合其型別設計並處於安全運作狀態。",
+      "tags": "Maintenance, Airworthiness",
+      "timestamp": "45:22"
+    },
+    {
+      "cloze_text": "Flight manuals and aircraft documentation are {{c1::essential}} tools used to reach the goal of a safe flight.",
+      "zh_translation": "飛行手冊與飛機文件是達成安全飛行目標的必要工具。",
+      "explanation": "強調 AFM/POH 與相關紀錄文件在飛安風險管理中不可或缺的地位。",
+      "tags": "Documentation, Safety",
+      "timestamp": "45:30"
+    },
+    {
+      "cloze_text": "Knowledge of an aircraft's AFM/POH and documents, such as {{c1::ADs}}, provide pilots with ready access to pertinent information.",
+      "zh_translation": "對於飛機 AFM/POH 以及 ADs (適航指令) 等文件的知識，能讓飛行員隨時獲取相關資訊。",
+      "explanation": "ADs (Airworthiness Directives) 是 FAA 針對安全缺陷發布的強制性指令。",
+      "tags": "Regulation, Documentation",
+      "timestamp": "45:04"
+    }
+  ],
+  "video_id": "lSKqHGV6iVs",
+  "url": "https://www.youtube.com/watch?v=lSKqHGV6iVs",
+  "has_transcript": false
+}

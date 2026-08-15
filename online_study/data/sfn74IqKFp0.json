@@ -1,0 +1,590 @@
+{
+  "subject": "飛行儀表 - 皮托靜壓系統與高度計原理",
+  "mc_questions": [
+    {
+      "zh_question": "當飛機開啟備用靜壓源 (Alternate Static Source) 時，儀表指示會發生什麼變化？",
+      "zh_options": [
+        "(A) 高度計指示的高度會比實際高度略低",
+        "(B) 空速表 (ASI) 指示的空速會比實際空速略大",
+        "(C) 垂直速率表 (VSI) 會顯示持續性的下降",
+        "(D) 所有儀表指示皆不會改變"
+      ],
+      "en_question": "What changes occur in instrument indications when the alternate static source is utilized?",
+      "en_options": [
+        "(A) The altimeter indicates a slightly lower altitude than actual.",
+        "(B) The ASI indicates an airspeed greater than the actual airspeed.",
+        "(C) The VSI shows a constant descent.",
+        "(D) There are no changes in instrument indications."
+      ],
+      "answer": "B",
+      "explanation": "由於文氏管效應 (Venturi effect)，駕駛艙內的氣壓通常低於外部氣壓。開啟 Alternate Static Source 時，儀表感測到的靜壓較低，導致 Altimeter 讀數偏高、ASI 讀數偏大（因為動壓與靜壓的差值變大），而 VSI 則會先顯示瞬間爬升後再歸零。",
+      "timestamp": "03:30"
+    },
+    {
+      "zh_question": "關於高度計內部的真空膜盒 (Aneroid Wafers)，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 膜盒內部密封壓力為 29.92 吋汞柱",
+        "(B) 當大氣壓力增加時，膜盒會膨脹",
+        "(C) 膜盒膨脹會帶動機械連桿顯示高度降低",
+        "(D) 膜盒與皮托孔 (Pitot Tube) 直接相連"
+      ],
+      "en_question": "Which of the following statements regarding the altimeter's aneroid wafers is correct?",
+      "en_options": [
+        "(A) The wafers are sealed to an internal pressure of 29.92 inches of mercury.",
+        "(B) The wafers expand when atmospheric pressure increases.",
+        "(C) Wafer expansion drives the linkage to indicate a decrease in altitude.",
+        "(D) The wafers are directly connected to the pitot tube."
+      ],
+      "answer": "A",
+      "explanation": "高度計核心由一疊密封的 Aneroid Wafers 組成，內部壓力固定為 29.92 Hg。當外界靜壓降低（高度增加）時，膜盒會膨脹 (Expand)，進而驅動指針指示更高的高度。",
+      "timestamp": "04:53"
+    },
+    {
+      "zh_question": "在未調整高度計撥定值的情況下，從高壓區飛往低壓區會導致什麼危害？",
+      "zh_options": [
+        "(A) 指示高度低於實際高度，增加碰撞風險",
+        "(B) 實際高度高於指示高度，導致飛機超限",
+        "(C) 實際高度低於指示高度，可能導致飛機撞地",
+        "(D) 儀表會自動修正，無任何影響"
+      ],
+      "en_question": "What hazard exists when flying from a high-pressure area to a low-pressure area without adjusting the altimeter setting?",
+      "en_options": [
+        "(A) Indicated altitude is lower than actual altitude, increasing collision risk.",
+        "(B) Actual altitude is higher than indicated altitude, leading to exceedance.",
+        "(C) Actual altitude is lower than indicated altitude, potentially leading to controlled flight into terrain.",
+        "(D) The instrument self-corrects with no impact."
+      ],
+      "answer": "C",
+      "explanation": "航空界有一句名言「From High to Low, Look Out Below」。當飛機從高壓飛往低壓而未修正撥定值時，高度計會維持在較高的讀數，但飛機的實際高度 (Actual/True Altitude) 其實已經下降，這對障礙物避讓 (Terrain Clearance) 極具危險。",
+      "timestamp": "08:39"
+    },
+    {
+      "zh_question": "當飛機從高壓力區飛往低壓力區，且飛行員未根據當地的 Altimeter Setting 重新調整高度計時，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 高度計指針會顯示比實際高度更高的高度",
+        "(B) 飛機的實際高度（True Altitude）會低於高度計指示的高度",
+        "(C) 飛機的實際高度（True Altitude）會高於高度計指示的高度",
+        "(D) 此情況對飛行安全沒有任何影響"
+      ],
+      "en_question": "When flying from a high-pressure area to a low-pressure area without resetting the altimeter to the local altimeter setting, which statement is true?",
+      "en_options": [
+        "(A) The altimeter needles will indicate a higher altitude than the actual position",
+        "(B) The aircraft's True Altitude will be lower than the Indicated Altitude",
+        "(C) The aircraft's True Altitude will be higher than the Indicated Altitude",
+        "(D) This situation has no impact on flight safety"
+      ],
+      "answer": "B",
+      "explanation": "這是航空界著名的「High to Low, Look Out Below」觀念。當外界大氣壓力下降而高度計仍設定在較高的壓力值時，高度計會誤以為飛機處於較低位置而指示較高的高度。因此，飛行員若維持相同的 Indicated Altitude，實際上飛機的高度會持續下降，可能導致 True Altitude 低於 Indicated Altitude，造成撞地風險。",
+      "timestamp": "16:38"
+    },
+    {
+      "zh_question": "關於升降速表（VSI）的運作邏輯，為何在剛開始爬升或下降時會出現指示滯後（Lag）？",
+      "zh_options": [
+        "(A) 因為膜盒（Diaphragm）的材質膨脹係數太低",
+        "(B) 因為 Static Line 的管路太長導致空氣傳輸延遲",
+        "(C) 因為內部有一關鍵組件 Calibrated Leak 限制了殼體（Case）內壓力的變化速率",
+        "(D) 這是為了防止指針過於敏感而設計的機械阻尼器"
+      ],
+      "en_question": "Regarding the operational logic of the Vertical Speed Indicator (VSI), why does an indication lag occur during the initial climb or descent?",
+      "en_options": [
+        "(A) Due to the low expansion coefficient of the diaphragm material",
+        "(B) Due to the length of the static line causing air transmission delay",
+        "(C) Because a key component called 'Calibrated Leak' restricts the rate of pressure change inside the case",
+        "(D) It is a mechanical damper designed to prevent the needle from being overly sensitive"
+      ],
+      "answer": "C",
+      "explanation": "VSI 是一個差壓儀表。膜盒（Diaphragm）接收不受限的 Static Pressure，而儀表殼體（Case）則透過一個校準洩漏孔（Calibrated Leak）接收靜壓。當高度改變時，膜盒壓力立即變化，但殼體壓力因洩漏孔限制需一段時間（約 6-9 秒）才能達成平衡。這段壓力差的時間就是 Lag，直到變率穩定後，指針才會顯示正確的 Rate Information。",
+      "timestamp": "24:17"
+    },
+    {
+      "zh_question": "當氣溫高於標準大氣溫度時，關於密度高度（Density Altitude）與飛機性能的關係，下列何者敘述正確？",
+      "zh_options": [
+        "(A) 密度高度會降低，增加發動機馬力與螺旋槳效率",
+        "(B) 密度高度會升高，導致發動機進氣量增加進而提升性能",
+        "(C) 密度高度會降低，導致起飛滾行距離縮短",
+        "(D) 密度高度會升高，導致空氣分子較少，降低發動機功率與螺旋槳效率"
+      ],
+      "en_question": "When the air temperature is higher than standard, what is the relationship between Density Altitude and aircraft performance?",
+      "en_options": [
+        "(A) Density altitude decreases, increasing engine horsepower and propeller efficiency",
+        "(B) Density altitude increases, leading to more air intake and improved performance",
+        "(C) Density altitude decreases, resulting in a shorter takeoff roll",
+        "(D) Density altitude increases, resulting in fewer air molecules, reducing engine power and propeller efficiency"
+      ],
+      "answer": "D",
+      "explanation": "高溫會使空氣密度下降，導致密度高度（Density Altitude）升高。在這種「稀薄」的空氣中，自然進氣（Naturally Aspirated）發動機的進氣量減少，馬力下降；同時螺旋槳與機翼產生的推力與升力也因空氣分子減少而效率降低，進而導致起飛距離變長及爬升率下降。",
+      "timestamp": "20:15"
+    },
+    {
+      "zh_question": "當皮托管(Pitot Tube)入口與排水孔(Drain Hole)同時被冰堵塞,且飛機正在爬升時,空速表(ASI)會如何反應?",
+      "zh_options": [
+        "(A) 空速指示降至零",
+        "(B) 空速指示維持在堵塞發生時的數值不變",
+        "(C) 空速指示會隨高度增加而上升(類似高度計)",
+        "(D) 空速指示會劇烈波動"
+      ],
+      "en_question": "If both the pitot tube opening and the drain hole become blocked while the aircraft is climbing, how will the Airspeed Indicator (ASI) react?",
+      "en_options": [
+        "(A) The airspeed indication drops to zero",
+        "(B) The airspeed indication remains constant at the speed where blockage occurred",
+        "(C) The airspeed indication increases with altitude (acts like an altimeter)",
+        "(D) The airspeed indication will fluctuate violently"
+      ],
+      "answer": "C",
+      "explanation": "當入口與排水孔皆堵塞時,皮托管內的壓力被密封(Trapped)。隨高度增加,外部靜壓降低,導致膜盒內外壓差變大,空速表會像高度計一樣隨高度增加而顯示數值上升。",
+      "timestamp": "33:30"
+    },
+    {
+      "zh_question": "在靜壓孔(Static Port)發生堵塞的情況下進行爬升,空速表(ASI)的指示會出現什麼偏差?",
+      "zh_options": [
+        "(A) 指示速會大於實際空速",
+        "(B) 指示速會小於實際空速",
+        "(C) 指示速保持準確",
+        "(D) 指示速會跳動"
+      ],
+      "en_question": "During a climb with a blocked static port, what error will the Airspeed Indicator (ASI) display?",
+      "en_options": [
+        "(A) It will indicate a speed higher than actual airspeed",
+        "(B) It will indicate a speed lower than actual airspeed",
+        "(C) It will remain accurate",
+        "(D) The indication will oscillate"
+      ],
+      "answer": "B",
+      "explanation": "靜壓孔堵塞會將較高壓力的空氣鎖在儀表殼內。爬升時,實際外部壓力降低,但儀表仍對照堵塞處的高壓,導致指示空速低於實際值(Under-read)。",
+      "timestamp": "36:20"
+    },
+    {
+      "zh_question": "在電子飛行儀表系統(EFD)中,大氣數據電腦(ADC)主要接收哪些感測器訊號來計算空速與高度?",
+      "zh_options": [
+        "(A) 僅皮托管與靜壓孔",
+        "(B) 皮托管、靜壓孔以及機外溫度(OAT)探頭",
+        "(C) 陀螺儀與加速度計",
+        "(D) 磁力計與 GPS"
+      ],
+      "en_question": "In an Electronic Flight Display (EFD) system, which sensors provide the primary inputs for the Air Data Computer (ADC) to calculate airspeed and altitude?",
+      "en_options": [
+        "(A) Pitot tube and static port only",
+        "(B) Pitot tube, static port, and Outside Air Temperature (OAT) probe",
+        "(C) Gyros and accelerometers",
+        "(D) Magnetometer and GPS"
+      ],
+      "answer": "B",
+      "explanation": "ADC 接收 Pitot-Static 系統的壓力訊號以及 OAT 探頭的溫度訊號,藉此計算指示空速、真空速(TAS)以及氣壓高度。",
+      "timestamp": "42:50"
+    },
+    {
+      "zh_question": "根據陀螺儀的進動性 (Precession) 原理，當一個偏轉力 (Deflective force) 作用於旋轉中的陀螺儀時，其實際反應會發生在何處？",
+      "zh_options": [
+        "(A) 作用力施加的同一點",
+        "(B) 作用力施加點沿旋轉方向領先 90 度處",
+        "(C) 作用力施加點沿旋轉方向領先 180 度處",
+        "(D) 陀螺儀旋轉軸心點"
+      ],
+      "en_question": "Based on the principle of gyroscopic precession, when a deflective force is applied to a spinning gyro, where does the actual reaction occur?",
+      "en_options": [
+        "(A) At the same point where the force was applied",
+        "(B) At a point 90 degrees later in the direction of rotation",
+        "(C) At a point 180 degrees later in the direction of rotation",
+        "(D) At the center of the gyro's rotation axis"
+      ],
+      "answer": "B",
+      "explanation": "進動性 (Precession) 是陀螺儀對外力反應的特性。根據物理特性，其反應不會發生在受力點，而是會延遲出現在旋轉方向後方的 90 度位置。此原理被應用於 Turn Coordinator 等儀表來感測轉向率。",
+      "timestamp": "51:45"
+    },
+    {
+      "zh_question": "陀螺儀的「空間穩定性」(Rigidity in Space) 主要取決於哪兩項設計特性？",
+      "zh_options": [
+        "(A) 轉子尺寸與軸承潤滑度",
+        "(B) 進動速度與安裝架的平面數",
+        "(C) 高密度 (重量大) 與高速旋轉",
+        "(D) 真空壓力的穩定度與環境溫度"
+      ],
+      "en_question": "The 'Rigidity in Space' of a gyroscope primarily depends on which two design characteristics?",
+      "en_options": [
+        "(A) Rotor size and bearing lubrication",
+        "(B) Precession speed and the number of gimbal planes",
+        "(C) High density (weight for size) and high rotation speed",
+        "(D) Stability of vacuum pressure and ambient temperature"
+      ],
+      "answer": "C",
+      "explanation": "空間穩定性 (Rigidity in Space) 是陀螺儀在旋轉時保持其在空間中固定位置的能力。這主要由轉子的質量 (High density) 以及旋轉的速度所決定，轉速越高、質量越集中在邊緣，穩定性越強。",
+      "timestamp": "46:15"
+    },
+    {
+      "zh_question": "為什麼現代飛機的儀表系統 (如 Heading Indicator 與 Turn Coordinator) 通常會採用不同的動力來源 (例如真空與電力混合)？",
+      "zh_options": [
+        "(A) 為了減輕飛機整體的重量",
+        "(B) 電子儀表比真空儀表更精準",
+        "(C) 真空系統無法驅動 Turn Coordinator",
+        "(D) 為了在單一系統故障時仍能提供基本的銀行 (Bank) 資訊"
+      ],
+      "en_question": "Why do modern aircraft instrument systems typically use different power sources (e.g., a mix of vacuum and electric) for gyros?",
+      "en_options": [
+        "(A) To reduce the overall weight of the aircraft",
+        "(B) Electronic instruments are more accurate than vacuum ones",
+        "(C) The vacuum system cannot drive the Turn Coordinator",
+        "(D) To ensure bank information is available if one power source fails"
+      ],
+      "answer": "D",
+      "explanation": "這是一種備援 (Redundancy) 設計邏輯。若 Heading Indicator 與 Attitude Indicator 使用真空系統，而 Turn Coordinator 使用電力，當真空泵失效時，飛行員仍能透過電力驅動的儀表獲得基本的姿態與航向參考。",
+      "timestamp": "58:28"
+    },
+    {
+      "zh_question": "在隸屬控制與補償單元 (Slaving Control and Compensator Unit) 中，補償儀表 (Slaving Meter) 指針向右偏轉代表什麼含義？",
+      "zh_options": [
+        "(A) 航向卡存在逆時針誤差",
+        "(B) 航向卡存在順時針誤差",
+        "(C) 飛機正在向右轉彎",
+        "(D) 通訊無線電產生干擾"
+      ],
+      "en_question": "What does a right deflection on the slaving meter of a Slaving Control and Compensator Unit indicate?",
+      "en_options": [
+        "(A) A counter-clockwise error of the compass card",
+        "(B) A clockwise error of the compass card",
+        "(C) The aircraft is in a right turn",
+        "(D) Interference from communication radios"
+      ],
+      "answer": "B",
+      "explanation": "根據系統邏輯，補償儀表顯示的是顯示航向與磁航向之間的差異。右偏 (Right deflection) 代表航向卡存在順時針誤差 (Clockwise error)，左偏則代表逆時針誤差。",
+      "timestamp": "01:02:50"
+    },
+    {
+      "zh_question": "關於攻角指示器 (AOA Indicator) 的特性，下列哪項參數『不會』影響臨界攻角 (Critical AOA)？",
+      "zh_options": [
+        "(A) 飛機重量 (Weight)",
+        "(B) 坡度 (Bank Angle)",
+        "(C) 溫度 (Temperature)",
+        "(D) 以上皆是"
+      ],
+      "en_question": "Regarding the characteristics of an Angle of Attack (AOA) indicator, which of the following parameters does NOT affect the critical AOA?",
+      "en_options": [
+        "(A) Aircraft weight",
+        "(B) Bank angle",
+        "(C) Temperature",
+        "(D) All of the above"
+      ],
+      "answer": "D",
+      "explanation": "臨界攻角 (Critical AOA) 是一個固定值，飛機總是在相同的攻角下失速。它不受重量、坡度、溫度、空氣密度或重心位置的影響。雖然失速速度 (Stall Speed) 會隨這些因素改變，但失速攻角保持不變。",
+      "timestamp": "01:08:50"
+    },
+    {
+      "zh_question": "若使用非自動找北功能的自由陀螺儀 (Free Gyro) 航向儀，建議大約每隔多久應與磁力指南針進行校對重設？",
+      "zh_options": [
+        "(A) 每 5 分鐘",
+        "(B) 每 15 分鐘",
+        "(C) 每 30 分鐘",
+        "(D) 僅在起飛前校對一次即可"
+      ],
+      "en_question": "For a free gyro heading indicator without automatic north-seeking capability, how often should it be checked and reset to align with the magnetic compass?",
+      "en_options": [
+        "(A) Every 5 minutes",
+        "(B) Every 15 minutes",
+        "(C) Every 30 minutes",
+        "(D) Only once before takeoff"
+      ],
+      "answer": "B",
+      "explanation": "由於摩擦導致的進動 (Precession)，自由陀螺儀的航向會隨時間產生誤差。因此建議大約每 15 分鐘在飛機平飛且穩定速度時，重新將其與磁力指南針校準。",
+      "timestamp": "01:06:35"
+    },
+    {
+      "zh_question": "在北緯 40 度地區進行轉向至北方的操作時,為了補償北轉誤差(Northerly Turning Error),飛行員應在羅盤指示到達預定航向多少度之前停止轉彎?",
+      "zh_options": [
+        "(A) 15 度",
+        "(B) 20 度",
+        "(C) 35 度",
+        "(D) 55 度"
+      ],
+      "en_question": "When turning to a northerly heading at 40 degrees North latitude, how many degrees prior to the desired heading should the pilot stop the turn to compensate for northerly turning error?",
+      "en_options": [
+        "(A) 15 degrees",
+        "(B) 20 degrees",
+        "(C) 35 degrees",
+        "(D) 55 degrees"
+      ],
+      "answer": "C",
+      "explanation": "根據影片中的修正法則,北轉誤差的修正量為 15 度加上緯度的一半 (15 + 1/2 Latitude)。在北緯 40 度,修正量為 15 + 20 = 35 度。因此應在預定航向前 35 度停止轉彎。",
+      "timestamp": "01:16:34"
+    },
+    {
+      "zh_question": "當飛機在東(East)或西(West)航向上加速時,磁羅盤會因為磁傾角(Magnetic Dip)與慣性作用產生什麼誤差?",
+      "zh_options": [
+        "(A) 指示向南轉向 (Indication toward South)",
+        "(B) 指示向北轉向 (Indication toward North)",
+        "(C) 羅盤卡會發生震盪但航向不變",
+        "(D) 產生與緯度成正比的延遲誤差"
+      ],
+      "en_question": "When an aircraft accelerates on an easterly or westerly heading, what error occurs in the magnetic compass due to magnetic dip and inertia?",
+      "en_options": [
+        "(A) An indication toward South",
+        "(B) An indication toward North",
+        "(C) Oscillations of the card without heading change",
+        "(D) A lag error proportional to latitude"
+      ],
+      "answer": "B",
+      "explanation": "這可以用口訣 ANDS (Accelerate North, Decelerate South) 來記憶。加速時,羅盤會顯示向北轉向的誤差(Indication toward North),減速時則顯示向南轉向。",
+      "timestamp": "01:18:08"
+    },
+    {
+      "zh_question": "關於垂直卡式磁羅盤 (Vertical Card Magnetic Compass) 的敘述,下列何者正確?",
+      "zh_options": [
+        "(A) 它使用液體阻尼來消除所有加速誤差",
+        "(B) 它完全消除了北向轉彎誤差",
+        "(C) 它利用渦流阻尼 (Eddy current damping) 來減少震盪",
+        "(D) 它的刻度盤是固定的,由指針移動指示航向"
+      ],
+      "en_question": "Which statement regarding the Vertical Card Magnetic Compass is correct?",
+      "en_options": [
+        "(A) It uses liquid damping to eliminate all acceleration errors",
+        "(B) It completely eliminates northerly turning errors",
+        "(C) It utilizes eddy current damping to decrease oscillations",
+        "(D) It has a fixed dial with a needle indicating the heading"
+      ],
+      "answer": "C",
+      "explanation": "垂直卡式磁羅盤通過渦流阻尼 (Eddy current damping) 機制,利用永久磁鐵產生的通量與阻尼杯產生的渦流相互作用,來有效減少儀表的震盪(Oscillations)。",
+      "timestamp": "01:19:23"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The pitot-static system is utilized for the operation of the airspeed indicator, altimeter, and {{c1::vertical speed indicator}}.",
+      "zh_translation": "皮托靜壓系統用於操作空速表、高度計以及垂直速率表。",
+      "explanation": "這三種儀表是依靠靜壓與全壓（動壓）的變化來運作的。",
+      "tags": "Pitot-Static, Instruments",
+      "timestamp": "00:52"
+    },
+    {
+      "cloze_text": "The altimeter is an aneroid barometer that measures the pressure of the atmosphere at the level where the {{c1::altimeter}} is located.",
+      "zh_translation": "高度計是一種真空壓力計，用來測量高度計所在位置的大氣壓力。",
+      "explanation": "高度計本質上是測量環境靜壓，並將其轉換為英呎讀數。",
+      "tags": "Altimeter, Definition",
+      "timestamp": "06:03"
+    },
+    {
+      "cloze_text": "An altimeter error occurs when flying from a hot area to a {{c1::cold}} area, causing the true altitude to be lower than indicated.",
+      "zh_translation": "當從高溫區飛往低溫區時會產生高度計誤差，導致實際高度低於指示高度。",
+      "explanation": "冷空氣密度較大，等壓面高度較低，因此高度計會誤導飛行員以為高度足夠。",
+      "tags": "Errors, Temperature",
+      "timestamp": "10:17"
+    },
+    {
+      "cloze_text": "On a typical altimeter dial, the short, wide needle indicates {{c1::thousands}} of feet.",
+      "zh_translation": "在典型的高度計刻度盤上，短且寬的指針指示幾千英呎。",
+      "explanation": "長針指示百英呎，短寬針指示千英呎，帶三角形頂端的細長針指示萬英呎。",
+      "tags": "Altimeter, Display",
+      "timestamp": "06:57"
+    },
+    {
+      "cloze_text": "Due to the Venturi effect of air flowing around the fuselage, the air pressure inside the flight deck is {{c1::lower}} than the exterior pressure.",
+      "zh_translation": "由於氣流繞過機身的文氏管效應，駕駛艙內的氣壓比外部壓力低。",
+      "explanation": "這是導致備用靜壓源產生誤差的主要物理原因。",
+      "tags": "Static, Aerodynamics",
+      "timestamp": "03:22"
+    },
+    {
+      "cloze_text": "If the altimeter cannot be adjusted for a non-standard pressure setting above {{c1::31.00}} Hg, actual altitude is higher than indicated.",
+      "zh_translation": "如果高度計無法針對超過 31.00 Hg 的非標準氣壓撥定值進行調整，則實際高度會高於指示高度。",
+      "explanation": "這是高度計調整機構的物理限制數據之一。",
+      "tags": "Limitations, Altimeter",
+      "timestamp": "09:02"
+    },
+    {
+      "cloze_text": "During an instrument check, the altimeter pointer should indicate the surveyed field elevation; if the indication is off more than {{c1::75}} feet, the instrument should be referred for recalibration.",
+      "zh_translation": "進行儀表檢查時，高度計應顯示該機場測量的高度；如果誤差超過 75 呎，則應將該儀表送去重新校正。",
+      "explanation": "這是高度計在飛行前檢查時的重要限制數值，超過此範圍則視為不可靠（Unreliable）。",
+      "tags": "Limitations / Altimeter",
+      "timestamp": "21:35"
+    },
+    {
+      "cloze_text": "A rule of thumb for finding TAS is to add {{c1::2}} percent to the CAS for each 1,000 feet of altitude.",
+      "zh_translation": "計算真空速（TAS）的一個經驗法則是在校準空速（CAS）的基礎上，每 1,000 呎高度增加 2%。",
+      "explanation": "這是在飛行計畫階段常用於估算高高度航行性能的簡易口訣。",
+      "tags": "Airspeed / Rule-of-Thumb",
+      "timestamp": "28:11"
+    },
+    {
+      "cloze_text": "The {{c1::White Arc}} on the airspeed indicator is commonly referred to as the flap operating range.",
+      "zh_translation": "空速表上的白弧通常被稱為襟翼操作範圍。",
+      "explanation": "白弧的下限是 VS0（著陸構型失速速度），上限是 VFE（襟翼最大伸展速度）。",
+      "tags": "ASI-Markings / Limitations",
+      "timestamp": "29:09"
+    },
+    {
+      "cloze_text": "Pressure altitude is the altitude indicated when the altimeter setting window is adjusted to {{c1::29.92}} Hg.",
+      "zh_translation": "壓力高度是指當高度計設定窗口調整為 29.92 英吋汞柱時所顯示的高度。",
+      "explanation": "這是定義壓力高度的標準基準值（Standard Datum Plane），用於各種性能數據計算。",
+      "tags": "Altitude / Definitions",
+      "timestamp": "19:43"
+    },
+    {
+      "cloze_text": "The typical VSI has a lag period from the initial change in the rate of climb until it displays an accurate indication of about {{c1::6 to 9}} seconds.",
+      "zh_translation": "典型的升降速表（VSI）從開始改變爬升率到顯示準確指示，大約有 6 到 9 秒的滯後時間。",
+      "explanation": "這種滯後是由殼體校準洩漏孔（Calibrated Leak）的壓力平衡過程所造成的。",
+      "tags": "VSI / Systems",
+      "timestamp": "24:17"
+    },
+    {
+      "cloze_text": "True altitude is the vertical distance of the aircraft above {{c1::mean sea level}} (MSL).",
+      "zh_translation": "實際高度是指飛機高於平均海平面（MSL）的垂直距離。",
+      "explanation": "航圖上的地形高度與障礙物高度都是以 True Altitude (MSL) 表示，對避障至關重要。",
+      "tags": "Altitude / Definitions",
+      "timestamp": "19:18"
+    },
+    {
+      "cloze_text": "The airspeed indicator will read {{c1::zero}} if the pitot tube is blocked but the drain hole remains open.",
+      "zh_translation": "如果皮托管入口堵塞但排水孔保持暢通,空速表將顯示零。",
+      "explanation": "因為動壓空氣無法進入且殘餘壓力由排水孔洩出,導致與靜壓相等,壓差為零。",
+      "tags": "Instruments, Pitot-Static",
+      "timestamp": "33:10"
+    },
+    {
+      "cloze_text": "If the static port is blocked, the {{c1::altimeter}} will freeze at the altitude where the blockage occurred.",
+      "zh_translation": "如果靜壓孔堵塞,高度計將凍結在堵塞發生時的高度。",
+      "explanation": "高度計運作完全依賴靜壓變化,一旦靜壓源被切斷且壓力被鎖定,指針將不再移動。",
+      "tags": "Instruments, Failure",
+      "timestamp": "37:30"
+    },
+    {
+      "cloze_text": "Design maneuvering speed (V_A) is the speed at which the aircraft will {{c1::stall}} before it causes structural damage.",
+      "zh_translation": "設計操縱速度 (V_A) 是指飛機在造成結構損壞之前會先發生失速的速度。",
+      "explanation": "在 V_A 以下進行全舵量操縱是安全的,因為飛機負荷過大前會先失速以釋放壓力。",
+      "tags": "Limitations, Aerodynamics",
+      "timestamp": "31:25"
+    },
+    {
+      "cloze_text": "On an EFD airspeed tape, the trend vector shows where the airspeed will be in {{c1::6}} seconds.",
+      "zh_translation": "在電子儀表的空速帶上,趨勢向量顯示 6 秒後的空速預測位置。",
+      "explanation": "這是 ADC 根據目前的加速率計算出的短期趨勢預測。",
+      "tags": "EFD, PFD",
+      "timestamp": "42:10"
+    },
+    {
+      "cloze_text": "The blue line on the airspeed indicator of a multi-engine aircraft represents {{c1::V_YSE}}.",
+      "zh_translation": "多發動機飛機空速表上的藍線代表 V_YSE (單發最速爬升速度)。",
+      "explanation": "這是在一具發動機失效時,能獲得最佳爬升率或最小下降率的空速。",
+      "tags": "Multi-Engine, Limitations",
+      "timestamp": "30:45"
+    },
+    {
+      "cloze_text": "Precession is the tilting or turning of a gyro in response to a {{c1::deflective force}}.",
+      "zh_translation": "進動性是陀螺儀因偏轉力而產生的傾斜或轉動反應。",
+      "explanation": "這是陀螺儀兩大核心特性之一，也是姿態儀和航向儀運作的基礎。",
+      "tags": "Instruments, Definition",
+      "timestamp": "51:40"
+    },
+    {
+      "cloze_text": "The rate at which the gyro precesses is {{c1::inversely proportional}} to the speed of the rotor.",
+      "zh_translation": "陀螺儀進動的速率與轉子的旋轉速度成反比。",
+      "explanation": "轉速越高，陀螺儀越穩定，對於相同外力的進動反應就越小。",
+      "tags": "Physics, Gyro",
+      "timestamp": "52:01"
+    },
+    {
+      "cloze_text": "A typical vacuum system instrument operation usually ranges between {{c1::4.5 and 5.5}} inches of mercury (Hg).",
+      "zh_translation": "典型的真空系統儀表運作壓力通常介於 4.5 至 5.5 英吋汞柱之間。",
+      "explanation": "若壓力低於此範圍，陀螺儀轉速不足，會導致 Attitude 與 Heading 指示變得不穩定或不準確。",
+      "tags": "Limitation, Vacuum",
+      "timestamp": "58:45"
+    },
+    {
+      "cloze_text": "A freely or universally mounted gyroscope is said to have {{c1::three}} planes of freedom.",
+      "zh_translation": "一個自由或萬向安裝的陀螺儀被認為具有三個自由平面。",
+      "explanation": "這允許陀螺儀在飛機改變姿態時，其旋轉軸仍能保持在空間中的固定方向。",
+      "tags": "Design, Instruments",
+      "timestamp": "50:35"
+    },
+    {
+      "cloze_text": "The principle of {{c1::Rigidity in Space}} refers to the principle that a gyroscope remains in a fixed position in the plane in which it is spinning.",
+      "zh_translation": "空間穩定性原理是指陀螺儀保持在它旋轉平面所處的固定位置上。",
+      "explanation": "這是陀螺儀抵抗外力改變其旋轉平面的物理慣性特性。",
+      "tags": "Theory, Gyro",
+      "timestamp": "46:00"
+    },
+    {
+      "cloze_text": "When the vacuum pressure drops below the normal operating range, the gyroscopic instruments may become {{c1::unstable}} and inaccurate.",
+      "zh_translation": "當真空壓力降至正常工作範圍以下時，陀螺儀儀表可能會變得不穩定且不精確。",
+      "explanation": "這是因為轉速降低導致陀螺儀的空間穩定性下降，易受干擾而偏轉。",
+      "tags": "Abnormal, Logic",
+      "timestamp": "01:00:08"
+    },
+    {
+      "cloze_text": "The Pictorial Navigation Indicator (PNI) is commonly referred to as an {{c1::HSI}}.",
+      "zh_translation": "圖像導航指示器 (PNI) 通常被簡稱為水平狀態指示器 (HSI)。",
+      "explanation": "HSI (Horizontal Situation Indicator) 結合了航向儀與導航功能，是現代座艙的核心儀表。",
+      "tags": "Instruments",
+      "timestamp": "01:01:29"
+    },
+    {
+      "cloze_text": "The magnetic slaving transmitter is usually mounted in a {{c1::wingtip}} to eliminate magnetic interference.",
+      "zh_translation": "磁力隸屬發射器通常安裝在翼尖，以消除磁場干擾。",
+      "explanation": "遠離發動機和電氣設備的 Wingtip 可以最小化飛機局部磁場對 Flux Valve 的干擾。",
+      "tags": "System Design",
+      "timestamp": "01:03:12"
+    },
+    {
+      "cloze_text": "For some heading indicators in light aircraft, the gyro will tumble if pitch or bank limits exceed {{c1::55}} degrees.",
+      "zh_translation": "對於某些輕型飛機的航向儀，若俯仰或坡度限制超過 55 度，陀螺儀將會翻轉 (Tumble)。",
+      "explanation": "這是傳統機械陀螺儀的物理限制，超過此範圍儀表將失去準確性並需要重新校準 (Caging)。",
+      "tags": "Limitations",
+      "timestamp": "01:06:55"
+    },
+    {
+      "cloze_text": "The difference between true north and magnetic north is known as {{c1::variation}}.",
+      "zh_translation": "真北與磁北之間的差異稱為磁偏角 (Variation)。",
+      "explanation": "磁偏角隨地理位置改變，飛行員需透過等磁偏線 (Isogonic lines) 進行修正。",
+      "tags": "Navigation",
+      "timestamp": "01:13:18"
+    },
+    {
+      "cloze_text": "Compass error caused by local magnetic fields within the aircraft is called {{c1::deviation}}.",
+      "zh_translation": "由飛機內部局部磁場引起的指南針誤差稱為磁偏差 (Deviation)。",
+      "explanation": "磁偏差通常由飛機上的電子設備或金屬零件引起，需透過 Swinging 程序並參考 Compass Correction Card 來修正。",
+      "tags": "Maintenance",
+      "timestamp": "01:14:34"
+    },
+    {
+      "cloze_text": "The magnetic compass is filled with fluid to {{c1::damp}} the oscillations of the float and card.",
+      "zh_translation": "磁力指南針內充滿液體，是為了緩衝 (阻尼) 浮筒與刻度卡的震盪。",
+      "explanation": "液體阻尼 (Damping) 能防止羅盤在飛行中因震動或微小擾動而過度晃動，增加易讀性。",
+      "tags": "Instruments",
+      "timestamp": "01:10:39"
+    },
+    {
+      "cloze_text": "To correct for the northerly turning error, one rule of thumb is to stop the turn {{c1::15 degrees plus half the latitude}} prior to the desired heading.",
+      "zh_translation": "為了修正北轉誤差,一個經驗法則是比預定航向提前「15度加上緯度的一半」停止轉彎。",
+      "explanation": "這是飛行員在進行非陀螺儀儀表轉彎時的重要口訣,用於補償磁傾角引起的誤差。",
+      "tags": "Navigation / Procedures",
+      "timestamp": "01:16:34"
+    },
+    {
+      "zh_translation": "磁羅盤加速誤差的記憶口訣是 ANDS,代表：加速向北 / 減速向南。",
+      "cloze_text": "A mnemonic for the effect of acceleration error is the word ANDS: {{c1::Accelerate North / Decelerate South}}.",
+      "explanation": "ANDS 是基礎飛行訓練中最重要的口訣之一,專指在東西航向上加減速對羅盤的影響。",
+      "tags": "Instruments / Memory-Item",
+      "timestamp": "01:18:08"
+    },
+    {
+      "zh_translation": "當在南緯/北緯地區向南轉向時,羅盤浮盤組件會「滯後」(lag) 而非領先。",
+      "cloze_text": "When turning in a southerly direction, the compass float assembly {{c1::lags}} rather than leads.",
+      "explanation": "南轉誤差與北轉誤差相反,羅盤指示會慢於實際轉彎速度,因此需要「轉過頭」一點再停止。",
+      "tags": "Instruments",
+      "timestamp": "01:16:56"
+    },
+    {
+      "zh_translation": "室外氣溫 (OAT) 表感應元件由「雙金屬型」(bimetallic type) 溫度計組成。",
+      "cloze_text": "The sensing element of an OAT gauge consists of a {{c1::bimetallic type}} thermometer.",
+      "explanation": "雙金屬溫度計利用兩種不同金屬的膨脹係數差異來測量溫度,是飛機上簡單且可靠的機械式溫度感測器。",
+      "tags": "Systems / Instruments",
+      "timestamp": "01:19:51"
+    },
+    {
+      "zh_translation": "羅盤震盪誤差 (Oscillation Error) 是指由先前提到的所有誤差組合而成的波動。",
+      "cloze_text": "Oscillation error is a combination of {{c1::all of the errors}} previously mentioned and results in fluctuation of the compass card.",
+      "explanation": "由於亂流或飛機操縱導致羅盤在液體中晃動,進而產生讀數波動,飛行員應取擺動的平均值。",
+      "tags": "Instruments",
+      "timestamp": "01:18:23"
+    }
+  ],
+  "video_id": "sfn74IqKFp0",
+  "url": "https://www.youtube.com/watch?v=sfn74IqKFp0",
+  "has_transcript": false
+}

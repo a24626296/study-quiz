@@ -1,0 +1,847 @@
+{
+  "subject": "航空器系統 - 往復式引擎與螺旋槳系統",
+  "mc_questions": [
+    {
+      "zh_question": "關於螺旋槳葉片設計中「扭轉」(Twist) 的主要原因，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 為了平衡螺旋槳運轉時產生的離心力",
+        "(B) 補償葉尖到葉轂的速度差異，以產生均勻的升力(推力)",
+        "(C) 為了在高速航行時減少寄生阻力",
+        "(D) 增加葉尖的攻角以防止失速"
+      ],
+      "en_question": "What is the primary reason for a propeller blade to be 'twisted' from the hub to the tip?",
+      "en_options": [
+        "(A) To balance the centrifugal forces generated during rotation.",
+        "(B) To compensate for the difference in speed between the tip and the hub, producing uniform lift (thrust).",
+        "(C) To reduce parasitic drag during high-speed flight.",
+        "(D) To increase the angle of attack at the tip to prevent stalling."
+      ],
+      "answer": "B",
+      "explanation": "由於螺旋槳葉尖的切線速度遠高於葉轂(Hub)，若整片葉片攻角相同，升力分佈會極度不均。透過扭轉設計，讓葉轂處有較大 Pitch，葉尖處有較小 Pitch，能在不同切線速度下維持均勻的升力分佈。",
+      "timestamp": "09:32"
+    },
+    {
+      "zh_question": "在配備定速螺旋槳(Constant-speed Propeller)的飛機上，節流閥(Throttle)主要控制的是什麼？",
+      "zh_options": [
+        "(A) 螺旋槳葉片角度",
+        "(B) 引擎進氣歧管壓力 (Manifold Pressure)",
+        "(C) 燃油與空氣的混合比",
+        "(D) 螺旋槳轉速 (RPM)"
+      ],
+      "en_question": "On an aircraft equipped with a constant-speed propeller, what does the throttle primarily control?",
+      "en_options": [
+        "(A) The propeller blade angle.",
+        "(B) The engine manifold pressure.",
+        "(C) The fuel-air mixture ratio.",
+        "(D) The propeller RPM."
+      ],
+      "answer": "B",
+      "explanation": "定速螺旋槳系統中，節流閥控制的是進氣歧管壓力 (Manifold Pressure)，用來反應引擎的功率輸出(Power Output)；而轉速 (RPM) 則由螺旋槳控制桿透過 Governor 調節葉片角度來維持。",
+      "timestamp": "14:15"
+    },
+    {
+      "zh_question": "壓縮點火(Compression Ignition)引擎與火星塞點火(Spark Ignition)引擎的主要區別為何？",
+      "zh_options": [
+        "(A) 壓縮點火引擎不需要燃油噴嘴",
+        "(B) 壓縮點火引擎利用壓縮空氣產生的高溫來點燃燃油",
+        "(C) 壓縮點火引擎只能使用航空汽油(AVGAS)",
+        "(D) 壓縮點火引擎沒有活塞構造"
+      ],
+      "en_question": "What is the main difference between a compression ignition engine and a spark ignition engine?",
+      "en_options": [
+        "(A) Compression ignition engines do not require fuel injectors.",
+        "(B) Compression ignition engines use the heat produced by compressing air to ignite the fuel.",
+        "(C) Compression ignition engines can only use aviation gasoline (AVGAS).",
+        "(D) Compression ignition engines do not have a piston structure."
+      ],
+      "answer": "B",
+      "explanation": "壓縮點火引擎(通常指 Diesel 引擎)首先壓縮氣缸內的空氣使其升溫，當燃油噴入高溫空氣時會自動著火，不需要火星塞產生電火花。",
+      "timestamp": "02:20"
+    },
+    {
+      "zh_question": "在配備定速螺旋槳(Constant-Speed Propeller)的飛機上,若飛機空速降低至螺旋槳葉片接觸到「低螺距止擋(Low Pitch Stop)」後,引擎轉速(RPM)將會如何變化?",
+      "zh_options": [
+        "(A) 調速器(Governor)會繼續維持恆定的 RPM",
+        "(B) 螺旋槳將會自動進入順槳(Feather)狀態",
+        "(C) 引擎 RPM 將會隨著空速降低而下降,行為類似固定螺距螺旋槳",
+        "(D) 由於阻力減少,引擎 RPM 會自動爬升至紅線區"
+      ],
+      "en_question": "On an aircraft equipped with a constant-speed propeller, if the airspeed decreases enough for the blades to contact the 'low pitch stop', how will the engine RPM behave?",
+      "en_options": [
+        "(A) The governor will continue to maintain a constant RPM",
+        "(B) The propeller will automatically move into the feather position",
+        "(C) Engine RPM will decrease as airspeed decreases, acting like a fixed-pitch propeller",
+        "(D) RPM will automatically climb to the red line due to reduced drag"
+      ],
+      "answer": "C",
+      "explanation": "當螺旋槳葉片達到 Pitch Stop (螺距止擋)後,調速器(Governor)已無法透過改變葉片角度來維持轉速。此時螺旋槳的特性會轉變為 Fixed-pitch propeller,RPM 會隨著 Airspeed 或引擎負載的變化而增加或減少。",
+      "timestamp": "16:50"
+    },
+    {
+      "zh_question": "關於調整具有定速螺旋槳飛機的動力設定(Power Settings),下列哪項操作程序是正確的?",
+      "zh_options": [
+        "(A) 增加動力時,應先增加 Manifold Pressure (MP),再增加 RPM",
+        "(B) 減少動力時,應先減少 Manifold Pressure (MP),再減少 RPM",
+        "(C) 減少動力時,應先減少 RPM,再減少 Manifold Pressure (MP)",
+        "(D) 不論增加或減少動力,應同時等比例移動 Throttle 與 Propeller Control"
+      ],
+      "en_question": "Regarding the adjustment of power settings on an aircraft with a constant-speed propeller, which of the following procedures is correct?",
+      "en_options": [
+        "(A) When increasing power, increase Manifold Pressure (MP) before increasing RPM",
+        "(B) When decreasing power, reduce Manifold Pressure (MP) before reducing RPM",
+        "(C) When decreasing power, reduce RPM before reducing Manifold Pressure (MP)",
+        "(D) Move Throttle and Propeller Control simultaneously and proportionally for all changes"
+      ],
+      "answer": "B",
+      "explanation": "為了避免汽缸過度受壓(Overstressing cylinders),減少動力時應先收 Throttle 降低進氣壓力(Manifold Pressure),再降低 RPM。反之,增加動力時應先增加 RPM,再加 MP。此原則是為了避免在低轉速下產生過高的進氣壓力(High MP at low RPM)。",
+      "timestamp": "19:45"
+    },
+    {
+      "zh_question": "在巡航飛行中,若發生化油器結冰(Carburetor Icing),對於配備定速螺旋槳的飛機,最直接的儀表徵候為何?",
+      "zh_options": [
+        "(A) 引擎轉速(RPM)明顯下降",
+        "(B) 進氣壓力(Manifold Pressure)下降,但 RPM 維持不變",
+        "(C) 進氣壓力(Manifold Pressure)上升,RPM 下降",
+        "(D) 油溫(Oil Temperature)急遽上升"
+      ],
+      "en_question": "During cruise flight, what is the primary instrumental indication of carburetor icing on an aircraft equipped with a constant-speed propeller?",
+      "en_options": [
+        "(A) A noticeable drop in engine RPM",
+        "(B) A drop in Manifold Pressure (MP) while RPM remains constant",
+        "(C) An increase in Manifold Pressure (MP) with a decrease in RPM",
+        "(D) A rapid increase in Oil Temperature"
+      ],
+      "answer": "B",
+      "explanation": "在定速螺旋槳系統中,結冰導致的動力損失會先反映在 Manifold Pressure 的下降。由於調速器(Governor)會自動調整螺距來維持 RPM,因此在早期結冰階段轉速表可能看不出變化,直到結冰非常嚴重超出調整範圍為止。",
+      "timestamp": "28:15"
+    },
+    {
+      "zh_question": "在關閉裝有渦輪增壓器（Turbocharger）的發動機前，為何需要讓發動機怠速運轉一段時間？",
+      "zh_options": [
+        "(A) 為了排乾軸承殼體內的剩餘機油",
+        "(B) 為了讓渦輪轉速增加以利下次啟動",
+        "(C) 為了防止剩餘機油因高溫燒焦形成硬碳沉積（Coking）",
+        "(D) 為了平衡進氣歧管與排氣歧管的壓力"
+      ],
+      "en_question": "Why should a turbocharged engine be allowed to cool at idle before shutting it down?",
+      "en_options": [
+        "(A) To drain all remaining oil from the bearing housing",
+        "(B) To increase turbine speed for the next start",
+        "(C) To prevent remaining oil from boiling and forming hard carbon deposits (coking)",
+        "(D) To equalize pressure between the intake and exhaust manifolds"
+      ],
+      "answer": "C",
+      "explanation": "渦輪增壓器在高功率運行後極熱。若立即關機，軸承殼（bearing housing）內的機油會因殘餘高溫而沸騰燒焦，形成硬碳沉積（carbon deposits/coking），這會迅速損壞軸承並降低系統壽命。",
+      "timestamp": "45:21"
+    },
+    {
+      "zh_question": "關於航空發動機的磁電機（Magneto）點火系統，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 磁電機運作時需依賴飛機的主電池提供電力",
+        "(B) 雙點火系統（Dual Ignition）的主要目的是為了增加燃油消耗率",
+        "(C) 磁電機由發動機曲軸驅動，與飛機電氣系統完全獨立",
+        "(D) 若點火開關撥至 OFF 位置，螺旋槳即使被外力轉動也不會造成發動機啟動"
+      ],
+      "en_question": "Which of the following statements regarding the aircraft magneto ignition system is correct?",
+      "en_options": [
+        "(A) Magnetos rely on the aircraft's main battery for power during operation",
+        "(B) The primary purpose of dual ignition is to increase fuel consumption",
+        "(C) Magnetos are driven by the engine crankshaft and are independent of the aircraft electrical system",
+        "(D) If the ignition switch is OFF, rotating the propeller manually will not cause the engine to fire"
+      ],
+      "answer": "C",
+      "explanation": "磁電機（Magneto）利用永磁鐵產生電流，只要曲軸轉動就能持續點火，完全獨立於飛機電氣系統。雙點火系統提供備份並提升燃燒效率。警告：即使開關在 OFF，若接地線損壞，轉動槳葉仍可能啟動發動機。",
+      "timestamp": "46:31"
+    },
+    {
+      "zh_question": "當飛行員在飛行中發現發動機溫度過高（Overheating），下列哪項操作有助於降低溫度？",
+      "zh_options": [
+        "(A) 減少空速並增加爬升率",
+        "(B) 調貧混合比（Lean the mixture）",
+        "(C) 增加空速、增濃混合比（Enrich the mixture）或降低功率設定",
+        "(D) 關閉散熱風扇並增加歧管壓力"
+      ],
+      "en_question": "If an engine starts overheating during flight, which action will help reduce the temperature?",
+      "en_options": [
+        "(A) Decrease airspeed and increase climb rate",
+        "(B) Lean the mixture",
+        "(C) Increase airspeed, enrich the mixture, or reduce power settings",
+        "(D) Close the cooling fan and increase manifold pressure"
+      ],
+      "answer": "C",
+      "explanation": "增加空速可提供更多冷卻氣流；增濃混合比（Enriching the mixture）利用額外的燃油蒸發來帶走熱量；降低功率則直接減少產熱。這三者皆為標準冷卻程序。",
+      "timestamp": "54:15"
+    },
+    {
+      "zh_question": "關於爆震（Detonation）與提前點火（Pre-ignition）的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) 提前點火是由於火星塞跳火後，混合氣產生不正常自燃",
+        "(B) 爆震與提前點火經常同時發生，且其中一種情況可能引發另一種",
+        "(C) 爆震主要是由燃燒室內的殘餘熱點（Hot Spot）引起的",
+        "(D) 提前點火不會導致發動機動力流失，只會增加運行溫度"
+      ],
+      "en_question": "Regarding detonation and pre-ignition, which of the following statements is correct?",
+      "en_options": [
+        "(A) Pre-ignition is abnormal spontaneous combustion after the spark plug fires",
+        "(B) Detonation and pre-ignition often occur simultaneously, and one may cause the other",
+        "(C) Detonation is primarily caused by a residual hot spot in the combustion chamber",
+        "(D) Pre-ignition does not cause engine power loss, only increases operating temperature"
+      ],
+      "answer": "B",
+      "explanation": "根據音訊內容，爆震與提前點火常同時發生且互為因果。提前點火是由燃燒室內的殘餘熱點（如碳沉積物或損壞的火星塞）在火星塞正常跳火『前』點燃混合氣；而爆震則是混合氣在點火後產生的不正常自燃爆炸。",
+      "timestamp": "01:01:32"
+    },
+    {
+      "zh_question": "全權數位發動機控制（FADEC）系統在設計上如何確保高度的冗餘（Redundancy）以防止推力喪失？",
+      "zh_options": [
+        "(A) 系統具備兩套完全獨立且不同的硬體架構",
+        "(B) 系統依賴發動機磁電機（Magnetos）作為緊急備用電源",
+        "(C) 系統包含兩個獨立且完全相同的數位通道（Channels）",
+        "(D) 系統在失效時會自動將混合氣控制切換回手動模式"
+      ],
+      "en_question": "How does the FADEC system ensure high redundancy to prevent loss of thrust?",
+      "en_options": [
+        "(A) The system has two completely independent and different hardware architectures",
+        "(B) The system relies on engine magnetos as an emergency backup power source",
+        "(C) The system incorporates two separate and identical digital channels",
+        "(D) The system automatically switches mixture control back to manual mode upon failure"
+      ],
+      "answer": "C",
+      "explanation": "FADEC 系統包含兩個獨立且完全相同的數位通道，每個通道都能在無限制的情況下提供完整的發動機與螺旋槳控制功能。若系統完全失效將導致推力喪失，因此必須有備用電源。它取消了磁電機、化油器加熱與混合氣控制桿。",
+      "timestamp": "01:05:45"
+    },
+    {
+      "zh_question": "渦輪螺旋槳發動機（Turboprop）為何需要安裝減速齒輪箱（Reduction Gearbox）？",
+      "zh_options": [
+        "(A) 為了平衡螺旋槳產生的巨大反作用力矩",
+        "(B) 螺旋槳在較低轉速下才能達到最佳效率，而發動機核心轉速極高",
+        "(C) 為了讓發動機在高速巡航時能降低油耗",
+        "(D) 減少排氣噪音並增加二次空氣推力"
+      ],
+      "en_question": "Why does a Turboprop engine require a reduction gearbox?",
+      "en_options": [
+        "(A) To balance the massive counter-torque generated by the propeller",
+        "(B) Optimum propeller performance is achieved at much slower speeds than the engine's operating RPM",
+        "(C) To allow the engine to reduce fuel consumption during high-speed cruise",
+        "(D) To reduce exhaust noise and increase secondary air thrust"
+      ],
+      "answer": "B",
+      "explanation": "渦輪發動機的操作轉速（RPM）遠高於螺旋槳能維持效率的轉速，因此需要減速齒輪箱將渦輪的高速動力轉換為螺旋槳適用的較低轉速。",
+      "timestamp": "01:08:30"
+    },
+    {
+      "zh_question": "在長時間下降（Descent）且油門收小（Throttled back）的情況下，發動機最可能發生哪種形式的熄火（Flameout）？",
+      "zh_options": [
+        "(A) 富油熄火 (Rich mixture flameout)",
+        "(B) 貧油熄火 (Lean condition flameout)",
+        "(C) 燃油壓力過高導致熄火",
+        "(D) 渦輪超溫熄火"
+      ],
+      "en_question": "During a descent with the throttle backed off, what type of flameout is most likely to occur?",
+      "en_options": [
+        "(A) Rich mixture flameout",
+        "(B) Lean condition flameout",
+        "(C) High fuel pressure flameout",
+        "(D) Turbine overtemperature flameout"
+      ],
+      "answer": "B",
+      "explanation": "音訊指出，在下降過程中收小油門會導致燃油混合比過稀（Weak mixture/Lean condition），這種情況即使在正常氣流下也容易造成 Flameout。與之相對，富油熄火（Rich mixture flameout）通常發生在非常快速的發動機加速階段。",
+      "timestamp": "01:15:54"
+    },
+    {
+      "zh_question": "根據音訊中的發動機性能比較（Figure 7-29），關於四種發動機類型在高速域的表現，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 往復式發動機（Reciprocating）在所有速度下都優於渦輪發動機",
+        "(B) 渦輪螺旋槳發動機（Turboprop）在高速域的表現優於純噴射發動機",
+        "(C) 渦輪噴射發動機（Turbojet）可以達到最高的飛機最大速度",
+        "(D) 渦輪扇發動機（Turbofan）在低速時性能最差"
+      ],
+      "en_question": "According to the performance comparison (Figure 7-29), which statement about the four engine types in high-speed ranges is correct?",
+      "en_options": [
+        "(A) Reciprocating engines outperform turbine engines at all speeds",
+        "(B) Turboprop engines perform better than pure jets in high-speed ranges",
+        "(C) Turbojet engines can attain the highest maximum aircraft speed",
+        "(D) Turbofan engines have the worst performance at low speeds"
+      ],
+      "answer": "C",
+      "explanation": "音訊分析 Figure 7-29 指出，垂直線顯示 Turbojet 飛機能夠達到比配備其他類型發動機（如 Turbofan, Turboprop, Reciprocating）更高的最高速度（Maximum speed）。",
+      "timestamp": "01:18:33"
+    },
+    {
+      "zh_question": "關於航空燃油量表（Fuel quantity gauges）的準確度，下列哪項符合法規認證要求？",
+      "zh_options": [
+        "(A) 在燃油全滿時必須完全準確",
+        "(B) 在任何燃油位階都必須保持 1% 以內的誤差",
+        "(C) 僅在指示為「空（Empty）」時必須準確",
+        "(D) 指示為「零」時應包含 5 加侖的備用油量"
+      ],
+      "en_question": "Regarding the accuracy of fuel quantity gauges, which of the following meets certification rules?",
+      "en_options": [
+        "(A) They must be perfectly accurate when full",
+        "(B) They must maintain less than 1% error at any fuel level",
+        "(C) They are required to be accurate only when they read empty",
+        "(D) A reading of zero should include 5 gallons of reserve fuel"
+      ],
+      "answer": "C",
+      "explanation": "音訊明確提到，飛機認證規則（Aircraft certification rules）要求燃油表僅在讀數為「空（Empty）」時必須具有準確度。因此教官建議在飛行前檢查中應視覺確認燃油量，而非僅依賴油表讀數。",
+      "timestamp": "01:20:54"
+    },
+    {
+      "zh_question": "如果無法獲得建議等級（Recommended grade）的航空汽油（AVGAS），應採取何種措施？",
+      "zh_options": [
+        "(A) 使用較低等級的燃油以節省成本",
+        "(B) 使用次一高等級（Next higher grade）的燃油作為替代",
+        "(C) 直接混合噴射發動機燃油（Jet fuel）",
+        "(D) 使用未經授權的汽車汽油"
+      ],
+      "en_question": "If the recommended grade of aviation gasoline (AVGAS) is not available, what action should be taken?",
+      "en_options": [
+        "(A) Use a lower grade of fuel to save cost",
+        "(B) Use the next higher grade as a substitute",
+        "(C) Mix it directly with Jet fuel",
+        "(D) Use unauthorized automotive gasoline"
+      ],
+      "answer": "B",
+      "explanation": "音訊建議，如果找不到正確等級的 AVGAS，應使用次一高等級的燃油作為替代。絕對不可使用比建議等級更低的燃油，因為這會導致汽缸頭溫度（Cylinder head temperature）過高並引發爆震（Detonation）。",
+      "timestamp": "01:24:40"
+    },
+    {
+      "zh_question": "關於防止燃油系統結冰的防冰添加劑（Anti-icing additives），下列敘述何者正確？",
+      "zh_options": [
+        "(A) 防冰添加劑可以完全取代化油器加熱（Carburetor heat）的功能",
+        "(B) 添加劑的使用濃度並不關鍵，過多添加也不會影響效果",
+        "(C) 測試顯示使用濃度最高不應超過 0.15%（按體積計）",
+        "(D) 乙二醇單甲醚（EGME）會導致燃油系統內部嚴重結垢"
+      ],
+      "en_question": "Regarding anti-icing additives used to prevent fuel system icing, which of the following statements is correct?",
+      "en_options": [
+        "(A) Anti-icing additives can completely substitute the function of carburetor heat",
+        "(B) The concentration of additives is not critical; excessive amounts will not affect effectiveness",
+        "(C) Tests indicate that EGME should be used at a maximum concentration of 0.15% by volume",
+        "(D) Ethylene glycol monomethyl ether (EGME) causes severe scaling inside the fuel system"
+      ],
+      "answer": "C",
+      "explanation": "根據音訊內容，防冰添加劑（如 EGME）的濃度極為關鍵（Critical），建議最大值為 0.15%（by volume）。過多或過少都會顯著降低其有效性，且添加劑絕對不能取代化油器加熱（Carburetor heat）的使用。",
+      "timestamp": "01:31:21"
+    },
+    {
+      "zh_question": "在加油作業（Refueling）中，建立「搭接」（Bonding）的主要目的為何？",
+      "zh_options": [
+        "(A) 為了將飛機的靜電完全排入大地中",
+        "(B) 為了平衡加油設備與飛機之間的靜電電位差（Static differential charge）",
+        "(C) 為了測試加油槍的流量計是否正常運作",
+        "(D) 為了防止燃油泵在加油過程中發生氣鎖（Vapor lock）"
+      ],
+      "en_question": "What is the primary purpose of establishing 'Bonding' during refueling operations?",
+      "en_options": [
+        "(A) To discharge all aircraft static electricity into the earth",
+        "(B) To equalize the static differential charge between the refueling equipment and the aircraft",
+        "(C) To test whether the fuel nozzle flow meter is functioning correctly",
+        "(D) To prevent the fuel pump from experiencing vapor lock during refueling"
+      ],
+      "answer": "B",
+      "explanation": "由於飛機與加油車可能帶有不同的靜電電荷，透過搭接（Bonding）可以使兩者的電位差相等（Equalized），從而防止在開啟油箱蓋或加油時產生足以點燃燃油蒸氣的火花。",
+      "timestamp": "01:32:42"
+    },
+    {
+      "zh_question": "相較於直流發電機（Generator），交流發電機（Alternator）在電氣系統中有何優點？",
+      "zh_options": [
+        "(A) 交流發電機不需要電壓調節器即可運作",
+        "(B) 交流發電機在引擎低轉速（Low RPM）下仍能產生足夠的電流",
+        "(C) 交流發電機產生的電流不需要經過整流即可直接供電池充電",
+        "(D) 交流發電機的重量通常比同功率的直流發電機重得多"
+      ],
+      "en_question": "What is an advantage of an Alternator over a DC Generator in an aircraft electrical system?",
+      "en_options": [
+        "(A) Alternators do not require a voltage regulator to operate",
+        "(B) Alternators can produce sufficient current even at low engine RPM",
+        "(C) The current produced by an alternator can charge the battery directly without rectification",
+        "(D) Alternators are typically much heavier than DC generators of the same power output"
+      ],
+      "answer": "B",
+      "explanation": "交流發電機（Alternator）的優點在於它在較寬的引擎轉速範圍內，特別是在低轉速（Idle/Low RPM）下，仍能提供穩定的電力輸出供全系統使用，而直流發電機（Generator）在低轉速時往往需要依賴電池供電。",
+      "timestamp": "01:40:00"
+    },
+    {
+      "zh_question": "在燃燒式加熱系統（Combustion Heater）中，如何預防一氧化碳（CO）洩漏進入客艙？",
+      "zh_options": [
+        "(A) 透過定期更換加熱器的不鏽鋼夾套來防止沖蝕",
+        "(B) 透過維持通風空氣壓力高於燃燒管內壓力的物理邏輯",
+        "(C) 依靠電子感測器在偵測到 CO 時立即關斷燃油供應",
+        "(D) 透過將燃燒後的廢氣直接排入進氣歧管進行二次燃燒"
+      ],
+      "en_question": "In a combustion heater system, how is carbon monoxide (CO) prevented from leaking into the cabin?",
+      "en_options": [
+        "(A) By periodically replacing the heater's stainless steel jacket to prevent erosion",
+        "(B) By maintaining higher ventilation air pressure outside the combustion tube than inside",
+        "(C) By relying on electronic sensors to shut off fuel supply immediately upon CO detection",
+        "(D) By routing exhaust gases directly into the intake manifold for secondary combustion"
+      ],
+      "answer": "B",
+      "explanation": "燃燒式加熱器的安全邏輯是維持外部通風空氣（Ventilation air）的壓力高於燃燒管（Combustion tube）內部的壓力。若發生洩漏，空氣會向管內流動並由排氣管排出，而不會讓廢氣進入客艙進氣系統。",
+      "timestamp": "01:38:12"
+    },
+    {
+      "zh_question": "關於三點式起落架（Tricycle Landing Gear）的特性，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 重心（CG）位於主輪後方，增加地面轉彎靈活性",
+        "(B) 重心（CG）位於主輪前方，能有效防止地面打轉（Ground Looping）",
+        "(C) 鼻輪在起飛過程中會遮擋飛行員前方視線",
+        "(D) 僅能透過鼻輪轉向系統進行地面操作，不可配合煞車使用"
+      ],
+      "en_question": "Regarding the characteristics of tricycle landing gear, which of the following statements is correct?",
+      "en_options": [
+        "(A) The Center of Gravity (CG) is behind the main wheels to increase ground turning flexibility.",
+        "(B) The CG is forward of the main wheels, which tends to prevent ground looping.",
+        "(C) The nosewheel obstructs the pilot's forward visibility during takeoff.",
+        "(D) Ground operation is only possible via nosewheel steering and cannot be combined with braking."
+      ],
+      "answer": "B",
+      "explanation": "三點式起落架的重心（CG）位於主輪前方，這種配置提供了更好的方向穩定性，防止飛機在地面滑行時發生 Ground Looping。此外，它還能提供飛行員在起降及滑行時更好的前方視野（Forward Visibility）。",
+      "timestamp": "01:50:10"
+    },
+    {
+      "zh_question": "在飛機增壓系統中，真空壓力釋放閥（Vacuum Relief Valve）的主要功能為何？",
+      "zh_options": [
+        "(A) 當艙內壓力過高時釋放空氣至大氣中",
+        "(B) 防止艙外大氣壓力超過艙內壓力，避免結構受損",
+        "(C) 自動調節艙內溫度以維持客艙舒適度",
+        "(D) 在緊急情況下快速排除客艙內的所有煙霧"
+      ],
+      "en_question": "In an aircraft pressurization system, what is the primary function of the Vacuum Relief Valve?",
+      "en_options": [
+        "(A) To release cabin air to the atmosphere when cabin pressure is too high.",
+        "(B) To prevent ambient pressure from exceeding cabin pressure, avoiding structural damage.",
+        "(C) To automatically regulate cabin temperature for passenger comfort.",
+        "(D) To rapidly exhaust all smoke from the cabin during an emergency."
+      ],
+      "answer": "B",
+      "explanation": "Vacuum Relief Valve 的作用是防止艙外壓力（Ambient Pressure）高於艙內壓力（Cabin Pressure）。當艙外壓力較高時，它允許外部空氣進入客艙，以平衡壓差，保護機身結構。相對於此，Pressure Relief Valve 才是防止艙內壓力過高。",
+      "timestamp": "01:55:55"
+    },
+    {
+      "zh_question": "當飛機發生「快速減壓」（Rapid Decompression）時，對飛行員生理機能的最直接影響為何？",
+      "zh_options": [
+        "(A) 導致肺部組織因壓力變化過慢而萎縮",
+        "(B) 有效意識時間（TUC）會縮減至正常狀態的 1/3 到 1/4",
+        "(C) 血液中的含氧量會瞬間增加，導致氧中毒",
+        "(D) 聽力會因壓力釋放而永久性喪失"
+      ],
+      "en_question": "When an aircraft experiences 'Rapid Decompression', what is the most direct physiological impact on the pilot?",
+      "en_options": [
+        "(A) Causes lung tissue to collapse due to slow pressure changes.",
+        "(B) The Time of Useful Consciousness (TUC) is reduced to 1/3 to 1/4 of its normal time.",
+        "(C) Blood oxygen levels increase instantly, causing oxygen toxicity.",
+        "(D) Hearing is permanently lost due to the pressure release."
+      ],
+      "answer": "B",
+      "explanation": "快速減壓會導致肺部氧氣迅速流失，壓差的改變會顯著縮短飞行員的有效意識時間（Time of Useful Consciousness, TUC），通常會減少到正常情況下的 1/3 到 1/4，因此必須立即戴上氧氣面罩。",
+      "timestamp": "01:58:10"
+    },
+    {
+      "zh_question": "關於 Diluter-Demand (稀釋供氧) 與 Pressure-Demand (壓力供氧) 系統的差異，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 兩者皆無法與座艙空氣混合",
+        "(B) Pressure-demand 系統在 34,000 英呎以上會提供正壓供氧以利肺部吸收",
+        "(C) Diluter-demand 系統僅能在 18,000 英呎以下使用",
+        "(D) 只有 Diluter-demand 系統要求面罩必須與臉部緊密貼合"
+      ],
+      "en_question": "Regarding the difference between Diluter-Demand and Pressure-Demand oxygen systems, which of the following is correct?",
+      "en_options": [
+        "(A) Neither system can mix oxygen with cabin air",
+        "(B) Pressure-demand systems provide positive pressure above 34,000 feet to assist lung oxygenation",
+        "(C) Diluter-demand systems can only be used below 18,000 feet",
+        "(D) Only Diluter-demand systems require a tight seal between the mask and the face"
+      ],
+      "answer": "B",
+      "explanation": "Pressure-demand 系統在超過 34,000 英呎的高高度時，會主動對面罩施加 Positive Pressure（正壓），強迫氧氣進入肺部，這與 Diluter-demand 僅靠吸氣產生負壓供氧的邏輯不同。",
+      "timestamp": "02:03:05"
+    },
+    {
+      "zh_question": "在進行氧氣系統充填作業 (Oxygen Servicing) 時，為何強調嚴禁接觸油脂或石油類產品？",
+      "zh_options": [
+        "(A) 會造成氧氣面罩橡膠老化",
+        "(B) 油脂會阻塞供氧管路感測器",
+        "(C) 高壓氧氣接觸油脂會發生自燃 (Spontaneous Combustion)",
+        "(D) 會導致氧氣純度下降，引發缺氧"
+      ],
+      "en_question": "During oxygen servicing, why is it emphasized that contact with oil, grease, or petroleum products is strictly forbidden?",
+      "en_options": [
+        "(A) It causes premature aging of the oxygen mask rubber",
+        "(B) Grease will clog the oxygen supply line sensors",
+        "(C) High-pressure oxygen in contact with petroleum products can cause spontaneous combustion",
+        "(D) It leads to a decrease in oxygen purity, causing hypoxia"
+      ],
+      "answer": "C",
+      "explanation": "高壓氧氣具有極強的氧化性，當與油脂或石油類產品 (Petroleum products) 接觸時，會引發自燃甚至爆炸，因此維修人員必須確保手部、工具與衣服清潔。",
+      "timestamp": "02:08:00"
+    },
+    {
+      "zh_question": "關於氣動除冰靴 (De-icing Boots) 的運作原理，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 通過加熱機翼領先緣來防止冰層形成",
+        "(B) 充氣膨脹使機翼表面冰層產生裂縫並脫落",
+        "(C) 必須在進入結冰區域前預先啟動以維持熱度",
+        "(D) 在現代機翼上仍存在嚴重的「冰橋 (Ice Bridging)」現象"
+      ],
+      "en_question": "Which of the following statements about pneumatic de-icing boots is correct?",
+      "en_options": [
+        "(A) They prevent ice formation by heating the wing leading edges",
+        "(B) They inflate to crack and shed accumulated ice from the wing surface",
+        "(C) They must be activated before entering icing conditions to maintain heat",
+        "(D) Ice bridging remains a severe issue on modern de-icing boots"
+      ],
+      "answer": "B",
+      "explanation": "除冰靴 (De-icing boots) 屬於除冰設備，當冰層累積到一定厚度後，透過充氣膨脹 (Inflation) 將硬化的冰塊撐裂並由氣流吹走。現代系統已顯著改善，所謂冰橋現象在新型靴上已極少見。",
+      "timestamp": "02:09:45"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "往復式引擎的四行程循環包含：進氣(Intake)、壓縮(Compression)、{{c1::動力(Power)}}、與排氣(Exhaust)。",
+      "zh_translation": "The four-stroke cycle of a reciprocating engine includes: Intake, Compression, Power, and Exhaust.",
+      "explanation": "這是 Otto Cycle 的基本四個階段，动力行程是唯一產生機械功的行程。",
+      "tags": "Engine Operation",
+      "timestamp": "05:40"
+    },
+    {
+      "cloze_text": "定速螺旋槳系統中，負責自動調節葉片角度以維持預設轉速的部件稱為 {{c1::Governor}}。",
+      "zh_translation": "In a constant-speed propeller system, the component that automatically adjusts the blade angle to maintain a preset RPM is called the Governor.",
+      "explanation": "Governor 透過感應 RPM 變化並利用液壓或機械方式改變 Pitch。",
+      "tags": "Propeller Systems",
+      "timestamp": "13:40"
+    },
+    {
+      "cloze_text": "進氣歧管壓力表顯示的是進氣歧管內燃油/空氣混合氣的 {{c1::絕對壓力(Absolute Pressure)}}。",
+      "zh_translation": "The manifold pressure gauge displays the absolute pressure of the fuel-air mixture inside the intake manifold.",
+      "explanation": "此數據直接反映引擎輸出的 Power，單位通常為英吋汞柱(in.Hg)。",
+      "tags": "Engine Instruments",
+      "timestamp": "12:43"
+    },
+    {
+      "cloze_text": "在高密度高度(High Density Altitude)環境下，由於空氣密度降低，引擎的功率輸出會 {{c1::減少(Decrease)}}。",
+      "zh_translation": "At higher density altitudes, engine power output decreases because the air is less dense.",
+      "explanation": "空氣變稀薄會減少進入氣缸的氧氣量，直接影響燃燒效率與功率。",
+      "tags": "Performance / Limitations",
+      "timestamp": "12:40"
+    },
+    {
+      "cloze_text": "對於固定螺距螺旋槳(Fixed-pitch Propeller)，反應引擎功率的主要儀表是 {{c1::轉速表(Tachometer)}}。",
+      "zh_translation": "For a fixed-pitch propeller aircraft, the tachometer is the primary indicator of engine power.",
+      "explanation": "在固定 Pitch 飛機上，轉速直接與引擎產生的動力成正比。",
+      "tags": "Engine Instruments",
+      "timestamp": "11:40"
+    },
+    {
+      "cloze_text": "噴氣燃料點火活塞引擎 (Jet-fuel Piston Engine) 常使用 {{c1::FADEC}} 系統來簡化引擎控制並減少飛行員工作量。",
+      "zh_translation": "Jet-fuel piston engines often use FADEC systems to simplify engine control and reduce pilot workload.",
+      "explanation": "FADEC (Full Authority Digital Engine Control) 具備全權限數位控制，能自動優化引擎性能。",
+      "tags": "Avionics / Engine",
+      "timestamp": "08:31"
+    },
+    {
+      "cloze_text": "When the engine is not running, the manifold pressure gauge indicates {{c1::ambient air pressure}} (e.g., 29.92 inches of mercury).",
+      "zh_translation": "當引擎未運轉時,進氣壓力表顯示的是環境大氣壓力(例如 29.92 英吋汞柱)。",
+      "explanation": "這可用於在起飛前校對 MP 表是否準確,它應該接近當地的靜壓值。",
+      "tags": "Engine / Instruments",
+      "timestamp": "18:20"
+    },
+    {
+      "cloze_text": "To increase power settings, the correct order is to {{c1::increase RPM first}} then increase manifold pressure.",
+      "zh_translation": "增加動力設定時,正確的順序是先增加 RPM,再增加進氣壓力。",
+      "explanation": "這是為了防止高進氣壓力在低轉速下對汽缸部件造成過大的應力。",
+      "tags": "Engine / Operations",
+      "timestamp": "20:05"
+    },
+    {
+      "cloze_text": "The carburetor icing is most likely to occur when the relative humidity is above 80 percent and the air temperature is below {{c1::70 degrees Fahrenheit}}.",
+      "zh_translation": "化油器結冰最容易發生在相對濕度高於 80% 且氣溫低於 華氏 70 度(約攝氏 21 度)時。",
+      "explanation": "即使在大熱天,燃油噴射汽化產生的溫降也可能導致化油器內部結冰。",
+      "tags": "Engine / Weather",
+      "timestamp": "27:15"
+    },
+    {
+      "cloze_text": "As the altitude increases, the density of air entering the carburetor decreases, creating a progressively {{c1::richer mixture}}.",
+      "zh_translation": "隨著高度增加,進入化油器的空氣密度降低,會導致混合比逐漸變濃。",
+      "explanation": "由於空氣變稀薄但燃油流量不變,混合氣會變濃,因此在高空需要手動 Lean Mixture (貧油設定)。",
+      "tags": "Engine / Fuel-System",
+      "timestamp": "25:05"
+    },
+    {
+      "cloze_text": "The chief disadvantage of the float-type carburetor is its {{c1::icing tendency}}.",
+      "zh_translation": "浮筒式化油器的主要缺點是其結冰傾向。",
+      "explanation": "燃油在文氏管(Venturi)處汽化吸收熱量,會導致顯著的溫降,進而引起水分凝結成冰。",
+      "tags": "Engine / Induction",
+      "timestamp": "24:30"
+    },
+    {
+      "cloze_text": "If carburetor icing is detected, {{c1::full carburetor heat}} should be applied immediately.",
+      "zh_translation": "如果偵測到化油器結冰,應立即開啟全熱化油器加熱。",
+      "explanation": "使用部分加熱可能反而讓冰局部融化後再凝結在更危險的位置,應使用全熱直到冰除盡。",
+      "tags": "Engine / Abnormal",
+      "timestamp": "29:45"
+    },
+    {
+      "cloze_text": "當廢氣門（Wastegate）完全關閉，且歧管壓力隨高度增加而開始下降時，此高度稱為 {{c1::臨界高度}} (Critical Altitude)。",
+      "zh_translation": "當廢氣門完全關閉，且歧管壓力隨高度增加而開始下降時，此高度稱為臨界高度 (Critical Altitude)。",
+      "explanation": "在臨界高度以上，渦輪增壓器已無法維持最大設計歧管壓力。",
+      "tags": "Engine, Turbocharger",
+      "timestamp": "45:52"
+    },
+    {
+      "cloze_text": "在進行起飛前檢查（Run-up）時，將點火開關撥至單一磁電機位置，發動機轉速會有小幅度的 {{c1::下降}} (Drop)。",
+      "zh_translation": "在進行起飛前檢查（Run-up）時，將點火開關撥至單一磁電機位置，發動機轉速會有小幅度的下降 (Drop)。",
+      "explanation": "這是正常現象，因為單火星塞點火的燃燒效率較雙點火稍低；若完全沒下降通常代表接地線失效。",
+      "tags": "Ignition, Run-up",
+      "timestamp": "48:00"
+    },
+    {
+      "cloze_text": "發動機機油壓力表上的紅線表示系統運行的 {{c1::最小與最大}} 壓力限制。",
+      "zh_translation": "發動機機油壓力表上的紅線表示系統運行的最小與最大壓力限制。",
+      "explanation": "操作應維持在綠色範圍內，低於或高於紅線皆屬異常，可能導致發動機受損。",
+      "tags": "Oil System, Limitations",
+      "timestamp": "50:35"
+    },
+    {
+      "cloze_text": "在裝有 {{c1::整流罩風門}} (Cowl Flaps) 的飛機上，飛行員可在爬升時將其開啟以增加發動機冷卻效果。",
+      "zh_translation": "在裝有整流罩風門 (Cowl Flaps) 的飛機上，飛行員可在爬升時將其開啟以增加發動機冷卻效果。",
+      "explanation": "開啟整流罩風門可讓更多冷卻空氣通過汽缸散熱片，適用於高功率、低速度的爬升階段。",
+      "tags": "Cooling System",
+      "timestamp": "53:32"
+    },
+    {
+      "cloze_text": "發動機排氣系統故障可能導致無色無味的 {{c1::一氧化碳}} (Carbon Monoxide) 進入駕駛艙，威脅人員安全。",
+      "zh_translation": "發動機排氣系統故障可能導致無色無味的一氧化碳 (Carbon Monoxide) 進入駕駛艙，威脅人員安全。",
+      "explanation": "暖氣系統通常利用圍繞在排氣管外的套管（Shroud）加熱，若排氣管裂損，廢氣會混入座艙空氣中。",
+      "tags": "Exhaust System, Safety",
+      "timestamp": "55:45"
+    },
+    {
+      "cloze_text": "爆震（Detonation）常與過高的 {{c1::汽缸頭溫度}} (CHT) 相關，可能由使用過低辛烷值的燃油引起。",
+      "zh_translation": "爆震（Detonation）常與過高的汽缸頭溫度 (CHT) 相關，可能由使用過低辛烷值的燃油引起。",
+      "explanation": "爆震是燃燒室內燃油與空氣混合物不受控的爆炸，會導致發動機結構迅速損壞。",
+      "tags": "Combustion, Limitations",
+      "timestamp": "59:00"
+    },
+    {
+      "cloze_text": "Pre-ignition is usually caused by a {{c1::residual hot spot}} in the combustion chamber, often created by a small carbon deposit or a cracked spark plug insulator.",
+      "zh_translation": "提前點火通常是由燃燒室內的殘餘熱點引起的，通常是由微小的碳沉積物或破裂的火星塞絕緣體產生的。",
+      "explanation": "這說明了維護火星塞狀態與防止發動機積碳對預防 Pre-ignition 的重要性。",
+      "tags": "Engine, Troubleshooting",
+      "timestamp": "01:01:05"
+    },
+    {
+      "cloze_text": "FADEC systems eliminate the need for {{c1::magnetos}}, carburetor heat, mixture controls, and engine priming.",
+      "zh_translation": "FADEC 系統消除了對磁電機、化油器加熱、混合氣控制以及發動機啟動注油的需求。",
+      "explanation": "FADEC 實現了發動機控制的簡化，將多個傳統控制功能整合進數位電腦中。",
+      "tags": "FADEC, Systems",
+      "timestamp": "01:04:38"
+    },
+    {
+      "cloze_text": "The bypass ratio of a turbofan refers to the ratio of the mass airflow that passes through the {{c1::fan}} divided by the mass airflow that passes through the engine core.",
+      "zh_translation": "渦輪扇發動機的旁通比（Bypass Ratio）是指通過風扇的空氣質量流與通過發動機核心的空氣質量流之比。",
+      "explanation": "高旁通比發動機通常更省油且噪音較低，是現代民航機的主流。",
+      "tags": "Turbofan, Definition",
+      "timestamp": "01:09:48"
+    },
+    {
+      "cloze_text": "Engine Pressure Ratio (EPR) is the ratio of turbine discharge to {{c1::compressor inlet}} pressure.",
+      "zh_translation": "發動機壓力比（EPR）是渦輪出口壓力與壓縮機進口壓力之比。",
+      "explanation": "EPR 是衡量渦扇/渦噴發動機推力輸出的重要參數。",
+      "tags": "Instruments, Performance",
+      "timestamp": "01:11:13"
+    },
+    {
+      "cloze_text": "N1 represents the rotational speed of the {{c1::low pressure}} compressor and is presented as a percentage of design RPM.",
+      "zh_translation": "N1 代表低壓壓縮機的轉速，並以設計轉速的百分比顯示。",
+      "explanation": "在多轉子發動機中，N1 通常是監控發動機推力的關鍵指標。",
+      "tags": "Engine, Instruments",
+      "timestamp": "01:12:45"
+    },
+    {
+      "cloze_text": "A {{c1::hung start}} occurs if the engine fails to accelerate to the proper speed after ignition or does not accelerate to idle RPM.",
+      "zh_translation": "如果發動機在點火後無法加速到正確轉速，或無法加速到怠速 RPM，則發生了懸掛啟動（Hung Start）。",
+      "explanation": "這通常由啟動電源不足或燃料控制系統故障引起。",
+      "tags": "Engine, Abnormal-Ops",
+      "timestamp": "01:14:12"
+    },
+    {
+      "cloze_text": "A rich mixture flameout generally results from very fast engine {{c1::acceleration}}.",
+      "zh_translation": "富油熄火通常是由於發動機加速過快引起的。",
+      "explanation": "當混合氣過濃時，燃油溫度會降至燃燒溫度以下，導致熄火。",
+      "tags": "Engine, Flameout",
+      "timestamp": "01:15:03"
+    },
+    {
+      "cloze_text": "Brake horsepower (BHP) is the actual {{c1::usable}} horsepower delivered to the output shaft.",
+      "zh_translation": "制動馬力 (BHP) 是傳遞到輸出軸的實際可用馬力。",
+      "explanation": "在比較發動機性能時，BHP 用於定義往復式發動機的輸出能量。",
+      "tags": "Performance, Definitions",
+      "timestamp": "01:16:42"
+    },
+    {
+      "cloze_text": "The fuel primer is used to vaporize fuel directly into the {{c1::cylinders}} prior to starting the engine.",
+      "zh_translation": "燃油注油器 (Primer) 用於在啟動發動機前將燃油直接霧化進入汽缸內。",
+      "explanation": "特別是在寒冷天氣下，Primer 幫助提供足夠的熱量來蒸發燃油以利啟動。",
+      "tags": "Fuel System, Starting",
+      "timestamp": "01:19:15"
+    },
+    {
+      "cloze_text": "It is important to {{c1::lock}} the primer in place when it is not in use to avoid an excessively rich mixture.",
+      "zh_translation": "當不使用注油器時，務必將其鎖定到位，以避免混合氣過濃。",
+      "explanation": "如果 Primer 未鎖好，飛行中的振動可能導致燃油意外進入發動機，造成混合氣失調。",
+      "tags": "Fuel System, Maintenance",
+      "timestamp": "01:19:28"
+    },
+    {
+      "cloze_text": "Running a fuel tank dry may allow air to enter the fuel system and cause {{c1::vapor lock}}.",
+      "zh_translation": "將燃油箱跑乾可能會讓空氣進入燃油系統並導致氣鎖 (Vapor lock)。",
+      "explanation": "氣鎖會使發動機極難重新啟動，尤其是在燃油噴射式發動機上。",
+      "tags": "Fuel System, Emergency",
+      "timestamp": "01:22:51"
+    },
+    {
+      "cloze_text": "AVGAS 100LL is identified by the color {{c1::blue}} and has a low lead content.",
+      "zh_translation": "AVGAS 100LL 以藍色標識，且鉛含量較低。",
+      "explanation": "LL 代表 Low Lead（低鉛），雖然性能與 Grade 100 相同，但染色為藍色以便識別。",
+      "tags": "Fuel Grades, Identification",
+      "timestamp": "01:26:32"
+    },
+    {
+      "cloze_text": "Fuel tanks should be filled after each flight to prevent {{c1::moisture condensation}} within the tank.",
+      "zh_translation": "每次飛行後應加滿燃油箱，以防止油箱內產生水分冷凝。",
+      "explanation": "油箱內的空隙在溫度變化時會冷凝出水，這是燃油污染的主要來源之一。",
+      "tags": "Fuel System, Preflight",
+      "timestamp": "01:28:14"
+    },
+    {
+      "cloze_text": "Entrained water in fuel freezes and forms ice crystals of sufficient size such that fuel {{c1::screens}} and filters may be blocked.",
+      "zh_translation": "燃油中夾帶的水份會凍結並形成足夠大的冰晶，可能導致燃油濾網和過濾器被堵塞。",
+      "explanation": "燃油系統結冰通常從堵塞最細小的過濾點開始，導致引擎燃油供應中斷。",
+      "tags": "Fuel System",
+      "timestamp": "01:31:06"
+    },
+    {
+      "cloze_text": "The refueling nozzle should be bonded to the aircraft {{c1::before}} refueling begins and remain bonded throughout the process.",
+      "zh_translation": "加油槍應在加油作業開始「之前」就與飛機建立搭接，並在整個過程中保持搭接狀態。",
+      "explanation": "預防靜電火花的關鍵在於操作前先平衡電位，而非加油中才進行。",
+      "tags": "Refueling",
+      "timestamp": "01:32:55"
+    },
+    {
+      "cloze_text": "A {{c1::combustion}} heater is an airtight burner chamber with a stainless steel jacket.",
+      "zh_translation": "燃燒式加熱器是一個帶有不鏽鋼夾套的氣密燃燒室。",
+      "explanation": "這種結構是為了確保燃燒廢氣與送往客艙的暖氣完全隔離。",
+      "tags": "Heating System",
+      "timestamp": "01:36:20"
+    },
+    {
+      "cloze_text": "Most aircraft are equipped with either a {{c1::14}} or a 28-volt direct current (DC) electrical system.",
+      "zh_translation": "大多數飛機配備 14 伏特或 28 伏特的直流（DC）電氣系統。",
+      "explanation": "這是通用航空器中最常見的兩種系統電壓標準。",
+      "tags": "Electrical System",
+      "timestamp": "01:39:00"
+    },
+    {
+      "cloze_text": "The {{c1::ammeter}} indicates whether the alternator or generator is producing an adequate supply of electrical power.",
+      "zh_translation": "安培計（Ammeter）顯示交流或直流發電機是否產生了充足的電力供應。",
+      "explanation": "安培計可監控電池是處於充電（正值）還是放電（負值）狀態。",
+      "tags": "Electrical System",
+      "timestamp": "01:40:14"
+    },
+    {
+      "cloze_text": "A {{c1::selector}} valve allows the hydraulic fluid direction to be controlled, such as for landing gear extension and retraction.",
+      "zh_translation": "選擇閥（Selector valve）允許控制液壓油的流向，例如用於起落架的伸出與收回。",
+      "explanation": "Selector valve 是控制執行器（Actuator）作動方向的核心部件。",
+      "tags": "Hydraulic System",
+      "timestamp": "01:41:06"
+    },
+    {
+      "cloze_text": "Landing gear employing a rear-mounted wheel is called {{c1::conventional}} landing gear.",
+      "zh_translation": "採用後置輪設計的起落架被稱為「傳統式」起落架。",
+      "explanation": "後三點式（Tailwheel）起落架在航空術語中常被稱為 Conventional gear。",
+      "tags": "Landing Gear",
+      "timestamp": "01:42:49"
+    },
+    {
+      "cloze_text": "A cabin pressurization system typically maintains a cabin pressure altitude of approximately {{c1::8000}} feet at the maximum designed cruising altitude.",
+      "zh_translation": "飛機增壓系統通常在最大設計巡航高度下，維持約 8000 英呎的客艙壓力高度。",
+      "explanation": "將客艙壓力維持在 8000 呎以下可確保含氧量充足，通常無需使用氧氣設備，同時兼顧結構負擔。",
+      "tags": "Pressurization,Limitations",
+      "timestamp": "01:53:45"
+    },
+    {
+      "cloze_text": "Most authorities consider any decompression that occurs in less than {{c1::0.5}} seconds to be explosive and potentially dangerous.",
+      "zh_translation": "大多數民航當局認為，在短於 0.5 秒內發生的減壓屬於「爆炸性減壓」，具有潛在危險。",
+      "explanation": "爆炸性減壓的速度快於肺部排氣速度，可能導致肺部結構性受損。",
+      "tags": "Decompression,Safety",
+      "timestamp": "01:57:30"
+    },
+    {
+      "cloze_text": "Oils and {{c1::greases}} may ignite if exposed to oxygen and cannot be used for sealing oxygen system fittings.",
+      "zh_translation": "油脂或潤滑脂若暴露於純氧中可能會燃燒，因此嚴禁用於氧氣系統接頭的密封。",
+      "explanation": "高濃度氧氣具有強烈的助燃性，與石油基潤滑劑接觸會產生自燃甚至爆炸風險。",
+      "tags": "Oxygen,Safety",
+      "timestamp": "02:02:35"
+    },
+    {
+      "cloze_text": "Aircraft oxygen is usually stored in high pressure cylinders of {{c1::1800 to 2200}} psi.",
+      "zh_translation": "航空氧氣通常儲存在壓力為 1800 至 2200 psi 的高壓氣瓶中。",
+      "explanation": "這是航空氧氣瓶的標準充填壓力限制，操作時需注意溫壓轉換關係。",
+      "tags": "Oxygen,Limitations",
+      "timestamp": "02:01:00"
+    },
+    {
+      "cloze_text": "Flight crews must use supplemental oxygen after 30 minutes exposure to cabin pressure altitudes between {{c1::12500 and 14000}} feet.",
+      "zh_translation": "當客艙壓力高度在 12500 至 14000 英呎之間超過 30 分鐘時，飛行機組員必須使用補充氧氣。",
+      "explanation": "這是 FAR 91.211 規定的基本生理保護標準，旨在預防缺氧（Hypoxia）。",
+      "tags": "Oxygen,Regulation",
+      "timestamp": "01:59:50"
+    },
+    {
+      "cloze_text": "Cannulas are generally used for non-emergency situations and are limited to altitudes below {{c1::18,000}} feet.",
+      "zh_translation": "氧氣鼻管通常用於非緊急情況，且限制在 18,000 英呎以下的高度使用。",
+      "explanation": "超過 18,000 英呎時，鼻管提供的氧氣濃度不足以保證安全，必須切換到面罩系統。",
+      "tags": "Oxygen / Limitations",
+      "timestamp": "02:01:03"
+    },
+    {
+      "zh_translation": "脈衝供氧系統 (Pulse-demand systems) 相較於連續供氧系統，可減少約 50% 到 85% 的氧氣消耗。",
+      "cloze_text": "Pulse-demand systems can reduce the amount of oxygen needed by {{c1::50-85}} percent compared to continuous flow systems.",
+      "explanation": "因為它只在吸氣初期提供氧氣，避免了吐氣過程中的浪費。",
+      "tags": "Oxygen / Efficiency",
+      "timestamp": "02:05:15"
+    },
+    {
+      "cloze_text": "A pulse oximeter is a non-invasive device used to calculate oxygen saturation within {{c1::1}} percent of directly measured blood oxygen.",
+      "zh_translation": "脈搏血氧儀是一種非侵入式設備，其計算出的血氧飽和度誤差在直接測量值的 1% 以內。",
+      "explanation": "這對於在非加壓飛機中超過 12,500 英呎飛行的飛行員來說是非常重要的監控工具。",
+      "tags": "Oxygen / Equipment",
+      "timestamp": "02:07:08"
+    },
+    {
+      "cloze_text": "Oxygen system servicing should be accomplished only when the aircraft is located {{c1::outside}} of the hangars.",
+      "zh_translation": "飛機氧氣系統的充填作業必須在機庫外面進行。",
+      "explanation": "為了通風安全並遠離火源，充填氧氣嚴禁在室內進行。",
+      "tags": "Maintenance / Safety",
+      "timestamp": "02:07:50"
+    },
+    {
+      "cloze_text": "Thermal anti-ice systems typically derive hot air from the {{c1::compressor}} section of the engine to heat the leading edge.",
+      "zh_translation": "熱氣防冰系統通常從發動機的壓縮機段引出熱空氣來加熱機翼領先緣。",
+      "explanation": "Bleed air（引氣）溫度極高，足以防止機翼表面結冰。",
+      "tags": "Anti-ice / Systems",
+      "timestamp": "02:11:05"
+    },
+    {
+      "cloze_text": "The heated windscreen should only be used during flight to avoid {{c1::overheating}} and damaging the glass.",
+      "zh_translation": "加熱擋風玻璃應僅在飛行中使用，以避免過熱並損壞玻璃。",
+      "explanation": "地面缺乏高速氣流冷卻，長時間開啟加熱元件可能導致擋風玻璃結構損壞。",
+      "tags": "Anti-ice / Limitations",
+      "timestamp": "02:12:55"
+    }
+  ],
+  "video_id": "Voc0Pw0_vI4",
+  "url": "https://www.youtube.com/watch?v=Voc0Pw0_vI4",
+  "has_transcript": false
+}
