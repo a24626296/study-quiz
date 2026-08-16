@@ -1,0 +1,208 @@
+{
+  "subject": "ATR 72-600 飛行模擬機 - 教官操作台 (IOS) 系統邏輯",
+  "mc_questions": [
+    {
+      "zh_question": "在 IOS 的小型控制面板中，『Total Emergency Stop』（緊急總停）按鈕與其他停機功能的主要區別為何？",
+      "zh_options": [
+        "(A) 僅關閉模擬機的動態系統（Motion）",
+        "(B) 按下後需要對整個系統進行全面重設（Total Reset）",
+        "(C) 僅切斷駕駛艙內的燈光電源",
+        "(D) 僅用於停止教官台螢幕的顯示"
+      ],
+      "en_question": "In the IOS small panel, what is the primary characteristic of the 'Total Emergency Stop' button compared to other stop functions?",
+      "en_options": [
+        "(A) It only shuts down the simulator's motion system.",
+        "(B) It requires everything to be reset after being activated.",
+        "(C) It only cuts power to the cockpit lighting.",
+        "(D) It is only used to stop the instructor station displays."
+      ],
+      "answer": "B",
+      "explanation": "根據影片 00:43 秒處說明，Total Emergency Stop 按鈕會導致系統需要重新設定（Requires everything to be reset），屬於絕對緊急狀況下使用。而 Motion Stop 則僅針對動態或控制負載（Control Loads）進行停止。",
+      "timestamp": "00:43"
+    },
+    {
+      "zh_question": "在模擬機系統中，『Control Loads』（控制負載）的主要功能為何？",
+      "zh_options": [
+        "(A) 模擬貨艙中貨物的重量分佈",
+        "(B) 提供操縱桿（Control Column）與方向舵踏板（Rudder Pedals）的力回饋",
+        "(C) 調整模擬機冷氣系統的風量大小",
+        "(D) 設定發電機的電力負載分配"
+      ],
+      "en_question": "What is the primary function of 'Control Loads' in the simulator system?",
+      "en_options": [
+        "(A) Simulating the weight distribution of cargo in the hold.",
+        "(B) Providing forces/feedback on the control column and rudder pedals.",
+        "(C) Adjusting the airflow volume of the simulator's air conditioning.",
+        "(D) Setting the electrical load distribution for the generators."
+      ],
+      "answer": "B",
+      "explanation": "影片 01:00 秒處明確解釋，Control Loads 是指作用在控制柱（Control Column）和方向舵踏板（Rudder Pedals）上的力量（Forces），用以模擬真實飛行的操縱手感。",
+      "timestamp": "01:00"
+    },
+    {
+      "zh_question": "關於 ATR 72-600 在低能見度操作（LVO）下的模擬設定，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 此機型已核准執行 Category III (CAT III) 進場",
+        "(B) 此機型未核准執行 Category III (CAT III) 進場",
+        "(C) 模擬機中最小的起飛能見度限制為 200 公尺",
+        "(D) CAVOK 代表雲高必須低於 600 英呎且有霧"
+      ],
+      "en_question": "Regarding the simulation of Low Visibility Operations (LVO) for the ATR 72-600, which statement is correct?",
+      "en_options": [
+        "(A) This aircraft type is approved for Category III (CAT III) approaches.",
+        "(B) This aircraft type is not approved for Category III approaches.",
+        "(C) The minimum takeoff visibility limit in the simulator is 200 meters.",
+        "(D) CAVOK represents a ceiling below 600 feet with fog."
+      ],
+      "answer": "B",
+      "explanation": "影片 13:30 秒處說明，ATR 機型並未核准執行 Category III 進場。教官提到雖然選單上有該選項，但飛機本身不符規（Does not comply）。",
+      "timestamp": "13:30"
+    },
+    {
+      "zh_question": "根據教官說明,在天氣雷達(Weather Radar)顯示器上出現的「紅色區域(Red Cells)」在模擬機中代表什麼導航意義?",
+      "zh_options": [
+        "(A) 該區域為禁航區(Prohibited Area)",
+        "(B) 該區域會產生極強烈的亂流(Strong Turbulence)",
+        "(C) 該區域代表有高山地障(High Terrain)",
+        "(D) 該區域為通訊死角"
+      ],
+      "en_question": "According to the instructor, what is the navigational significance of the 'red cells' displayed on the weather radar in the simulator?",
+      "en_options": [
+        "(A) It represents a Prohibited Area",
+        "(B) It produces very strong turbulence",
+        "(C) It represents high terrain",
+        "(D) It represents a communication dead zone"
+      ],
+      "answer": "B",
+      "explanation": "影片中教官明確指出 Red Cells 會產生 very strong turbulence,飛行員需要利用天氣雷達避開這些區域,否則在模擬機內會感到非常顛簸,甚至需要繫緊安全帶。",
+      "timestamp": "15:01"
+    },
+    {
+      "zh_question": "在 IOS 的「Slew(平移/調整)」選單中,教官無法直接調整下列哪一個參數?",
+      "zh_options": [
+        "(A) 飛機的航向(Heading)",
+        "(B) 飛機的高度(Altitude)",
+        "(C) 剩餘油量(Fuel Quantity)",
+        "(D) 飛機的位置(Position)"
+      ],
+      "en_question": "In the IOS 'Slew' menu, which of the following parameters can the instructor NOT adjust directly?",
+      "en_options": [
+        "(A) Aircraft Heading",
+        "(B) Aircraft Altitude",
+        "(C) Fuel Quantity",
+        "(D) Aircraft Position"
+      ],
+      "answer": "C",
+      "explanation": "IOS 的 Slew 功能主要用於動態調整飛機的空間狀態,包括 Position(位置)、Altitude(高度)、Heading(航向)與速度。油量調整通常屬於另一個系統選單。",
+      "timestamp": "17:15"
+    },
+    {
+      "zh_question": "當教官示範 PAPI (精確進場滑道指示燈)時,如果顯示為「四顆白燈」,代表飛機目前的進場狀態為何?",
+      "zh_options": [
+        "(A) 低於下滑道(Too low)",
+        "(B) 剛好在下滑道上(On slope)",
+        "(C) 高於下滑道(Too high)",
+        "(D) 燈光故障"
+      ],
+      "en_question": "When the instructor demonstrates the PAPI lights, what does 'four white lights' indicate about the aircraft's approach status?",
+      "en_options": [
+        "(A) Too low",
+        "(B) On slope",
+        "(C) Too high",
+        "(D) Light failure"
+      ],
+      "answer": "C",
+      "explanation": "PAPI 燈光邏輯中,兩紅兩白代表 On Slope(在下滑道上),四白則代表 Too High(過高),四紅則代表 Too Low(過低)。",
+      "timestamp": "18:18"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "教官在設定風切（Windshear）場景時，可以選擇三種不同的強度：輕度、中度或 {{c1::Severe}}（嚴重）。",
+      "zh_translation": "The instructor can choose between three different intensities when setting windshear scenarios: Light, Moderate, or Severe.",
+      "explanation": "IOS 提供三種 Windshear 強度選擇，其中 Severe 會導致劇烈的風向量變化，通常需執行 Go-around。",
+      "tags": "Weather / Windshear",
+      "timestamp": "06:49"
+    },
+    {
+      "cloze_text": "在『Aircraft Set』選單中，教官除了設定重量外，還必須設定 {{c1::Center of Gravity}}（重心）的數值（如典型的 26%）。",
+      "zh_translation": "In the 'Aircraft Set' menu, besides weight, the instructor must also set the Center of Gravity value (e.g., 26%).",
+      "explanation": "重心（CG）設定直接影響飛機的操縱性（Controllability）與穩定性。",
+      "tags": "Weight and Balance",
+      "timestamp": "04:17"
+    },
+    {
+      "cloze_text": "根據模擬機顯示，ATR 72-600 的最小起飛能見度（Take-off visibility）設定為 {{c1::125}} 公尺。",
+      "zh_translation": "According to the simulator display, the minimum take-off visibility for the ATR 72-600 is set at 125 meters.",
+      "explanation": "這是模擬機預設的最小起飛限制（Minimum Take-off RVR）。",
+      "tags": "Limitations / LVO",
+      "timestamp": "13:44"
+    },
+    {
+      "cloze_text": "教官可以使用 {{c1::Rapid Align}} 功能來快速校準陀螺儀，而不需要等待標準的開機程序。",
+      "zh_translation": "The instructor can use the 'Rapid Align' function to quickly align the gyros without waiting for the standard power-up sequence.",
+      "explanation": "這是在訓練中節省時間的常用功能（Aligning Gyros）。",
+      "tags": "Avionics / Simulator-Operation",
+      "timestamp": "01:52"
+    },
+    {
+      "cloze_text": "在教官台選單中，{{c1::Engine Quick Start}} 功能特別適合在引擎故障訓練後，快速讓飛機恢復運行。",
+      "zh_translation": "The 'Engine Quick Start' function is especially suitable for quickly resuming operation after an engine failure training scenario.",
+      "explanation": "此按鈕可略過繁瑣的啟動程序，提高訓練效率。",
+      "tags": "Engine / Simulator-Operation",
+      "timestamp": "01:42"
+    },
+    {
+      "cloze_text": "在設定環境參數時，QNH 代表當地的氣壓設定，而教官通常會根據場景調整 {{c1::Ground Temp}}（地面溫度）。",
+      "zh_translation": "When setting environment parameters, QNH represents the local pressure, and the instructor usually adjusts the Ground Temperature based on the scenario.",
+      "explanation": "氣壓與溫度會直接影響飛機的起飛性能（Performance）。",
+      "tags": "Environment",
+      "timestamp": "05:13"
+    },
+    {
+      "cloze_text": "在模擬中示範雨天效果時,擋風玻璃上的水滴會使視覺變得模糊,此時必須開啟 {{c1::Windshield Wipers}} 才能看清跑道。",
+      "zh_translation": "當模擬雨天效果時,擋風玻璃上的水會使視線模糊,必須開啟雨刷才能看清跑道。",
+      "explanation": "模擬機可模擬水滴遮蔽視線的物理效果,需操作雨刷系統排除。",
+      "tags": "System / IOS",
+      "timestamp": "16:05"
+    },
+    {
+      "cloze_text": "IOS 提供進場加速功能,教官可以將 Ground Speed 提高至最高 {{c1::x4}} 倍以節省飛行時間。",
+      "zh_translation": "IOS 提供進場加速功能,教官可以將地速最高提高至 4 倍以節省飛行時間。",
+      "explanation": "Speed up 功能常用於跳過漫長的長進場階段,提高訓練效率。",
+      "tags": "IOS / Operation",
+      "timestamp": "19:11"
+    },
+    {
+      "cloze_text": "在跑道表面狀況選單中,{{c1::Wet Rubber}} 選項會讓跑道變得非常溼滑。",
+      "zh_translation": "在跑道表面狀況選單中,Wet Rubber(溼橡膠)選項會讓跑道變得非常溼滑。",
+      "explanation": "橡膠沉積物在潮濕時會大幅降低摩擦係數,是進場與落地訓練的重要參數。",
+      "tags": "IOS / Environment",
+      "timestamp": "16:53"
+    },
+    {
+      "cloze_text": "示範標準 Cat I 精確進場時,能見度(Visibility)通常設定為 {{c1::550}} 公尺。",
+      "zh_translation": "示範標準 Cat I 精確進場時,能見度(Visibility)通常設定為 550 公尺。",
+      "explanation": "這是 Cat I 進場常見的跑道視覺範圍(RVR)限制值。",
+      "tags": "Environment / Visibility",
+      "timestamp": "24:08"
+    },
+    {
+      "cloze_text": "教官強調,在進場過程中,飛機應在高度 {{c1::1000}} 呎時達到穩定進場(Stabilized)狀態。",
+      "zh_translation": "教官強調,在進場過程中,飛機應在高度 1000 呎時達到穩定進場狀態。",
+      "explanation": "1000 ft 是儀器天氣條件(IMC)下判定 Stabilized Approach 的關鍵高度。",
+      "tags": "SOP / Flight-Technique",
+      "timestamp": "27:17"
+    },
+    {
+      "cloze_text": "位於杜拜市中心的哈里發塔(Burj Khalifa)高度約為 {{c1::2800}} 呎,飛行時需注意障礙物避讓。",
+      "zh_translation": "位於杜拜市中心的哈里發塔(Burj Khalifa)高度約為 2800 呎,飛行時需注意障礙物避讓。",
+      "explanation": "高大建築物在低空操作或引擎失效進場時是重要的地障參考。",
+      "tags": "Environment / Obstacle",
+      "timestamp": "18:45"
+    }
+  ],
+  "video_id": "8Q7t5C9Q4uk",
+  "url": "https://www.youtube.com/watch?v=8Q7t5C9Q4uk&list=PLY8qtbcbQHDgvGsXxOYrFqWB1ugb9-xOl&index=51",
+  "has_transcript": false
+}
