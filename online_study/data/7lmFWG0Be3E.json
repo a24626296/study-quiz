@@ -1,0 +1,109 @@
+{
+  "subject": "ATR 42/72 系統綜合 - 頂部面板 (Overhead Panel)",
+  "mc_questions": [
+    {
+      "zh_question": "關於起落架次要指示燈 (Secondary Indicator) 的邏輯，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 綠色三角形代表起落架已收起且上鎖 (Up and Locked)",
+        "(B) 紅色 UNLK 燈亮起代表起落架正在作動中且未鎖定 (In transit and not locked)",
+        "(C) 指示燈完全不亮代表起落架已放下且鎖定 (Down and Locked)",
+        "(D) 琥珀色燈代表起落架門未關閉"
+      ],
+      "en_question": "Regarding the Landing Gear secondary indicator logic, which of the following statements is correct?",
+      "en_options": [
+        "(A) Green triangle means the gear is up and locked",
+        "(B) Red UNLK light means the gear is in transit and not locked",
+        "(C) No lights at all means the gear is down and locked",
+        "(D) Amber light indicates the gear doors are not closed"
+      ],
+      "answer": "B",
+      "explanation": "根據教官說明, 綠色三角形代表 Down and Locked; 紅色 UNLK 燈代表 In transit; 完全不亮燈則代表 Up and Locked。這是一套獨立於主要指示器的備用指示系統。",
+      "timestamp": "02:58"
+    },
+    {
+      "zh_question": "在電氣系統面板上，BTC (Bus Tie Contactor) 的主要功能是什麼？",
+      "zh_options": [
+        "(A) 當兩具發電機都失效時，自動切斷所有非必要匯流排",
+        "(B) 負責將 DC 直流電轉換為 AC 交流固定頻率電",
+        "(C) 允許單一電源 (發電機或外部電源) 供電給整個系統的匯流排",
+        "(D) 控制電池充電器的充電速率"
+      ],
+      "en_question": "On the Main Elec Power panel, what is the primary function of the BTC (Bus Tie Contactor)?",
+      "en_options": [
+        "(A) Automatically shed non-essential buses when both generators fail",
+        "(B) Convert DC power to AC constant frequency power",
+        "(C) Allow a single power source (Gen or Ext Pwr) to power the entire system buses",
+        "(D) Control the charging rate of the battery chargers"
+      ],
+      "answer": "C",
+      "explanation": "BTC (Bus Tie Contactor) 匯流排聯結接觸器可以手動或自動運作，其作用是聯通兩側的匯流排，使單一電力來源能覆蓋全機系統。",
+      "timestamp": "07:51"
+    },
+    {
+      "zh_question": "在引擎火警面板上，關於偵測環路 (Loops) 的故障指示邏輯，下列何者正確？",
+      "zh_options": [
+        "(A) 只要有一個環路偵測到火警，火警手柄就會亮起紅燈",
+        "(B) 必須兩個環路 (Loop A & B) 同時偵測到火警，火警手柄才會亮起紅燈",
+        "(C) 如果只有一個環路偵測到異常，會觸發 FAULT 燈而非火警警告",
+        "(D) FAULT 燈亮起代表滅火瓶已經壓力不足"
+      ],
+      "en_question": "On the Engine Fire panel, which of the following is correct regarding the detection loop logic?",
+      "en_options": [
+        "(A) Fire handle illuminates red if only one loop detects fire",
+        "(B) Both Loop A and B must detect fire simultaneously for the handle to turn red",
+        "(C) If only one loop detects a condition, a FAULT light is triggered instead of a fire warning",
+        "(D) FAULT light means the fire extinguisher bottle has low pressure"
+      ],
+      "answer": "C",
+      "explanation": "火警警告需要兩個環路同時偵測到火情。若只有單一環路偵測到異常，系統會判定為環路故障並亮起 FAULT 燈，此時可將故障環路關閉 (OFF)，剩餘環路仍可提供正常的火警偵測邏輯。",
+      "timestamp": "04:31"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The Propeller Brake locks the propeller on {{c1::Engine 2}}, enabling it to drive the DC generator and provide air conditioning on the ground (Hotel Mode).",
+      "zh_translation": "螺旋槳煞車會鎖定 2 號引擎的螺旋槳，使其能帶動直流發電機並在地面提供空調（即 Hotel Mode）。",
+      "explanation": "ATR 著名的 Hotel Mode 僅能在 2 號引擎運作，因為只有該側裝有 Prop Brake。",
+      "tags": "Powerplant / Hotel Mode",
+      "timestamp": "06:12"
+    },
+    {
+      "cloze_text": "When the power supply to the DC Standby Bus is less than {{c1::19.5}} volts, an undervoltage light is illuminated.",
+      "zh_translation": "當直流備用匯流排 (DC Standby Bus) 的供電電壓低於 19.5 伏特時，欠壓指示燈會亮起。",
+      "explanation": "這是監控緊急電源狀態的重要限制數據。",
+      "tags": "Electrics / Limitations",
+      "timestamp": "08:53"
+    },
+    {
+      "cloze_text": "Ice protection level 1 consists of {{c1::Probes Heating}} and windshield heating, which are normally kept on throughout the flight.",
+      "zh_translation": "第一級防冰保護包含感應器加熱 (Probes Heating) 與擋風玻璃加熱，通常在整個飛行過程中都保持開啟。",
+      "explanation": "這是 ATR 防冰系統邏輯的最基礎層級，與大氣條件無關。",
+      "tags": "Ice and Rain / Procedures",
+      "timestamp": "16:45"
+    },
+    {
+      "cloze_text": "The hydraulic auxiliary pump is driven by {{c1::DC Power}} and acts as a backup for the Blue system.",
+      "zh_translation": "液壓輔助泵 (Aux Pump) 是由直流電 (DC Power) 驅動的，作為藍色系統的備援。",
+      "explanation": "區別於主泵 (AC Wild 驅動)，輔助泵提供緊急情況下的基本液壓需求。",
+      "tags": "Hydraulics",
+      "timestamp": "11:51"
+    },
+    {
+      "cloze_text": "Pulling the fire handle arms the two fire extinguisher bottles, indicated by a {{c1::SQUIB}} light in the agent pushbuttons.",
+      "zh_translation": "拉起火警手柄會備炸兩具滅火瓶，這會由滅火藥劑按鈕中的 SQUIB 燈號顯示。",
+      "explanation": "SQUIB 燈亮代表滅火系統的導爆管電路已連通，隨時可以釋放藥劑。",
+      "tags": "Fire Protection / Memory-Item",
+      "timestamp": "04:50"
+    },
+    {
+      "cloze_text": "The fuel LP (Low Pressure) valve is always open unless the {{c1::Fire Handle}} is pulled.",
+      "zh_translation": "燃油低壓 (LP) 閥門平時始終保持開啟，除非火警手柄被拉起。",
+      "explanation": "拉起 Fire Handle 會物理切斷進入引擎供油線路的最後一道關卡。",
+      "tags": "Fuel / Engine Fire",
+      "timestamp": "02:11"
+    }
+  ],
+  "video_id": "7lmFWG0Be3E",
+  "url": "https://www.youtube.com/watch?v=7lmFWG0Be3E&list=PLY8qtbcbQHDgvGsXxOYrFqWB1ugb9-xOl&index=28",
+  "has_transcript": false
+}
