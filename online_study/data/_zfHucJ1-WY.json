@@ -1,0 +1,616 @@
+{
+  "subject": "航空性能基礎 - 大氣環境與飛航原理",
+  "mc_questions": [
+    {
+      "zh_question": "根據音訊內容,關於高高度(High Density Altitude)對飛機性能的影響,下列敘述何者正確?",
+      "zh_options": [
+        "(A) 空氣密度增加,提升引擎效率",
+        "(B) 螺旋槳在稀薄空氣中效率更高",
+        "(C) 引擎進氣量減少,導致推力或馬力降低",
+        "(D) 飛機起飛所需的地面滾行距離會縮短"
+      ],
+      "en_question": "According to the audio, what is the effect of high density altitude on aircraft performance?",
+      "en_options": [
+        "(A) Air density increases, improving engine efficiency",
+        "(B) Propellers are more efficient in thin air",
+        "(C) The engine takes in less air, resulting in reduced thrust or horsepower",
+        "(D) The ground run distance required for takeoff is shortened"
+      ],
+      "answer": "C",
+      "explanation": "當 Density Altitude 升高時,空氣變得稀薄(Thin air),引擎因為進氣量減少而降低馬力,螺旋槳在稀薄空氣中的抓地力(Thrust)也會下降,導致整體性能降低。",
+      "timestamp": "03:15"
+    },
+    {
+      "zh_question": "為什麼高濕度(High Humidity)會導致飛機性能下降?",
+      "zh_options": [
+        "(A) 水蒸氣比乾空氣重,增加了飛機總重",
+        "(B) 水蒸氣比乾空氣輕,取代了部分空氣分子使空氣密度降低",
+        "(C) 濕氣會增加機翼表面的磨擦阻力",
+        "(D) 濕度會使空氣變得更濃稠,增加寄生阻力"
+      ],
+      "en_question": "Why does high humidity cause a decrease in aircraft performance?",
+      "en_options": [
+        "(A) Water vapor is heavier than dry air, increasing the aircraft total weight",
+        "(B) Water vapor is lighter than dry air, replacing air molecules and decreasing air density",
+        "(C) Humidity increases skin friction drag on the wings",
+        "(D) Humidity makes the air denser, increasing parasite drag"
+      ],
+      "answer": "B",
+      "explanation": "水蒸氣(Water vapor)實際上比組成大氣的氮氣和氧氣輕。因此,當空氣中水份增加時,空氣密度會下降(Density decreases),導致 Density Altitude 升高並降低性能。",
+      "timestamp": "11:05"
+    },
+    {
+      "zh_question": "在穩定平直飛行(Steady, Level Flight)中,關於力的平衡關係敘述正確的是?",
+      "zh_options": [
+        "(A) 升力大於重量,推力等於阻力",
+        "(B) 升力等於重量,推力大於阻力",
+        "(C) 升力等於重量,推力等於阻力",
+        "(D) 升力等於阻力,推力等於重量"
+      ],
+      "en_question": "In steady, level flight, which of the following statements about the equilibrium of forces is correct?",
+      "en_options": [
+        "(A) Lift is greater than weight, and thrust equals drag",
+        "(B) Lift equals weight, and thrust is greater than drag",
+        "(C) Lift equals weight, and thrust equals drag",
+        "(D) Lift equals drag, and thrust equals weight"
+      ],
+      "answer": "C",
+      "explanation": "為了維持穩定平直飛行,飛機必須達到力學平衡(Equilibrium):升力(Lift)必須等於重量(Weight),而推力(Thrust)必須等於阻力(Drag)。",
+      "timestamp": "14:15"
+    },
+    {
+      "zh_question": "關於推力 (Thrust) 與功率 (Power) 在爬升性能中的定義，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 推力是功的執行率，單位為馬力 (HP)",
+        "(B) 功率是作用於物體上的壓力，單位為磅 (Lbs)",
+        "(C) 推力是作用於物體上的力，功率則是執行功的速率 (Rate of performing work)",
+        "(D) 兩者在航空學上是完全相同的代名詞，可以互換使用"
+      ],
+      "en_question": "Regarding the definition of Thrust and Power in climb performance, which of the following is correct?",
+      "en_options": [
+        "(A) Thrust is the rate of performing work, measured in Horsepower (HP)",
+        "(B) Power is the pressure exerted on an object, measured in Pounds (Lbs)",
+        "(C) Thrust is a force exerted on an object, while Power is the rate of performing work",
+        "(D) Both are identical terms in aeronautics and can be used interchangeably"
+      ],
+      "answer": "C",
+      "explanation": "Thrust 是一種作用力 (Force)，單位通常為 Lbs 或 Newtons；而 Power 則是功的執行率 (Rate of work)，單位為 HP 或 kW。在 Climb performance 中區分這兩者至關重要。",
+      "timestamp": "18:48"
+    },
+    {
+      "zh_question": "當飛行員需要以「最大爬升角」(Maximum Angle of Climb, AOC) 爬升以避開跑道末端的障礙物時，應維持哪一個速度？",
+      "zh_options": [
+        "(A)維持 Vy 速度，以獲得每單位時間的最大高度增益",
+        "(B)維持 Vx 速度，以獲得每單位水平距離的最大高度增益",
+        "(C)維持 Cruise speed，以確保引擎有足夠的冷卻氣流",
+        "(D)維持 V2 速度，這是所有飛機的最佳爬升角速度"
+      ],
+      "en_question": "When a pilot needs to climb at the Maximum Angle of Climb (AOC) to clear obstacles at the end of a runway, which speed should be maintained?",
+      "en_options": [
+        "(A) Maintain Vy to achieve maximum altitude gain per unit of time",
+        "(B) Maintain Vx to achieve maximum altitude gain per unit of horizontal distance",
+        "(C) Maintain Cruise speed to ensure sufficient cooling airflow for the engine",
+        "(D) Maintain V2, which is the best angle of climb speed for all aircraft"
+      ],
+      "answer": "B",
+      "explanation": "Vx (Best Angle of Climb) 提供每單位水平距離的最大高度增益，適用於障礙物限制作業 (Obstacle clearance)；Vy (Best Rate of Climb) 則是提供每單位時間的最大高度增益。",
+      "timestamp": "20:17"
+    },
+    {
+      "zh_question": "關於飛機的「升限」(Ceiling) 定義，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 絕對升限 (Absolute Ceiling) 是飛機仍能維持 100 FPM 爬升率的高度",
+        "(B) 服務升限 (Service Ceiling) 是爬升率降至零的高度",
+        "(C) 在絕對升限時，飛機僅存一種速度能維持穩定平飛，且無多餘功率可供爬升",
+        "(D) 隨著高度增加，Vx 與 Vy 的速度間距會越來越大"
+      ],
+      "en_question": "Regarding the definition of aircraft 'Ceiling', which of the following is correct?",
+      "en_options": [
+        "(A) Absolute Ceiling is the altitude where the aircraft can still maintain a 100 FPM climb rate",
+        "(B) Service Ceiling is the altitude where the climb rate drops to zero",
+        "(C) At the Absolute Ceiling, only one speed allows steady level flight, with no excess power for climbing",
+        "(D) As altitude increases, the gap between Vx and Vy airspeeds increases"
+      ],
+      "answer": "C",
+      "explanation": "在 Absolute Ceiling，飛機的餘裕功率為零 (Zero excess power)，ROC 亦為零；Service Ceiling 則是爬升率降至 100 FPM 的高度。隨著高度上升，Vx 會增加而 Vy 會減少，最終在絕對升限會合。",
+      "timestamp": "22:00"
+    },
+    {
+      "zh_question": "為什麼航空公司在進行長程巡航作業時，通常推薦使用「長程巡航速度」(LRC) 而非「最大航程速度」(Max Range Speed)？",
+      "zh_options": [
+        "(A) LRC 能節省更多的燃油，增加飛行的經濟性",
+        "(B) LRC 以犧牲 1% 的航程換取增加 3% 到 5% 的巡航速度，能顯著提升營運效率",
+        "(C) LRC 是為了在高空巡航時獲得最佳的引擎冷卻效果",
+        "(D) LRC 速度較慢，能有效延長機組員的執勤時間"
+      ],
+      "en_question": "Why is Long Range Cruise (LRC) typically recommended over Maximum Range Speed for long-range airline operations?",
+      "en_options": [
+        "(A) LRC saves more fuel and increases flight economy",
+        "(B) LRC sacrifices 1% of range for a 3% to 5% increase in cruise speed, significantly improving operational efficiency",
+        "(C) LRC is used to achieve optimal engine cooling during high-altitude cruise",
+        "(D) LRC is a slower speed that effectively extends crew duty time"
+      ],
+      "answer": "B",
+      "explanation": "Long Range Cruise (LRC) 的設計邏輯是犧牲極小比例 (1%) 的航程 (Specific Range)，來換取顯著的速度增益 (3-5% Higher TAS)，這在實務營運上更具效率。",
+      "timestamp": "27:00"
+    },
+    {
+      "zh_question": "關於「反向指揮區」(Region of Reversed Command) 的描述，下列何者正確？",
+      "zh_options": [
+        "(A) 在此區域內，增加空速需要減少馬力輸出以維持高度",
+        "(B) 此區域通常發生在高速巡航階段，受誘導阻力(Induced Drag)影響最大",
+        "(C) 在此區域內，較低的空速反而需要較高的馬力設定才能維持高度",
+        "(D) 它是指空速高於最大續航力速度(Max Endurance Speed)的飛行區域"
+      ],
+      "en_question": "Which of the following statements regarding the 'Region of Reversed Command' is correct?",
+      "en_options": [
+        "(A) Within this region, increasing airspeed requires decreasing power output to maintain altitude",
+        "(B) This region typically occurs during high-speed cruise and is primarily affected by Induced Drag",
+        "(C) Within this region, a lower airspeed requires a higher power setting to maintain level flight",
+        "(D) It refers to the flight regime where airspeed is higher than the Max Endurance Speed"
+      ],
+      "answer": "C",
+      "explanation": "在 Region of Reversed Command (也稱為 back side of the power curve) 中，誘導阻力隨速度降低而大幅增加。因此，要維持慢速飛行所需的總阻力較高，飛行員必須增加 Power (或 Thrust) 才能維持穩定平飛。這與正常空域 (Region of Normal Command) 速度越快馬力越大的邏輯相反。",
+      "timestamp": "35:40"
+    },
+    {
+      "zh_question": "飛機在積水的跑道上發生「動態水飄」(Dynamic Hydroplaning) 時，主要原因為何？",
+      "zh_options": [
+        "(A) 輪胎壓力過高導致與地面接觸面積太小",
+        "(B) 輪胎與跑道表面之間形成一層薄水膜，使輪胎失去地面接觸",
+        "(C) 跑道坡度過大導致排水不良",
+        "(D) 飛機重量過重導致輪胎陷入跑道裂縫"
+      ],
+      "en_question": "What is the primary cause of 'Dynamic Hydroplaning' when an aircraft is on a wet runway?",
+      "en_options": [
+        "(A) High tire pressure causes the contact area with the ground to be too small",
+        "(B) A thin sheet of water builds up between the tire and the runway surface, causing the tire to lose contact",
+        "(C) Excessive runway gradient leads to poor drainage",
+        "(D) Excessive aircraft weight causes the tires to sink into runway cracks"
+      ],
+      "answer": "B",
+      "explanation": "Dynamic Hydroplaning 的定義是輪胎在薄水膜上滑行 (rides on a thin sheet of water)，導致輪胎與跑道失去摩擦力，使煞車與方向控制失效。其發生的最小速度與輪胎壓力 (Tire Pressure) 的平方根成正比。",
+      "timestamp": "40:00"
+    },
+    {
+      "zh_question": "當飛機總重 (Gross Weight) 增加時，對起飛距離的影響通常呈現什麼樣的比例關係？",
+      "zh_options": [
+        "(A) 距離增加的比例與重量增加的比例完全相同",
+        "(B) 距離增加的比例約為重量增加比例的三倍 (3-fold effect)",
+        "(C) 距離增加的比例僅為重量增加比例的一半",
+        "(D) 重量增加對起飛距離幾乎沒有影響，只會影響爬升率"
+      ],
+      "en_question": "How does an increase in Gross Weight typically affect the takeoff distance?",
+      "en_options": [
+        "(A) The increase in distance is exactly proportional to the increase in weight",
+        "(B) The increase in distance is approximately three times the percentage of weight increase (3-fold effect)",
+        "(C) The increase in distance is only half of the percentage of weight increase",
+        "(D) Weight increase has almost no effect on takeoff distance, only on climb rate"
+      ],
+      "answer": "B",
+      "explanation": "重量增加會產生三重負效應：1. 需要更高的離地速度 (higher liftoff speed)；2. 有更多的質量需要加速 (greater mass to accelerate)；3. 增加滾動摩擦與阻力。這導致起飛距離的增加百分比遠大於重量增加的百分比（約三倍關係）。",
+      "timestamp": "43:30"
+    },
+    {
+      "zh_question": "根據手冊內容,若飛機的總重 (Gross Weight) 增加 10%,其起飛距離大約會增加多少?",
+      "zh_options": [
+        "(A) 10%",
+        "(B) 15%",
+        "(C) 21%",
+        "(D) 25%"
+      ],
+      "en_question": "According to the handbook, if the gross weight increases by 10%, the takeoff distance will increase by approximately:",
+      "en_options": [
+        "(A) 10%",
+        "(B) 15%",
+        "(C) 21%",
+        "(D) 25%"
+      ],
+      "answer": "C",
+      "explanation": "重量增加會導致兩方面的影響:第一是需要更高的起飛速度 (Lift-off speed),第二是加速率降低。手冊明確指出,重量增加 10% 會導致起飛距離增加約 21%。",
+      "timestamp": "01:30:45"
+    },
+    {
+      "zh_question": "在高密度高度 (High Density Altitude) 環境下起飛,對起飛距離的主要影響為何?",
+      "zh_options": [
+        "(A) 相同的指示空速 (IAS) 下,真實空速 (TAS) 較低",
+        "(B) 相同的指示空速 (IAS) 下,真實空速 (TAS) 較高且推力減少",
+        "(C) 引擎產生的推力會隨高度增加而增加",
+        "(D) 輪胎與地面的摩擦力會大幅減小"
+      ],
+      "en_question": "What is the primary effect of taking off in a high density altitude environment on the takeoff distance?",
+      "en_options": [
+        "(A) Lower True Airspeed (TAS) at the same Indicated Airspeed (IAS)",
+        "(B) Higher True Airspeed (IAS) at the same Indicated Airspeed (IAS) and reduced thrust",
+        "(C) Engine thrust increases with altitude",
+        "(D) Tire friction with the runway significantly decreases"
+      ],
+      "answer": "B",
+      "explanation": "在高密度高度下,為了達到相同的指示空速 (IAS),飛機必須達到更高的真實空速 (TAS),這意味著起飛滾行速度更快;同時,稀薄的空氣會降低引擎推力,導致加速率降低,兩者共同增加了起飛距離。",
+      "timestamp": "01:32:30"
+    },
+    {
+      "zh_question": "關於降落時的超速 (Excess Speed) 影響,若進場速度比規定高出 10%,降落距離會如何變化?",
+      "zh_options": [
+        "(A) 降落距離增加約 10%",
+        "(B) 降落距離增加約 21%",
+        "(C) 降落距離維持不變",
+        "(D) 降落距離減少 10%"
+      ],
+      "en_question": "Regarding the effect of excess speed during landing, if the approach speed is 10% higher than recommended, how will the landing distance change?",
+      "en_options": [
+        "(A) Increase by approximately 10%",
+        "(B) Increase by approximately 21%",
+        "(C) Remain unchanged",
+        "(D) Decrease by 10%"
+      ],
+      "answer": "B",
+      "explanation": "降落距離與速度的平方成正比。10% 的超速不僅增加動能(需由剎車吸收),還會產生額外的升力,減少輪胎對地面的正壓力,降低剎車效率。手冊指出 10% 超速會導致降落距離增加至少 21%。",
+      "timestamp": "01:39:15"
+    },
+    {
+      "zh_question": "關於最佳爬升角速度 (VX) 與最佳爬升率速度 (VY) 的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) VX 提供隨時間變化的最大高度增益",
+        "(B) VY 在特定的水平距離內提供最高的高度增益",
+        "(C) VX 隨高度增加通常會稍微增加",
+        "(D) VY 隨高度增加會導致發動機推力增加"
+      ],
+      "en_question": "Regarding the Best Angle of Climb (VX) and Best Rate of Climb (VY), which of the following statements is correct?",
+      "en_options": [
+        "(A) VX provides the maximum altitude gain over time",
+        "(B) VY provides the highest altitude gain within a specific horizontal distance",
+        "(C) VX normally increases slightly with altitude",
+        "(D) VY increases with altitude resulting in increased engine thrust"
+      ],
+      "answer": "C",
+      "explanation": "根據 PHAK 定義，VX (Best Angle of Climb) 是在給定的水平距離內獲得最高高度的速度，且通常隨高度增加而稍微增加。VY (Best Rate of Climb) 則是隨時間獲得最大高度增益的速度。",
+      "timestamp": "01:02:50"
+    },
+    {
+      "zh_question": "在操作性能圖表時，「內插法」(Interpolation) 的主要目的是什麼？",
+      "zh_options": [
+        "(A) 修正因儀表位置誤差導致的讀數偏差",
+        "(B) 在已知的圖表數據點之間計算出特定飛行條件下的數值",
+        "(C) 將指示空速 (IAS) 轉換為校正空速 (CAS)",
+        "(D) 計算發動機在不同高度下的燃油消耗率"
+      ],
+      "en_question": "When using performance charts, what is the primary purpose of 'Interpolation'?",
+      "en_options": [
+        "(A) To correct reading deviations caused by instrument position errors",
+        "(B) To compute intermediate information for specific flight conditions between known chart data points",
+        "(C) To convert Indicated Airspeed (IAS) to Calibrated Airspeed (CAS)",
+        "(D) To calculate engine fuel consumption rates at different altitudes"
+      ],
+      "answer": "B",
+      "explanation": "內插法 (Interpolation) 允許飛行員透過已知的數據點，計算出圖表中未直接列出的特定飛行條件（如特定高度或溫度）下的中間性能數據。",
+      "timestamp": "01:06:30"
+    },
+    {
+      "zh_question": "關於 V_LO 速度的定義，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 這是起落架處於延伸狀態時可安全飛行的最大速度",
+        "(B) 這是襟翼在特定延伸位置時的最大許可速度",
+        "(C) 這是起落架在操作延伸或收回過程中的最大安全速度",
+        "(D) 這是飛機在結構受損前能承受的最大巡航速度"
+      ],
+      "en_question": "Which of the following is the correct definition for V_LO?",
+      "en_options": [
+        "(A) The maximum speed at which the aircraft can be safely flown with the landing gear extended",
+        "(B) The highest speed permissible with the wing flaps in a prescribed extended position",
+        "(C) The maximum speed at which the landing gear can be safely extended or retracted",
+        "(D) The maximum structural cruising speed before structural damage occurs"
+      ],
+      "answer": "C",
+      "explanation": "V_LO (Maximum Landing Gear Operating Speed) 是指起落架在操作（延伸或收回）過程中所允許的最大速度，主要受限於操作機構所承受的空氣負荷。V_LE 才是起落架已延伸狀態下的最大速度。",
+      "timestamp": "01:02:15"
+    },
+    {
+      "zh_question": "在計算巡航性能(Cruise Performance)時,若飛機未安裝輪圈整流罩(Wheel Fairings),應如何修正真空速(TAS)?",
+      "zh_options": [
+        "(A) 減去 8 節 (Subtract 8 knots)",
+        "(B) 加上 8 節 (Add 8 knots)",
+        "(C) 減去 5 節 (Subtract 5 knots)",
+        "(D) 無須修正"
+      ],
+      "en_question": "When calculating cruise performance, how should the True Airspeed (TAS) be adjusted if wheel fairings are not installed?",
+      "en_options": [
+        "(A) Subtract 8 knots",
+        "(B) Add 8 knots",
+        "(C) Subtract 5 knots",
+        "(D) No adjustment needed"
+      ],
+      "answer": "A",
+      "explanation": "根據圖表 11-30 的備註說明,若未安裝輪圈整流罩(Wheel Fairings),必須從圖表得到的速度中減去 8 節以修正阻力增加對速度的影響。",
+      "timestamp": "01:16:53"
+    },
+    {
+      "zh_question": "若跑道編號為 17,風向為 140 度,風速為 25 節,則風向角(Wind Angle)與側風分量(Crosswind Component)分別為何?",
+      "zh_options": [
+        "(A) 30度 / 13節",
+        "(B) 30度 / 22節",
+        "(C) 20度 / 10節",
+        "(D) 40度 / 15節"
+      ],
+      "en_question": "If the runway is 17 and the wind is from 140 degrees at 25 knots, what are the wind angle and crosswind component?",
+      "en_options": [
+        "(A) 30 degrees / 13 knots",
+        "(B) 30 degrees / 22 knots",
+        "(C) 20 degrees / 10 knots",
+        "(D) 40 degrees / 15 knots"
+      ],
+      "answer": "A",
+      "explanation": "跑道 17 代表航向 170 度。風向 140 度與跑道夾角為 30 度。根據側風分量圖表,30 度角且風速 25 節時,側風分量約為 13 節,對頭風(Headwind)約為 22 節。",
+      "timestamp": "01:18:25"
+    },
+    {
+      "zh_question": "失速速度性能圖表(Stall Speed Performance Charts)通常會考慮下列哪些關鍵因素?",
+      "zh_options": [
+        "(A) 坡度(Bank angle)、構型(Gear/Flaps)與油門位置",
+        "(B) 僅考慮機外溫度(OAT)與壓力高度",
+        "(C) 僅考慮飛機重量與重心位置",
+        "(D) 燃油流量與引擎轉速"
+      ],
+      "en_question": "What key factors are typically considered in Stall Speed Performance Charts?",
+      "en_options": [
+        "(A) Bank angle, configuration (Gear/Flaps), and throttle position",
+        "(B) Only OAT and pressure altitude",
+        "(C) Only aircraft weight and center of gravity",
+        "(D) Fuel flow and engine RPM"
+      ],
+      "answer": "A",
+      "explanation": "失速速度受飛機物理構型(襟翼與起落架)、動力輸出(油門位置)以及飛行動態(坡度造成的載荷係數 Load Factor)的直接影響。",
+      "timestamp": "01:21:40"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Standard sea level pressure has a surface pressure of {{c1::29.92}} inches of mercury (Hg).",
+      "zh_translation": "標準海平面壓力設定值為 29.92 英吋汞柱。",
+      "explanation": "這是定義壓力高度(Pressure Altitude)的基準平面(SDP)。",
+      "tags": "Standard Atmosphere, Limitations",
+      "timestamp": "04:35"
+    },
+    {
+      "cloze_text": "The standard temperature lapse rate is approximately {{c1::2}} degrees Celsius per 1,000 feet.",
+      "zh_translation": "標準大氣溫度直減率約為每 1,000 英呎下降攝氏 2 度。",
+      "explanation": "航空計算常用數據,美制單位則為每 1,000 英呎下降 3.5 度華氏。",
+      "tags": "Atmosphere, Definitions",
+      "timestamp": "05:15"
+    },
+    {
+      "cloze_text": "{{c1::Density Altitude}} is pressure altitude corrected for non-standard temperature variations.",
+      "zh_translation": "密度高度是經過非標準溫度修正後的壓力高度。",
+      "explanation": "這是影響飛機性能(Performance)最直接的大氣參數。",
+      "tags": "Definitions, Performance",
+      "timestamp": "09:25"
+    },
+    {
+      "cloze_text": "The atmosphere is composed of 78 percent nitrogen and {{c1::21}} percent oxygen.",
+      "zh_translation": "大氣成分包含 78% 的氮氣以及 21% 的氧氣。",
+      "explanation": "剩下 1% 為氬、氦等其他氣體,氧氣主要集中在 35,000 英呎以下。",
+      "tags": "Atmosphere",
+      "timestamp": "02:15"
+    },
+    {
+      "cloze_text": "Pressure altitude can be determined by setting the barometric scale of the altimeter to {{c1::29.92}}.",
+      "zh_translation": "將高度計的氣壓刻度調至 29.92 即可測得壓力高度。",
+      "explanation": "這是飛行員在飛行中獲取 Pressure Altitude 最直接的方法。",
+      "tags": "Altimeter, Performance",
+      "timestamp": "12:15"
+    },
+    {
+      "cloze_text": "Parasite drag predominates at {{c1::high}} speeds, while induced drag predominates at low speeds.",
+      "zh_translation": "寄生阻力在高速時佔主導地位,而誘導阻力在低速時佔主導地位。",
+      "explanation": "寄生阻力隨速度平方增加,而誘導阻力與速度平方成反比。",
+      "tags": "Aerodynamics, Drag",
+      "timestamp": "14:35"
+    },
+    {
+      "cloze_text": "Thrust is a force or pressure exerted on an object, measured in {{c1::pounds}}, while Power is a measurement of the rate of performing work.",
+      "zh_translation": "推力是作用於物體上的力或壓力，以「磅」為單位，而功率則是衡量執行功的速率。",
+      "explanation": "在性能分析中，必須區分 Force (Thrust) 與 Power (Work rate) 的物理定義。",
+      "tags": "Definitions / Physics",
+      "timestamp": "18:12"
+    },
+    {
+      "cloze_text": "The Maximum Angle of Climb (AOC) performance provides the greatest altitude gain relative to {{c1::distance}} traveled over the ground.",
+      "zh_translation": "最大爬升角 (AOC) 性能提供相對於地面行經「距離」的最大高度增益。",
+      "explanation": "這是 Vx 的定義核心，用於短場起飛或障礙物超越 (Obstacle clearance)。",
+      "tags": "Performance / Climb",
+      "timestamp": "20:17"
+    },
+    {
+      "cloze_text": "The {{c1::Service Ceiling}} is the altitude at which the aircraft is unable to climb at a rate greater than 100 feet per minute (FPM).",
+      "zh_translation": "「服務升限」是指飛機無法以超過每分鐘 100 呎的速度進行爬升的高度。",
+      "explanation": "這是民航與通用航空界定飛機實用高度極限的標準定義。",
+      "tags": "Limitations / Performance",
+      "timestamp": "22:00"
+    },
+    {
+      "cloze_text": "Maximum endurance for a propeller aircraft is obtained at the point of {{c1::minimum fuel flow}}, which corresponds to the minimum power required.",
+      "zh_translation": "螺旋槳飛機的最大待命時間 (Endurance) 是在「最小燃油流量」點獲得的，這對應於所需的最小功率。",
+      "explanation": "最大待命時間目標是讓飛機在空中停留最久，因此需將燃油消耗率 (Fuel Flow) 降至最低。",
+      "tags": "Performance / Cruise",
+      "timestamp": "24:12"
+    },
+    {
+      "cloze_text": "Specific range is defined as nautical miles (NM) of flying distance versus the {{c1::amount of fuel}} consumed.",
+      "zh_translation": "比航程 (Specific Range) 定義為飛行距離 (NM) 與消耗的「燃油量」之比值。",
+      "explanation": "單位通常為 NM/Lb，是衡量巡航效率最重要的指標。",
+      "tags": "Definitions / Range",
+      "timestamp": "23:40"
+    },
+    {
+      "cloze_text": "The maximum range condition for a given aircraft configuration occurs at the maximum {{c1::Lift over Drag}} ratio (L/D Max).",
+      "zh_translation": "特定構型下飛機的最大航程狀況發生在「最大升阻比」(L/D Max) 之處。",
+      "explanation": "在此點，每單位阻力所產生的升力最高，對應巡航時的最佳空氣動力效率。",
+      "tags": "Aerodynamics / Range",
+      "timestamp": "25:13"
+    },
+    {
+      "cloze_text": "Most long-range cruise (LRC) operations are conducted at the flight condition that provides {{c1::99}} percent of the absolute maximum specific range.",
+      "zh_translation": "大多數長程巡航 (LRC) 作業是在提供絕對最大比航程之「99」% 的飛行條件下進行的。",
+      "explanation": "LRC 是一個兼顧速度與航程的折衷方案，常用於航空公司飛行計畫 (Flight Planning)。",
+      "tags": "Cruise-Control / Range",
+      "timestamp": "27:00"
+    },
+    {
+      "cloze_text": "計算最小水飄速度 (Minimum Hydroplaning Speed) 的公式為：速度(Knots)等於 {{c1::9}} 乘以輪胎壓力 PSI 的平方根。",
+      "zh_translation": "The formula to calculate Minimum Hydroplaning Speed is: Speed in knots equals 9 times the square root of tire pressure in PSI.",
+      "explanation": "這是航空界常用的簡化公式，用於評估飛機在積水跑道上可能發生水飄的門檻速度。",
+      "tags": "Limitations, Performance",
+      "timestamp": "41:30"
+    },
+    {
+      "cloze_text": "飛機的起飛離地速度 (Liftoff Speed) 通常設定在失速速度或最小控制速度的 {{c1::1.05 至 1.25}} 倍之間。",
+      "zh_translation": "The liftoff speed is generally between 1.05 and 1.25 times the stall speed or minimum control speed.",
+      "explanation": "這提供了一定的安全裕度，確保飛機在離地後具有足夠的升力與操控性，並避免過早進入失速狀態。",
+      "tags": "Definition, Takeoff",
+      "timestamp": "43:00"
+    },
+    {
+      "cloze_text": "在跑道上以 75 節速度移動的飛機，其動能是 37 節時的 {{c1::4}} 倍。",
+      "zh_translation": "An aircraft moving at 75 knots on the runway has 4 times the energy it has at 37 knots.",
+      "explanation": "動能與速度的平方成正比。這解釋了為什麼較高的著陸速度會大幅增加所需的停止距離。",
+      "tags": "Physics, Performance",
+      "timestamp": "38:50"
+    },
+    {
+      "cloze_text": "在反向指揮區飛行時，若要增加空速且維持高度，飛行員必須先 {{c1::增加}} 功率輸出。",
+      "zh_translation": "To increase airspeed while maintaining altitude in the region of reversed command, the pilot must first increase power.",
+      "explanation": "雖然增加速度最終會減少誘導阻力，但在加速初期需要克服該區域極大的阻力，故必須先給予更多馬力。",
+      "tags": "Flight Mechanics",
+      "timestamp": "37:25"
+    },
+    {
+      "cloze_text": "跑道坡度以百分比表示，例如 3% 的梯度代表跑道每 100 呎長度，高度改變 {{c1::3}} 呎。",
+      "zh_translation": "Runway gradient is expressed as a percentage; for example, a 3% gradient means the height changes 3 feet for every 100 feet of runway length.",
+      "explanation": "梯度對起飛與著陸距離有顯著影響，上坡 (upslope) 會阻礙加速，延長起飛距離。",
+      "tags": "Runway, Performance",
+      "timestamp": "44:50"
+    },
+    {
+      "cloze_text": "A headwind that is 10 percent of the takeoff airspeed reduces the takeoff distance approximately {{c1::19}} percent.",
+      "zh_translation": "若逆風達到起飛空速的 10%,起飛距離大約會縮短 19%。",
+      "explanation": "逆風 (Headwind) 能讓飛機在較短的滾行距離內達到起飛所需的 Airspeed。",
+      "tags": "Takeoff, Wind",
+      "timestamp": "01:30:25"
+    },
+    {
+      "cloze_text": "The approximate increase in takeoff distance with altitude is approximately {{c1::3.5}} percent for each 1,000 feet.",
+      "zh_translation": "海拔每升高 1,000 英尺,起飛距離大約會增加 3.5%。",
+      "explanation": "這是一個重要的性能估算數據,用於初步判斷高高原機場的性能。",
+      "tags": "Performance, Altitude",
+      "timestamp": "01:34:00"
+    },
+    {
+      "cloze_text": "A tailwind of 10 knots increases the landing distance by about {{c1::21}} percent.",
+      "zh_translation": "10 浬的順風大約會增加 21% 的降落距離。",
+      "explanation": "順風會增加飛機觸地時的 Ground Speed,顯著延長滾行距離。",
+      "tags": "Landing, Wind",
+      "timestamp": "01:38:40"
+    },
+    {
+      "cloze_text": "The formula for the minimum speed at which hydroplaning occurs is {{c1::9}} times the square root of the tire pressure.",
+      "zh_translation": "發生水漂效應的最小速度公式為 9 乘以輪胎壓力的平方根。",
+      "explanation": "這是計算水漂速度 (Dynamic Hydroplaning Speed) 的經典經驗公式。",
+      "tags": "Safety, Definitions",
+      "timestamp": "01:43:04"
+    },
+    {
+      "cloze_text": "{{c1::VS0}} is the calibrated power-off stalling speed or the minimum steady flight speed at which the aircraft is controllable in the landing configuration.",
+      "zh_translation": "VS0 是在降落組態下,引擎怠速時的校正失速速度或最小穩定飛行速度。",
+      "explanation": "VS0 標誌著降落組態下的低速極限。",
+      "tags": "Speeds, Definitions",
+      "timestamp": "01:44:36"
+    },
+    {
+      "cloze_text": "{{c1::VY}} is the speed at which the aircraft obtains the maximum increase in altitude per unit of time.",
+      "zh_translation": "VY 是飛機在單位時間內獲得最大高度增量的速度(最佳爬升率速度)。",
+      "explanation": "VY 用於需要在最短時間內爬升到特定高度的情況。",
+      "tags": "Speeds, Performance",
+      "timestamp": "01:44:52"
+    },
+    {
+      "cloze_text": "V_NE is the speed that should {{c1::never be exceeded}}.",
+      "zh_translation": "V_NE 是絕對不可超過的速度。",
+      "explanation": "若超過此速度，可能導致結構性損壞或故障 (Structural failure)。",
+      "tags": "Limitations",
+      "timestamp": "01:04:18"
+    },
+    {
+      "cloze_text": "V_A is the calibrated design {{c1::maneuvering}} airspeed.",
+      "zh_translation": "V_A 是校正設計機動空速。",
+      "explanation": "在此速度以下，全舵面偏轉不會造成結構損壞；在此速度以上則可能發生。",
+      "tags": "Definitions",
+      "timestamp": "01:03:42"
+    },
+    {
+      "cloze_text": "Aviation fuel weighs {{c1::6}} pounds per gallon.",
+      "zh_translation": "航空燃油每加侖重量為 6 磅。",
+      "explanation": "這是計算飛機載重與性能圖表時常用的標準數據。",
+      "tags": "Data",
+      "timestamp": "01:12:02"
+    },
+    {
+      "cloze_text": "For takeoff performance, decrease the distances by 10 percent for each {{c1::9}} knots of headwind.",
+      "zh_translation": "計算起飛性能時，每 9 節的逆風可減少 10% 的起飛距離。",
+      "explanation": "這是性能圖表中常見的備註 (Notes)，用於修正逆風對跑道距離的影響。",
+      "tags": "Performance",
+      "timestamp": "01:13:48"
+    },
+    {
+      "cloze_text": "Pressure altitude is corrected for {{c1::nonstandard pressure}}.",
+      "zh_translation": "氣壓高度是針對非標準壓力進行修正後的高度。",
+      "explanation": "高度計設定在 29.92 Hg 時所讀取的高度即為氣壓高度 (Pressure Altitude)。",
+      "tags": "Definitions",
+      "timestamp": "01:07:55"
+    },
+    {
+      "cloze_text": "The speed at which the aircraft obtains the highest altitude in a given horizontal distance is {{c1::VX}}.",
+      "zh_translation": "飛機在給定的水平距離內獲得最高高度的速度是 VX。",
+      "explanation": "常用於越障爬升 (Obstacle clearance)。",
+      "tags": "V-Speeds",
+      "timestamp": "01:02:35"
+    },
+    {
+      "cloze_text": "In the sample problem, the range with a 45-minute reserve is approximately {{c1::522}} miles, compared to 581 miles with no reserve.",
+      "zh_translation": "在範例問題中,包含 45 分鐘預留油量的航程約為 522 英里,而無預留油量時則為 581 英里。",
+      "explanation": "飛行計畫必須考慮法規要求的預留油量(Reserve Fuel),這會直接減少可用的航程距離。",
+      "tags": "Range / Fuel",
+      "timestamp": "01:15:55"
+    },
+    {
+      "cloze_text": "FAA regulations require aircraft to be tested in 90-degree crosswinds with a velocity up to {{c1::0.2}} V_S0.",
+      "zh_translation": "FAA 法規要求飛機必須在 90 度側風、風速達 0.2 V_S0 的條件下進行測試。",
+      "explanation": "這是認證飛機最大示範側風(Maximum Demonstrated Crosswind)的基準法規標準。",
+      "tags": "Regulations / Crosswind",
+      "timestamp": "01:17:18"
+    },
+    {
+      "cloze_text": "Landing weight must be re-calculated to compensate for the {{c1::fuel}} that was used during the flight.",
+      "zh_translation": "落地重量必須重新計算,以補償飛行過程中所消耗的燃油。",
+      "explanation": "計算落地性能時,落地重量(Landing Weight)會低於起飛重量,因為已消耗部分油量。",
+      "tags": "Weight and Balance",
+      "timestamp": "01:19:15"
+    },
+    {
+      "cloze_text": "In Sample Problem 13, at a 45-degree bank angle with power off and gear/flaps down, the stall speed is {{c1::68}} knots.",
+      "zh_translation": "在範例 13 中,當坡度為 45 度、動力關閉且起落架/襟翼放下時,失速速度為 68 節。",
+      "explanation": "增加坡度會增加載荷係數,進而提高飛機的失速速度。",
+      "tags": "Stall Speed / Aerodynamics",
+      "timestamp": "01:22:23"
+    },
+    {
+      "cloze_text": "The Code of Federal Regulations (CFR) requires that a pilot be familiar with {{c1::all available information}} prior to any flight.",
+      "zh_translation": "聯邦法規 (CFR) 要求飛行員在任何飛行前必須熟悉所有可用資訊。",
+      "explanation": "這是飛行員的基本責任,包括氣象、跑道長度、性能數據等。",
+      "tags": "Regulations",
+      "timestamp": "01:22:42"
+    }
+  ],
+  "video_id": "_zfHucJ1-WY",
+  "url": "https://www.youtube.com/watch?v=_zfHucJ1-WY",
+  "has_transcript": false
+}

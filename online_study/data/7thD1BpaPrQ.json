@@ -1,0 +1,545 @@
+{
+  "subject": "氣象理論與大氣結構 - 基礎篇",
+  "mc_questions": [
+    {
+      "zh_question": "關於對流層頂 (Tropopause) 的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) 它能將水分與天氣現象鎖在平流層 (Stratosphere) 中",
+        "(B) 它的高度在兩極與赤道上方是一致的，約為 40,000 英呎",
+        "(C) 它常與噴射氣流 (Jet Stream) 的位置以及晴空亂流 (CAT) 有關",
+        "(D) 對流層頂以上的溫度隨高度增加而穩定下降"
+      ],
+      "en_question": "Which of the following statements about the Tropopause is correct?",
+      "en_options": [
+        "(A) It traps moisture and associated weather within the Stratosphere.",
+        "(B) Its altitude is constant at 40,000 feet over both the poles and the equator.",
+        "(C) It is commonly associated with the location of the jet stream and possible clear air turbulence (CAT).",
+        "(D) The temperature above the tropopause decreases steadily with an increase in altitude."
+      ],
+      "answer": "C",
+      "explanation": "對流層頂 (Tropopause) 是對流層與平流層的邊界，它能將水分和天氣鎖在對流層 (Troposphere) 內。其高度隨緯度變化（兩極較低，赤道較高），且該區域常伴隨 Jet Stream 與 CAT。平流層的氣流相對穩定，較少天氣現象。",
+      "timestamp": "03:08"
+    },
+    {
+      "zh_question": "在高海拔機場起飛時，為什麼起飛滾行距離 (Ground Roll) 會顯著增加？",
+      "zh_options": [
+        "(A) 因為空氣密度較大，產生的阻力較強",
+        "(B) 因為空氣較稀薄，機翼需更高的空速才能產生足夠升力，且發動機與螺旋槳效率降低",
+        "(C) 因為大氣壓力較高，導致皮托管感應速度過慢",
+        "(D) 因為密度高度 (Density Altitude) 降低，導致發動機推力減弱"
+      ],
+      "en_question": "Why does the takeoff ground roll increase significantly at high-altitude airports?",
+      "en_options": [
+        "(A) Because the higher air density produces stronger drag.",
+        "(B) Because thinner air requires higher airspeed to generate sufficient lift, and engine and propeller efficiency are reduced.",
+        "(C) Because higher atmospheric pressure causes slow response in pitot-static instruments.",
+        "(D) Because the decrease in density altitude results in reduced engine thrust."
+      ],
+      "answer": "B",
+      "explanation": "在高海拔（低壓、稀薄空氣）環境下，飛機需要更高的 True Airspeed (TAS) 才能達到起飛所需的升力。同時，由於空氣分子減少，發動機的燃燒效率與螺旋槳的抓氣能力（Thrust）都會下降，導致加速變慢且跑道需求增加。",
+      "timestamp": "13:10"
+    },
+    {
+      "zh_question": "科氏力 (Coriolis Force) 對於北半球大氣環流的主要影響為何？",
+      "zh_options": [
+        "(A) 使移動中的氣團向左偏轉，形成逆時針環流",
+        "(B) 使空氣從低壓區直接流向高壓區",
+        "(C) 使移動中的氣團向右偏轉，進而將大氣環流分解為三個單元 (Cells)",
+        "(D) 在赤道地區的偏轉效果最為明顯"
+      ],
+      "en_question": "What is the primary effect of the Coriolis Force on atmospheric circulation in the Northern Hemisphere?",
+      "en_options": [
+        "(A) It deflects moving air masses to the left, creating counter-clockwise circulation.",
+        "(B) It causes air to flow directly from low-pressure to high-pressure areas.",
+        "(C) It deflects moving air to the right, breaking the general flow into three distinct cells.",
+        "(D) The deflection effect is most significant at the equator."
+      ],
+      "answer": "C",
+      "explanation": "科氏力是由地球自轉引起，在北半球會使移動物體（如氣團）向其移動方向的右側偏轉。這股力量在兩極最強，赤道為零。它將原本單純的南北環流分解為 Hadley、Ferrell 與 Polar 三個循環胞。",
+      "timestamp": "07:08"
+    },
+    {
+      "zh_question": "在北半球中，圍繞高壓中心 (High pressure area) 的大氣環流方向為何？",
+      "zh_options": [
+        "(A) 逆時針方向 (Counter-clockwise)",
+        "(B) 順時針方向 (Clockwise)",
+        "(C) 由中心向內旋轉 (Inward)",
+        "(D) 垂直向上流動 (Vertical upward)"
+      ],
+      "en_question": "In the Northern Hemisphere, what is the direction of air circulation around a high-pressure area?",
+      "en_options": [
+        "(A) Counter-clockwise",
+        "(B) Clockwise",
+        "(C) Inward",
+        "(D) Vertical upward"
+      ],
+      "answer": "B",
+      "explanation": "在北半球，高壓區域的空氣受地轉偏向力影響會向右偏轉，產生順時針 (Clockwise) 且向外擴散的環流，這種現象稱為反氣旋環流 (Anticyclonic circulation)。",
+      "timestamp": "15:20"
+    },
+    {
+      "zh_question": "當飛機在溫暖的天氣下進行進場 (Approach) 時，若進場路徑下方經過大片水域或茂密的植被區，飛行員應預期會遇到何種氣流影響？",
+      "zh_options": [
+        "(A) 強烈的上升氣流 (Updrafts)，可能導致飛機高於下滑道",
+        "(B) 穩定的水平層流 (Laminar flow)，對飛行無影響",
+        "(C) 下沉氣流 (Downdrafts)，可能導致飛機低於預期下滑道",
+        "(D) 性能增加的逆風 (Headwind)，使空速突然增加"
+      ],
+      "en_question": "During an approach in warm weather, what should a pilot expect when flying over a large body of water or dense vegetation?",
+      "en_options": [
+        "(A) Strong updrafts, potentially causing the aircraft to overshoot",
+        "(B) Stable horizontal laminar flow with no effect",
+        "(C) Downdrafts, potentially causing the aircraft to undershoot",
+        "(D) Headwind increase, causing a sudden rise in airspeed"
+      ],
+      "answer": "C",
+      "explanation": "水域和植被區吸收熱量的速度較慢，上方空氣較冷且密度較大，會產生下沉氣流 (Downdrafts)，這可能導致飛機出現下降率增加的「沉降感」，使飛行員降落在預定著陸點之前 (Undershoot)。",
+      "timestamp": "18:40"
+    },
+    {
+      "zh_question": "在穿越微下爆流 (Microburst) 的過程中，飛機性能變化的典型順序為何？",
+      "zh_options": [
+        "(A) 順風增加、下降氣流、逆風增加",
+        "(B) 下降氣流、順風增加、性能提升",
+        "(C) 逆風增加、下降氣流、順風增加",
+        "(D) 上升氣流、性能損失、平穩氣流"
+      ],
+      "en_question": "What is the typical sequence of performance changes when an aircraft encounters a microburst during takeoff or approach?",
+      "en_options": [
+        "(A) Tailwind increase, downdraft, headwind increase",
+        "(B) Downdraft, tailwind increase, performance gain",
+        "(C) Headwind increase, downdraft, tailwind increase",
+        "(D) Updraft, performance loss, smooth air"
+      ],
+      "answer": "C",
+      "explanation": "進入 Microburst 時會先遇到強大的性能增加逆風 (Performance-increasing headwind)，接著是核心的強烈下降氣流 (Strong downdraft)，最後是性能急遽損失的順風 (Performance-decreasing tailwind)，若高度不足極度危險。",
+      "timestamp": "22:15"
+    },
+    {
+      "zh_question": "若地面氣溫(OAT)為 85度F，露點(Dew Point)為 71度F，根據音訊中的公式，雲底高度(Cloud Base)大約為何？",
+      "zh_options": [
+        "(A) 1,400 英呎 AGL",
+        "(B) 2,500 英呎 AGL",
+        "(C) 3,180 英呎 AGL",
+        "(D) 4,400 英呎 AGL"
+      ],
+      "en_question": "If the Outside Air Temperature (OAT) is 85F and the Dew Point is 71F, what is the approximate height of the cloud base according to the formula mentioned?",
+      "en_options": [
+        "(A) 1,400 feet AGL",
+        "(B) 2,500 feet AGL",
+        "(C) 3,180 feet AGL",
+        "(D) 4,400 feet AGL"
+      ],
+      "answer": "C",
+      "explanation": "計算方式為：溫度與露點的差值(Spread)為 14度F，除以收斂率(Convergence Rate) 4.4度F/1000ft，再乘以 1000。計算結果為 (14 / 4.4) * 1000 = 3,181.8，約為 3,180 英呎 AGL。",
+      "timestamp": "32:45"
+    },
+    {
+      "zh_question": "關於霜(Frost)對飛行的影響，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 霜只會增加飛機重量，不影響升力",
+        "(B) 霜會破壞機翼上方的氣流，減少升力並增加阻力",
+        "(C) 只要引擎動力足夠，機翼上的薄霜不需要清除",
+        "(D) 霜會增加機翼表面的平滑度，進而減少阻力"
+      ],
+      "en_question": "Regarding the effect of frost on flight, which of the following statements is correct?",
+      "en_options": [
+        "(A) Frost only increases the aircraft's weight and does not affect lift.",
+        "(B) Frost disrupts the airflow over the wing, reducing lift and increasing drag.",
+        "(C) As long as engine power is sufficient, thin frost on wings does not need to be removed.",
+        "(D) Frost increases the smoothness of the wing surface, thereby reducing drag."
+      ],
+      "answer": "B",
+      "explanation": "Frost disrupts the flow of air over the wing, leading to a drastic reduction in lift production and a significant increase in drag. Pilots must ensure the aircraft is completely free of frost prior to takeoff.",
+      "timestamp": "37:35"
+    },
+    {
+      "zh_question": "當平流霧(Advection Fog)遇到風速超過 15 節(knots)的情況時，通常會發生什麼變化？",
+      "zh_options": [
+        "(A) 霧氣會消散，天空變晴朗",
+        "(B) 霧氣會變濃並降低能見度到零",
+        "(C) 霧氣會抬升並形成低層碎雲(Low Stratus Clouds)",
+        "(D) 霧氣會凝結成冰雹"
+      ],
+      "en_question": "What typically happens to advection fog when wind speeds exceed 15 knots?",
+      "en_options": [
+        "(A) The fog dissipates and the sky becomes clear.",
+        "(B) The fog thickens and reduces visibility to zero.",
+        "(C) The fog lifts and forms low stratus clouds.",
+        "(D) The fog condenses into hail."
+      ],
+      "answer": "C",
+      "explanation": "Advection fog is common in coastal areas. When winds exceed 15 knots, the fog usually lifts and forms low stratus clouds due to mixing.",
+      "timestamp": "39:12"
+    },
+    {
+      "zh_question": "關於積雨雲(Cumulonimbus)與嵌入式雷雨(Embedded Thunderstorms)，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 積雨雲只出現在低高度，不會影響高空飛行",
+        "(B) 嵌入式雷雨是指雷雨被包含在其他雲系中，不易被肉眼察覺",
+        "(C) 飛機進入積雨雲後，升降率不會超過 500 FPM",
+        "(D) 只有在山區才會形成積雨雲"
+      ],
+      "en_question": "Regarding cumulonimbus clouds and embedded thunderstorms, which of the following statements is correct?",
+      "en_options": [
+        "(A) Cumulonimbus clouds only appear at low altitudes and do not affect high-altitude flight.",
+        "(B) Embedded thunderstorms are thunderstorms obscured by other cloud formations, making them difficult to detect visually.",
+        "(C) After entering a cumulonimbus cloud, the vertical rate of the aircraft will not exceed 500 FPM.",
+        "(D) Cumulonimbus clouds only form in mountainous regions."
+      ],
+      "answer": "B",
+      "explanation": "Embedded thunderstorms occur when cumulonimbus clouds are obscured by other cloud layers, making them extremely hazardous because they cannot be seen by the pilot. These clouds can produce updrafts and downdrafts exceeding 3,000 FPM.",
+      "timestamp": "43:15"
+    },
+    {
+      "zh_question": "關於氣團 (Air Masses) 的特性，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 氣團通常是在空氣快速流動的區域形成的",
+        "(B) 源地 (Source Region) 通常是空氣相對停滯數日以上的區域",
+        "(C) 氣團的分類僅依據溫度，而不考慮濕度",
+        "(D) 氣團在移動過程中，不會受到下方地表性質的影響"
+      ],
+      "en_question": "Regarding the characteristics of air masses, which of the following statements is correct?",
+      "en_options": [
+        "(A) Air masses are typically formed in regions with rapidly moving air.",
+        "(B) A source region is typically an area where air remains relatively stagnant for days or longer.",
+        "(C) Air masses are classified based only on temperature, without considering moisture content.",
+        "(D) As an air mass moves, it is not affected by the characteristics of the surface below."
+      ],
+      "answer": "B",
+      "explanation": "氣團的性質取決於其源地 (Source Region)，這通常是一個空氣停滯 (stagnant) 的廣大區域，使空氣能吸收該地表的溫度與濕度特徵。移動時，氣團會受到下方地表性質的修正 (modification)。",
+      "timestamp": "45:05"
+    },
+    {
+      "zh_question": "比較冷鋒 (Cold Front) 與暖鋒 (Warm Front) 的特性，下列何者正確？",
+      "zh_options": [
+        "(A) 暖鋒的移動速度通常比冷鋒快",
+        "(B) 冷鋒的鋒面坡度較平緩，暖鋒較陡峭",
+        "(C) 冷鋒移動速度較快且坡度較陡，常導致更劇烈的天氣變化",
+        "(D) 暖鋒過境後，大氣壓力通常會持續大幅下降"
+      ],
+      "en_question": "Comparing the characteristics of cold fronts and warm fronts, which of the following is correct?",
+      "en_options": [
+        "(A) Warm fronts typically move faster than cold fronts.",
+        "(B) Cold fronts have a shallower frontal slope, while warm fronts are steeper.",
+        "(C) Cold fronts move faster and have a steeper slope, often leading to more violent weather changes.",
+        "(D) After a warm front passes, barometric pressure typically continues to fall significantly."
+      ],
+      "answer": "C",
+      "explanation": "冷鋒 (Cold Front) 由於密度大且貼近地面，像剷雪機一樣將暖空氣陡峭地抬升，且移動速度通常為 25-30 mph，甚至更快，因此產生的天氣（如雷雨）通常比暖鋒更猛烈。暖鋒則坡度平緩，多產生層狀雲與連續降水。",
+      "timestamp": "49:10"
+    },
+    {
+      "zh_question": "雷暴 (Thunderstorm) 進入消散階段 (Dissipating Stage) 的主要特徵是什麼？",
+      "zh_options": [
+        "(A) 強大的上升氣流 (Updrafts) 達到巔峰",
+        "(B) 下沉氣流 (Downdrafts) 開始取代並切斷上升氣流",
+        "(C) 雲頂開始形成鐵砧狀 (Anvil shape) 是進入成熟階段的象徵",
+        "(D) 降水停止，雲層立即完全消散"
+      ],
+      "en_question": "What is the primary characteristic of a thunderstorm entering the dissipating stage?",
+      "en_options": [
+        "(A) Strong updrafts reach their peak intensity.",
+        "(B) Downdrafts begin to replace and cut off the updrafts.",
+        "(C) The formation of an anvil-shaped cloud top marks the beginning of the mature stage.",
+        "(D) Precipitation stops, and the clouds dissipate immediately."
+      ],
+      "answer": "B",
+      "explanation": "雷暴的生命週期中，消散階段 (Dissipating Stage) 的特徵是下沉氣流 (Downdrafts) 擴散並取代了原本維持風暴的上升氣流 (Updrafts)，導致風暴失去能量來源而開始衰減。",
+      "timestamp": "57:35"
+    },
+    {
+      "zh_question": "在雷雨胞內部，最強烈的亂流通常發生在何處？",
+      "zh_options": [
+        "(A) 積雨雲的頂部外圍",
+        "(B) 雲底與地面之間的降水區",
+        "(C) 上升氣流與下降氣流之間的剪力層 (Shear zone)",
+        "(D) 遠離雲體的清空亂流區 (CAT)"
+      ],
+      "en_question": "Where is the strongest turbulence typically found within a thunderstorm cell?",
+      "en_options": [
+        "(A) At the outer edges of the cloud top",
+        "(B) In the precipitation area between the cloud base and ground",
+        "(C) In the shear zone between updrafts and downdrafts",
+        "(D) In the Clear Air Turbulence (CAT) zone away from the cloud body"
+      ],
+      "answer": "C",
+      "explanation": "最強烈的亂流發生在上升氣流 (Updrafts) 與下降氣流 (Downdrafts) 相互交會產生的剪力層。這種強烈的垂直切變會對飛機結構造成極大威脅。",
+      "timestamp": "01:01:08"
+    },
+    {
+      "zh_question": "關於雷雨中的結冰 (Icing) 風險，下列哪一個溫度區間最容易發生快速且嚴重的透明冰 (Clear Icing) 堆積？",
+      "zh_options": [
+        "(A) 0度C 至 -15度C 之間",
+        "(B) -15度C 至 -40度C 之間",
+        "(C) 高於 0度C 的溫暖潮濕區域",
+        "(D) 低於 -40度C 的極低溫雲頂"
+      ],
+      "en_question": "Regarding icing in thunderstorms, in which temperature range is rapid and severe clear icing accumulation most likely to occur?",
+      "en_options": [
+        "(A) Between 0 degrees C and -15 degrees C",
+        "(B) Between -15 degrees C and -40 degrees C",
+        "(C) Warm and moist areas above 0 degrees C",
+        "(D) Extremely cold cloud tops below -40 degrees C"
+      ],
+      "answer": "A",
+      "explanation": "在 0度C 到 -15度C 之間，雷雨雲中存在大量過冷水滴 (Supercooled water droplets)，這些大水滴撞擊飛機表面後會快速結成透明冰 (Clear icing)。",
+      "timestamp": "01:02:37"
+    },
+    {
+      "zh_question": "當雷雨胞與陣風鋒面 (Gust front) 接近機場時，氣壓計通常會呈現何種變化趨勢？",
+      "zh_options": [
+        "(A) 持續穩定下降直到降雨結束",
+        "(B) 先緩慢上升，隨後在降雨時劇烈下降",
+        "(C) 先快速下降，隨後隨著陣風鋒面與下降氣流抵達而劇烈上升",
+        "(D) 保持不變，僅有風向會發生劇烈改變"
+      ],
+      "en_question": "How does the barometric pressure typically change as a thunderstorm and its gust front approach an airport?",
+      "en_options": [
+        "(A) Continuous steady decrease until the rain ends",
+        "(B) Slow rise followed by a sharp drop during precipitation",
+        "(C) Rapid fall initially, followed by a sharp rise with the arrival of the gust front and downdraft",
+        "(D) Remains constant, with only wind direction changing drastically"
+      ],
+      "answer": "C",
+      "explanation": "雷雨接近時壓力先下降，但當陣風鋒面 (Gust front) 與冷空氣下降氣流 (Cold downdraft) 抵達時，壓力會劇烈上升 (Pressure rise)。",
+      "timestamp": "01:04:17"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "在標準大氣中，對流層內的平均溫度遞減率 (Temperature Lapse Rate) 約為每 1,000 英呎下降 {{c1::2}} 攝氏度 (°C)。",
+      "zh_translation": "In the standard atmosphere, the average temperature lapse rate within the troposphere is approximately 2 degrees Celsius (°C) per 1,000 feet.",
+      "explanation": "這是國際標準大氣 (ISA) 的基本定義，用於性能計算與高度計修正。",
+      "tags": "Atmosphere, Limitations",
+      "timestamp": "02:40"
+    },
+    {
+      "cloze_text": "標準海平面壓力 (Standard Sea Level Pressure) 定義為 {{c1::29.92}} 英吋汞柱 (inches of mercury, Hg)。",
+      "zh_translation": "Standard sea level pressure is defined as 29.92 inches of mercury (Hg).",
+      "explanation": "這是 altimeter setting 的標準參考值，對應 1013.2 mb。",
+      "tags": "Pressure, Definitions",
+      "timestamp": "10:27"
+    },
+    {
+      "cloze_text": "在北半球，高壓系統通常與 {{c1::下沉}} 氣流相關，通常帶來乾燥且晴朗的天氣。",
+      "zh_translation": "In the Northern Hemisphere, high-pressure systems are generally associated with descending air, typically bringing dry and fair weather.",
+      "explanation": "High-pressure 系統中的空氣下沉並向外擴散，抑制雲層形成。",
+      "tags": "Weather, Circulation",
+      "timestamp": "12:20"
+    },
+    {
+      "cloze_text": "大氣層的組成中，{{c1::氮氣 (Nitrogen)}} 佔了約 78%，而氧氣佔了 21%。",
+      "zh_translation": "The atmosphere is composed of approximately 78% nitrogen and 21% oxygen.",
+      "explanation": "剩餘的 1% 為氬氣、二氧化碳等微量氣體。",
+      "tags": "Atmosphere, Composition",
+      "timestamp": "01:40"
+    },
+    {
+      "cloze_text": "當大氣壓力降低時，密度高度 (Density Altitude) 會 {{c1::增加}}，這會使飛機性能下降。",
+      "zh_translation": "As atmospheric pressure decreases, density altitude increases, which leads to a decrease in aircraft performance.",
+      "explanation": "低壓環境等同於身處更高的高度，這對起飛距離和爬升率有負面影響。",
+      "tags": "Performance, Pressure",
+      "timestamp": "12:15"
+    },
+    {
+      "cloze_text": "人體對缺氧 (Hypoxia) 的反應通常在海拔 {{c1::10,000}} 英呎開始受到明顯影響，部分人甚至在 5,000 英呎即有反應。",
+      "zh_translation": "The human body's reaction to hypoxia typically becomes impaired at an altitude of about 10,000 feet.",
+      "explanation": "缺氧會影響判斷力與生理機能，這也是航空法規規定使用氧氣高度的依據。",
+      "tags": "Human-Factor, Physiology",
+      "timestamp": "14:03"
+    },
+    {
+      "cloze_text": "在對流層中，大氣壓力隨高度增加而下降，平均每 1,000 英呎約下降 {{c1::1}} 英吋汞柱 (Hg)。",
+      "zh_translation": "In the troposphere, atmospheric pressure decreases with altitude at a rate of approximately 1 inch of mercury (Hg) per 1,000 feet.",
+      "explanation": "這是飛行員在估算高度計變化時常用的簡化經驗法則。",
+      "tags": "Pressure, Altimetry",
+      "timestamp": "02:50"
+    },
+    {
+      "cloze_text": "在標準大氣條件下，大氣溫度隨高度上升的平均遞減率 (Average Lapse Rate) 為每 1,000 英呎下降 {{C1::2}} 攝氏度 (°C)。",
+      "zh_translation": "在標準大氣條件下，大氣溫度隨高度上升的平均遞減率為每 1,000 英呎下降 2 攝氏度 (°C)。",
+      "explanation": "這是航空氣象中判斷大氣穩定度的基礎數據，對應華氏溫度約為 3.5°F/1,000ft。",
+      "tags": "Meteorology, Lapse-Rate",
+      "timestamp": "26:12"
+    },
+    {
+      "cloze_text": "微下爆流 (Microburst) 的生命週期非常短暫，通常大約持續 {{C1::5 到 15}} 分鐘。",
+      "zh_translation": "微下爆流 (Microburst) 的生命週期非常短暫，通常大約持續 5 到 15 分鐘。",
+      "explanation": "由於生命週期極短，這使得即時偵測與預警對飛安至關重要。",
+      "tags": "Hazards, Wind-Shear",
+      "timestamp": "21:42"
+    },
+    {
+      "cloze_text": "典型的微下爆流可能會產生速度高達 {{C1::6,000}} FPM (英呎/分鐘) 的強烈下降氣流。",
+      "zh_translation": "典型的微下爆流可能會產生速度高達 6,000 FPM (英呎/分鐘) 的強烈下降氣流。",
+      "explanation": "這種強大的垂直下沉速率遠超過大多數通用航空飛機的爬升能力。",
+      "tags": "Hazards, Performance",
+      "timestamp": "21:48"
+    },
+    {
+      "cloze_text": "當大氣溫度隨著高度增加而上升時，這種異常現象被稱為 {{C1::溫度逆增}} (Temperature Inversion)。",
+      "zh_translation": "當大氣溫度隨著高度增加而上升時，這種異常現象被稱為「溫度逆增」 (Temperature Inversion)。",
+      "explanation": "逆增層通常非常穩定，會像蓋子一樣將濕氣、煙霧和污染物困在下方。",
+      "tags": "Meteorology, Stability",
+      "timestamp": "28:40"
+    },
+    {
+      "cloze_text": "穩定大氣 (Stable Air) 的典型特徵包括：平穩的氣流、低能見度以及出現 {{C1::層狀}} (Stratiform) 雲。",
+      "zh_translation": "穩定大氣 (Stable Air) 的典型特徵包括：平穩的氣流、低能見度以及出現層狀 (Stratiform) 雲。",
+      "explanation": "相對而言，不穩定大氣則常伴隨積狀雲 (Cumuliform) 和湍流 (Turbulence)。",
+      "tags": "Meteorology, Stability",
+      "timestamp": "26:35"
+    },
+    {
+      "cloze_text": "在天氣圖上，等壓線 (Isobars) 排列愈密集的區域，代表當地的 {{C1::壓力梯度}} (Pressure gradient) 愈大，風速也愈強。",
+      "zh_translation": "在天氣圖上，等壓線 (Isobars) 排列愈密集的區域，代表當地的壓力梯度 (Pressure gradient) 愈大，風速也愈強。",
+      "explanation": "這類似於地形圖上的等高線，愈陡峭(密集)代表變化愈劇烈。",
+      "tags": "Meteorology, Wind",
+      "timestamp": "25:15"
+    },
+    {
+      "cloze_text": "Unsaturated air cools at a rate of {{c1::5.4}} degrees Fahrenheit per 1,000 feet.",
+      "zh_translation": "未飽和空氣隨高度增加的冷卻率為每 1,000 英呎華氏 5.4 度。",
+      "explanation": "這是計算雲底高度的基礎物理數值之一，對應乾絕熱遞減率(Dry Adiabatic Lapse Rate)。",
+      "tags": "Meteorology, Lapse-Rate",
+      "timestamp": "31:05"
+    },
+    {
+      "cloze_text": "The convergence rate of temperature and dew point is {{c1::4.4}} degrees Fahrenheit per 1,000 feet.",
+      "zh_translation": "溫度與露點的收斂率為每 1,000 英呎華氏 4.4 度。",
+      "explanation": "這是因為露點隨高度下降約 1度F/1000ft，與氣溫冷卻率相減得出收斂率。",
+      "tags": "Meteorology, Calculation",
+      "timestamp": "33:10"
+    },
+    {
+      "cloze_text": "Low clouds are those that form near the Earth's surface and extend up to about {{c1::6,500}} feet AGL.",
+      "zh_translation": "低雲是指在地球表面附近形成，並延伸至約 6,500 英呎 AGL 高度的雲。",
+      "explanation": "低雲包含 Stratus、Stratocumulus 及 Nimbostratus，對飛行能見度影響最大。",
+      "tags": "Meteorology, Clouds",
+      "timestamp": "41:12"
+    },
+    {
+      "cloze_text": "Ice pellets are a definite indication of a {{c1::temperature inversion}}.",
+      "zh_translation": "小冰粒(Ice pellets)是出現逆溫層(temperature inversion)的明確指標。",
+      "explanation": "這意味著上方有較暖的空氣使雨滴融化，但在落入下方冷空氣層時重新凍結。",
+      "tags": "Meteorology, Precipitation",
+      "timestamp": "44:48"
+    },
+    {
+      "cloze_text": "{{c1::Advection}} fog requires wind to form and can persist even with stronger winds.",
+      "zh_translation": "平流霧(Advection fog)的形成需要風，且在強風下仍可能持續存在。",
+      "explanation": "與輻射霧(Radiation fog)不同，平流霧需要微風將暖濕空氣吹向冷表面。",
+      "tags": "Meteorology, Fog",
+      "timestamp": "39:05"
+    },
+    {
+      "cloze_text": "A ceiling is the lowest layer of clouds reported as being {{c1::broken}} or overcast.",
+      "zh_translation": "雲底高度(Ceiling)是指被報告為「破碎(broken)」或「陰天(overcast)」的最底層雲高度。",
+      "explanation": "Broken 指雲量佔 5/8 到 7/8，是航空器起降限制的重要參考。",
+      "tags": "Meteorology, Visibility",
+      "timestamp": "41:53"
+    },
+    {
+      "cloze_text": "Virga is rain that falls through the atmosphere but {{c1::evaporates}} prior to striking the ground.",
+      "zh_translation": "幡狀雲(Virga)是指從雲中落下但在接觸地面前就蒸發掉的降水。",
+      "explanation": "雖然降水未達地面，但可能伴隨強烈的下沉氣流，對低空飛行造成威脅。",
+      "tags": "Meteorology, Precipitation",
+      "timestamp": "44:30"
+    },
+    {
+      "cloze_text": "A source region is typically an area in which the air remains relatively {{c1::stagnant}} for a period of days or longer.",
+      "zh_translation": "源地通常是一個空氣保持相對停滯數日或更長時間的區域。",
+      "explanation": "Stagnant (停滯) 是氣團取得源地物理特性（溫、濕度）的關鍵條件。",
+      "tags": "Weather Theory",
+      "timestamp": "45:12"
+    },
+    {
+      "cloze_text": "Cold fronts move more rapidly than warm fronts, progressing at a rate of {{c1::25 to 30}} miles per hour.",
+      "zh_translation": "冷鋒的移動速度比暖鋒快，前進速度約為每小時 25 至 30 英哩。",
+      "explanation": "冷鋒的速度常導致更快速的天氣變遷，飛行員必須注意預報中的移動速度。",
+      "tags": "Fronts",
+      "timestamp": "49:05"
+    },
+    {
+      "cloze_text": "The most violent time period of the thunderstorm's life cycle is the {{c1::mature}} stage.",
+      "zh_translation": "雷暴生命週期中最劇烈的時期是成熟階段。",
+      "explanation": "成熟階段 (Mature Stage) 的指標是降水開始到達地面，此時上升與下沉氣流並存，亂流最強。",
+      "tags": "Thunderstorms",
+      "timestamp": "56:55"
+    },
+    {
+      "cloze_text": "A good rule of thumb is to circumnavigate thunderstorms by at least {{c1::20}} nautical miles.",
+      "zh_translation": "一個良好的經驗法則是與雷暴保持至少 20 海浬的繞飛距離。",
+      "explanation": "雷暴外的清空中仍可能存在強烈亂流或冰雹，20 NM 是航空界公認的避讓距離基準。",
+      "tags": "Safety-Distance",
+      "timestamp": "59:08"
+    },
+    {
+      "cloze_text": "A {{c1::squall line}} is a narrow band of active thunderstorms that often develops ahead of a cold front.",
+      "zh_translation": "颮線是一條狹窄的活動雷暴帶，通常在冷鋒前方發展。",
+      "explanation": "Squall line (颮線) 對航空器極度危險，因為它移動快且強度極大，且常呈長條狀難以繞越。",
+      "tags": "Hazards",
+      "timestamp": "57:40"
+    },
+    {
+      "cloze_text": "Shifting wind direction is most pronounced in conjunction with {{c1::cold front}} passage.",
+      "zh_translation": "風向轉變在冷鋒過境時表現最為明顯。",
+      "explanation": "過境時的風向偏移 (Wind Shift) 是鋒面存在的關鍵天氣指標，冷鋒的風向轉變通常比暖鋒更劇烈。",
+      "tags": "Wind Shifts",
+      "timestamp": "52:27"
+    },
+    {
+      "cloze_text": "A funnel cloud is a vortex extending downward from the cumulonimbus base; if it touches a land surface, it is a {{c1::tornado}}.",
+      "zh_translation": "漏斗雲是從積雨雲底部向下延伸的渦流；如果它接觸到陸地表面，就稱為龍捲風。",
+      "explanation": "接觸水面則稱為水龍捲 (Waterspout)，若未接觸表面則僅稱為漏斗雲 (Funnel cloud)。",
+      "tags": "Weather, Definitions",
+      "timestamp": "01:00:16"
+    },
+    {
+      "zh_translation": "強烈的剪力亂流曾在嚴重的雷雨胞側向 {{c1::20}} 哩處被探測到。",
+      "cloze_text": "Strong shear turbulence has been encountered as far as {{c1::20}} miles laterally from a severe storm.",
+      "explanation": "亂流不只存在於雲內，在嚴重雷雨胞的外圍側向及上方數千英呎處皆可能存在危險亂流。",
+      "tags": "Weather, Limitations",
+      "timestamp": "01:01:17"
+    },
+    {
+      "cloze_text": "Most of the remaining water vapor sublimates as ice crystals at temperatures below about {{c1::-15}} degrees Celsius.",
+      "zh_translation": "在大約低於攝氏 -15 度時，大部分剩餘的水蒸氣會昇華為冰晶。",
+      "explanation": "這解釋了為什麼高空雷雨雲頂部主要由冰晶組成，結冰風險相對較低 (水滴減少)。",
+      "tags": "Weather, Physics",
+      "timestamp": "01:02:12"
+    },
+    {
+      "cloze_text": "Hailstones larger than {{c1::1/2}} inch in diameter can significantly damage an aircraft in a few seconds.",
+      "zh_translation": "直徑大於 1/2 英吋的冰雹可以在幾秒鐘內對飛機造成嚴重損壞。",
+      "explanation": "冰雹是雷雨中與亂流並列的最嚴重危害，甚至可能在雲外的晴朗區遇到。",
+      "tags": "Weather, Hazards",
+      "timestamp": "01:03:51"
+    },
+    {
+      "cloze_text": "Without a corrected altimeter setting, the altimeter may be more than {{c1::100}} feet in error during a thunderstorm.",
+      "zh_translation": "若無修正高度計撥定值，雷雨期間高度計的誤差可能會超過 100 英呎。",
+      "explanation": "劇烈的壓力波動 (Pressure jump) 會導致高度計指示錯誤，增加進場風險。",
+      "tags": "Instruments, Error",
+      "timestamp": "01:04:36"
+    },
+    {
+      "cloze_text": "Nearby lightning strikes can induce permanent errors in the {{c1::magnetic compass}}.",
+      "zh_translation": "附近的雷擊可能會在磁羅盤中感應出永久性的誤差。",
+      "explanation": "強大電流產生的磁場會使飛機結構磁化，導致磁羅盤差 (Deviation) 永久改變。",
+      "tags": "Instruments, Lightning",
+      "timestamp": "01:05:02"
+    },
+    {
+      "cloze_text": "High concentrations of water in severe thunderstorms could result in {{c1::flameout}} or structural failure of turbine engines.",
+      "zh_translation": "嚴重雷雨中的高濃度含水量可能導致渦輪發動機熄火或結構損壞。",
+      "explanation": "上升氣流可能攜帶超過發動機設計限制的含水量，導致 Ingestion 危害。",
+      "tags": "Engine, Hazards",
+      "timestamp": "01:05:50"
+    }
+  ],
+  "video_id": "7thD1BpaPrQ",
+  "url": "https://www.youtube.com/watch?v=7thD1BpaPrQ",
+  "has_transcript": false
+}

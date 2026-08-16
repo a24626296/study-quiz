@@ -1,0 +1,267 @@
+{
+  "subject": "航空知識 - 載重與平衡 (Weight and Balance)",
+  "mc_questions": [
+    {
+      "zh_question": "當飛機的重心 (CG) 超出後限 (Aft Limit) 時，會對飛行特性造成什麼主要影響？",
+      "zh_options": [
+        "(A) 增加縱向穩定性，使操縱力變重",
+        "(B) 減少縱向穩定性，並增加從失速或螺旋中恢復的難度",
+        "(C) 降低失速速度，並改善飛機的操縱反應",
+        "(D) 導致飛機在著陸flare時難以抬起機頭"
+      ],
+      "en_question": "When the Center of Gravity (CG) is beyond the aft limit, what is the primary effect on flight characteristics?",
+      "en_options": [
+        "(A) Increased longitudinal stability and heavier control forces",
+        "(B) Decreased longitudinal stability and increased difficulty in recovering from stalls or spins",
+        "(C) Lowered stall speed and improved aircraft control response",
+        "(D) Causing difficulty in raising the nose during landing flare"
+      ],
+      "answer": "B",
+      "explanation": "重心過後 (Aft CG) 會縮短重心與水平尾翼之間的力臂，導致縱向穩定性 (Longitudinal Stability) 下降。雖然操縱力會變輕，但這會增加飛機進入不穩定狀態的風險，且在失速或螺旋 (Spin) 時，由於機尾配平力矩減小，恢復將變得非常困難。",
+      "timestamp": "06:22"
+    },
+    {
+      "zh_question": "關於重心重心位置靠前 (Forward CG) 對飛機性能的影響，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 會導致失速速度 (Stall Speed) 下降",
+        "(B) 會增加巡航速度並減少燃油消耗",
+        "(C) 可能導致著陸時難以抬起機頭，並增加機頭起落架的負荷",
+        "(D) 會使飛機變得極度不穩定，容易發生意外縱搖"
+      ],
+      "en_question": "Regarding the effects of a Forward CG on aircraft performance, which statement is correct?",
+      "en_options": [
+        "(A) It results in a decreased stall speed",
+        "(B) It increases cruise speed and reduces fuel consumption",
+        "(C) It may cause difficulty in rotating the nose during landing and increase loads on the nose gear",
+        "(D) It makes the aircraft extremely unstable and prone to unexpected pitch changes"
+      ],
+      "answer": "C",
+      "explanation": "重心靠前 (Forward CG) 會增加機頭向下的力矩，飛行員需要更大的升降舵力矩來抬頭。這在著陸 flare 或起飛抬頭時尤為困難，且由於需要額外的下壓力，會增加總升力需求，進而提高失速速度 (Stall Speed) 並增加機頭起落架壓力。",
+      "timestamp": "07:15"
+    },
+    {
+      "zh_question": "根據 14 CFR Part 91 法規，誰應對確保飛機在核准的載重與平衡限制內操作負最終責任？",
+      "zh_options": [
+        "(A) 簽派員 (Dispatcher)",
+        "(B) 飛機擁有者 (Owner)",
+        "(C) 機長 (Pilot in Command)",
+        "(D) 地面裝卸主管 (Loadmaster)"
+      ],
+      "en_question": "According to 14 CFR Part 91, who is ultimately responsible for ensuring the aircraft is operated within approved weight and balance limits?",
+      "en_options": [
+        "(A) The Dispatcher",
+        "(B) The Aircraft Owner",
+        "(C) The Pilot in Command (PIC)",
+        "(D) The Loadmaster"
+      ],
+      "answer": "C",
+      "explanation": "法規明確規定機長 (PIC) 必須在飛行前確認飛機符合 AFM (Airplane Flight Manual) 的營運限制，包括載重與平衡。這屬於預飛行計畫 (Pre-flight planning) 的重要環節。",
+      "timestamp": "09:58"
+    },
+    {
+      "zh_question": "根據音訊內容,為什麼多數飛機的重心 (CG) 通常設計在升力中心 (Center of Lift) 的稍前方?",
+      "zh_options": [
+        "(A) 為了產生抬頭力矩 (Nose-up tendency),增加起飛性能",
+        "(B) 為了產生低頭力矩 (Nose-down tendency),以提供縱向穩定性 (Longitudinal stability)",
+        "(C) 為了減少機翼受力,防止結構疲勞",
+        "(D) 為了增加巡航速度,減少燃油消耗"
+      ],
+      "en_question": "According to the audio, why is the Center of Gravity (CG) usually located slightly forward of the center of lift?",
+      "en_options": [
+        "(A) To create a nose-up tendency to increase takeoff performance",
+        "(B) To create a nose-down tendency to provide longitudinal stability",
+        "(C) To reduce wing stress and prevent structural fatigue",
+        "(D) To increase cruise speed and reduce fuel consumption"
+      ],
+      "answer": "B",
+      "explanation": "CG位於升力中心前方會產生一個自然的 Nose-down tendency,這在飛行中(特別是低速或高攻角時)能提供必要的 Longitudinal stability 與電梯 (Elevator) 控制效能。",
+      "timestamp": "19:15"
+    },
+    {
+      "zh_question": "當物件位於基準面 (Datum) 之後 (Aft) 時,其力臂 (Arm) 的數值應該如何表示?",
+      "zh_options": [
+        "(A) 以負英吋 (Negative inches) 表示",
+        "(B) 以總力矩 (Total Moment) 表示",
+        "(C) 以正英吋 (Positive inches) 表示",
+        "(D) 視飛機重心位置而定,不一定為正數"
+      ],
+      "en_question": "When an object is located aft of the datum, how should its arm be expressed?",
+      "en_options": [
+        "(A) In negative inches",
+        "(B) As total moment",
+        "(C) In positive inches",
+        "(D) Depending on the CG location, not necessarily positive"
+      ],
+      "answer": "C",
+      "explanation": "在航空載重平衡中,基準面 (Datum) 是 Station 0。位於基準面之後的距離稱為 Positive Arm (+),位於基準面之前的距離則稱為 Negative Arm (-)。",
+      "timestamp": "20:03"
+    },
+    {
+      "zh_question": "在進行載重移位 (Weight Shifting) 時,如果將 100 磅的物品從機身後方移至前方,對飛機總重與總力矩有何影響?",
+      "zh_options": [
+        "(A) 總重減少,總力矩增加",
+        "(B) 總重不變,總力矩增加",
+        "(C) 總重增加,總力矩減少",
+        "(D) 總重不變,總力矩減少"
+      ],
+      "en_question": "During weight shifting, if a 100-pound item is moved from the aft to the forward position, what are the effects on total weight and total moment?",
+      "en_options": [
+        "(A) Total weight decreases, total moment increases",
+        "(B) Total weight remains unchanged, total moment increases",
+        "(C) Total weight increases, total moment decreases",
+        "(D) Total weight remains unchanged, total moment decreases"
+      ],
+      "answer": "D",
+      "explanation": "Weight shifting 僅改變物品位置,因此 Total weight 不變。由於物品向 Forward 移動,Arm 變小,導致總力矩 (Total Moment) 減少,進而使重心向前移動。",
+      "timestamp": "27:12"
+    },
+    {
+      "zh_question": "根據音訊內容，飛行員對於重心（CG）的主要職責為何？",
+      "zh_options": [
+        "(A) 僅需在起飛前確認重心位置",
+        "(B) 確保重心在飛行的所有階段皆保持在核准限制內",
+        "(C) 只要總重量不超限，重心位置不影響安全",
+        "(D) 僅在遭遇亂流時才需關注重心變化"
+      ],
+      "en_question": "According to the audio, what is the primary responsibility of pilots regarding the Center of Gravity (CG)?",
+      "en_options": [
+        "(A) Ensure CG is within limits only during takeoff",
+        "(B) Ensure the CG is and remains within approved limits throughout all phases of flight",
+        "(C) CG position does not affect safety as long as total weight is within limits",
+        "(D) Only pay attention to CG changes during turbulence"
+      ],
+      "answer": "B",
+      "explanation": "飛行員必須確保重心（CG）在飛行的「所有階段（all phases of flight）」都維持在核准限制內，這對於飛行穩定性與操控性至關重要。",
+      "timestamp": "30:03"
+    },
+    {
+      "zh_question": "音訊中提到，若需要有關飛機穩定性（Aircraft Stability）的進階資訊，應參考哪項資源？",
+      "zh_options": [
+        "(A) 飛機維護手冊 (AMM)",
+        "(B) 航空公司營運手冊 (AOM)",
+        "(C) 適用的 FAA 手冊 (FAA Handbook)",
+        "(D) 機場資訊公告 (NOTAM)"
+      ],
+      "en_question": "The audio mentions that for additional information on aircraft stability, which resource should be referred to?",
+      "en_options": [
+        "(A) Aircraft Maintenance Manual (AMM)",
+        "(B) Aircraft Operating Manual (AOM)",
+        "(C) Appropriate FAA handbook",
+        "(D) Notice to Air Missions (NOTAM)"
+      ],
+      "answer": "C",
+      "explanation": "音訊明確指出，關於重量、平衡、重心及飛機穩定性的詳細資訊，應參考適合特定飛機類別的 FAA 手冊（FAA Handbook）。",
+      "timestamp": "30:08"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Exceeding the maximum weight limitation compromises the {{c1::structural integrity}} of an aircraft and adversely affects its performance.",
+      "zh_translation": "超過最大重量限制會損害飛機的結構完整性，並對其性能產生不利影響。",
+      "explanation": "超重會使機翼結構在遭遇氣流波動時承受超出設計的壓力，可能導致結構變形或損壞。",
+      "tags": "Limitations",
+      "timestamp": "00:09"
+    },
+    {
+      "cloze_text": "Gasoline has considerable weight, which is {{c1::6}} pounds per gallon.",
+      "zh_translation": "汽油具有相當的重量，每加侖為 6 磅。",
+      "explanation": "在計算載重與平衡時，必須使用標準重量計算燃油，AVGAS 通常以 6 lb/gal 計算。",
+      "tags": "Definitions",
+      "timestamp": "02:48"
+    },
+    {
+      "cloze_text": "The {{c1::datum}} is an imaginary vertical plane or line from which all measurements of arm are taken.",
+      "zh_translation": "基準面 (Datum) 是一個虛構的垂直平面或線，所有力臂 (Arm) 的測量均以此為起點。",
+      "explanation": "基準面通常位於防火牆或螺旋槳尖端，目的是提供一個統一的計算起點。",
+      "tags": "Definitions",
+      "timestamp": "14:54"
+    },
+    {
+      "cloze_text": "A tail-heavy condition produces very {{c1::light}} control forces, making it easy for the pilot to inadvertently overstress the aircraft.",
+      "zh_translation": "重心靠後會導致非常輕的操縱感，這使得飛行員容易在無意中對飛機造成過大壓力。",
+      "explanation": "輕微的操縱動作在 Aft CG 情況下會產生巨大的姿態變化，容易導致超出結構負荷 limit。",
+      "tags": "Stability",
+      "timestamp": "06:29"
+    },
+    {
+      "cloze_text": "For aircraft weighing less than 5,000 pounds, a weight change of {{c1::1}} pound or less is considered negligible.",
+      "zh_translation": "對於重量低於 5,000 磅的飛機，1 磅或以下的重量變化被視為可以忽略不計。",
+      "explanation": "AC 43.13-1 定義了微小重量變化的界限，超過此限制必須更新載重平衡紀錄。",
+      "tags": "Maintenance",
+      "timestamp": "11:22"
+    },
+    {
+      "cloze_text": "The {{c1::datum}} is an imaginary vertical plane or line from which all measurements of arm are taken.",
+      "zh_translation": "基準面（datum）是一個想像的垂直平面或直線，飛機上所有力臂（arm）的測量都以此為起點。",
+      "explanation": "基準面通常被定義為 Station 0，是所有長度計算的參考點。",
+      "tags": "Definitions",
+      "timestamp": "15:03"
+    },
+    {
+      "cloze_text": "Standard weight for gasoline (AVGAS) is {{c1::6}} pounds per U.S. gallon.",
+      "zh_translation": "航空汽油（AVGAS）的標準重量為每美制加侖 6 磅。",
+      "explanation": "這是載重平衡計算中最基礎的常數，計算時必須精確使用。",
+      "tags": "Limitations/Data",
+      "timestamp": "17:41"
+    },
+    {
+      "cloze_text": "The product of the weight of an item multiplied by its arm is called the {{c1::moment}}.",
+      "zh_translation": "物件的重量乘以其力臂所得的乘積稱為「力矩」（moment）。",
+      "explanation": "力矩代表了重量對平衡點產生的旋轉力，單位通常為 inch-pounds。",
+      "tags": "Principles",
+      "timestamp": "16:36"
+    },
+    {
+      "cloze_text": "The weight of occupants, cargo, and baggage is referred to as {{c1::payload}}.",
+      "zh_translation": "乘員、貨物和行李的重量被稱為「酬載」（payload）。",
+      "explanation": "Payload 是飛機實際運載的內容，不同於包含油量的 Useful Load。",
+      "tags": "Definitions",
+      "timestamp": "17:07"
+    },
+    {
+      "cloze_text": "When weight is moved aft, the total moments of the aircraft will {{c1::increase}}.",
+      "zh_translation": "當重量向後移動時，飛機的總力矩將會增加。",
+      "explanation": "向後移動意味著 Arm 數值變大（正值增加），因此總力矩隨之上升。",
+      "tags": "Principles",
+      "timestamp": "27:55"
+    },
+    {
+      "cloze_text": "Mean Aerodynamic Chord ({{c1::MAC}}) is the average distance from the leading edge to the trailing edge of the wing.",
+      "zh_translation": "平均氣動力弦（MAC）是指機翼前緣到後緣的平均距離。",
+      "explanation": "重心位置常以 %MAC 的百分比形式來表達，這對空氣動力學平衡至關重要。",
+      "tags": "Definitions",
+      "timestamp": "16:31"
+    },
+    {
+      "cloze_text": "Balance limits is {{c1::critical}} to flight safety.",
+      "zh_translation": "平衡限制對於飛行安全至關重要。",
+      "explanation": "重心若超出限制範圍，將嚴重影響飛機的控制與穩定性，是飛安的紅線。",
+      "tags": "Limitations, Safety",
+      "timestamp": "30:00"
+    },
+    {
+      "cloze_text": "Pilots must ensure that the CG is and remains within approved limits throughout {{c1::all phases}} of a flight.",
+      "zh_translation": "飛行員必須確保重心在飛行的所有階段都保持在核准的限制範圍內。",
+      "explanation": "重心會隨燃油消耗或人員移動而改變，因此必須確保整個航程皆符合規定。",
+      "tags": "Limitations, Responsibility",
+      "timestamp": "30:03"
+    },
+    {
+      "cloze_text": "For additional information on weight, balance, CG, and aircraft stability refer to the {{c1::FAA handbook}} appropriate to the specific aircraft category.",
+      "zh_translation": "有關重量、平衡、重心及飛機穩定性的更多資訊，請參閱適合該特定飛機類別的 FAA 手冊。",
+      "explanation": "FAA 提供標準化的學理手冊，是民航載重平衡理論的基礎權威來源。",
+      "tags": "Reference, Theory",
+      "timestamp": "30:08"
+    },
+    {
+      "cloze_text": "Pilots must ensure that the CG is and remains within {{c1::approved limits}}.",
+      "zh_translation": "飛行員必須確保重心保持在核准的限制範圍內。",
+      "explanation": "操作飛機時，嚴禁超出製造商或民航主管機關訂定的重心包絡線（CG Envelope）。",
+      "tags": "Limitations",
+      "timestamp": "30:04"
+    }
+  ],
+  "video_id": "Bs8b-H07dV4",
+  "url": "https://www.youtube.com/watch?v=Bs8b-H07dV4",
+  "has_transcript": false
+}
