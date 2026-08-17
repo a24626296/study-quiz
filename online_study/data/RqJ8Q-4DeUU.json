@@ -1,0 +1,628 @@
+{
+  "subject": "飛行員知識 - 機場營運與地面安全 (Airport Operations)",
+  "mc_questions": [
+    {
+      "zh_question": "在管制機場（Towered Airport）運作時，若飛行員因緊急情況必須偏離航管（ATC）指示，應如何處理？",
+      "zh_options": [
+        "(A) 無須告知航管，因為緊急情況具有優先權",
+        "(B) 僅在航管主動詢問時才說明偏離原因",
+        "(C) 必須在偏離後儘速（as soon as possible）告知航管",
+        "(D) 偏離前必須先獲得航管的書面核准"
+      ],
+      "en_question": "When operating at a towered airport, if a pilot must deviate from an ATC instruction in an emergency, what action is required?",
+      "en_options": [
+        "(A) No notification is needed as emergencies have priority",
+        "(B) Explain only if ATC specifically asks for the reason",
+        "(C) Must advise ATC of the deviation as soon as possible",
+        "(D) Must obtain written approval before deviating"
+      ],
+      "answer": "C",
+      "explanation": "根據法規與系統邏輯，飛行員在緊急情況（Emergency）下有權偏離航管指示，但必須儘速向航管單位（ATC）通報該偏離行為，以利空間管理與飛安維護。",
+      "timestamp": "03:32"
+    },
+    {
+      "zh_question": "關於「位移跑道頭」（Displaced Threshold）的敘述，下列何者正確？",
+      "zh_options": [
+        "(A) 位移區段完全禁止任何飛機進入",
+        "(B) 位移區段可用於起飛、爬升及計程（Taxi），但不能用於著陸（Landing）",
+        "(C) 位移區段僅供緊急降落使用",
+        "(D) 位移跑道頭會增加該方向的著陸距離"
+      ],
+      "en_question": "Which of the following is true regarding a Displaced Threshold?",
+      "en_options": [
+        "(A) The displaced area is strictly prohibited for all aircraft entry",
+        "(B) It is available for takeoffs, climb-outs, and taxiing, but not for landings from that direction",
+        "(C) It is reserved exclusively for emergency landings",
+        "(D) A displaced threshold increases the landing distance available for that runway"
+      ],
+      "answer": "B",
+      "explanation": "Displaced Threshold（位移跑道頭）將降落觸地點延後，通常是為了避開障礙物。位移後的區段可用於 Taxi、Takeoff，但該方向的 Landing 必須在 Threshold Bar 之後進行，這會減少可用降落距離（Landing Distance Available）。",
+      "timestamp": "13:16"
+    },
+    {
+      "zh_question": "在非管制機場（Non-towered Airport）加入起落航線（Traffic Pattern）時，最建議的加入方式為何？",
+      "zh_options": [
+        "(A) 直接從跑道上方 500 呎切入",
+        "(B) 以 45 度角切入三邊（Downwind leg）的中段",
+        "(C) 以 90 度角垂直切入五邊（Final approach）",
+        "(D) 隨意切入，只要不影響其他飛機即可"
+      ],
+      "en_question": "What is the preferred method for entering the traffic pattern at a non-towered airport?",
+      "en_options": [
+        "(A) Cross directly over the runway at 500 feet",
+        "(B) Enter at a 45-degree angle to the downwind leg at midfield",
+        "(C) Enter at a 90-degree angle to the final approach",
+        "(D) Enter at any point as long as other traffic is not affected"
+      ],
+      "answer": "B",
+      "explanation": "為確保交通流量順暢與目視發現其他飛機，FAA 建議以 45 度角切入三邊（Downwind leg）的中段（Midfield），這是標準且最容易觀察流量的方式。",
+      "timestamp": "05:12"
+    },
+    {
+      "zh_question": "當飛機脫離跑道時，在何種情況下才被視為完全脫離跑道安全區域（RSA）？",
+      "zh_options": [
+        "(A) 當飛機的前輪越過跑道邊緣線時",
+        "(B) 當飛機的機頭對準滑行道中心線時",
+        "(C) 當整個飛機機身完全通過等待位置標誌與地面標線後",
+        "(D) 當塔台確認飛機已完全進入滑行道後"
+      ],
+      "en_question": "When exiting a runway, at what point is the aircraft considered clear of the runway safety area (RSA)?",
+      "en_options": [
+        "(A) When the aircraft's nose wheel crosses the runway edge line",
+        "(B) When the aircraft's nose is aligned with the taxiway centerline",
+        "(C) When the entire aircraft has passed the holding position sign and the accompanying surface painted marking",
+        "(D) When the tower controller confirms the aircraft is fully on the taxiway"
+      ],
+      "answer": "C",
+      "explanation": "根據法規，必須飛機整體（entire aircraft）完全越過 Runway holding position marking（包含兩條實線與兩條虛線）後，才視為正式脫離跑道。Exiting 時是從虛線側（dashed lines）移動至實線側。",
+      "timestamp": "15:21"
+    },
+    {
+      "zh_question": "關於落地後短距停留作業（LAHSO）的許可，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 機長（PIC）對 LAHSO 的許可擁有最終決定權，可決定接受或拒絕",
+        "(B) 只要塔台核發 LAHSO 許可，飛機必須強制執行",
+        "(C) LAHSO 許可僅能在側風超過 25 節時核發",
+        "(D) 學生飛行員單飛時也獲授權執行 LAHSO"
+      ],
+      "en_question": "Regarding the Land and Hold Short Operations (LAHSO) clearance, which of the following is correct?",
+      "en_options": [
+        "(A) The Pilot in Command (PIC) has the final authority to accept or decline any LAHSO clearance",
+        "(B) Once ATC issues a LAHSO clearance, compliance is mandatory",
+        "(C) LAHSO clearances are only issued when crosswinds exceed 25 knots",
+        "(D) Student pilots are authorized to conduct LAHSO during solo flights"
+      ],
+      "answer": "A",
+      "explanation": "機長（PIC）對 LAHSO 擁有最終否決權，若認為性能或安全距離不足，應拒絕該許可。此外，學生飛行員單飛（solo flight）時不被授權參與 LAHSO。",
+      "timestamp": "20:54"
+    },
+    {
+      "zh_question": "塔台通常在何種條件下會要求飛機在 ILS 關鍵區域（ILS Critical Area）標線前等待？",
+      "zh_options": [
+        "(A) 當跑道長度不足 5000 呎時",
+        "(B) 當氣象條件不佳（如低雲或低能見度），需要保護儀降信號品質時",
+        "(C) 僅在執行非精確進場（Non-precision approach）時",
+        "(D) 當滑行道上的飛機數量超過 5 架時"
+      ],
+      "en_question": "Under what conditions will ATC typically instruct aircraft to hold short of the ILS Critical Area?",
+      "en_options": [
+        "(A) When the runway length is less than 5000 feet",
+        "(B) During poor weather conditions (low ceiling or low visibility) to protect the integrity of ILS signals",
+        "(C) Only when a non-precision approach is being performed",
+        "(D) When there are more than 5 aircraft on the taxiway"
+      ],
+      "answer": "B",
+      "explanation": "在惡劣天氣下，為了防止地面滑行的飛機干擾 Instrument Landing System (ILS) 的信號傳輸，ATC 會保護 ILS critical area，確保進場飛性能獲得穩定信號。",
+      "timestamp": "24:12"
+    },
+    {
+      "zh_question": "在具備儀表進場能力的跑道上，跑道邊燈（Runway Edge Lights）在接近跑道末端時的顏色變化規則為何？",
+      "zh_options": [
+        "(A) 全程保持白色，直到跑道盡頭變為紅色",
+        "(B) 在最後 3,000 呎變為紅、白相間",
+        "(C) 在最後 2,000 呎或跑道長度的一半（取其短者）變為黃色（Amber）",
+        "(D) 僅在跑道入口處顯示綠色，其餘皆為白色"
+      ],
+      "en_question": "On instrument runways, what is the color coding for runway edge lights as they approach the end of the runway?",
+      "en_options": [
+        "(A) Steady white until the end where they turn red",
+        "(B) Alternate red and white for the last 3,000 feet",
+        "(C) Yellow (amber) for the last 2,000 feet or half the runway length, whichever is less",
+        "(D) Green at the threshold and white for the remainder"
+      ],
+      "answer": "C",
+      "explanation": "根據系統規範，儀表跑道的 Runway Edge Lights 在最後 2,000 呎或跑道長度的一半（取較短值）會由白色轉為黃色（Amber），以提醒飛行員即將到達跑道末端。跑道末端標示燈則為紅色。",
+      "timestamp": "36:10"
+    },
+    {
+      "zh_question": "跑道中心線燈系統（RCLS）在跑道末端 3,000 呎至 1,000 呎之間的顏色顯示為何？",
+      "zh_options": [
+        "(A) 全白色（Steady White）",
+        "(B) 紅、白相間（Alternate Red and White）",
+        "(C) 全紅色（Steady Red）",
+        "(D) 黃、白相間（Alternate Amber and White）"
+      ],
+      "en_question": "What is the color of the Runway Centerline Lighting System (RCLS) from the 3,000-foot point to the 1,000-foot point of the runway?",
+      "en_options": [
+        "(A) Steady white",
+        "(B) Alternate red and white",
+        "(C) Steady red",
+        "(D) Alternate amber and white"
+      ],
+      "answer": "B",
+      "explanation": "RCLS 從跑道入口開始為白色，直到剩下 3,000 呎時開始紅白相間（Alternate Red and White），而在最後 1,000 呎則變為全紅（Steady Red），提供剩餘距離的視覺參考。",
+      "timestamp": "36:45"
+    },
+    {
+      "zh_question": "關於跑道狀態燈（Runway Status Lights, RWSL）的邏輯，下列敘述何者正確？",
+      "zh_options": [
+        "(A) RWSL 燈亮表示飛行員已獲得進入跑道的許可（Clearance）",
+        "(B) 跑道進入燈（REL）亮紅燈表示有衝突交通量，不應進入或穿越跑道",
+        "(C) 起飛等待燈（THL）亮起時，飛行員應立即加大油門起飛",
+        "(D) RWSL 系統由 ATC 人工控制開關"
+      ],
+      "en_question": "Regarding the logic of Runway Status Lights (RWSL), which statement is correct?",
+      "en_options": [
+        "(A) Illuminated RWSL indicates the pilot has received clearance to enter the runway",
+        "(B) Red Runway Entrance Lights (REL) indicate conflicting traffic; do not enter or cross the runway",
+        "(C) Pilots should apply takeoff thrust immediately when Takeoff Hold Lights (THL) are illuminated",
+        "(D) The RWSL system is manually controlled by ATC"
+      ],
+      "answer": "B",
+      "explanation": "RWSL 是一種自動化警示系統。Runway Entrance Lights (REL) 亮紅燈表示有其他飛機正高速使用該跑道，嚴禁進入。RWSL 僅提供狀態警告，不代表 ATC 的核准（Clearance）。",
+      "timestamp": "42:45"
+    },
+    {
+      "zh_question": "關於四面體 (Tetrahedron) 著陸方向指示器的描述,下列何者正確?",
+      "zh_options": [
+        "(A) 四面體的大端指向著陸方向",
+        "(B) 四面體的小端指向著陸方向",
+        "(C) 當塔台與四面體指示不一致時,應以四面體為準",
+        "(D) 四面體用於指示風速而非風向"
+      ],
+      "en_question": "Which of the following descriptions regarding a tetrahedron landing direction indicator is correct?",
+      "en_options": [
+        "(A) The large end of the tetrahedron points in the direction of landing",
+        "(B) The small end of the tetrahedron points in the direction of landing",
+        "(C) When tower instructions conflict with tetrahedron indications, the tetrahedron takes precedence",
+        "(D) A tetrahedron is used to indicate wind speed rather than direction"
+      ],
+      "answer": "B",
+      "explanation": "四面體的小端 (small end) 指向著陸方向。在有塔台的機場,若塔台正在運作,塔台指令優先於四面體的指示 (Tower instructions supersede tetrahedron indications)。",
+      "timestamp": "45:50"
+    },
+    {
+      "zh_question": "根據教材,螺旋槳動力飛機與軍用噴射機 (Turbojet) 的機場流量模式 (Traffic Pattern) 高度通常有何差異?",
+      "zh_options": [
+        "(A) 螺旋槳飛機高度較高,通常為 2,500 呎 AGL",
+        "(B) 軍用噴射機高度較低,通常為 600 呎 AGL",
+        "(C) 螺旋槳飛機通常為 1,000 呎 AGL,軍用噴射機可能高達 2,500 呎 AGL",
+        "(D) 兩者在所有機場的標準高度皆統一為 1,500 呎 AGL"
+      ],
+      "en_question": "According to the manual, what is the typical difference in traffic pattern altitudes between propeller-driven aircraft and military turbojet aircraft?",
+      "en_options": [
+        "(A) Propeller aircraft fly higher, usually at 2,500 feet AGL",
+        "(B) Military turbojets fly lower, usually at 600 feet AGL",
+        "(C) Propeller aircraft are usually at 1,000 feet AGL, while military turbojets may extend up to 2,500 feet AGL",
+        "(D) Both have a standardized altitude of 1,500 feet AGL at all airports"
+      ],
+      "answer": "C",
+      "explanation": "一般螺旋槳飛機流量模式高度通常為 1,000 呎 AGL,而軍用噴射機因速度快,其模式高度常延伸至 2,500 呎 AGL。飛行員應查閱 Chart Supplement U.S. 以確認特定機場高度。",
+      "timestamp": "48:40"
+    },
+    {
+      "zh_question": "若飛行員欲進入 Class D 空域但發現無線電接收機故障 (Lost Communications),應採取何種程序?",
+      "zh_options": [
+        "(A) 立即降落於空域外之農田",
+        "(B) 留在空域外或上方,直到確定交通流向後再進入模式並觀察燈號",
+        "(C) 盲發 (Transmitting blind) 宣告緊急後直接切入 Final",
+        "(D) 保持原有高度與航向,直到塔台主動聯絡"
+      ],
+      "en_question": "If a pilot experiences a receiver failure (lost communications) before entering Class D airspace, what procedure should be followed?",
+      "en_options": [
+        "(A) Land immediately in a field outside the airspace",
+        "(B) Remain outside or above the Class D airspace until the flow of traffic is determined, then enter the pattern and watch for light signals",
+        "(C) Transmit blind to declare an emergency and cut directly to final",
+        "(D) Maintain original altitude and heading until the tower initiates contact"
+      ],
+      "answer": "B",
+      "explanation": "當無線電失效時,飛行員應留在 Class D 空域外或其上方 (outside or above),觀察其他飛機以判斷交通流向,隨後進入流量模式並觀察塔台的燈號指令 (Light Gun Signals)。",
+      "timestamp": "54:40"
+    },
+    {
+      "zh_question": "關於次要搜索雷達 (Secondary Radar / ATCRBS) 的系統組成,不包含下列哪一項?",
+      "zh_options": [
+        "(A) 詢問器 (Interrogator)",
+        "(B) 答詢機 (Transponder)",
+        "(C) 雷達顯示屏 (Radarscope)",
+        "(D) 衛星全球定位系統 (GPS)"
+      ],
+      "en_question": "Which of the following is NOT a component of the Air Traffic Control Radar Beacon System (ATCRBS)?",
+      "en_options": [
+        "(A) Interrogator",
+        "(B) Transponder",
+        "(C) Radarscope",
+        "(D) Global Positioning System (GPS)"
+      ],
+      "answer": "D",
+      "explanation": "次要搜索雷達 (ATCRBS) 由三個部分組成:詢問器 (Interrogator)、答詢機 (Transponder) 和雷達顯示屏 (Radarscope)。GPS 是 ADS-B 系統主要使用的定位來源,而非傳統 ATCRBS 的組成部分。",
+      "timestamp": "57:20"
+    },
+    {
+      "zh_question": "根據音訊內容，在哪種飛機配置與飛行狀態下，所產生的尾流（Wake Turbulence）強度最高？",
+      "zh_options": [
+        "(A) 重型、高速、襟翼全放（Dirty）",
+        "(B) 輕型、低速、襟翼收起（Clean）",
+        "(C) 重型、低速、襟翼收起（Clean）",
+        "(D) 重型、低速、襟翼全放（Dirty）"
+      ],
+      "en_question": "According to the audio, under which aircraft configuration and flight state is the wake turbulence generated the strongest?",
+      "en_options": [
+        "(A) Heavy, high speed, dirty configuration",
+        "(B) Light, slow speed, clean configuration",
+        "(C) Heavy, slow speed, clean configuration",
+        "(D) Heavy, slow speed, dirty configuration"
+      ],
+      "answer": "C",
+      "explanation": "尾流強度與飛機重量成正比，與速度成反比。最大的 Vortex Strength 出現在飛機處於 Heavy（重型）、Slow（慢速）且 Clean（襟翼與起落架收起的潔淨配置）時，因為 Dirty 配置產生的擾動會加速尾流衰減（Vortex Decay）。",
+      "timestamp": "01:02:55"
+    },
+    {
+      "zh_question": "當跟隨在一架大型飛機後方準備在同一條跑道降落時，飛行員應採取何種避讓程序？",
+      "zh_options": [
+        "(A) 保持在大型飛機的飛行路徑下方，並在其著陸點前觸地",
+        "(B) 保持在大型飛機的飛行路徑上方，並在其著陸點之後觸地",
+        "(C) 保持與大型飛機相同的下滑道，並在相同點觸地",
+        "(D) 快速下降以避開大型飛機的航跡"
+      ],
+      "en_question": "When landing behind a larger aircraft on the same runway, what avoidance procedure should the pilot follow?",
+      "en_options": [
+        "(A) Stay below the large aircraft's flight path and touch down before its touchdown point",
+        "(B) Stay at or above the large aircraft's flight path and land beyond its touchdown point",
+        "(C) Maintain the same glide path and land at the same point",
+        "(D) Descend rapidly to avoid the wake trail"
+      ],
+      "answer": "B",
+      "explanation": "為了避開向下沉降的翼尖渦流（Wingtip Vortices），飛行員應保持在領先飛機的下滑路徑（Flight Path）之上，並確保觸地點在大型飛機觸地點之後，以避開其產生的尾流區域。",
+      "timestamp": "01:05:40"
+    },
+    {
+      "zh_question": "關於有效的空中交通掃描（Visual Scanning）以預防碰撞，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 應使用連續且快速的眼球掃視動作",
+        "(B) 每次眼球移動不應超過 10 度，且應停頓至少 1 秒以進行偵測",
+        "(C) 掃描時應專注於儀表而非外部交通",
+        "(D) 只需掃描飛機正前方 30 度的範圍"
+      ],
+      "en_question": "Regarding effective visual scanning for collision avoidance, which of the following is correct?",
+      "en_options": [
+        "(A) Use continuous and rapid sweeping eye movements",
+        "(B) Each movement should not exceed 10 degrees and should be observed for at least 1 second",
+        "(C) Focus on instruments rather than outside traffic during scanning",
+        "(D) Only scan the area 30 degrees directly in front of the aircraft"
+      ],
+      "answer": "B",
+      "explanation": "有效的掃描是由一系列短促、規律的眼球移動組成，每個區塊（Segment）不超過 10 度，並停頓至少 1 秒，這樣才能讓眼睛的中央視野（Central Visual Field）有效偵測到其他飛機的存在。",
+      "timestamp": "01:07:50"
+    },
+    {
+      "zh_question": "在不熟悉的機場或低能見度情況下滑行，飛行員應如何主動降低跑道侵入（Runway Incursion）風險？",
+      "zh_options": [
+        "(A) 僅依賴電子導航設備，減少對外觀察",
+        "(B) 請求進階滑行（Progressive Taxi）指令",
+        "(C) 為了不占用頻道，即使不確定路徑也不詢問 ATC",
+        "(D) 快速滑行以儘早離開複雜區域"
+      ],
+      "en_question": "When taxiing at an unfamiliar airport or during low visibility, how should a pilot proactively mitigate the risk of runway incursion?",
+      "en_options": [
+        "(A) Rely solely on electronic navigation and reduce outside lookout",
+        "(B) Request progressive taxi instructions",
+        "(C) Avoid asking ATC even if unsure of the route to save airtime",
+        "(D) Taxi at high speed to exit complex areas quickly"
+      ],
+      "answer": "B",
+      "explanation": "飛行員可以請求 Progressive Taxi 指令，管制員將提供 step-by-step 的導航引導。此外，應隨時準備好 current airport diagram 並維持 SA (Situational Awareness)。",
+      "timestamp": "01:15:15"
+    },
+    {
+      "zh_question": "關於 ATC 發出的「Line Up and Wait (LUAW)」指令，下列敘述何者正確？",
+      "zh_options": [
+        "(A) LUAW 視同起飛許可（Takeoff Clearance）",
+        "(B) 它是為了取代傳統的「Position and Hold」用法",
+        "(C) 進入跑道後若無起飛許可，可自行決定起飛",
+        "(D) 此指令發出後，塔台不需告知延遲起飛的原因"
+      ],
+      "en_question": "Regarding the ATC instruction 'Line Up and Wait (LUAW)', which statement is correct?",
+      "en_options": [
+        "(A) LUAW is considered a Takeoff Clearance",
+        "(B) It was implemented to replace the traditional 'Position and Hold' phraseology",
+        "(C) Pilots can decide to take off on their own after entering the runway if no clearance follows",
+        "(D) The tower is not required to advise the reason for the takeoff delay after issuing this instruction"
+      ],
+      "answer": "B",
+      "explanation": "LUAW 取代了舊有的 Position and Hold。LUAW 僅是授權進入跑道等待，並非 Takeoff Clearance。如果 LUAW 後超過 90 秒未收到起飛許可，必須聯繫 ATC。",
+      "timestamp": "01:22:32"
+    },
+    {
+      "zh_question": "落地後脫離跑道時，飛機在什麼狀態下才被視為「完全離開跑道（Clear of the Runway）」？",
+      "zh_options": [
+        "(A) 只要機頭越過跑道邊緣線",
+        "(B) 當飛機所有部分都已越過 Hold Short 線（跑道等待位置標誌）",
+        "(C) 當主起落架越過 Hold Short 線",
+        "(D) 當飛機完全停穩並向塔台回報已脫離時"
+      ],
+      "en_question": "After landing and exiting a runway, at what point is the aircraft considered 'Clear of the Runway'?",
+      "en_options": [
+        "(A) As soon as the nose passes the runway edge line",
+        "(B) When all parts of the aircraft have crossed the hold short line (Runway Holding Position Marking)",
+        "(C) When the main landing gear crosses the hold short line",
+        "(D) When the aircraft comes to a complete stop and reports vacated to the tower"
+      ],
+      "answer": "B",
+      "explanation": "為了確保跑道安全區（RSA）淨空，飛機的所有部位（包括尾翼）都必須完全越過 Hold Short 標誌，才算離開跑道環境。",
+      "timestamp": "01:26:51"
+    },
+    {
+      "zh_question": "工程材料阻攔系統（EMAS）的主要運作原理是什麼？",
+      "zh_options": [
+        "(A) 使用強力鋼纜攔截起落架",
+        "(B) 利用跑道末端的高坡度自然減速",
+        "(C) 使用輕質、可破碎的混凝土（Crushable Concrete）吸收飛機動能",
+        "(D) 噴灑高摩擦係數材料以增加輪胎抓地力"
+      ],
+      "en_question": "What is the primary operating principle of the Engineered Materials Arresting System (EMAS)?",
+      "en_options": [
+        "(A) Using high-strength steel cables to snag the landing gear",
+        "(B) Utilizing high upward slopes at the end of the runway for natural deceleration",
+        "(C) Using lightweight, crushable concrete to absorb the aircraft's kinetic energy",
+        "(D) Spraying high-friction materials to increase tire grip"
+      ],
+      "answer": "C",
+      "explanation": "EMAS 安裝在跑道末端，當飛機衝出跑道（Overrun）時，輪胎會陷入可破碎的輕質混凝土床中，透過材料破碎產生的阻力來安全減速，將損害降至最低。",
+      "timestamp": "01:28:31"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Runway numbers are in reference to {{c1::magnetic}} north.",
+      "zh_translation": "跑道編號是參考磁北極的方向。",
+      "explanation": "跑道號碼是根據跑道中心線相對於磁北（Magnetic North）的方位角前兩位數取四捨五入。",
+      "tags": "Runway / Navigation",
+      "timestamp": "12:09"
+    },
+    {
+      "cloze_text": "The Chart Supplement U.S. is published in seven books and are revised every {{c1::56}} days.",
+      "zh_translation": "美國航圖補給（Chart Supplement U.S.）分為七冊出版，且每 56 天修訂一次。",
+      "explanation": "這是飛行員獲取機場設施、燈光、通訊頻率最精確數據的來源，必須確保版本有效。",
+      "tags": "Data / Revision",
+      "timestamp": "07:48"
+    },
+    {
+      "cloze_text": "An ATIS message is normally updated once per hour but is updated more often when changing {{c1::local conditions}} warrant.",
+      "zh_translation": "ATIS 訊息通常每小時更新一次，但當當地情況變化有必要時，會更頻繁地更新。",
+      "explanation": "例如天氣突然惡化或跑道臨時關閉時，ATIS 會立即重新錄製並更新代碼。",
+      "tags": "Communication / ATIS",
+      "timestamp": "09:59"
+    },
+    {
+      "cloze_text": "Yellow {{c1::arrowheads}} are placed across the width of the runway just prior to a relocated threshold bar.",
+      "zh_translation": "黃色箭頭標記會橫跨跑道寬度，設置在移位跑道頭標線之前。",
+      "explanation": "移位跑道頭（Relocated Threshold）區段僅供計程（Taxi）使用，絕對禁止起飛或降落。",
+      "tags": "Markings",
+      "timestamp": "13:11"
+    },
+    {
+      "cloze_text": "The Runway Safety Area (RSA) boundary sign has a {{c1::yellow}} background with black markings.",
+      "zh_translation": "跑道安全區（RSA）邊界指示牌具有黃色背景與黑色標記。",
+      "explanation": "當飛機離開跑道進入滑行道時，看見此牌背面的標誌代表已完全離開跑道保護區域。",
+      "tags": "Safety / Signage",
+      "timestamp": "14:58"
+    },
+    {
+      "cloze_text": "The {{c1::Runway Safety Area}} (RSA) is a surface surrounding the runway prepared for reducing the risk of damage in the event of an undershoot or overshoot.",
+      "zh_translation": "跑道安全區域 (RSA) 是指跑道周圍經過處理的表面，用於降低飛機在落地不足 (undershoot) 或衝出跑道 (overshoot) 時受損的風險。",
+      "explanation": "RSA 是機場基礎設施中重要的安全緩衝區，不可堆放障礙物。",
+      "tags": "Airport Operations, Safety",
+      "timestamp": "15:00"
+    },
+    {
+      "cloze_text": "Runway holding position signs have white characters on a {{c1::red}} background.",
+      "zh_translation": "跑道等待位置標誌在紅色背景上顯示白色字符。",
+      "explanation": "這是 Mandatory Instruction Signs (強制性標誌) 的特徵，類似道路上的停車標誌。",
+      "tags": "Airport Signs",
+      "timestamp": "16:48"
+    },
+    {
+      "cloze_text": "An ATC clearance is {{c1::not}} needed to cross the runway holding position marking when exiting the runway.",
+      "zh_translation": "當從跑道脫離（越過等待位置標線）時，不需要塔台的許可。",
+      "explanation": "從虛線側（dashed side）越過等待線不需要許可，但從實線側（solid side）進入跑道則必須獲得授權。",
+      "tags": "ATC, Procedures",
+      "timestamp": "19:28"
+    },
+    {
+      "cloze_text": "Pilots should only receive a LAHSO clearance when there is a minimum ceiling of 1,000 feet and {{c1::3}} statute miles of visibility.",
+      "zh_translation": "飛行員僅能在雲底高度至少 1,000 呎且能見度至少 3 哩時收受 LAHSO 許可。",
+      "explanation": "這是執行 LAHSO 的最低基本天氣限度，確保飛行員有足夠的視覺參考。",
+      "tags": "Limitations, LAHSO",
+      "timestamp": "21:12"
+    },
+    {
+      "cloze_text": "Temporarily closed runways are usually marked with a visual indication of a {{c1::yellow X}} at each end.",
+      "zh_translation": "暫時關閉的跑道通常會在每一端標註一個黃色的 X 符號作為視覺指示。",
+      "explanation": "這個標誌提醒飛行員該跑道目前不可用於起降，可能是由於維修或障礙物。",
+      "tags": "Airport Markings",
+      "timestamp": "27:18"
+    },
+    {
+      "cloze_text": "Visual Approach Slope Indicator (VASI) provides obstruction clearance within {{c1::10}} degrees of the extended runway centerline.",
+      "zh_translation": "目視進場坡度指示器 (VASI) 在跑道延伸中心線左右 10 度範圍內提供障礙物間隔。",
+      "explanation": "VASI 的障礙物隔離（Obstruction Clearance）範圍是有角度限制的，超出此角度可能不安全。",
+      "tags": "VASI, Airport Lighting",
+      "timestamp": "33:00"
+    },
+    {
+      "cloze_text": "VASI obstruction clearance is provided up to {{c1::4}} nautical miles from the runway threshold.",
+      "zh_translation": "VASI 障礙物間隔保護範圍最遠可達距跑道頭 4 海浬處。",
+      "explanation": "飛行員應注意 VASI 的有效保護距離限制，超出此距離進場時需額外留意地形。",
+      "tags": "VASI, Limitation",
+      "timestamp": "33:10"
+    },
+    {
+      "cloze_text": "A civilian land airport beacon is identified by alternating {{c1::white and green}} light flashes.",
+      "zh_translation": "民用陸上機場的燈光旋轉標桿以白、綠交替閃光來識別。",
+      "explanation": "機場標桿（Airport Beacon）顏色組合可用於識別機場類型（如軍用、水上機場或直升機場）。",
+      "tags": "Airport Beacon",
+      "timestamp": "32:05"
+    },
+    {
+      "cloze_text": "Stop bar lights consist of a row of {{c1::red}} uni-directional, steady-burning in-pavement lights across the taxiway.",
+      "zh_translation": "停止線燈（Stop bar lights）由橫跨滑行道的一排紅色、單向、常亮的嵌入式燈光組成。",
+      "explanation": "Stop Bar 亮起時嚴禁穿越，直到 ATC 給予許可且燈光熄滅。",
+      "tags": "Taxiway Lighting",
+      "timestamp": "40:50"
+    },
+    {
+      "cloze_text": "Land and Hold Short Lights (LAHSO) consist of a row of pulsing {{c1::white}} lights installed across the runway.",
+      "zh_translation": "「落地並在短距離前停住」燈（LAHSO）由橫跨跑道的一排脈動白色燈光組成。",
+      "explanation": "LAHSO 燈光在執行此類特殊操作時才會開啟，若熄滅則表示當前未執行 LAHSO。",
+      "tags": "Runway Lighting, LAHSO",
+      "timestamp": "38:25"
+    },
+    {
+      "cloze_text": "Runway distance remaining signs have a {{c1::black}} background with white numbers.",
+      "zh_translation": "跑道剩餘距離指示牌具有黑色背景與白色數字。",
+      "explanation": "數字代表剩餘跑道長度（以千呎為單位），黑色背景是其標準識別色。",
+      "tags": "Airport Signs",
+      "timestamp": "30:55"
+    },
+    {
+      "cloze_text": "Unless otherwise established, the standard traffic pattern altitude for propeller-driven aircraft is {{c1::1,000 feet AGL}}.",
+      "zh_translation": "除非另有規定,否則螺旋槳動力飛機的標準流量模式高度為地面上方 1,000 呎 (AGL)。",
+      "explanation": "這是最基本的機場流量模式高度基準,噴射機則通常更高。",
+      "tags": "Limitations",
+      "timestamp": "48:45"
+    },
+    {
+      "cloze_text": "A pilot who operates internationally is required to hold a Restricted Radiotelephone Operator Permit issued by the {{c1::FCC}}.",
+      "zh_translation": "在國際航線上運行的飛行員必須持有由聯邦通訊委員會 (FCC) 核發的受限無線電電話營運證。",
+      "explanation": "在美國境內飛行通常不需要此證,但國際飛行是法規要求的。",
+      "tags": "Radio-License",
+      "timestamp": "50:20"
+    },
+    {
+      "cloze_text": "VHF aviation radios operate in the frequency range between 118.0 MHz and {{c1::136.975}} MHz.",
+      "zh_translation": "VHF 航空無線電運作的頻率範圍介於 118.0 MHz 至 136.975 MHz 之間。",
+      "explanation": "這是民航使用的通訊頻段,採直線傳播 (Line of sight)。",
+      "tags": "Radio-System",
+      "timestamp": "51:10"
+    },
+    {
+      "cloze_text": "The fastest radar updates occur every 4.7 seconds, while {{c1::ADS-B}} equipped aircraft update their position once a second.",
+      "zh_translation": "雷達最快每 4.7 秒更新一次,而配備 ADS-B 的飛機則每秒更新一次位置。",
+      "explanation": "ADS-B 提供了比傳統雷達更高的精確度與更新頻率。",
+      "tags": "Surveillance",
+      "timestamp": "59:15"
+    },
+    {
+      "cloze_text": "Primary radar relies on the reflected portion of the radio wave and cannot penetrate {{c1::solid objects}} such as mountains.",
+      "zh_translation": "一次雷達依賴無線電波的反射部分,且無法穿透山脈等固體障礙物。",
+      "explanation": "這解釋了雷達「直線傳播」限制與山區遮蔽效應 (Terrain masking)。",
+      "tags": "Radar-Logic",
+      "timestamp": "56:10"
+    },
+    {
+      "cloze_text": "A transponder code consists of four numbers from 0 to 7, providing a total of {{c1::4,096}} possible codes.",
+      "zh_translation": "答詢機代碼由 0 到 7 的四位數字組成,共提供 4,096 組可能的代碼。",
+      "explanation": "這是 8 進位 (Octal) 系統的編碼組合數。",
+      "tags": "Transponder",
+      "timestamp": "58:10"
+    },
+    {
+      "cloze_text": "ADS-B equipment operating on 978 MHz is known as the {{c1::Universal Access Transceiver}} (UAT).",
+      "zh_translation": "運行於 978 MHz 的 ADS-B 設備被稱為通用接入收發機 (UAT)。",
+      "explanation": "UAT 是專為通用航空設計的 ADS-B 資料鏈路，區別於 1090 MHz 的 ES 模式。",
+      "tags": "ADS-B, Systems",
+      "timestamp": "01:00:03"
+    },
+    {
+      "cloze_text": "ATC issues traffic advisories based on the {{c1::12-hour clock}} from the aircraft.",
+      "zh_translation": "航管員根據飛機的 12 小時時鐘方位發布交通諮詢。",
+      "explanation": "這是航空慣例中用來快速描述相對方位（Relative Azimuth）的方式。",
+      "tags": "ATC, Communication",
+      "timestamp": "01:00:36"
+    },
+    {
+      "cloze_text": "Vortices typically sink at a rate of {{c1::several hundred}} feet per minute.",
+      "zh_translation": "渦流通常以每分鐘數百英尺的速度下沉。",
+      "explanation": "了解下沉率有助於飛行員在垂直空間上規劃避讓路徑。",
+      "tags": "Wake Turbulence",
+      "timestamp": "01:04:55"
+    },
+    {
+      "cloze_text": "A light {{c1::quartering tailwind}} presents the worst case scenario for wake turbulence movement.",
+      "zh_translation": "輕微的側尾風（四分之一側尾風）是尾流移動最危險的情況。",
+      "explanation": "側尾風會將渦流推送到跑道中心線，並可能將其維持在飛機進場路徑上。",
+      "tags": "Wake Turbulence, Safety",
+      "timestamp": "01:05:19"
+    },
+    {
+      "cloze_text": "It is prudent to wait at least {{c1::2 minutes}} prior to a takeoff or landing behind a heavy aircraft in certain conditions.",
+      "zh_translation": "在某些情況下，在重型機後方起飛或降落前，謹慎的做法是至少等待 2 分鐘。",
+      "explanation": "這是為了預留足夠的時間讓尾流下沉、飄移或衰減。",
+      "tags": "Wake Turbulence, Limitations",
+      "timestamp": "01:07:14"
+    },
+    {
+      "cloze_text": "Approximately {{c1::65%}} of all runway incursions are caused by pilots.",
+      "zh_translation": "大約有 65% 的跑道入侵事件是由飛行員造成的。",
+      "explanation": "統計數據強調了飛行員在地面運作中保持情境警覺（Situational Awareness）的重要性。",
+      "tags": "Runway Incursion, Safety",
+      "timestamp": "01:14:27"
+    },
+    {
+      "cloze_text": "It is mandatory to read back all runway hold short instructions {{c1::verbatim}}.",
+      "zh_translation": "必須逐字複誦所有跑道等待（hold short）指令。",
+      "explanation": "這是預防跑道侵入最關鍵的溝通要求，確保飛行員正確理解等待位置。",
+      "tags": "Communication, Runway Safety",
+      "timestamp": "01:15:06"
+    },
+    {
+      "cloze_text": "All checklists should be completed while the aircraft is {{c1::stopped}} during taxi.",
+      "zh_translation": "滑行期間的所有檢查表應在飛機停止時完成。",
+      "explanation": "避免在移動滑行時低頭操作，以維持最高等級的對外觀察（Heads up）。",
+      "tags": "Taxi Procedure",
+      "timestamp": "01:15:29"
+    },
+    {
+      "cloze_text": "If you cannot safely comply with any of ATC's instructions, inform them immediately by using the word {{c1::UNABLE}}.",
+      "zh_translation": "如果您無法安全執行 ATC 的任何指令，請立即使用「UNABLE」一詞告知。",
+      "explanation": "飛行員擁有最終安全決定權，當指令危及安全或飛機能力不足時，必須明確拒絕。",
+      "tags": "ATC Instruction, Pilot Authority",
+      "timestamp": "01:18:22"
+    },
+    {
+      "cloze_text": "Since June 30, 2010, ATC is required to issue explicit instructions to {{c1::cross}} or hold short of each runway.",
+      "zh_translation": "自 2010 年 6 月 30 日起，ATC 必須針對每一條跑道發出明確的「穿越」或「等待」指令。",
+      "explanation": "這項規定取消了以往一次滑行許可包含多個跑道穿越的情況，強制分段確認。",
+      "tags": "Regulation, Runway Crossing",
+      "timestamp": "01:20:30"
+    },
+    {
+      "cloze_text": "If a takeoff clearance is not received within {{c1::90}} seconds after receiving the LUAW instruction, contact ATC immediately.",
+      "zh_translation": "在收到 LUAW 指令後，若 90 秒內未收到起飛許可，請立即聯繫 ATC。",
+      "explanation": "這是為了防止塔台忘記跑道上已有飛機在等待，避免後續落地飛機造成的相撞風險。",
+      "tags": "LUAW, Timer",
+      "timestamp": "01:23:09"
+    },
+    {
+      "cloze_text": "At most commercial airports, the RSA extends {{c1::1000}} feet beyond each end of the runway.",
+      "zh_translation": "在大多數民航機場，跑道安全區（RSA）從跑道兩端向外延伸 1000 英尺。",
+      "explanation": "RSA 提供了一個平坦且無障礙的區域，以降低飛機衝出或提前著陸時的風險。",
+      "tags": "Airport Design, RSA",
+      "timestamp": "01:27:35"
+    }
+  ],
+  "video_id": "RqJ8Q-4DeUU",
+  "url": "https://www.youtube.com/watch?v=RqJ8Q-4DeUU",
+  "has_transcript": false
+}

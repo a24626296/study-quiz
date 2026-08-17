@@ -1,0 +1,510 @@
+{
+  "subject": "航空氣象服務 - 觀測系統與簡報程序",
+  "mc_questions": [
+    {
+      "zh_question": "關於 NEXRAD (WSR-88D) 多普勒雷達的運作模式,下列敘述何者正確?",
+      "zh_options": [
+        "(A) 降水模式 (Precipitation mode) 的天線旋轉速度較慢,以提高靈敏度",
+        "(B) 晴空模式 (Clear air mode) 下,影像大約每 4 到 6 分鐘更新一次",
+        "(C) 晴空模式是雷達最靈敏的運作模式,天線旋轉速度較慢",
+        "(D) 降水模式主要用於偵測亂流,而非降水強度"
+      ],
+      "en_question": "Regarding the operation of NEXRAD (WSR-88D) Doppler radar, which of the following statements is correct?",
+      "en_options": [
+        "(A) Precipitation mode has a slower antenna rotation to increase sensitivity",
+        "(B) In Clear air mode, images are updated approximately every 4 to 6 minutes",
+        "(C) Clear air mode is the most sensitive operational mode, featuring a slower antenna rotation",
+        "(D) Precipitation mode is primarily used to detect turbulence rather than precipitation intensity"
+      ],
+      "answer": "C",
+      "explanation": "根據教材,Clear air mode 是雷達最靈敏的模式,天線轉速慢以進行更長抽樣,更新約每 10 分鐘一次。當有降水時會切換至 Precipitation mode,轉速加快,更新頻率提高至每 4 到 6 分鐘一次。",
+      "timestamp": "08:15"
+    },
+    {
+      "zh_question": "為什麼飛行員不應期望航空交通管制 (ATC) 持續顯示天氣資訊?",
+      "zh_options": [
+        "(A) 因為 ATC 雷達 (ARSR) 無法偵測到任何降水",
+        "(B) 高強度天氣顯示會干擾管制員觀察飛機標籤 (Data blocks)",
+        "(C) 管制員僅在夜間飛行時才開啟天氣顯示功能",
+        "(D) ATC 螢幕僅能顯示衛星雲圖,無法顯示即時雷達回波"
+      ],
+      "en_question": "Why should pilots NOT expect Air Traffic Control (ATC) to display weather information continuously?",
+      "en_options": [
+        "(A) Because ATC radar (ARSR) cannot detect any precipitation",
+        "(B) High-intensity weather displays can make it difficult for controllers to see aircraft data blocks",
+        "(C) Controllers only turn on weather display functions during night flights",
+        "(D) ATC screens can only display satellite imagery, not real-time radar echoes"
+      ],
+      "answer": "B",
+      "explanation": "航路雷達 (ARSR) 的主要任務是間隔飛機。當天氣強度過高時,回波會遮蓋掉飛機的 Data blocks,因此管制員可能會選擇不持續開啟或調整天氣顯示強度。",
+      "timestamp": "03:10"
+    },
+    {
+      "zh_question": "關於無線電探空儀 (Radiosonde) 的觀測過程,下列何者正確?",
+      "zh_options": [
+        "(A) 探測氣球平均上升速率約為每分鐘 2,000 呎",
+        "(B) 氣球在上升過程中會不斷縮小,直到在高空爆炸",
+        "(C) 探空儀會測量溫度、濕度、壓力、風速與風向",
+        "(D) 所有的探空儀在落地後都會被回收並重新利用"
+      ],
+      "en_question": "Regarding the Radiosonde observation process, which of the following is correct?",
+      "en_options": [
+        "(A) The average balloon ascent rate is approximately 2,000 feet per minute",
+        "(B) The balloon shrinks during ascent until it explodes at high altitude",
+        "(C) Radiosondes measure temperature, moisture, pressure, wind speed, and direction",
+        "(D) All radiosondes are recovered and reused after they land"
+      ],
+      "answer": "C",
+      "explanation": "無線電探空儀測量基本氣象參數(Temp, Moisture, Pressure, Wind)。上升率約為 1,000 fpm。氣球隨高度上升因氣壓下降而膨脹(直到直徑超過 20 呎後破裂)。回收率僅約 20%。",
+      "timestamp": "03:50"
+    },
+    {
+      "zh_question": "在氣象簡報中，若簡報員提及「不建議 VFR 飛行」(VFR flight not recommended)，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 此簡報具有法律強制性，飛行員必須取消飛行計晝",
+        "(B) 簡報員已自動取消該架次的飛行許可",
+        "(C) 最終決定權仍在飛行員，但應審慎評估此建議",
+        "(D) 飛行員必須改以 IFR 計畫飛行，否則不得起飛"
+      ],
+      "en_question": "When a briefer states 'VFR flight not recommended', which of the following is correct?",
+      "en_options": [
+        "(A) This briefing is legally mandatory, and the pilot must cancel the flight plan",
+        "(B) The briefer has automatically cancelled the flight clearance",
+        "(C) The final decision remains with the pilot, but this advisory should be weighed carefully",
+        "(D) The pilot must switch to an IFR flight plan to be allowed to take off"
+      ],
+      "answer": "C",
+      "explanation": "根據系統邏輯，簡報員提供的 VNR (VFR Not Recommended) 是一項基於氣象數據的專業建議，旨在提醒飛行員當前或預測天氣低於 VFR 最小限度。然而，最終的 Go/No-go 決策權始終在 Pilot-in-Command (PIC) 手中。",
+      "timestamp": "15:12"
+    },
+    {
+      "zh_question": "在 METAR 報文中，風向 (Wind Direction) 的參考基準為何？",
+      "zh_options": [
+        "(A) 磁北 (Magnetic North)",
+        "(B) 真北 (True North)",
+        "(C) 羅盤北 (Compass North)",
+        "(D) 根據機場跑道方位而定"
+      ],
+      "en_question": "In a METAR report, what is the reference for Wind Direction?",
+      "en_options": [
+        "(A) Magnetic North",
+        "(B) True North",
+        "(C) Compass North",
+        "(D) Based on the airport runway heading"
+      ],
+      "answer": "B",
+      "explanation": "航空氣象的一個核心邏輯是：書面報告 (如 METAR、TAF、Winds Aloft) 使用 True North；而塔台口頭提供的風向資訊則使用 Magnetic North，以利飛行員直接對應跑道方位 (Runway Heading)。",
+      "timestamp": "21:05"
+    },
+    {
+      "zh_question": "METAR 中出現 R17L/1400FT 資訊，這代表什麼含義？",
+      "zh_options": [
+        "(A) 17L 跑道的剩餘長度為 1400 英呎",
+        "(B) 17L 跑道的進場燈光能見度為 1400 英呎",
+        "(C) 飛行員在移動的飛機中，能沿著 17L 跑道中心線看清的距離",
+        "(D) 17L 跑道目前的雲底高度 (Ceiling) 為 1400 英呎"
+      ],
+      "en_question": "What does the information 'R17L/1400FT' in a METAR signify?",
+      "en_options": [
+        "(A) The remaining length of runway 17L is 1400 feet",
+        "(B) The approach light visibility for runway 17L is 1400 feet",
+        "(C) The distance a pilot can see down the runway in a moving aircraft",
+        "(D) The current ceiling for runway 17L is 1400 feet"
+      ],
+      "answer": "C",
+      "explanation": "RVR (Runway Visual Range) 指的是在移動的飛機中，飛行員沿著跑道能看清跑道標誌或燈光的距離。格式為 R (Runway) + 跑道編號 + 斜線 + 數值與單位 (FT 代表英呎)。",
+      "timestamp": "22:05"
+    },
+    {
+      "zh_question": "關於航站天氣預報 (TAF) 的系統運作邏輯，下列敘述何者錯誤？",
+      "zh_options": [
+        "(A) 通常涵蓋機場周圍 5 個法定英哩 (Statute Miles) 的範圍",
+        "(B) 標準 TAF 通常每 6 小時更新一次 (每日 4 次)",
+        "(C) 有效期間通常為 24 小時或 30 小時",
+        "(D) TAF 使用的氣象代碼與 PIREP 完全相同"
+      ],
+      "en_question": "Regarding the system logic of Terminal Aerodrome Forecast (TAF), which statement is incorrect?",
+      "en_options": [
+        "(A) It typically covers an area within a 5 statute mile radius of the airport",
+        "(B) Standard TAF is usually updated every 6 hours (4 times daily)",
+        "(C) The validity period is usually 24 or 30 hours",
+        "(D) TAF uses exactly the same weather codes as PIREP"
+      ],
+      "answer": "D",
+      "explanation": "TAF 使用的縮寫和代碼與 METAR (而不是 PIREP) 較為接近。TAF 提供的是針對特定機場半徑 5 SM 範圍內的預測，且在固定時間 (0000Z, 0600Z, 1200Z, 1800Z) 更新。",
+      "timestamp": "28:45"
+    },
+    {
+      "zh_question": "關於航點天氣預報 (TAF) 中的 PROB30 格式，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 用於預報未來 24 小時內發生機率高於 50% 的雷雨",
+        "(B) 該預報可用於 TAF 前 6 小時的有效期間內",
+        "(C) 描述在特定時間內發生雷雨或降水的機率為 30%",
+        "(D) PROB30 的數據群組包含風向與風速的劇烈變化"
+      ],
+      "en_question": "Regarding the PROB30 group in a Terminal Aerodrome Forecast (TAF), which of the following is correct?",
+      "en_options": [
+        "(A) It forecasts thunderstorms with a probability higher than 50% within 24 hours",
+        "(B) This forecast group can be used within the first 6 hours of a TAF's valid period",
+        "(C) It describes a 30% probability of thunderstorms or precipitation occurring in the coming hours",
+        "(D) The PROB30 group includes data for drastic changes in wind direction and speed"
+      ],
+      "answer": "C",
+      "explanation": "PROB30 表示有 30% 的機率出現雷雨 (Thunderstorms) 或降水。根據規範，這項預報不適用於 24 小時 TAF 預報的前 6 小時期間 (Not used for the first 6 hours of the forecast)。",
+      "timestamp": "01:01:45"
+    },
+    {
+      "zh_question": "在 TAF 報文中，變更群組『FM』(From) 與『TEMPO』的主要區別為何？",
+      "zh_options": [
+        "(A) FM 表示短暫波動，TEMPO 表示長期改變",
+        "(B) FM 用於預期一小時內發生快速且顯著的變化，TEMPO 用於持續不到一小時的暫時性波動",
+        "(C) FM 僅用於風速變化，TEMPO 僅用於雲底高度變化",
+        "(D) FM 的有效期為 2 小時，TEMPO 的有效期為 4 小時"
+      ],
+      "en_question": "In a TAF report, what is the primary difference between the change groups 'FM' (From) and 'TEMPO'?",
+      "en_options": [
+        "(A) FM denotes temporary fluctuations, while TEMPO denotes long-term changes",
+        "(B) FM is used for rapid and significant changes within an hour; TEMPO is used for temporary fluctuations lasting less than one hour",
+        "(C) FM is used only for wind changes, while TEMPO is used only for ceiling changes",
+        "(D) FM is valid for 2 hours, while TEMPO is valid for 4 hours"
+      ],
+      "answer": "B",
+      "explanation": "FM (From) 用於預期天氣將在短時間內 (通常一小時內) 發生快速且顯著的改變 (Rapid and significant change)。TEMPO 則用於預計持續時間不到一小時的暫時性波動 (Temporary fluctuations)。",
+      "timestamp": "01:01:30"
+    },
+    {
+      "zh_question": "區域預報 (Area Forecast, FA) 中的『Synopsis』部分主要提供哪些資訊？",
+      "zh_options": [
+        "(A) 特定機場的跑道視程 (RVR)",
+        "(B) 氣壓系統的位置、移動、鋒面及環流模式",
+        "(C) 未來 24 小時的結冰預報",
+        "(D) 僅包含 VFR 飛行條件下的雲底高度"
+      ],
+      "en_question": "What information is primarily provided in the 'Synopsis' section of an Area Forecast (FA)?",
+      "en_options": [
+        "(A) Runway Visual Range (RVR) for specific airports",
+        "(B) Location and movement of pressure systems, fronts, and circulation patterns",
+        "(C) Icing forecasts for the next 24 hours",
+        "(D) Cloud ceilings under VFR flight conditions only"
+      ],
+      "answer": "B",
+      "explanation": "Synopsis (天氣概要) 部分簡要總結了氣壓系統 (Pressure systems) 的位置、移動方向、鋒面 (Fronts) 以及整體的環流模式 (Circulation patterns)。",
+      "timestamp": "01:10:44"
+    },
+    {
+      "zh_question": "關於對流性顯著氣象情報 (Convective SIGMET) 的發布規則，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 僅在觀測到強烈雷雨時才發布，無固定時間",
+        "(B) 每小時的 15 分發布，有效時間為 4 小時",
+        "(C) 每小時的 55 分發布，有效時間為 2 小時",
+        "(D) 每天僅發布四次，涵蓋全美國領土包含阿拉斯加"
+      ],
+      "en_question": "Regarding the issuance rules of Convective SIGMETs, which of the following statements is correct?",
+      "en_options": [
+        "(A) Issued only when severe thunderstorms are observed, with no fixed schedule",
+        "(B) Issued at 15 minutes past each hour, valid for 4 hours",
+        "(C) Issued at 55 minutes past each hour, valid for 2 hours",
+        "(D) Issued only four times daily, covering all U.S. territories including Alaska"
+      ],
+      "answer": "C",
+      "explanation": "根據音訊內容，Convective SIGMETs 在每小時的 55 分發布 (55 minutes past the hour)，且每份預報的有效時間為 2 小時 (valid for 2 hours)。若無危險天氣，則會發布 Convective SIGMET NONE。",
+      "timestamp": "45:15"
+    },
+    {
+      "zh_question": "在高空風與溫度預報 (FB) 中，若觀測到一組數據為「731960」，應如何解讀其風向與風速？",
+      "zh_options": [
+        "(A) 風向 073 度，風速 196 節",
+        "(B) 風向 230 度，風速 119 節",
+        "(C) 風向 319 度，風速 73 節",
+        "(D) 風向 119 度，風速 230 節"
+      ],
+      "en_question": "In a Winds and Temperatures Aloft Forecast (FB), if a data group is coded as '731960', how should the wind direction and speed be decoded?",
+      "en_options": [
+        "(A) Direction 073 degrees, speed 196 knots",
+        "(B) Direction 230 degrees, speed 119 knots",
+        "(C) Direction 319 degrees, speed 73 knots",
+        "(D) Direction 119 degrees, speed 230 knots"
+      ],
+      "answer": "B",
+      "explanation": "當風速介於 100 到 199 節時，編碼邏輯是風向加 50，風速減 100。因此 73-50=23 (230度)，19+100=119 (119節)。後兩位 60 代表溫度為 -60°C (FL240 以上省略負號)。",
+      "timestamp": "48:05"
+    },
+    {
+      "zh_question": "在天氣描繪圖 (Weather Depiction Chart) 中，IFR 區域是如何被標示的？",
+      "zh_options": [
+        "(A) 以虛線圍繞的區域標示",
+        "(B) 以實線圍繞但無陰影的區域標示",
+        "(C) 以實線圍繞且內含剖面線 (Hatched) 的區域標示",
+        "(D) 以藍色陰影區域標示"
+      ],
+      "en_question": "On a Weather Depiction Chart, how are IFR regions identified?",
+      "en_options": [
+        "(A) Identified by areas enclosed by dashed lines",
+        "(B) Identified by areas enclosed by smooth lines with no shading",
+        "(C) Identified by areas enclosed by smooth lines and filled with hatching",
+        "(D) Identified by blue shaded areas"
+      ],
+      "answer": "C",
+      "explanation": "天氣描繪圖中，IFR 區域 (雲底小於 1000 呎或能見度小於 3 哩) 是由實線圍繞並加上剖面線 (hatched area outlined by a smooth line) 來標示；MVFR 則是僅有實線圍繞而無剖面線。",
+      "timestamp": "52:34"
+    },
+    {
+      "zh_question": "關於座艙顯示器上的 NEXRAD 年齡指示器 (Age Indicator)，下列敘述何者正確？",
+      "zh_options": [
+        "(A) 代表該氣象單元目前的實際精確位置",
+        "(B) 顯示的是氣象合成影像 (Mosaic) 產生的時間，而非實際天氣狀況的時間",
+        "(C) 該指示器會自動換算傳輸延遲，確保與實際天氣同步",
+        "(D) 只要年齡顯示在 5 分鐘內，即可進行戰術性穿透雷雨區"
+      ],
+      "en_question": "Which of the following is true regarding the NEXRAD 'Age Indicator' on cockpit displays?",
+      "en_options": [
+        "(A) It represents the current exact position of the weather cells.",
+        "(B) It shows the age of the assembled mosaic image, not the actual time of the weather conditions.",
+        "(C) The indicator automatically compensates for transmission latency to sync with real-time weather.",
+        "(D) As long as the age is within 5 minutes, tactical penetration of thunderstorm cells is permitted."
+      ],
+      "answer": "B",
+      "explanation": "根據手冊內容，Age Indicator 指的是合成影像產生的時間。實際的天氣狀況可能比指示器顯示的時間還要老 15 到 20 分鐘。因此，NEXRAD 僅能用於策略性避讓 (Strategic Avoidance)，不可用於導航穿透雷雨線。",
+      "timestamp": "01:02:21"
+    },
+    {
+      "zh_question": "NEXRAD 系統在顯示上有其限制，下列何者會導致在氣象站附近出現「無訊號涵蓋區」(Null Coverage)？",
+      "zh_options": [
+        "(A) 飛機上的 UAT 數據鏈路故障",
+        "(B) 雷達天線的最小仰角 (Minimum Antenna Elevation Angle) 限制",
+        "(C) 雷達解析度過低導致的小範圍盲點",
+        "(D) 軍用飛機投放金屬干擾絲 (Chaff) 的干擾"
+      ],
+      "en_question": "NEXRAD has certain display limitations. Which of the following causes 'Null Coverage' near a radar station?",
+      "en_options": [
+        "(A) Failure of the aircraft's UAT data link.",
+        "(B) The limitation of the radar's minimum antenna elevation angle.",
+        "(C) Blind spots caused by low radar resolution.",
+        "(D) Interference from military aircraft deploying chaff."
+      ],
+      "answer": "B",
+      "explanation": "由於雷達掃描有最小仰角限制，單一氣象站無法偵測直接位於其上方的高空風暴。如果鄰近站台未能涵蓋該區域，則會產生 Null Coverage。",
+      "timestamp": "01:05:40"
+    },
+    {
+      "zh_question": "關於飛行資訊廣播服務 (FIS-B) 的特性，下列敘述何者錯誤？",
+      "zh_options": [
+        "(A) 它是透過 978 MHz UAT 數據鏈路傳輸的地面廣播服務",
+        "(B) 提供 METARs、TAFs 和 NEXRAD 影像等產品",
+        "(C) 其產品應被視為主要的氣象決策來源，可取代正式簡報",
+        "(D) 旨在增強飛行員的狀況警覺 (Situational Awareness)"
+      ],
+      "en_question": "Which statement regarding the Flight Information Service-Broadcast (FIS-B) is incorrect?",
+      "en_options": [
+        "(A) It is a ground broadcast service transmitted via the 978 MHz UAT data link.",
+        "(B) It provides METARs, TAFs, and NEXRAD images among other products.",
+        "(C) Its products should be considered primary weather sources, replacing formal briefings.",
+        "(D) It is designed to enhance pilot situational awareness."
+      ],
+      "answer": "C",
+      "explanation": "FIS-B 產品僅供參考 (Advisory Use Only)，並不符合官方氣象產品的法律與技術規範，因此不能作為主要的氣象決策來源，飛行員仍須獲得完整的 Pre-flight Weather Briefing。",
+      "timestamp": "01:09:21"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "A radiosonde balloon rises at a rate of approximately {{c1::1,000}} feet per minute (fpm).",
+      "zh_translation": "無線電探空儀氣球的上升速率約為每分鐘 1,000 呎。",
+      "explanation": "這是氣象觀測的基本數據,用以計算不同高度層的氣象資料。",
+      "tags": "Observations, Radiosonde",
+      "timestamp": "03:50"
+    },
+    {
+      "cloze_text": "VORs that have HIWAS capability are depicted on aeronautical charts with an {{c1::H}} in the upper right corner of the identification box.",
+      "zh_translation": "具有 HIWAS 功能的 VOR 站在航圖上的識別框右上角會標註一個 H 字樣。",
+      "explanation": "HIWAS 提供持續的危險天氣廣播服務,飛行員可透過該頻率聽取 AIRMETs 或 SIGMETs。",
+      "tags": "Charts, Weather Services",
+      "timestamp": "12:23"
+    },
+    {
+      "cloze_text": "The Transcribed Weather Broadcast (TWEB) is a continuous automated broadcast available only in {{c1::Alaska}}.",
+      "zh_translation": "轉錄天氣廣播 (TWEB) 是一種僅在阿拉斯加提供的持續自動化廣播服務。",
+      "explanation": "TWEB 在美國本土已逐漸被其他數位服務取代,但在阿拉斯加仍是重要的氣象來源。",
+      "tags": "Weather Services",
+      "timestamp": "12:31"
+    },
+    {
+      "cloze_text": "Radar intensity values in both modes are measured in {{c1::dBZ}} (decibels of Z) and are depicted in color on the radar image.",
+      "zh_translation": "雷達在兩種模式下的強度值均以 dBZ (分貝 Z) 為單位測量,並在雷達影像上以顏色表示。",
+      "explanation": "dBZ 是衡量降水強度的標準單位,數值越高代表降水越劇烈。",
+      "tags": "Radar, Units",
+      "timestamp": "08:38"
+    },
+    {
+      "cloze_text": "AMDAR vertical profiles and en route observations provide significant benefits by enhancing aircraft {{c1::safety}} and operating efficiency.",
+      "zh_translation": "AMDAR 垂直剖面和航路觀測透過提高飛機安全性和運作效率提供了顯著益處。",
+      "explanation": "AMDAR 是利用民航機感應器自動回傳氣象資料的系統,對預報準確度貢獻極大。",
+      "tags": "Observations, AMDAR",
+      "timestamp": "05:58"
+    },
+    {
+      "cloze_text": "An {{c1::Outlook}} Briefing should be requested when the planned departure time is 6 hours or more from the time of the briefing.",
+      "zh_translation": "當計畫起飛時間距離簡報時間 6 小時(含)以上時,應要求進行展望簡報 (Outlook Briefing)。",
+      "explanation": "展望簡報主要用於初步規劃,具體細節仍需在起飛前透過標準簡報 (Standard Briefing) 確認。",
+      "tags": "Briefing, Procedures",
+      "timestamp": "13:48"
+    },
+    {
+      "cloze_text": "當計晝出發時間在 {{c1::6}} 小時或更長時間之後，飛行員應要求「展望簡報」(Outlook Briefing)。",
+      "zh_translation": "當計畫出發時間在 6 小時或更長時間之後，飛行員應要求「展望簡報」(Outlook Briefing)。",
+      "explanation": "Outlook Briefing 提供初始預報資訊，受限於時間跨度，僅供初步飛行計畫參考。",
+      "tags": "Weather, Briefing",
+      "timestamp": "17:02"
+    },
+    {
+      "cloze_text": "在 METAR 報文中，若出現「{{c1::AUTO}}」標記，代表該報告來自自動化觀測站，未經人工修改。",
+      "zh_translation": "在 METAR 報文中，若出現「AUTO」標記，代表該報告來自自動化觀測站，未經人工修改。",
+      "explanation": "AUTO 標示了報告的來源類型，通常會伴隨 AO1 或 AO2 備註說明感測器類型。",
+      "tags": "METAR, Modifier",
+      "timestamp": "20:35"
+    },
+    {
+      "cloze_text": "METAR 中的能見度是以「{{c1::SM}}」(Statute Miles) 為單位報告。",
+      "zh_translation": "METAR 中的能見度是以「SM」(Statute Miles) 為單位報告。",
+      "explanation": "Statute Miles 是美國境內航空天氣能見度的標準報告單位。",
+      "tags": "METAR, Visibility",
+      "timestamp": "21:48"
+    },
+    {
+      "cloze_text": "METAR 的高度計設定值 (Altimeter Setting) 一律以字母「{{c1::A}}」作為前綴。",
+      "zh_translation": "METAR 的高度計設定值 (Altimeter Setting) 一律以字母「A」作為前綴。",
+      "explanation": "例如 A2992 代表高度計撥定值為 29.92 吋汞柱 (Inches of Mercury)。",
+      "tags": "METAR, Altimeter",
+      "timestamp": "26:18"
+    },
+    {
+      "cloze_text": "當雲底高度低於 5,000 英呎或能見度等於/低於 5 英哩時，ATC 設施被要求向飛行員徵詢 {{c1::PIREP}}。",
+      "zh_translation": "當雲底高度低於 5,000 英呎或能見度等於/低於 5 英哩時，ATC 設施被要求向飛行員徵詢 PIREP。",
+      "explanation": "Pilot Weather Reports (PIREP) 是確認實際雲高、亂流與積冰狀況最直接的系統數據來源。",
+      "tags": "PIREP, Reporting",
+      "timestamp": "26:32"
+    },
+    {
+      "cloze_text": "In a TAF, when the forecast wind speed is greater than 99 knots, it is coded in {{c1::three}} digits.",
+      "zh_translation": "在 TAF 中，當預報風速大於 99 節時，會以三位數字編碼。",
+      "explanation": "這與 METAR 的編碼邏輯一致，用於處理極高風速的情況。",
+      "tags": "TAF, Wind, Coding",
+      "timestamp": "01:00:43"
+    },
+    {
+      "cloze_text": "If the TAF forecast visibility is greater than 6 statute miles, it is coded as {{c1::P6SM}}.",
+      "zh_translation": "如果 TAF 預報的可見度大於 6 英里，則編碼為 P6SM。",
+      "explanation": "P 代表 Plus (超過)，6SM 指 6 Statute Miles (法定英里)。",
+      "tags": "TAF, Visibility",
+      "timestamp": "01:00:54"
+    },
+    {
+      "cloze_text": "In the TAF sky condition section, only {{c1::cumulonimbus}} clouds are specifically forecast.",
+      "zh_translation": "在 TAF 的天空狀況部分，僅會針對積雨雲 (CB) 進行特定預報。",
+      "explanation": "TAF 預報中唯一的雲類縮寫是 CB (Cumulonimbus)，不同於 METAR 可能包含 TCU。",
+      "tags": "TAF, Clouds",
+      "timestamp": "01:01:10"
+    },
+    {
+      "cloze_text": "Area Forecasts (FA) are issued {{c1::three}} times a day and are valid for 18 hours.",
+      "zh_translation": "區域預報 (FA) 每天發布三次，有效期為 18 小時。",
+      "explanation": "FA 提供廣大地理區域的天氣情況，對沒有 Terminal Forecast 的小機場非常重要。",
+      "tags": "FA, Validity",
+      "timestamp": "01:10:20"
+    },
+    {
+      "cloze_text": "AIRMET {{c1::Sierra::代碼}} is used to denote widespread IFR conditions and mountain obscuration.",
+      "zh_translation": "AIRMET Sierra 用於標示大範圍的 IFR 條件和山區遮蔽。",
+      "explanation": "AIRMET 分為 Sierra (IFR/山障)、Tango (亂流/強風) 與 Zulu (結冰)。",
+      "tags": "AIRMET, Weather-Advisory",
+      "timestamp": "01:13:49"
+    },
+    {
+      "cloze_text": "AIRMET {{c1::Tango::代碼}} is issued for moderate turbulence, sustained surface winds of 30 knots or greater, and non-convective low-level wind shear.",
+      "zh_translation": "AIRMET Tango 是針對中度亂流、30 節或以上的持續地面風，以及非對流引起之低空風切而發布的。",
+      "explanation": "T 代表 Turbulence (亂流)，包含地面強風與風切資訊。",
+      "tags": "AIRMET, Turbulence",
+      "timestamp": "01:13:53"
+    },
+    {
+      "cloze_text": "In Winds and Temperatures Aloft Forecasts (FB), altitudes through 12,000 feet are classified as true altitudes, while altitudes {{c1::18,000}} feet and above are classified as flight levels.",
+      "zh_translation": "在高空風與溫度預報 (FB) 中，12,000 呎以下的編號被歸類為真實高度，而 18,000 呎及以上的高度則被歸類為飛行高度層 (Flight Levels)。",
+      "explanation": "區分 True Altitude 與 Flight Level 是為了對應高度計撥定值從真實壓力高度轉換為標準壓力高度 (29.92 Hg) 的分界。",
+      "tags": "Weather, Definitions",
+      "timestamp": "47:15"
+    },
+    {
+      "cloze_text": "Temperatures are not forecast for any station within {{c1::2,500}} feet of the station elevation in the FB report.",
+      "zh_translation": "在 FB 報告中，若預報高度距離測站高度在 2,500 呎以內，則不會提供溫度預報。",
+      "explanation": "這是為了避免地表輻射或地形效應導致高空溫度預報不準確的限制規定。",
+      "tags": "Limitations, Weather",
+      "timestamp": "47:41"
+    },
+    {
+      "cloze_text": "The precipitation data on the ARTCC controller's display could be up to {{c1::6}} minutes old.",
+      "zh_translation": "ARTCC 管制員顯示器上的降水數據最多可能有 6 分鐘的延遲。",
+      "explanation": "WARP 系統處理 NEXRAD 數據需要時間，飛行員必須理解管制雷達看到的氣象資訊並非即時實況。",
+      "tags": "ATC Radar, Systems",
+      "timestamp": "56:35"
+    },
+    {
+      "cloze_text": "The controller's primary function is to provide {{c1::safe separation}} between aircraft.",
+      "zh_translation": "管制員的首要功能是提供飛機之間的安全間隔。",
+      "explanation": "氣象規避協助屬於附加服務，當交通繁忙或工作負荷過重時，管制員可能無法提供詳細的天氣導引。",
+      "tags": "ATC, Procedures",
+      "timestamp": "58:43"
+    },
+    {
+      "cloze_text": "In the FB report, wind is not forecast for a level within {{c1::1,500}} feet of the station elevation.",
+      "zh_translation": "在 FB 報告中，若預報高度距離測站高度在 1,500 呎以內，則不會提供風力預報。",
+      "explanation": "這是 FB 預報的另一個高度限制，旨在確保資料的可靠性。",
+      "tags": "Limitations, Weather",
+      "timestamp": "47:35"
+    },
+    {
+      "cloze_text": "Remember that the in-cockpit NEXRAD display depicts where the weather {{c1::was}}, not where it is.",
+      "zh_translation": "請記住，座艙內的 NEXRAD 顯示器描繪的是天氣「過去」的位置，而非「現在」的位置。",
+      "explanation": "這是由於雷達數據處理、合成與數據鏈路傳輸造成的固有延遲 (Latency)。",
+      "tags": "NEXRAD, Limitations",
+      "timestamp": "01:03:27"
+    },
+    {
+      "cloze_text": "The actual weather conditions could be up to {{c1::20}} minutes older than the age indicated on the display.",
+      "zh_translation": "實際的天氣狀況可能比顯示器上指示的時間還要老 20 分鐘。",
+      "explanation": "飛行員常誤以為延遲只有 5 分鐘，這在快速移動的天氣系統中會導致嚴重的判斷錯誤。",
+      "tags": "NEXRAD, Latency",
+      "timestamp": "01:02:22"
+    },
+    {
+      "cloze_text": "The minimum resolution for NEXRAD returns is {{c1::1.24}} miles.",
+      "zh_translation": "NEXRAD 顯影的最小解析度為 1.24 英里。",
+      "explanation": "這意味著當顯示範圍縮小時，看到的每個色塊都代表 1.24 英里見方區域內的最強回波。",
+      "tags": "NEXRAD, Resolution",
+      "timestamp": "01:06:03"
+    },
+    {
+      "cloze_text": "The FAA FIS-B system broadcasts over the {{c1::978}} MHz UAT data link.",
+      "zh_translation": "FAA 的 FIS-B 系統是透過 978 MHz UAT 數據鏈路進行廣播。",
+      "explanation": "UAT (Universal Access Transceiver) 是 ADS-B 系統中專門用於通用航空提供天氣服務的頻段。",
+      "tags": "FIS-B, Systems",
+      "timestamp": "01:09:34"
+    },
+    {
+      "cloze_text": "NEXRAD is mutually exclusive of {{c1::topographic}} (TOPO), terrain, and Stormscope.",
+      "zh_translation": "NEXRAD 顯示與地形圖 (TOPO)、地勢圖及 Stormscope 氣象雷達是互斥的（不能同時顯示）。",
+      "explanation": "這是因為這些模式使用的顏色等級非常相似，同時顯示會造成誤判。",
+      "tags": "Systems, Display",
+      "timestamp": "01:02:47"
+    },
+    {
+      "cloze_text": "Ground-based FIS-B systems may have relatively limited coverage below {{c1::5000}} feet AGL.",
+      "zh_translation": "地面 FIS-B 系統在 5000 英呎 AGL 以下的訊號涵蓋範圍相對有限。",
+      "explanation": "由於地面基站是視距 (Line of Sight) 傳輸，低高度飛行時易受地形阻隔。",
+      "tags": "FIS-B, Limitations",
+      "timestamp": "01:07:51"
+    }
+  ],
+  "video_id": "rvYU86oq3kA",
+  "url": "https://www.youtube.com/watch?v=rvYU86oq3kA",
+  "has_transcript": false
+}

@@ -1,0 +1,307 @@
+{
+  "subject": "空域分類與特種空域規章 (Airspace Classification & Special Use Airspace)",
+  "mc_questions": [
+    {
+      "zh_question": "關於 Class B 空域的進入與操作要求,下列敘述何者正確?",
+      "zh_options": [
+        "(A) 只要與 ATC 建立雙向無線電通訊即可進入",
+        "(B) 飛行員必須收到明確的「Cleared to enter Class B airspace」許可",
+        "(C) 在 Class B 空域內 VFR 飛行不提供隔離服務",
+        "(D) Class B 空域的垂直範圍一律從地表延伸至 4,000英尺 AGL"
+      ],
+      "en_question": "Regarding the entry and operation requirements for Class B airspace, which of the following is correct?",
+      "en_options": [
+        "(A) Establishing two-way radio communication with ATC is sufficient for entry",
+        "(B) Pilots must receive a specific 'Cleared to enter Class B airspace' clearance",
+        "(C) Separation services are not provided to VFR aircraft within Class B airspace",
+        "(D) The vertical limits of Class B airspace always extend from the surface to 4,000 feet AGL"
+      ],
+      "answer": "B",
+      "explanation": "進入 Class B 空域必須獲得明確的許可 (ATC Clearance),僅建立通訊是不夠的。Class B 通常像倒置的婚禮蛋糕 (upside-down wedding cake),垂直高度通常至 10,000英尺 MSL,且 ATC 會對所有進入該空域的飛機(包括 VFR)提供隔離服務 (Separation services)。",
+      "timestamp": "01:49"
+    },
+    {
+      "zh_question": "關於「受限區」(Restricted Areas) 的操作規律,下列敘述何者正確?",
+      "zh_options": [
+        "(A) 飛機在任何情況下都絕對禁止進入受限區",
+        "(B) 若受限區目前非活動狀態(not active),ATC 通常會准許 IFR 飛機穿越",
+        "(C) 飛機在收到通訊許可前即可進入活動中的受限區",
+        "(D) 受限區在航圖上以英文字母 P 後接數字標示"
+      ],
+      "en_question": "Concerning the operation rules within 'Restricted Areas', which statement is correct?",
+      "en_options": [
+        "(A) Aircraft are strictly prohibited from entering restricted areas under any circumstances",
+        "(B) If the restricted area is not active, ATC will typically clear IFR aircraft to transit",
+        "(C) Aircraft may enter an active restricted area before receiving communication clearance",
+        "(D) Restricted areas are depicted on charts with the letter P followed by a number"
+      ],
+      "answer": "B",
+      "explanation": "受限區 (Restricted Areas, 標示為 R) 不同於禁止區 (Prohibited Areas, 標示為 P)。當受限區非活動狀態時,控制權會歸還給 FAA,ATC 可准許飛機穿越;但在活動狀態下,未經許可進入是非常危險的,因為內部可能有火砲或導彈活動。",
+      "timestamp": "07:20"
+    },
+    {
+      "zh_question": "「管制射擊區」(Controlled Firing Areas, CFAs) 與其他特種空域最大的區別是什麼?",
+      "zh_options": [
+        "(A) CFAs 必須在 VFR 航圖上以藍色實線標示",
+        "(B) 穿越 CFAs 必須獲得特別的許可",
+        "(C) CFAs 不會標註在航圖上,因為其活動會在發現飛機靠近時暫停",
+        "(D) CFAs 僅設置在國際水域上空"
+      ],
+      "en_question": "What is the primary difference between 'Controlled Firing Areas' (CFAs) and other special use airspaces?",
+      "en_options": [
+        "(A) CFAs must be depicted on VFR charts with solid blue lines",
+        "(B) Special clearance is required to transit through CFAs",
+        "(C) CFAs are not charted because activities are suspended when an aircraft is spotted approaching",
+        "(D) CFAs are only established over international waters"
+      ],
+      "answer": "C",
+      "explanation": "管制射擊區 (CFA) 不會標註在航圖上。這是因為 CFA 的操作員負責監視空域(透過雷達或地面觀測員),一旦發現飛機接近,他們會立即停止射擊,因此不會迫使飛機改變航線。",
+      "timestamp": "10:05"
+    },
+    {
+      "zh_question": "根據航管（ATC）系統的優先次序，航管員的首要職責是什麼？",
+      "zh_options": [
+        "(A) 提供導航協助與雷達向量",
+        "(B) 防止飛行中的飛機之間發生碰撞",
+        "(C) 監控飛機的 ADS-B 訊號發射",
+        "(D) 協助飛行員進行飛行計畫的修正"
+      ],
+      "en_question": "According to the priorities of the Air Traffic Control (ATC) system, what is the primary purpose of the controller?",
+      "en_options": [
+        "(A) Providing navigation assistance and radar vectors",
+        "(B) Preventing a collision between aircraft operating in the system",
+        "(C) Monitoring aircraft ADS-B signal transmissions",
+        "(D) Assisting pilots with flight plan amendments"
+      ],
+      "answer": "B",
+      "explanation": "航管系統的首要功能是防止飛機碰撞(prevent a collision)並維持空中交通流量。其他如導航協助或氣象資訊屬於『附加服務』(Additional Services)，僅在工作量允許時提供。",
+      "timestamp": "17:03"
+    },
+    {
+      "zh_question": "進入 B 類空域（Class B Airspace）與進入 C 類空域（Class C Airspace）在航管溝通要求上有何主要差異？",
+      "zh_options": [
+        "(A) B 類空域只需要建立雙向無線電通訊",
+        "(B) C 類空域必須獲得明確的進場許可(Clearance)",
+        "(C) B 類空域必須獲得明確的進場許可(Clearance)，而 C 類僅需建立雙向無線電通訊",
+        "(D) 兩者都只需要建立雙向無線電通訊即可進入"
+      ],
+      "en_question": "What is the primary difference in communication requirements between entering Class B and Class C airspace?",
+      "en_options": [
+        "(A) Class B only requires establishing two-way radio communication",
+        "(B) Class C requires receiving an explicit ATC clearance",
+        "(C) Class B requires receiving an explicit ATC clearance, while Class C only requires establishing two-way radio communication",
+        "(D) Both only require establishing two-way radio communication for entry"
+      ],
+      "answer": "C",
+      "explanation": "進入 Class B 必須聽到航管員說出『Cleared to enter Class B airspace』。進入 Class C 則只需雙向無線電建立聯繫(航管員回應飛機呼號)即可進入。",
+      "timestamp": "21:30"
+    },
+    {
+      "zh_question": "在 D 類空域（Class D Airspace）中，若飛機發生無線電失效（Radio Failure）且處於 VFR 天氣條件下，飛行員應如何處置？",
+      "zh_options": [
+        "(A) 立即爬升至最高高度並轉向最近的機場",
+        "(B) 維持 VFR 條件，觀察塔台燈光訊號，並在安全的情況下落地",
+        "(C) 在機場上空盤旋直到燃油耗盡",
+        "(D) 直接降落在跑道上，不需要與塔台聯繫"
+      ],
+      "en_question": "If an aircraft experiences radio failure in Class D airspace under VFR conditions, what action should the pilot take?",
+      "en_options": [
+        "(A) Immediately climb to maximum altitude and head to the nearest airport",
+        "(B) Maintain VFR, look for tower light gun signals, and land when safe",
+        "(C) Orbit over the airport until fuel exhaustion",
+        "(D) Land directly on the runway without any contact with the tower"
+      ],
+      "answer": "B",
+      "explanation": "若在 Class D 且為 VFR 情況下失效，應維持 VFR 狀態，目視機場塔台燈號(Light Gun Signals)並在安全時降落。",
+      "timestamp": "27:40"
+    },
+    {
+      "zh_question": "在飛往設有運作中控制塔台的機場時，除 ATC 另有授權外，應在距離機場多少範圍內與塔台建立通訊？",
+      "zh_options": [
+        "(A) 5 浬且高度 3,000 呎 AGL 以下",
+        "(B) 4 浬且高度 2,000 呎 AGL 以下",
+        "(C) 4 浬且高度 2,500 呎 AGL 以下",
+        "(D) 10 浬且高度 2,500 呎 AGL 以下"
+      ],
+      "en_question": "Unless otherwise authorized by ATC, within what distance and altitude from an airport with an operating control tower must communications be established?",
+      "en_options": [
+        "(A) 5 NM and up to 3,000 feet AGL",
+        "(B) 4 NM and up to 2,000 feet AGL",
+        "(C) 4 NM and up to 2,500 feet AGL",
+        "(D) 10 NM and up to 2,500 feet AGL"
+      ],
+      "answer": "C",
+      "explanation": "根據法規，在設有運作中塔台的機場附近，必須在距離機場 4 nautical miles (NM) 範圍內，且高度在 2,500 feet AGL（Above Ground Level）以下與塔台建立雙向無線電通訊。",
+      "timestamp": "30:18"
+    },
+    {
+      "zh_question": "若在 IFR 飛行中發生無線電失效（Radio Failure），在沒有後續指引的情況下，飛行員應優先選擇哪條航路？",
+      "zh_options": [
+        "(A) 飛航計畫中填寫的航路 (Filed)",
+        "(B) ATC 最後指定的航路 (Assigned)",
+        "(C) 預期 ATC 可能給予的航路 (Expected)",
+        "(D) 直接飛往目的地機場的直線航路 (Direct)"
+      ],
+      "en_question": "In the event of an IFR radio failure, which route should the pilot prioritize if no further instructions have been received?",
+      "en_options": [
+        "(A) The route filed in the flight plan",
+        "(B) The route assigned in the last ATC clearance",
+        "(C) The route ATC advised may be expected",
+        "(D) A direct route to the destination airport"
+      ],
+      "answer": "B",
+      "explanation": "IFR 通訊失效的航路優先順序通常遵循 AVEF 原則：Assigned（最後指定的航路）、Vectored（雷達引導航路）、Expected（預期航路）、Filed（飛航計畫航路）。因此 Assigned 優先級最高。",
+      "timestamp": "30:43"
+    },
+    {
+      "zh_question": "在 VFR 條件下發生無線電失效時，飛行員若欲在有塔台的機場落地，下列哪項不是必要條件？",
+      "zh_options": [
+        "(A) 天氣條件等於或高於基本 VFR 最低標準",
+        "(B) 與塔台保持目視接觸",
+        "(C) 獲得落地許可 (Clearance to land)",
+        "(D) 必須立即宣告緊急情況 (Declare Emergency)"
+      ],
+      "en_question": "When experiencing a radio failure under VFR, which of the following is NOT a requirement for landing at a towered airport?",
+      "en_options": [
+        "(A) Weather conditions are at or above basic VFR minimums",
+        "(B) Visual contact with the tower is maintained",
+        "(C) A clearance to land is received",
+        "(D) Must immediately declare an emergency"
+      ],
+      "answer": "D",
+      "explanation": "VFR 通訊失效落地要求天氣需符合 VFR 最低標準、保持目視塔台（以便接收燈號信號）並獲得落地許可。法規並未強制要求在此情況下必須宣告緊急情況，而是依照程序安全操作即可。",
+      "timestamp": "30:27"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Class A 空域範圍是從 18,000英尺 MSL 到 {{c1::FL600}}。",
+      "zh_translation": "Class A 空域範圍是從 18,000英尺 MSL 到 FL600。",
+      "explanation": "Class A 空域主要提供給高空巡航使用,所有操作必須依據 IFR 規則進行。",
+      "tags": "Airspace, Definitions",
+      "timestamp": "01:05"
+    },
+    {
+      "cloze_text": "Class C 空域的典型配置包含一個半徑 5 NM 的核心區,以及半徑 {{c1::10}} NM 的外環區 (Shelf)。",
+      "zh_translation": "Class C 空域的典型配置包含一個半徑 5 NM 的核心區,以及半徑 10 NM 的外環區 (Shelf)。",
+      "explanation": "Class C 外環區的高度通常在 1,200英尺至 4,000英尺 MSL 之間。",
+      "tags": "Airspace, Dimensions",
+      "timestamp": "02:22"
+    },
+    {
+      "cloze_text": "進入 Class C 或 Class D 空域操作前,飛行員必須與該設施建立 {{c1::兩路無線電通訊}} (Two-way radio communications)。",
+      "zh_translation": "進入 Class C 或 Class D 空域操作前,飛行員必須與該設施建立兩路無線電通訊。",
+      "explanation": "當管制員呼叫飛機的呼號(Callsign)時,即視為已建立雙向通訊。",
+      "tags": "Communications, ATC",
+      "timestamp": "02:35"
+    },
+    {
+      "cloze_text": "警告區 (Warning Areas) 的定義是從美國海岸向外延伸自 {{c1::3}} 海里 (NM) 開始的空域。",
+      "zh_translation": "警告區 (Warning Areas) 的定義是從美國海岸向外延伸自 3 海里 (NM) 開始的空域。",
+      "explanation": "警告區位於國際水域,美國政府不具備唯一管轄權,其目的在於警告飛行員可能有潛在危險活動。",
+      "tags": "Special Use Airspace",
+      "timestamp": "08:15"
+    },
+    {
+      "cloze_text": "軍事操作區 (MOAs) 的設立目的是為了將軍事訓練活動與 {{c1::IFR}} 流量隔離開來。",
+      "zh_translation": "軍事操作區 (MOAs) 的設立目的是為了將軍事訓練活動與 IFR 流量隔離開來。",
+      "explanation": "當 MOA 正在使用時,ATC 會對非參與的 IFR 飛機進行引導或高度限制。",
+      "tags": "Special Use Airspace",
+      "timestamp": "08:45"
+    },
+    {
+      "cloze_text": "警示區 (Alert Areas) 在航圖上是以英文字母 {{c1::A}} 後接數字來標示。",
+      "zh_translation": "警示區 (Alert Areas) 在航圖上是以英文字母 A 後接數字來標示。",
+      "explanation": "警示區代表該區域有高密度的飛行員訓練或不尋常的空中活動。",
+      "tags": "Special Use Airspace",
+      "timestamp": "09:25"
+    },
+    {
+      "cloze_text": "臨時飛行限制 (TFR) 會透過發布 {{c1::NOTAM}} (Notice to Airmen) 的方式來告知飛行員。",
+      "zh_translation": "臨時飛行限制 (TFR) 會透過發布 NOTAM (飛行員通知) 的方式來告知飛行員。",
+      "explanation": "飛行員在飛行前計畫中必須檢查 NOTAM 以避開 TFR,例如 VIP 造訪或災害救援區。",
+      "tags": "Regulatory, TFR",
+      "timestamp": "13:35"
+    },
+    {
+      "cloze_text": "The primary purpose of the ATC system is to prevent a {{c1::collision}} between aircraft operating in the system.",
+      "zh_translation": "航管系統的首要目的是防止系統內運行中的飛機發生碰撞。",
+      "explanation": "這是 ATC 存在的根本原因，所有其他服務都是次要的。",
+      "tags": "ATC, Principles",
+      "timestamp": "17:05"
+    },
+    {
+      "cloze_text": "VFR weather minimums for Class B airspace require a visibility of 3 statute miles and to remain {{c1::clear of clouds}}.",
+      "zh_translation": "B 類空域的 VFR 天氣最低標準要求 3 英里能見度，且必須維持在『雲外』。",
+      "explanation": "Class B 是唯一的受控空域 VFR 不需要與雲保持特定距離(1000/500/2000)，只需 clear of clouds。",
+      "tags": "VFR, Limitations",
+      "timestamp": "20:15"
+    },
+    {
+      "cloze_text": "Effective January 1, {{c1::2020}}, aircraft operating in Class A, B, and C airspace must be equipped with ADS-B Out equipment.",
+      "zh_translation": "自 2020 年 1 月 1 日起，在 A、B、C 類空域飛行的飛機必須配備 ADS-B Out 設備。",
+      "explanation": "這是美國 FAA 對現代航空器應答機與監控設備的重要法規期限。",
+      "tags": "Equipment, ADS-B",
+      "timestamp": "22:45"
+    },
+    {
+      "cloze_text": "To enter Class B airspace, a pilot must receive an explicit ATC {{c1::clearance}}.",
+      "zh_translation": "要進入 B 類空域，飛行員必須獲得明確的航管許可。",
+      "explanation": "僅建立無線電聯繫是不夠的，必須聽到『Cleared』字眼。",
+      "tags": "Class B, Procedures",
+      "timestamp": "23:02"
+    },
+    {
+      "cloze_text": "In Class C and D airspace, two-way radio {{c1::communications}} must be established with the ATC facility prior to entry.",
+      "zh_translation": "在進入 C 類和 D 類空域之前，必須先與航管設施建立雙向無線電通訊。",
+      "explanation": "建立通訊的定義是航管員呼叫了你的飛機呼號。",
+      "tags": "Communications, Procedures",
+      "timestamp": "25:10"
+    },
+    {
+      "cloze_text": "TRSAs are areas where participating pilots can receive additional {{c1::radar}} services, though participation is voluntary for VFR pilots.",
+      "zh_translation": "TRSA 是參與的飛行員可以獲得額外雷達服務的區域，儘管對 VFR 飛行員而言是自願參加的。",
+      "explanation": "Terminal Radar Service Areas (TRSA) 提供類似 Class B/C 的隔離服務，但在法規上不具備同等的強制性。",
+      "tags": "Airspace, TRSA",
+      "timestamp": "15:40"
+    },
+    {
+      "cloze_text": "Communications must be established within {{c1::4}} nautical miles from the airport, up to and including 2,500 feet AGL.",
+      "zh_translation": "必須在距離機場 4 浬以內、高度 2,500 呎 AGL（含）以下與塔台建立通訊。",
+      "explanation": "這是進入設有塔台之 D 類空域或類似受控機場環境時的基本通訊距離限制。",
+      "tags": "Communications",
+      "timestamp": "30:20"
+    },
+    {
+      "cloze_text": "In the absence of an assigned route during IFR radio failure, the pilot should continue by the route filed in the {{c1::flight plan}}.",
+      "zh_translation": "在 IFR 無線電失效且沒有指定、引導或預期航路時，飛行員應沿著飛航計畫中填寫的航路飛行。",
+      "explanation": "這是 AVEF 優先順序中的最後一項（Filed），作為最後的航路依據。",
+      "tags": "IFR Procedure",
+      "timestamp": "31:03"
+    },
+    {
+      "cloze_text": "No person may operate an ultralight vehicle within Class A, B, C, or D airspace without prior {{c1::authorization}} from the ATC facility.",
+      "zh_translation": "未經 ATC 事先授權，任何人不得在 A、B、C 或 D 類空域內操作超輕型載具。",
+      "explanation": "超輕型載具（Ultralight vehicles）通常受限於 G 類空域，進入受控空域必須獲得航管核准。",
+      "tags": "Airspace",
+      "timestamp": "31:35"
+    },
+    {
+      "cloze_text": "Unless otherwise authorized, unmanned free balloons may not be operated below {{c1::2,000}} feet above the surface within controlled airspaces designated for an airport.",
+      "zh_translation": "除非另有授權，無人自由氣球不得在機場指定受控空域內、地面高度 2,000 呎以下操作。",
+      "explanation": "這項限制是為了保護機場附近的低空進場與起飛航徑安全。",
+      "tags": "Limitations",
+      "timestamp": "31:49"
+    },
+    {
+      "cloze_text": "Regulations regarding Unmanned Aircraft Systems (UAS) are contained in 14 CFR Part {{c1::107}}.",
+      "zh_translation": "關於無人機系統 (UAS) 的法規包含在 14 CFR 第 107 部分中。",
+      "explanation": "Part 107 是美國 FAA 針對小型無人機商業操作的核心法規。",
+      "tags": "Regulations",
+      "timestamp": "32:10"
+    }
+  ],
+  "video_id": "asnLatX2gVM",
+  "url": "https://www.youtube.com/watch?v=asnLatX2gVM",
+  "has_transcript": false
+}
