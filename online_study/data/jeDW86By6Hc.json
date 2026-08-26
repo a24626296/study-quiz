@@ -1,0 +1,102 @@
+{
+  "subject": "飛航安全與航空氣象 - 飛機結冰與失速處理邏輯",
+  "mc_questions": [
+    {
+      "zh_question": "在爬升過程中,為什麼使用垂直速度 (Vertical Speed, VS) 模式而非指示空速 (Indicated Airspeed, IAS) 模式在結冰環境下更具風險?",
+      "zh_options": [
+        "(A) VS 模式會自動開啟除冰系統,導致發動機推力下降",
+        "(B) VS 模式會為了維持爬升率而犧牲空速,空速下降會導致誘導阻力增加並最終失速",
+        "(C) VS 模式在結冰時會導致高度表指示錯誤",
+        "(D) 自動駕駛儀在結冰環境下無法執行 VS 模式的運算"
+      ],
+      "en_question": "Why is using Vertical Speed (VS) mode instead of Indicated Airspeed (IAS) mode during climb more risky in icing conditions?",
+      "en_options": [
+        "(A) VS mode automatically activates de-icing systems, causing a drop in engine thrust.",
+        "(B) VS mode will sacrifice airspeed to maintain the rate of climb; as speed drops, induced drag increases, leading to a potential stall.",
+        "(C) VS mode causes altimeter errors when icing occurs.",
+        "(D) The autopilot is unable to compute VS mode logic in icing environments."
+      ],
+      "answer": "B",
+      "explanation": "結冰會增加阻力並降低升力。若使用 VS 模式,自動駕駛會增加攻角 (Angle of Attack) 以維持設定的爬升率,導致空速持續下降。當空速低於最小阻力速度時,誘導阻力 (Induced Drag) 會急劇上升,最終導致飛機失速。標準做法應使用 IAS 模式以確保安全的空速。",
+      "timestamp": "08:15"
+    },
+    {
+      "zh_question": "關於氣動除冰靴 (Pneumatic De-icing Boots) 的操作,下列敘述何者正確?",
+      "zh_options": [
+        "(A) 必須等待結冰達到一定厚度才能開啟,以避免「冰橋 (Ice Bridging)」現象",
+        "(B) 現代除冰靴設計已排除冰橋問題,應在進入結冰環境時立即開啟",
+        "(C) 只有在失速警告 (Stall Warning) 響起時才需要開啟除冰靴",
+        "(D) 除冰靴在高速飛行時會損壞翼面,因此僅限起降階段使用"
+      ],
+      "en_question": "Regarding the operation of pneumatic de-icing boots, which of the following statements is correct?",
+      "en_options": [
+        "(A) Pilots must wait for a certain thickness of ice to build up before activation to avoid 'Ice Bridging'.",
+        "(B) Modern de-icing boots are designed to eliminate the ice bridging myth and should be activated as soon as icing is encountered.",
+        "(C) De-icing boots should only be activated when the stall warning sounds.",
+        "(D) De-icing boots can damage the wing at high speeds and are limited to takeoff and landing phases."
+      ],
+      "answer": "B",
+      "explanation": "「冰橋 (Ice Bridging)」是一個過時的迷思。加拿大交通部 (Transport Canada) 與相關安全機構建議,除非飛機飛行手冊 (AFM) 明文禁止,否則一旦進入結冰環境,應立即開啟除冰靴以維持翼面清潔,確保氣動力性能。",
+      "timestamp": "09:56"
+    },
+    {
+      "zh_question": "影片中提到多起失速空難(如 AF447, Colgan Air 3407) 的共同錯誤行為為何?",
+      "zh_options": [
+        "(A) 飛行員過早放下起落架",
+        "(B) 飛行員在失速警告響起時,本能地向後拉桿試圖維持高度,反而加劇失速",
+        "(C) 飛行員過度依賴自動駕駛儀的失速恢復邏輯",
+        "(D) 飛行員在失速時立即關閉發動機"
+      ],
+      "en_question": "What common erroneous behavior was mentioned in the video regarding several stall-related accidents (e.g., AF447, Colgan Air 3407)?",
+      "en_options": [
+        "(A) Pilots lowered the landing gear too early.",
+        "(B) Pilots instinctively pulled back on the control column to maintain altitude when the stall warning sounded, worsening the stall.",
+        "(C) Pilots relied too heavily on the autopilot's stall recovery logic.",
+        "(D) Pilots immediately shut down the engines during a stall."
+      ],
+      "answer": "B",
+      "explanation": "在壓力與失速警告下,飛行員常有本能拉桿 (Pitch up) 的錯誤反應。正確的失速恢復首要動作是推桿 (Pitch down) 以降低攻角,破壞失速狀態並恢復機翼氣流。許多空難都是因為飛行員持續拉桿導致進入深度失速 (Deep Stall) 而無法挽回。",
+      "timestamp": "12:50"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Unless specifically prohibited by the AFM, select the boots on automatic as soon as the aeroplane enters {{c1::icing conditions}}.",
+      "zh_translation": "除非飛機飛行手冊特別禁止,否則飛機一進入「結冰環境」,即應將除冰靴選擇在自動模式。",
+      "explanation": "這是針對結冰環境操作的重要安全建議,用以打破等待結冰厚度的舊觀念。",
+      "tags": "SOP / Icing",
+      "timestamp": "09:17"
+    },
+    {
+      "cloze_text": "The primary action for stall recovery is to {{c1::push}} the control column forward to reduce the angle of attack.",
+      "zh_translation": "失速恢復的首要動作是「推進」駕駛桿以降低攻角。",
+      "explanation": "這是所有失速恢復程序的核心(Memory Item),必須克服向後拉桿的本能。",
+      "tags": "Memory-Item / Stall",
+      "timestamp": "01:15"
+    },
+    {
+      "cloze_text": "When using bleed air for anti-icing, the engine {{c1::thrust}} will be reduced, affecting the aircraft's climb performance.",
+      "zh_translation": "當使用引氣(Bleed air)進行防冰時,發動機「推力」會減少,進而影響飛機的爬升性能。",
+      "explanation": "引氣會分流發動機功率,在結冰環境下計算性能限制時必須考慮此點。",
+      "tags": "Engine / Performance",
+      "timestamp": "14:45"
+    },
+    {
+      "cloze_text": "If the airspeed falls below the {{c1::minimum drag speed}}, the total drag increases rapidly as the speed decreases.",
+      "zh_translation": "如果空速低於「最小阻力速度」,總阻力會隨著速度下降而迅速增加。",
+      "explanation": "此現象源於誘導阻力與攻角的平方成正比,是導致結冰後失速的關鍵氣動邏輯。",
+      "tags": "Aerodynamics",
+      "timestamp": "12:51"
+    },
+    {
+      "cloze_text": "The stick pusher is designed to prevent a stall by pushing the control column forward when the {{c1::angle of attack}} becomes dangerously high.",
+      "zh_translation": "推桿器(Stick pusher)的設計是當「攻角」變得危險過高時,透過向前推動駕駛桿來防止失速。",
+      "explanation": "了解推桿器的觸發邏輯(AOA),飛行員不應與其對抗。",
+      "tags": "Flight-Control / Stall",
+      "timestamp": "01:08"
+    }
+  ],
+  "video_id": "jeDW86By6Hc",
+  "url": "https://www.youtube.com/watch?v=jeDW86By6Hc",
+  "has_transcript": false
+}
