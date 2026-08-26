@@ -1,0 +1,109 @@
+{
+  "subject": "ATR 42-600 飛行測試與失速保護系統",
+  "mc_questions": [
+    {
+      "zh_question": "根據影片內容,當 ATR 飛機達到特定的迎角 (Angle of Attack, AOA) 限制且即將進入失速時,哪一個系統會自動向前推動駕駛桿以強制降低機頭?",
+      "zh_options": [
+        "(A) 震桿器 (Stick Shaker)",
+        "(B) 偏航阻尼器 (Yaw Damper)",
+        "(C) 推桿器 (Stick Pusher)",
+        "(D) 自動配平系統 (Auto Trim)"
+      ],
+      "en_question": "According to the video, when the ATR reaches a specific Angle of Attack (AOA) limit and is about to stall, which system automatically pushes the control column forward to force the nose down?",
+      "en_options": [
+        "(A) Stick Shaker",
+        "(B) Yaw Damper",
+        "(C) Stick Pusher",
+        "(D) Auto Trim"
+      ],
+      "answer": "C",
+      "explanation": "推桿器 (Stick Pusher) 是人工失速保護系統的一部分,當 AOA 達到預設極限時,系統會自動致動致動器將機頭壓低,以防止進入深速失速 (Deep Stall)。",
+      "timestamp": "01:03"
+    },
+    {
+      "zh_question": "為什麼 ATR 飛機需要設計「人工失速警告與保護系統」(如 Shaker 與 Pusher),而不是僅依賴飛機的自然氣動特性?",
+      "zh_options": [
+        "(A) 因為 ATR 飛機在失速前可能不會產生明顯的自然抖動 (Buffeting)",
+        "(B) 為了減輕飛行員在起飛階段的操作負荷",
+        "(C) 因為渦輪螺旋槳飛機的發動機扭力會抵消自然失速徵兆",
+        "(D) 這是為了符合 ETOPS 長程飛行安全規範的特殊要求"
+      ],
+      "en_question": "Why does the ATR require an artificial stall warning and protection system (such as Shaker and Pusher) instead of relying solely on natural aerodynamic characteristics?",
+      "en_options": [
+        "(A) Because the ATR may not exhibit noticeable natural buffeting before a stall",
+        "(B) To reduce pilot workload during the takeoff phase",
+        "(C) Because turboprop engine torque offsets natural stall signs",
+        "(D) To comply with special ETOPS long-range operation requirements"
+      ],
+      "answer": "A",
+      "explanation": "ATR 在設計上,某些構型下可能在進入失速前缺乏足夠的自然氣動抖動 (Natural Buffeting),因此必須透過 Stick Shaker 提供人工抖動警告,並透過 Stick Pusher 提供保護。",
+      "timestamp": "09:41"
+    },
+    {
+      "zh_question": "在執行大坡度轉彎測試以達成高負荷係數 (G-load) 時,測試飛行員將坡度 (Bank Angle) 增加到了多少度?",
+      "zh_options": [
+        "(A) 27 度",
+        "(B) 33 度",
+        "(C) 45 度",
+        "(D) 60 度"
+      ],
+      "en_question": "When performing steep turn tests to achieve a high load factor (G-load), what bank angle did the test pilots increase to?",
+      "en_options": [
+        "(A) 27 degrees",
+        "(B) 33 degrees",
+        "(C) 45 degrees",
+        "(D) 60 degrees"
+      ],
+      "answer": "D",
+      "explanation": "影片提到標準商業飛行坡度限制通常為 27 度,但在測試飛行中為了達到約 2G 的負荷係數,飛行員將坡度推至 60 度。",
+      "timestamp": "09:02"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The purpose of the {{c1::Stick Shaker}} is to provide an artificial vibration to the control column to warn the pilot of an impending stall.",
+      "zh_translation": "震桿器 (Stick Shaker) 的目的是對駕駛桿提供人工振動,以警告飛行員即將發生失速。",
+      "explanation": "這是在缺乏自然氣動警告 (Buffeting) 飛機上的標準安全配備。",
+      "tags": "Stall-Protection",
+      "timestamp": "13:34"
+    },
+    {
+      "cloze_text": "During stall recovery tests at FL150, the aircraft typically recovers with an altitude loss of less than {{c1::1000}} feet.",
+      "zh_translation": "在 FL150 進行失速改正測試時,飛機改正時的高度損失通常小於 1000 英呎。",
+      "explanation": "失速改正的效率(高度損失)是飛行測試中的重要性能指標。",
+      "tags": "Performance",
+      "timestamp": "01:26"
+    },
+    {
+      "cloze_text": "In standard commercial operations, the ATR's bank angle is generally limited to {{c1::27}} degrees.",
+      "zh_translation": "在標準商業營運中,ATR 的坡度通常限制在 27 度。",
+      "explanation": "這是為了乘客舒適度與安全邊際所設定的正常操作限制。",
+      "tags": "Limitations",
+      "timestamp": "09:02"
+    },
+    {
+      "cloze_text": "The test flight aimed to verify the reliability of the {{c1::AOA}} sensors (sondes d'incidences) on the leading edges.",
+      "zh_translation": "該測試飛行的目標之一是驗證安裝在機翼前緣的迎角 (AOA) 感測器的可靠性。",
+      "explanation": "AOA 感測器(迎角探針)是失速警告與推桿系統最主要的數據來源。",
+      "tags": "Systems",
+      "timestamp": "00:18"
+    },
+    {
+      "cloze_text": "A load factor of {{c1::2}} Gs was targeted during the steep turn maneuvers at 60 degrees of bank.",
+      "zh_translation": "在 60 度坡度的大轉彎機動中,目標是達到 2G 的負荷係數。",
+      "explanation": "負荷係數與坡度餘割成正比,60 度轉彎理論上會產生 2G 負荷。",
+      "tags": "Flight-Dynamics",
+      "timestamp": "13:14"
+    },
+    {
+      "cloze_text": "The term {{c1::Buffeting}} refers to the aerodynamic vibrations felt on the airframe when airflow begins to separate from the wings.",
+      "zh_translation": "「抖動 (Buffeting)」一詞是指當氣流開始從機翼分離時,在機身上感受到的氣動振動。",
+      "explanation": "這是飛機失速前的自然物理徵兆,但 ATR 透過人工方式模擬此效果。",
+      "tags": "Definitions",
+      "timestamp": "13:41"
+    }
+  ],
+  "video_id": "wmdGYUM4hUk",
+  "url": "https://www.youtube.com/watch?v=wmdGYUM4hUk",
+  "has_transcript": false
+}
