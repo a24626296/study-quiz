@@ -57,7 +57,16 @@
 
     var dragging = false;
     var startX = 0, startY = 0, startW = 0, startH = 0;
-    var MIN_W = 260, MIN_H = 150, MAX_W = 900;
+    var MIN_W = 260, MIN_H = 150, MAX_W_CAP = 900;
+
+    // 影片最大可拉寬度:動態算,永遠留給右邊題目欄(.list-col)至少
+    // min-width(320px)+ gap(20px)+ .layout 左右 padding(40px)的空間,
+    // 避免影片被拉到讓題目欄被擠到下一行——那樣搭配 sticky 會造成
+    // 影片蓋住往上捲動的題目文字。
+    function getMaxW() {
+      var reserved = 320 + 20 + 40;
+      return Math.min(MAX_W_CAP, window.innerWidth - reserved);
+    }
 
     handle.addEventListener('pointerdown', function (e) {
       dragging = true;
@@ -71,7 +80,8 @@
 
     handle.addEventListener('pointermove', function (e) {
       if (!dragging) return;
-      var newW = Math.min(MAX_W, Math.max(MIN_W, startW + (e.clientX - startX)));
+      var maxW = getMaxW();
+      var newW = Math.min(maxW, Math.max(MIN_W, startW + (e.clientX - startX)));
       var newH = Math.max(MIN_H, startH + (e.clientY - startY));
       container.style.width = newW + 'px';
       container.style.height = newH + 'px';
