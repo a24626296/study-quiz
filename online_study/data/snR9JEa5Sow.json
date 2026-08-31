@@ -1,0 +1,102 @@
+{
+  "subject": "飛行員面試技巧 - 個人經歷與核心職能論述",
+  "mc_questions": [
+    {
+      "zh_question": "根據影片內容,在回答「請介紹你自己」時,比起單純陳述編年史般的履歷,教官建議最核心的加分做法是什麼?",
+      "zh_options": [
+        "(A) 詳細列出所有飛行機型的總時數與起降次數",
+        "(B) 說明在每個職涯階段中所習得的具體技能與核心職能 (Core Competencies)",
+        "(C) 強調自己在受訓期間從未失敗過的優異表現",
+        "(D) 著重描述個人對飛行最純粹的愛好與夢想"
+      ],
+      "en_question": "According to the video, when answering 'Tell us about yourself,' what is the core strategy recommended by the instructor instead of just stating a chronological resume?",
+      "en_options": [
+        "(A) Listing total flight hours and landings for every aircraft type in detail.",
+        "(B) Explaining specific skills and Core Competencies achieved at each career stage.",
+        "(C) Emphasizing perfect performance without any failures during training.",
+        "(D) Focusing solely on personal passion and dreams for flying."
+      ],
+      "answer": "B",
+      "explanation": "面試官已看過你的履歷,他們更想看到你如何將過去經歷轉化為 Core Competencies,如 CRM、TEM 與 Problem Solving 等能力。",
+      "timestamp": "02:35"
+    },
+    {
+      "zh_question": "影片中提到,面試官在聽取應徵者介紹個人經歷時,背後通常潛藏著哪三個關鍵問題?",
+      "zh_options": [
+        "(A) 學歷背景、英語能力、體檢等級",
+        "(B) 對公司的忠誠度、是否有違約金問題、家屬支持度",
+        "(C) 是否對領域充滿熱忱、是否具備可訓練性 (Trainability)、是否認同公司目標",
+        "(D) 飛行時數、起降技術、自動駕駛操作熟練度"
+      ],
+      "en_question": "According to the video, what are the three hidden questions an interviewer is usually asking behind the scenes while listening to your background?",
+      "en_options": [
+        "(A) Educational background, English proficiency, and Medical Class level.",
+        "(B) Loyalty to the company, contract penalties, and family support.",
+        "(C) Dedication/Passion, Trainability, and Alignment with company goals.",
+        "(D) Flight hours, landing techniques, and proficiency in autopilot operations."
+      ],
+      "answer": "C",
+      "explanation": "面試官透過自傳確認你是否具備長期服務的 Passion、能通過訓的 Trainability,以及是否能協助達成 Company Mission。",
+      "timestamp": "08:12"
+    },
+    {
+      "zh_question": "在描述擔任「飛行教官 (Flight Instructor)」的經歷時,影片建議應強調學到哪種對民航機長而言非常重要的能力?",
+      "zh_options": [
+        "(A) 卓越的手飛技巧 (Stick and Rudder skills)",
+        "(B) 建立信賴關係 (Rapport) 並以他人需求為優先的能力",
+        "(C) 對法規 (Regulations) 的死記硬背能力",
+        "(D) 在惡劣天氣下強行降落的勇氣"
+      ],
+      "en_question": "When describing the 'Flight Instructor' phase, what capability crucial for an airline captain does the video suggest emphasizing?",
+      "en_options": [
+        "(A) Superior stick and rudder skills.",
+        "(B) Building rapport and prioritizing others' needs over your own.",
+        "(C) Rote memorization of regulations.",
+        "(D) Courage to land in severe weather conditions."
+      ],
+      "answer": "B",
+      "explanation": "透過教學經驗展示理解他人需求並建立 Rapport,是展現 Crew Coordination 與領導能力的關鍵。",
+      "timestamp": "04:30"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "A comprehensive answer to 'Tell us about yourself' should ideally last for about {{c1::5 to 7}} minutes.",
+      "zh_translation": "對於「介紹你自己」這個問題的完整回答,理想長度應維持在 5 到 7 分鐘之間。",
+      "explanation": "這段時間足以完整涵蓋職涯關鍵點並帶入核心職能,同時不至於讓聽眾失去興趣。",
+      "tags": "Interview-Skill",
+      "timestamp": "07:25"
+    },
+    {
+      "cloze_text": "Some core competencies airlines look for include problem solving, CRM, and {{c1::Threat and Error Management}} (TEM).",
+      "zh_translation": "航空公司尋求的核心職能包括問題解決、CRM 以及威脅與疏失管理 (TEM)。",
+      "explanation": "TEM 是現代航空安全管理的核心邏輯,面試中提及能展現專業成熟度。",
+      "tags": "Core-Competencies",
+      "timestamp": "02:15"
+    },
+    {
+      "cloze_text": "The hidden question 'Can we train this person?' refers to the applicant's {{c1::trainability}}.",
+      "zh_translation": "潛在問題「我們能訓練這個人嗎?」指的是申請者的「可訓練性」。",
+      "explanation": "航空公司投入大量成本受訓,應徵者需證明自己有良好的學習紀錄與心態。",
+      "tags": "Evaluation-Logic",
+      "timestamp": "08:22"
+    },
+    {
+      "cloze_text": "Working for a regional airline helps develop an understanding of leadership and {{c1::followership}} roles.",
+      "zh_translation": "在區域航空公司工作有助於發展對領導力與「跟隨者職責」角色的理解。",
+      "explanation": "身為副駕駛 (FO) 必須展現良好的 Followership,這是升遷 Capt 前的重要指標。",
+      "tags": "Career-Development",
+      "timestamp": "05:53"
+    },
+    {
+      "cloze_text": "An applicant should demonstrate they are here to promote the {{c1::company mission}} and achieve its goals.",
+      "zh_translation": "申請者應展示他們是為了提升「公司使命」並達成其目標而來。",
+      "explanation": "強調自己不只是為了薪水,而是認同並願意貢獻於公司的整體經營方向。",
+      "tags": "Company-Alignment",
+      "timestamp": "05:40"
+    }
+  ],
+  "video_id": "snR9JEa5Sow",
+  "url": "https://youtu.be/snR9JEa5Sow?si=ZblRGu5tjkDnCiBI",
+  "has_transcript": false
+}
