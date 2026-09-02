@@ -1,0 +1,109 @@
+{
+  "subject": "Part 135/121 飛行員面試硬題分析 - 性能、離場與進場程序",
+  "mc_questions": [
+    {
+      "zh_question": "根據 14 CFR 25.113 規定，商業營運在計算起飛距離性能（Takeoff Performance）時，其距離計算的終點為何？",
+      "zh_options": [
+        "(A) 飛機離開地面（Liftoff）的那一刻",
+        "(B) 飛機爬升至離地高度（AGL）35 英尺處",
+        "(C) 飛機爬升至離地高度（AGL）50 英尺處",
+        "(D) 達到安全爬升速度 V2 的位置"
+      ],
+      "en_question": "According to 14 CFR 25.113, what is the defined end point for calculating takeoff distance performance for commercial operations?",
+      "en_options": [
+        "(A) The moment the aircraft lifts off the ground",
+        "(B) Reaching 35 feet above ground level (AGL)",
+        "(C) Reaching 50 feet above ground level (AGL)",
+        "(D) The point where V2 speed is achieved"
+      ],
+      "answer": "B",
+      "explanation": "法規定義起飛距離是從鬆開煞車（Brake Release）開始，直到飛機爬升至離地 35 英尺 AGL。對於商業營運規劃，通常還會在此距離基礎上增加 15% 的安全餘裕（115% All Engine Distance）。",
+      "timestamp": "02:02"
+    },
+    {
+      "zh_question": "在離場合法性判斷中，若該跑道的高強度跑道燈（HIRL）故障，且沒有其他輔助設施，最低離場能見度要求通常會變更為多少？",
+      "zh_options": [
+        "(A) RVR 600 英尺",
+        "(B) RVR 1000 英尺",
+        "(C) RVR 1600 英尺或 1/4 哩能見度",
+        "(D) RVR 2400 英尺"
+      ],
+      "en_question": "In determining departure legality, if the High Intensity Runway Lights (HIRL) are out of service and no other aids are available, what does the minimum departure visibility typically change to?",
+      "en_options": [
+        "(A) RVR 600 feet",
+        "(B) RVR 1000 feet",
+        "(C) RVR 1600 or 1/4 sm visibility",
+        "(D) RVR 2400 feet"
+      ],
+      "answer": "C",
+      "explanation": "當關鍵燈光系統如 HIRL 不可用時，必須改用「足夠視覺參考」（Adequate Visual Reference）標準，這通常要求能見度至少為 RVR 1600 或 1/4 哩能見度（1/4 sm）。",
+      "timestamp": "04:23"
+    },
+    {
+      "zh_question": "根據 Part 135 或 121 規範，如果天氣（RVR）在飛機已經通過「最後進場點」（FAF）之後才降低至低於進場最低標準，飛行員應如何處理？",
+      "zh_options": [
+        "(A) 必須立即執行重飛（Go-around）",
+        "(B) 可以繼續進場至 DA/MDA 高度，若有視覺參考則可降落",
+        "(C) 必須進入等待航線直到天氣好轉",
+        "(D) 必須立即宣告緊急狀態並請求引導至備降機場"
+      ],
+      "en_question": "According to Part 135 or 121 rules, how should a pilot proceed if the reported weather (RVR) drops below minimums after the aircraft has already passed the Final Approach Fix (FAF)?",
+      "en_options": [
+        "(A) Must immediately execute a go-around",
+        "(B) May continue the approach to DA/MDA and land if visual requirements are met",
+        "(C) Must enter a holding pattern until weather improves",
+        "(D) Must immediately declare an emergency and divert"
+      ],
+      "answer": "B",
+      "explanation": "這是一項關鍵法規（121.651 / 135.225）：若飛機已通過 FAF 或開始最後進場航段，天氣才變差，法律允許繼續進場至決斷高度（DA）或最低下降高度（MDA）。但若天氣在 FAF 之前就變差，則不得開始進場。",
+      "timestamp": "16:31"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "For takeoff planning, commercial operators count the distance from brake release to 35 feet AGL plus a {{c1::15%}} margin.",
+      "zh_translation": "在起飛規劃中，商業營運者計算從鬆開煞車到離地 35 英尺的距離，再加上 15% 的餘裕。",
+      "explanation": "這是性能規劃中的安全系數（115% 規則），用以應對非預期狀況。",
+      "tags": "Performance",
+      "timestamp": "02:24"
+    },
+    {
+      "cloze_text": "On an ILS approach, the Final Approach Fix (FAF) is the point of {{c1::glideslope intercept}} at the minimum intercept altitude.",
+      "zh_translation": "在 ILS 進場中，最後進場點（FAF）是指在最低攔截高度攔截到下滑道（Glideslope）的位置。",
+      "explanation": "精密進場與非精密進場定義 FAF 的方式不同，ILS 以攔截下滑道為準。",
+      "tags": "Approach",
+      "timestamp": "14:22"
+    },
+    {
+      "cloze_text": "Part 135 and 121 planning requires the aircraft to be able to come to a full stop within {{c1::60%}} of the available runway length.",
+      "zh_translation": "Part 135 與 121 規範要求飛機能夠在可用跑道長度的 60% 內完全停止。",
+      "explanation": "這是著陸性能規劃（Landing Performance Planning）的關鍵數據，確保跑道長度充裕。",
+      "tags": "Performance",
+      "timestamp": "16:03"
+    },
+    {
+      "cloze_text": "RAIL stands for {{c1::Runway Alignment Indicator Lights}}, which are flashing white lights leading toward the runway.",
+      "zh_translation": "RAIL 代表跑道對正指示燈，是引導飛機對準跑道的白色閃爍燈光。",
+      "explanation": "需注意 RAIL 與 REIL（跑道末端識別燈）的區別。",
+      "tags": "Systems",
+      "timestamp": "17:39"
+    },
+    {
+      "cloze_text": "Aircraft must generally maintain a speed no greater than 250 knots when flying below {{c1::10,000}} feet MSL.",
+      "zh_translation": "飛機在離海平面高度 10,000 英尺以下飛行時，通常限速不得超過 250 節。",
+      "explanation": "這是空域操作的基本限制規則。",
+      "tags": "Limitations",
+      "timestamp": "11:19"
+    },
+    {
+      "cloze_text": "The Transition Altitude (Trans Level) in the United States is always {{c1::18,000}} feet MSL.",
+      "zh_translation": "美國的轉換高度（Transition Altitude）一律為離海平面 18,000 英尺。",
+      "explanation": "在高度計撥定值（Altimeter Setting）操作中，進入此高度以上改撥 29.92 英吋汞柱。",
+      "tags": "General",
+      "timestamp": "07:34"
+    }
+  ],
+  "video_id": "ye9ATZYz5DU",
+  "url": "https://www.youtube.com/watch?v=ye9ATZYz5DU&pp=ygUPcGlsb3QgaW50ZXJ2aWV3",
+  "has_transcript": false
+}
