@@ -1,0 +1,293 @@
+{
+  "subject": "導航系統 - 慣性導航系統 (INS) 與慣性基準系統 (IRS)",
+  "mc_questions": [
+    {
+      "zh_question": "慣性導航系統 (INS) 是如何從加速度計提供的數據中計算出飛行距離的？",
+      "zh_options": [
+        "(A) 將加速度數據直接與飛行時間相乘",
+        "(B) 將加速度數據進行一次積分處理",
+        "(C) 將加速度數據進行二次積分處理",
+        "(D) 將加速度數據除以重力常數"
+      ],
+      "en_question": "How does the Inertial Navigation System (INS) calculate distance from the data provided by accelerometers?",
+      "en_options": [
+        "(A) By multiplying acceleration directly by flight time",
+        "(B) By integrating the acceleration once",
+        "(C) By integrating the acceleration twice",
+        "(D) By dividing the acceleration by the gravity constant"
+      ],
+      "answer": "C",
+      "explanation": "根據系統邏輯,加速度 (Acceleration) 積分一次得到速度 (Velocity/Speed),速度再積分第二次則得到距離 (Distance)。這就是 INS 導航運算的基礎。",
+      "timestamp": "01:35"
+    },
+    {
+      "zh_question": "在一段典型的 INS 平台中,通常包含哪些核心感測組件？",
+      "zh_options": [
+        "(A) 2 個陀螺儀與 3 個加速度計",
+        "(B) 3 個陀螺儀與 3 個加速度計",
+        "(C) 3 個陀螺儀與 2 個加速度計",
+        "(D) 2 個陀螺儀與 2 個加速度計"
+      ],
+      "en_question": "What core sensing components are typically included in an INS platform?",
+      "en_options": [
+        "(A) 2 Gyros and 3 Accelerometers",
+        "(B) 3 Gyros and 3 Accelerometers",
+        "(C) 3 Gyros and 2 Accelerometers",
+        "(D) 2 Gyros and 2 Accelerometers"
+      ],
+      "answer": "C",
+      "explanation": "標準 INS 平台包含 3 個陀螺儀 (Gyros) 以維持姿態參考(一個垂直,兩個水平),以及 2 個互為 90 度的加速度計 (Accelerometers) 以感應水平移動。",
+      "timestamp": "02:45"
+    },
+    {
+      "zh_question": "在進行 INS 校準 (Alignment) 的過程中,為什麼飛機必須保持完全靜止 (Velocity must be zero)？",
+      "zh_options": [
+        "(A) 為了讓加速度計中的鐘擺組件冷卻",
+        "(B) 為了讓陀螺儀能精確感應地球自轉 (Earth Rotation) 以尋找正北",
+        "(C) 為了防止液體充滿的組件發生洩漏",
+        "(D) 為了讓 GPS 訊號能正確同步"
+      ],
+      "en_question": "During the INS alignment process, why must the aircraft remain completely stationary (Velocity must be zero)?",
+      "en_options": [
+        "(A) To allow the pendulous components in the accelerometers to cool down",
+        "(B) To allow the gyros to accurately sense Earth rotation for finding True North",
+        "(C) To prevent fluid-filled components from leaking",
+        "(D) To allow GPS signals to synchronize correctly"
+      ],
+      "answer": "B",
+      "explanation": "校準中的 Gyro Compassing 程序需要感應極其微小的地球自轉率。如果飛機移動,產生的額外加速度會干擾感測器,導致無法正確校準至正北方向。",
+      "timestamp": "10:35"
+    },
+    {
+      "zh_question": "在環型雷射陀螺儀 (Ring Laser Gyro, RLG) 中，主要用於防止雷射在低轉速時發生「雷射鎖定 (Laser Lock)」現象的裝置為何？",
+      "zh_options": [
+        "(A) 氦氖雷射管 (Helium-Neon Tube)",
+        "(B) 抖動馬達 (Dither Motor)",
+        "(C) 壓電感測器 (Piezo-electric Sensor)",
+        "(D) 舒勒阻尼器 (Schuler Damper)"
+      ],
+      "en_question": "In a Ring Laser Gyro (RLG), which device is primarily used to prevent the 'Laser Lock' phenomenon that occurs at low rotation rates?",
+      "en_options": [
+        "(A) Helium-Neon Tube",
+        "(B) Dither Motor",
+        "(C) Piezo-electric Sensor",
+        "(D) Schuler Damper"
+      ],
+      "answer": "B",
+      "explanation": "雷射鎖定 (Laser Lock) 是 RLG 在極低轉速下兩道雷射頻率趨於同步導致無法測量旋轉的缺點。系統透過 Dither Motor (抖動馬達) 提供高頻微震動，使雷射維持在非鎖定區運作。",
+      "timestamp": "26:12"
+    },
+    {
+      "zh_question": "關於慣性參考系統 (IRS) 與傳統慣性導航系統 (INS) 的平台架構差異，下列敘述何者正確？",
+      "zh_options": [
+        "(A) IRS 採用框架式平台 (Gimballed Platform)，INS 採用繫留式平台 (Strapdown Platform)",
+        "(B) IRS 採用繫留式平台 (Strapdown Platform)，INS 採用框架式平台 (Gimballed Platform)",
+        "(C) 兩者皆採用框架式平台，但 IRS 使用雷射陀螺儀",
+        "(D) 兩者皆採用繫留式平台，但 INS 使用傳統機械陀螺儀"
+      ],
+      "en_question": "Regarding the difference in platform architecture between IRS and traditional INS, which statement is correct?",
+      "en_options": [
+        "(A) IRS uses a Gimballed Platform, while INS uses a Strapdown Platform",
+        "(B) IRS uses a Strapdown Platform, while INS uses a Gimballed Platform",
+        "(C) Both use Gimballed Platforms, but IRS uses Ring Laser Gyros",
+        "(D) Both use Strapdown Platforms, but INS uses conventional mechanical gyros"
+      ],
+      "answer": "B",
+      "explanation": "傳統 INS 依靠 Gimballed Platform (框架平台) 維持感測器水平；現代 IRS 則為 Strapdown (繫留式)，感測器直接固定在飛機機身 (Aircraft Structure/Chassis) 上，由電腦進行坐標換算。",
+      "timestamp": "19:25"
+    },
+    {
+      "zh_question": "在中緯度 (Mid-latitude) 地區，現代 IRS 的校準 (Aligning) 時間通常約為多久？",
+      "zh_options": [
+        "(A) 1 到 2 分鐘",
+        "(B) 3 到 10 分鐘",
+        "(C) 15 到 20 分鐘",
+        "(D) 30 到 45 分鐘"
+      ],
+      "en_question": "At mid-latitudes, what is the typical alignment time for a modern IRS?",
+      "en_options": [
+        "(A) 1 to 2 minutes",
+        "(B) 3 to 10 minutes",
+        "(C) 15 to 20 minutes",
+        "(D) 30 to 45 minutes"
+      ],
+      "answer": "B",
+      "explanation": "現代 IRS (使用 RLG) 的校準速度比傳統機械式 INS (約 20 分鐘) 快許多，在中緯度地區通常僅需 3 到 10 分鐘即可完成 Alignment。",
+      "timestamp": "24:40"
+    },
+    {
+      "zh_question": "關於大氣數據電腦 (ADC) 的優點,下列敘述何者錯誤?",
+      "zh_options": [
+        "(A) 可以減少儀表板後方複雜的管路系統 (Plumbing)",
+        "(B) 能自動進行位置誤差 (Position Error) 的修正",
+        "(C) 整合多個感測器數據,作為飛行管理系統 (FMS) 的中央來源",
+        "(D) 僅能提供類比訊號給傳統指針式儀表"
+      ],
+      "en_question": "Regarding the advantages of an Air Data Computer (ADC), which of the following statements is incorrect?",
+      "en_options": [
+        "(A) It reduces the complexity of plumbing behind the instrument panel.",
+        "(B) It can automatically perform position error correction.",
+        "(C) It integrates sensor data as a central source for the FMS.",
+        "(D) It can only provide analog signals to traditional pointer-type instruments."
+      ],
+      "answer": "D",
+      "explanation": "ADC 的主要優點之一是它能將收集到的壓力訊號轉換成數位訊號 (Digital Data),提供給電子飛行儀表系統 (EFIS) 及其他航電系統使用,而不僅限於類比訊號。",
+      "timestamp": "30:25"
+    },
+    {
+      "zh_question": "在雙重 ADC 系統中,系統如何偵測數據是否異常並發出警報 (Failure Warning)?",
+      "zh_options": [
+        "(A) 透過空速管自動加熱功能偵測",
+        "(B) 透過比較監控器 (Comparison Monitor) 檢查兩個 ADC 的輸出差異",
+        "(C) 僅依靠飛行員肉眼觀查儀表差異",
+        "(D) 透過重量感測器 (Weight on Wheels) 直接關斷故障系統"
+      ],
+      "en_question": "In a dual ADC system, how does the system detect abnormal data and issue a Failure Warning?",
+      "en_options": [
+        "(A) Via the pitot heat auto-sensing function.",
+        "(B) Via a comparison monitor that checks the output difference between the two ADCs.",
+        "(C) Relying solely on the pilot's visual observation of instrument discrepancies.",
+        "(D) Via the Weight on Wheels switch which directly shuts down the failed system."
+      ],
+      "answer": "B",
+      "explanation": "系統配置有 Comparison Monitor (比較監控器),會持續比對兩台 ADC 的輸出。當數據差異超過預設限度或任一 ADC 自檢 (BITE) 發現內部故障時,會顯示警告旗標 (Warning Flag)。",
+      "timestamp": "30:56"
+    },
+    {
+      "zh_question": "雷射陀螺儀 (Laser Gyro) 中使用的「顫振」(Dither) 技術,主要目的是什麼?",
+      "zh_options": [
+        "(A) 提高陀螺儀在高速旋轉下的準確度",
+        "(B) 穩定雷射在峰值功率的輸出",
+        "(C) 消除閉鎖 (Lock-in) 效應,使系統能感測極微小的轉動率",
+        "(D) 減少陀螺儀的預熱時間"
+      ],
+      "en_question": "What is the primary purpose of the 'Dither' technique used in Laser Gyros?",
+      "en_options": [
+        "(A) To enhance the accuracy of the gyro at high rotational rates.",
+        "(B) To stabilize the laser frequency at peak power output.",
+        "(C) To eliminate the lock-in effect, allowing the system to sense very small rotational rates.",
+        "(D) To reduce the warm-up time of the gyro."
+      ],
+      "answer": "C",
+      "explanation": "雷射陀螺儀在低轉速時會發生 Lock-in 效應導致無法輸出。Dither 是一種機械性震動,用以打破此閾值,使陀螺儀在靜止或極低速轉動時仍能正常工作。",
+      "timestamp": "30:21"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "The Inertial Navigation System (INS) is a {{c1::self-contained}} navigation aid that does not require external inputs once initialized.",
+      "zh_translation": "慣性導航系統 (INS) 是一種自主式導航輔助設備,一旦初始化後不需要外部輸入即可運作。",
+      "explanation": "這意味著它不依賴無線電台或衛星訊號,僅靠內部的陀螺儀和加速度計進行推算。",
+      "tags": "Definition / Navigation",
+      "timestamp": "00:15"
+    },
+    {
+      "cloze_text": "Integrating acceleration once gives the {{c1::velocity}} of the aircraft.",
+      "zh_translation": "將加速度進行一次積分可以得到飛機的速度。",
+      "explanation": "速度是加速度隨時間積累的結果,是 INS 計算位置的第一個中間步驟。",
+      "tags": "Principles / Physics",
+      "timestamp": "01:45"
+    },
+    {
+      "cloze_text": "The accelerometer used in an INS is essentially a {{c1::pendulous}} device.",
+      "zh_translation": "INS 中使用的加速度計本質上是一個懸掛式(鐘擺式)裝置。",
+      "explanation": "當飛機加速時,內部的鐘擺由於慣性會偏離中心位置,感測器藉此測量加速度。",
+      "tags": "Components / Accelerometer",
+      "timestamp": "04:55"
+    },
+    {
+      "cloze_text": "The initial alignment phase used to bring fluid-filled components to operating temperature is called {{c1::Warm up}}.",
+      "zh_translation": "校準初期用於將液體組件提升至工作溫度的階段稱為暖機 (Warm up)。",
+      "explanation": "此階段通常需要 3 到 4 分鐘,確保感測器在穩定的熱環境下工作。",
+      "tags": "Alignment / Procedures",
+      "timestamp": "07:45"
+    },
+    {
+      "cloze_text": "Gyro compassing allows the INS platform to align itself with {{c1::True North}}.",
+      "zh_translation": "陀螺羅盤效應 (Gyro compassing) 使 INS 平台能夠對準正北 (True North)。",
+      "explanation": "系統透過檢測地球自轉的分量來確定飛機相對於地理北極的方向。",
+      "tags": "Alignment / Gyro",
+      "timestamp": "11:45"
+    },
+    {
+      "cloze_text": "Modern Inertial Reference Systems (IRS) use the {{c1::Ring Laser Gyro}} (RLG) instead of conventional mechanical gyros.",
+      "zh_translation": "現代慣性基準系統 (IRS) 使用雷射陀螺儀 (RLG) 來取代傳統的機械陀螺儀。",
+      "explanation": "RLG 沒有活動機件,精度更高且可靠性更好,是現代化客機的主流配置。",
+      "tags": "IRS / RLG",
+      "timestamp": "14:50"
+    },
+    {
+      "cloze_text": "The ring laser gyro uses a gas medium consisting of {{c1::Helium-Neon}} gas to generate laser beams.",
+      "zh_translation": "環型雷射陀螺儀使用由氦氖氣體組成的介質來產生雷射光束。",
+      "explanation": "RLG 內部的細管中填滿了 Helium-Neon gas，透過激發產生雷射。",
+      "tags": "RLG / Component",
+      "timestamp": "17:36"
+    },
+    {
+      "cloze_text": "In an IRS, the gyros and accelerometers are {{c1::strapped down}} directly to the aircraft structure.",
+      "zh_translation": "在 IRS 系統中，陀螺儀與加速度計是直接固定（繫留）在飛機結構上的。",
+      "explanation": "Strapdown 技術消除了複雜的框架機械結構，提升了系統的可靠度與維修便利性。",
+      "tags": "IRS / Design",
+      "timestamp": "22:22"
+    },
+    {
+      "cloze_text": "The error caused by the movement of the platform is corrected by a process called {{c1::Schuler Tuning}}.",
+      "zh_translation": "平台運動引起的誤差是透過一個稱為「舒勒調諧」的過程來修正的。",
+      "explanation": "Schuler Tuning 是為了維持慣性平台在飛機移動時能始終對準地心重力方向的重要機制。",
+      "tags": "Navigation / Error Correction",
+      "timestamp": "27:15"
+    },
+    {
+      "cloze_text": "The period for Schuler oscillation is approximately {{c1::84.4}} minutes.",
+      "zh_translation": "舒勒擺盪週期大約是 84.4 分鐘。",
+      "explanation": "這是慣性導航系統中一個關鍵的限制數據，對應於地表附近的擺動特性。",
+      "tags": "Limitations / Navigation",
+      "timestamp": "28:30"
+    },
+    {
+      "cloze_text": "A major disadvantage of RLG at very low rotation rates is known as {{c1::Laser Lock}}.",
+      "zh_translation": "RLG 在極低轉速下的一個主要缺點被稱為「雷射鎖定」。",
+      "explanation": "Laser Lock 會導致輸出信號變為零，使系統無法感知微小的轉動速度變化。",
+      "tags": "RLG / Limitation",
+      "timestamp": "26:05"
+    },
+    {
+      "cloze_text": "The process of IRS alignment to find the local vertical and true north is called {{c1::stabilizing the trihedron}}.",
+      "zh_translation": "IRS 校準以尋找在地垂直面與真北的過程稱為「穩定三面體」。",
+      "explanation": "這是慣性導航系統在進入導航模式前必須完成的初始對準程序。",
+      "tags": "Navigation / IRS",
+      "timestamp": "30:21"
+    },
+    {
+      "cloze_text": "One advantage of ADC is that it acts as a {{c1::central source}} for other aircraft systems like FMS and Autopilot.",
+      "zh_translation": "ADC 的一個優點是它作為 FMS 和自動駕駛等其他飛機系統的「中央來源」。",
+      "explanation": "ADC 統一處理大氣數據,確保各系統使用的空速、高度等數據一致。",
+      "tags": "Systems / ADC",
+      "timestamp": "30:52"
+    },
+    {
+      "cloze_text": "The ADC can provide {{c1::error correction}} to compensate for Static Source Error Effect (SSEC).",
+      "zh_translation": "ADC 可以提供「誤差修正」以補償靜壓源誤差效應 (SSEC)。",
+      "explanation": "傳統機械儀表難以修正位置誤差,而 ADC 可透過計算機精確修正。",
+      "tags": "ADC / Maintenance",
+      "timestamp": "30:51"
+    },
+    {
+      "cloze_text": "In many aircraft, the stall warning system is inhibited on the ground by a {{c1::weight on wheels}} switch.",
+      "zh_translation": "在許多飛機中,失速警報系統在地面時會被「重量感測」電驛 (WOW) 抑制。",
+      "explanation": "這是為了防止飛機在地面靜止時誤觸發失速警報。",
+      "tags": "Systems / Stall Warning",
+      "timestamp": "30:56"
+    },
+    {
+      "cloze_text": "Modern ADCs include {{c1::BITE}} (Built-In Test Equipment) to perform continuous self-monitoring.",
+      "zh_translation": "現代 ADC 包含「內建測試設備」(BITE) 以進行持續的自我監測。",
+      "explanation": "BITE 能夠在系統發生故障時立即通知飛行員並記錄維護資訊。",
+      "tags": "Maintenance / ADC",
+      "timestamp": "30:51"
+    }
+  ],
+  "video_id": "O47ZfD11-Po",
+  "url": "https://www.youtube.com/watch?v=O47ZfD11-Po",
+  "has_transcript": false
+}
