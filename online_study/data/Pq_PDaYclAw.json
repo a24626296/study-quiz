@@ -1,0 +1,109 @@
+{
+  "subject": "航空導航系統 - 慣性導航 (INS) 原理與運作邏輯",
+  "mc_questions": [
+    {
+      "zh_question": "為什麼移動平台式慣性導航系統 (Moving Platform INS) 必須讓內部平台始終與地平線保持平行？",
+      "zh_options": [
+        "(A) 為了減少機械磨損與陀螺儀的摩擦力",
+        "(B) 為了讓飛行員在駕駛艙儀表上直接讀取飛機姿態",
+        "(C) 避免加速度計將重力 (Gravity) 誤判為飛機的運動加速度",
+        "(D) 為了抵消地球磁場對導航數據的干擾"
+      ],
+      "en_question": "Why must a moving platform Inertial Navigation System (INS) keep its inner platform level with the horizon?",
+      "en_options": [
+        "(A) To reduce mechanical wear and gyroscope friction",
+        "(B) To allow the pilot to read the aircraft's attitude directly on the cockpit instruments",
+        "(C) To prevent accelerometers from misinterpreting gravity as the aircraft's motion acceleration",
+        "(D) To counteract the interference of Earth's magnetic field on navigation data"
+      ],
+      "answer": "C",
+      "explanation": "如果平台傾斜，加速度計 (Accelerometer) 會感知到重力的分量，系統將無法區分這是地心引力還是飛機真正的移動。因此必須透過 Gimbal 與 Gyroscope 補償飛機傾角，確保測量數據純粹為運動產生的加速度。",
+      "timestamp": "08:12"
+    },
+    {
+      "zh_question": "根據影片，軍事用途偏好使用慣性導航系統 (INS) 的主要原因是什麼？",
+      "zh_options": [
+        "(A) 它的精確度遠高於 GPS 衛星導航",
+        "(B) 它是完全獨立運作的 (Independent)，不依賴外部無線電或衛星訊號",
+        "(C) 它的體積比現代微機電 (MEMS) 感測器更小",
+        "(D) 它能夠自動修正所有地磁偏差 (Magnetic Variation)"
+      ],
+      "en_question": "According to the video, what is the primary reason the military prefers using Inertial Navigation Systems (INS)?",
+      "en_options": [
+        "(A) Its accuracy is much higher than GPS satellite navigation",
+        "(B) It is completely independent and does not rely on external radio or satellite signals",
+        "(C) It is smaller in size than modern MEMS sensors",
+        "(D) It can automatically correct all magnetic variations"
+      ],
+      "answer": "B",
+      "explanation": "INS 是一種自給自足 (Self-contained) 的系統。在戰時，外部基站或衛星訊號可能被干擾 (Jamming) 或破壞，INS 無需外部資訊即可持續導航，這對飛彈、火箭與戰機至關重要。",
+      "timestamp": "01:32"
+    },
+    {
+      "zh_question": "影片中提到的「閉迴路修正 (Feedback Loop)」邏輯是如何維持平台穩定的？",
+      "zh_options": [
+        "(A) 陀螺儀直接控制飛機的舵面來修正航向",
+        "(B) 加速度計感測飛機高度變化，並自動調整引擎出力",
+        "(C) 加速度計提供的位置與速度數據被用來修正陀螺儀，以抵消地球自轉與曲率產生的誤差",
+        "(D) 系統定期接收地面 VOR 訊號來重新歸零陀螺儀的飄移"
+      ],
+      "en_question": "How does the 'Feedback Loop' logic mentioned in the video maintain platform stability?",
+      "en_options": [
+        "(A) Gyroscopes directly control the aircraft's control surfaces to correct the heading",
+        "(B) Accelerometers sense changes in altitude and automatically adjust engine thrust",
+        "(C) Position and velocity data from accelerometers are used to continuously correct the gyroscopes to offset errors from Earth's rotation and curvature",
+        "(D) The system periodically receives ground VOR signals to reset gyroscope drift"
+      ],
+      "answer": "C",
+      "explanation": "這是一個精妙的循環：加速度計提供即時位置與速度，這些數據計算後會傳回給陀螺儀，通知陀螺儀需要旋轉多少角度來補償「表觀飄移 (Apparent Drift)」與「傳輸飄移 (Transport Wander)」，進而讓平台維持水平。",
+      "timestamp": "10:30"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "Inertial navigation is based on an ancient method called {{c1::Dead Reckoning}}.",
+      "zh_translation": "慣性導航是基於一種稱為「航位推算法」的古老方法。",
+      "explanation": "航位推算是透過初始位置、航向、速度與時間來計算目前位置，INS 即是此觀念的現代科技實踐。",
+      "tags": "Navigation",
+      "timestamp": "02:24"
+    },
+    {
+      "cloze_text": "The INS system operates independently, meaning it does not rely on {{c1::external signals}} such as satellites or radio towers.",
+      "zh_translation": "INS 系統獨立運作，這意味著它不依賴外部訊號（如衛星或無線電塔）。",
+      "explanation": "這是 INS 最大的特性，使其具有極高的抗干擾性與作戰韌性。",
+      "tags": "System Logic",
+      "timestamp": "01:07"
+    },
+    {
+      "cloze_text": "The center platform of the INS is supported by {{c1::three gimbals}}, allowing it to rotate in all three directions (Roll, Pitch, Yaw).",
+      "zh_translation": "INS 的中心平台由三個萬向環 (Gimbals) 支撐，使其能在三個維度（滾轉、俯仰、偏航）上自由旋轉。",
+      "explanation": "透過萬向環的隔離，外框隨飛機擺動時，內部的穩定平台仍能維持固定方位。",
+      "tags": "Mechanical Structure",
+      "timestamp": "04:15"
+    },
+    {
+      "cloze_text": "The stabilized platform contains {{c1::three}} accelerometers and two gyroscopes.",
+      "zh_translation": "穩定平台包含三個加速度計與兩個陀螺儀。",
+      "explanation": "三個加速度計分別測量 X、Y、Z 軸的加速度，以精確推算三維空間中的移動。",
+      "tags": "Components",
+      "timestamp": "04:52"
+    },
+    {
+      "cloze_text": "Errors caused by the Earth's rotation, as seen from a fixed point in space, are referred to as {{c1::Apparent Drift}}.",
+      "zh_translation": "從太空固定點觀察，由地球自轉導致陀螺儀方位改變的誤差稱為「表觀飄移」。",
+      "explanation": "陀螺儀具有空間定軸性，但因為地球在轉，從地面參考系來看，陀螺儀就像是在慢慢飄移。",
+      "tags": "Errors",
+      "timestamp": "09:09"
+    },
+    {
+      "cloze_text": "The phenomenon where a gyroscope appears to tilt because of the Earth's curvature during flight is called {{c1::Transport Wander}}.",
+      "zh_translation": "飛機在飛行中因地球曲率而使陀螺儀顯現傾斜現象的誤差稱為「傳輸飄移」。",
+      "explanation": "當飛機沿著地球弧面移動時，相對地心的垂直線已改變，必須主動修正平台以維持水平。",
+      "tags": "Errors",
+      "timestamp": "09:25"
+    }
+  ],
+  "video_id": "Pq_PDaYclAw",
+  "url": "https://www.youtube.com/watch?v=Pq_PDaYclAw",
+  "has_transcript": false
+}
