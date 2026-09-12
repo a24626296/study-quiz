@@ -439,6 +439,15 @@ def generate_quiz_from_youtube_url(video_id, with_transcript=False, chunk_range=
             err_str = str(e)
             is_rate_limit = "429" in err_str or "RESOURCE_EXHAUSTED" in err_str
             is_overloaded = "503" in err_str or "UNAVAILABLE" in err_str
+            # 連線層級的暫時性斷線(例如 httpx 的 RemoteProtocolError:「Server disconnected
+            # without sending a response」),跟 429/503 一樣通常只是暫時性的網路抖動,
+            # 值得重試,不應該被當成永久性失敗直接放棄這支影片。
+            is_connection_error = (
+                "RemoteProtocolError" in err_str
+                or "Server disconnected" in err_str
+                or "ConnectionError" in err_str
+                or "ConnectionResetError" in err_str
+            )
             # 「每日」額度用完是 PerDay 這種 quotaId,等幾十秒重試完全沒用(額度是按天重置的),
             # 直接放棄比較快,不要浪費時間在注定會再次失敗的重試上。
             is_daily_quota_exhausted = is_rate_limit and (
@@ -449,9 +458,14 @@ def generate_quiz_from_youtube_url(video_id, with_transcript=False, chunk_range=
                       "重試也沒用,直接跳過。要處理更多影片請升級成付費方案:"
                       "https://ai.google.dev/gemini-api/docs/rate-limits")
                 raise DailyQuotaExhaustedError(err_str)
-            if (is_rate_limit or is_overloaded) and attempt < MAX_RETRIES_ON_TRANSIENT:
+            if (is_rate_limit or is_overloaded or is_connection_error) and attempt < MAX_RETRIES_ON_TRANSIENT:
                 wait_s = 20 * (attempt + 1)
-                reason = "429 限流" if is_rate_limit else "503 模型過載"
+                if is_rate_limit:
+                    reason = "429 限流"
+                elif is_overloaded:
+                    reason = "503 模型過載"
+                else:
+                    reason = "連線中斷(伺服器沒送出回應就斷線)"
                 print(f"⚠️ 觸發 {reason},等待 {wait_s} 秒後重試(第 {attempt + 1} 次)...")
                 time.sleep(wait_s)
                 attempt += 1
