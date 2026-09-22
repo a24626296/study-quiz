@@ -1,0 +1,109 @@
+{
+  "subject": "ATR 72-600 系統 - 性能導航 (PBN) 與 RNP AR 程序",
+  "mc_questions": [
+    {
+      "zh_question": "根據影片內容,RNP (所需導航性能) 與 RNAV (區域導航) 的主要區別在於下列何者?",
+      "zh_options": [
+        "(A) RNP 僅依賴地面導航設施",
+        "(B) RNP 增加了機載性能監控與警報功能",
+        "(C) RNAV 只能在海洋上空使用",
+        "(D) RNP 不包含 GNSS 的定位數據"
+      ],
+      "en_question": "According to the video, what is the main difference between RNP (Required Navigation Performance) and RNAV (Area Navigation)?",
+      "en_options": [
+        "(A) RNP only relies on ground-based navigation aids",
+        "(B) RNP adds onboard performance monitoring and alerting capability",
+        "(C) RNAV can only be used over oceans",
+        "(D) RNP does not include GNSS positioning data"
+      ],
+      "answer": "B",
+      "explanation": "RNP 被定義為 RNAV 加上監控與警報功能 (RNP = RNAV + Monitoring/Alerting)。這意味著飛機能夠自行監控導航精度,並在無法維持精度時提醒飛行員。",
+      "timestamp": "03:12"
+    },
+    {
+      "zh_question": "為什麼 ATR 72-600 需要 Standard 3 Avionics 才能在皇后鎮 (Queenstown) 執行更低最小限度的 RNP AR 0.3/0.3 程序?",
+      "zh_options": [
+        "(A) 因為需要配備衛星增強系統 (SBAS)",
+        "(B) 為了配備慣性參考系統 (IRS) 以在重飛階段維持 0.3 海里的精度",
+        "(C) 因為皇后鎮要求必須使用雙自動駕駛進行著陸",
+        "(D) 為了能在重飛時自動切換至 VOR 導航"
+      ],
+      "en_question": "Why does the ATR 72-600 require Standard 3 Avionics to perform RNP AR 0.3/0.3 procedures with lower minima at Queenstown?",
+      "en_options": [
+        "(A) Because it needs the Satellite-Based Augmentation System (SBAS)",
+        "(B) To include an Inertial Reference System (IRS) to maintain 0.3 nm accuracy during missed approach",
+        "(C) Because Queenstown requires a dual autopilot landing",
+        "(D) To allow automatic switching to VOR navigation during missed approach"
+      ],
+      "answer": "B",
+      "explanation": "Standard 2 僅能提供重飛階段 1.0 海里的精度。為了應對皇后鎮周圍險峻的地形,需要配備 IRS (慣性參考系統) 的 Standard 3 以在重飛及離場階段維持 0.3 海里的高導航精度 (RNP AR 0.3/0.3)。",
+      "timestamp": "07:10"
+    },
+    {
+      "zh_question": "在 RNP AR 程序中使用的「RF leg」(Radius to Fix) 的主要用途是什麼?",
+      "zh_options": [
+        "(A) 讓飛機保持在導航台的正上方旋轉",
+        "(B) 增加引擎在爬升時的馬力輸出",
+        "(C) 允許飛機遵循精確定義的弧形曲線路徑以避開地形",
+        "(D) 用於校準 FMS 的高度計算"
+      ],
+      "en_question": "What is the primary purpose of an 'RF leg' (Radius to Fix) used in RNP AR procedures?",
+      "en_options": [
+        "(A) To keep the aircraft orbiting directly over a navaid",
+        "(B) To increase engine power output during climb",
+        "(C) To allow the aircraft to follow a precisely defined curved path to avoid terrain",
+        "(D) To calibrate the FMS altitude calculations"
+      ],
+      "answer": "C",
+      "explanation": "RF leg (半徑到固定點) 允許 RNP AR 程序設計包含曲線路徑,這在山區環境中非常有用,能讓飛機在狹窄的谷地中精確飛行並維持與地形的避讓間隔。",
+      "timestamp": "05:48"
+    }
+  ],
+  "cloze_items": [
+    {
+      "cloze_text": "RNP is defined as RNAV plus onboard performance {{c1::monitoring and alerting}}.",
+      "zh_translation": "RNP 被定義為 RNAV 加上機載性能監控與警報功能。",
+      "explanation": "這是 PBN (性能導航) 架構中 RNP 與 RNAV 最核心的定義區別。",
+      "tags": "PBN / Definition",
+      "timestamp": "03:12"
+    },
+    {
+      "cloze_text": "RNP AR stands for Required Navigation Performance {{c1::Authorization Required}}.",
+      "zh_translation": "RNP AR 代表「需要授權」的所需導航性能。",
+      "explanation": "這類程序需要特定的飛機設備、營運人授權及組員訓練才能執行。",
+      "tags": "Navigation / Definition",
+      "timestamp": "05:35"
+    },
+    {
+      "cloze_text": "ATR Standard 2 avionics added optional VNAV, LPV, and {{c1::RNP AR}} approach capabilities.",
+      "zh_translation": "ATR Standard 2 航電系統增加了選配的 VNAV、LPV 以及 RNP AR 進場能力。",
+      "explanation": "Standard 2 引進了 VFP (Vertical Flight Path) 垂直導航概念,但其重飛精度限制在 1.0 海里。",
+      "tags": "Systems / Avionics",
+      "timestamp": "04:36"
+    },
+    {
+      "cloze_text": "The addition of an {{c1::IRS}} (Inertial Reference System) is a requirement for RNP AR 0.3/0.3 capability.",
+      "zh_translation": "增加慣性參考系統 (IRS) 是實現 RNP AR 0.3/0.3 能力的必要條件。",
+      "explanation": "IRS 提供備援定位,在 GNSS 訊號不佳時能協助維持皇后鎮進場程序所需的高度精確性。",
+      "tags": "Systems / Sensors",
+      "timestamp": "07:01"
+    },
+    {
+      "cloze_text": "In the United States, the Satellite-Based Augmentation System (SBAS) is referred to as {{c1::WAAS}}.",
+      "zh_translation": "在美國,衛星增強系統 (SBAS) 被稱為 WAAS。",
+      "explanation": "WAAS (Wide Area Augmentation System) 讓飛機能執行類似 ILS 精度的 LPV 進場。",
+      "tags": "Navigation / SBAS",
+      "timestamp": "05:20"
+    },
+    {
+      "cloze_text": "Small errors in Inertial Navigation Systems (INS) gradually {{c1::accumulate}} over time, causing position drift.",
+      "zh_translation": "慣性導航系統 (INS) 的微小誤差會隨時間逐漸累積,導致位置偏移。",
+      "explanation": "這是傳統 INS 的主要限制,與現代能即時校正的 IRS 有所不同。",
+      "tags": "Navigation / Limitations",
+      "timestamp": "01:30"
+    }
+  ],
+  "video_id": "MczE_8t5E98",
+  "url": "https://youtu.be/MczE_8t5E98?si=ehRSTaK0x4njV9ch",
+  "has_transcript": false
+}
